@@ -1,0 +1,229 @@
+<html>
+
+
+<head>
+
+	<link type="text/css" rel="stylesheet" href="/portal/resources/style-guide/css/fluig-style-guide.min.css"/>
+
+	<style>
+
+	</style>
+	
+	<script type="text/javascript" src="/portal/resources/js/jquery/jquery.js"></script>
+	<script type="text/javascript" src="/portal/resources/js/jquery/jquery-ui.min.js"></script>
+	<script type="text/javascript" src="/portal/resources/js/mustache/mustache-min.js"></script>
+	
+	<script type="text/javascript" src="/portal/resources/style-guide/js/fluig-style-guide.min.js" charset="utf-8"></script>
+	
+	<script type="text/javascript" src="zoom.js"></script>
+	<script type="text/javascript" src="controle.js"></script>
+	<script type="text/javascript" src="modalZoom.js"></script>
+	
+	<script type="text/javascript">
+		function fnCustomDelete(oElement){
+			fnWdkRemoveChild(oElement);
+		}
+	</script>
+
+</head>
+
+<body name="corpo" > 
+        
+	<form id="form" name="form" role="form" onsubmit="console.log('hhhhhhhhhhh')" >
+
+	    <input type="hidden" name="descricao" id="descricao" />
+	
+		<div class="fluig-style-guide">
+
+		
+			<div class="row">
+				<div class="col-md-2">
+					<label for="exampleTag">Login</label>
+					<div class="input-group">
+						<input type="text" name="login" id="login" class="form-control" readonly />
+						<input type="hidden" name="matricula" id="matricula" />
+						<span class="input-group-btn">
+							<button class="btn btn-default fluigicon fluigicon-user-search fluigicon-xs" type="button"  name='bt_user' onclick="zoom(this.name)" ></button>
+						</span>
+					</div>
+				</div>
+				<div class="col-md-4">
+					<label for="exampleTag">Nome Usu&aacute;rio</label>
+					<input type="text" name="nome_usuario" id="nome_usuario" class="form-control" readonly />
+				</div>
+			</div>
+		
+			<div class="row">
+				<div class="col-md-2">
+					<label for="exampleTag">Codigo</label>
+					<div class="input-group">
+						<input type="text" name="cod_repres" id="cod_repres" class="form-control" readonly />
+						<span class="input-group-btn">
+							<button class="btn btn-default fluigicon fluigicon-user-search fluigicon-xs" type="button" name='bt_repres' onclick="zoom(this.name)" ></button>
+						</span>
+					</div>		
+				</div>
+				
+				<div class="col-md-10">
+					<label for="exampleTag">Razão Social</label>
+					<input type="text" name="raz_social" id="raz_social" class="form-control" readonly />
+				</div>
+			</div>
+			
+			
+			<div class="row">
+				<div class="col-md-6">
+					<label for="exampleTag">Nome Repres.</label>
+					<input type="text" name="nom_repres" id="nom_repres" class="form-control" readonly />
+				</div>
+				<div class="col-md-3">
+					<label for="exampleTag">Apelido</label>
+					<input type="text" name="nom_guerra" id="nom_guerra" class="form-control" readonly />
+				</div>
+				<div class="col-md-3">
+					<label for="exampleTag">Tipo de Cadastro</label>
+					<select name="tipo_cadastro" id="tipo_cadastro" class="form-control" > 
+						<option value='R' selected > Representante </option>
+						<option value='A' > Adm. Vendas </option>
+						<option value='G' > Gerente Comercial </option>
+						<option value='C' > Adm. Contabil </option>
+						<option value='L' > Logistica </option>
+						<option value='F' > Financeiro </option>
+					</select>
+				</div>
+			</div>
+					
+			
+			<div class="row">
+			
+				<div class="col-md-2">
+					<label for="exampleTag">Coordenador</label>
+					<div class="input-group">
+						<input type="text" name="login_coordenador" id="login_coordenador" class="form-control" readonly />
+						<span class="input-group-btn">
+							<button class="btn btn-default fluigicon fluigicon-user-search fluigicon-xs" type="button"  name='bt_coordenador' onclick="zoom(this.name)" ></button>
+						</span>
+						<input type="hidden" name="matricula_coordenador" id="matricula_coordenador" />
+					</div>
+				</div>
+				<div class="col-md-4">
+					<label for="exampleTag">Nome Coordenador</label>
+					<input type="text" name="nome_coordenador" id="nome_coordenador" class="form-control" readonly />
+				</div>
+				
+				<div class="col-md-2">
+					<label for="exampleTag">Gerente</label>
+					<div class="input-group">
+						<input type="text" name="login_gerente" id="login_gerente" class="form-control" readonly />
+						<span class="input-group-btn">
+							<button class="btn btn-default fluigicon fluigicon-user-search fluigicon-xs" type="button"  name='bt_gerente' onclick="zoom(this.name)" ></button>
+						</span>
+						<input type="hidden" name="matricula_gerente" id="matricula_gerente" />
+					</div>
+				</div>
+				<div class="col-md-4">
+					<label for="exampleTag">Nome Gerente</label>
+					<input type="text" name="nome_gerente" id="nome_gerente" class="form-control" readonly />
+				</div>
+				
+			</div>
+			
+			<div class="row">
+				<div class="col-md-12">
+					<div class="form-group">
+						<label for="exampleTag">URL</label>
+						<input type="text" name="url_logo" id="url_logo" class="form-control"  />
+					</div>
+				</div>
+			</div>
+			
+			<div class="row">
+			<!--  ######  EMPRESA ##### -->
+				<div class="col-md-4">			
+					<label for="exampleTag" >
+						<button class="fluigicon fluigicon-plus-sign fluigicon-sm" name='bt_empresa' onclick="zoom(this.name)" ></button> 	Empresa
+					</label>
+					<table class="table table-condensed table-bordered" border="1" tablename="empresa"  noaddbutton=true nodeletebutton=true addbuttonclass="wdkbuttonClass" >
+						<thead>
+							<tr>
+								<td width='40%' class="cell-ellipsis"><b>Cod.</b></td>
+								<td width='60%' class="cell-ellipsis"><b>Empresa</b></td>
+								<td></td>
+							</tr>
+						</thead>
+						<tr>
+							<td>
+								<div class="input-group">
+									<span class="input-group-addon" >
+										<input type="checkbox" name="ies_empresa_default" onchange="fnSelectDefault(this.name)">
+									</span>
+									<input type="text" class="form-control" name="cod_empresa" id="cod_empresa" readonly >
+								</div>
+							</td>
+							<td><input type="text" class="form-control" name="emp_reduz" id="emp_reduz" readonly ></td>
+							<td><button name="btDelEmpresa" id="btDelEmpresa" class="btn btn-default btn-sm fluigicon fluigicon-trash fluigicon-xs" type="button" onclick="fnCustomDelete(this); fnFirstDefault('ies_empresa_default___1');"  ></button></td>
+						</tr>
+					</table>					
+				</div>
+				
+				<!--  ######  MOEDA ##### -->
+				<div class="col-md-3">
+					<label for="exampleTag" >
+						<button class="fluigicon fluigicon-plus-sign fluigicon-sm" name='bt_moeda' onclick="zoom(this.name)" ></button> 	Moeda
+					</label>
+					<table class="table table-condensed table-bordered" border="1" tablename="moeda"  nodeletebutton=true noaddbutton=true addbuttonclass="wdkbuttonClass" >
+						<thead>
+							<tr>
+								<td width='40%' class="cell-ellipsis"><b>Cod.</b></td>
+								<td width='60%' class="cell-ellipsis"><b>Moeda</b></td>
+								<td></td>
+							</tr>
+						</thead>
+						<tr>
+							<td>
+								<div class="input-group">
+									<span class="input-group-addon" >
+										<input type="checkbox" name="ies_moeda_default" onchange="fnSelectDefault(this.name)">
+									</span>
+									<input type="text" class="form-control" name="cod_moeda" id="cod_moeda" readonly >
+								</div>
+							</td>
+							<td><input type="text" class="form-control" name="den_moeda" id="den_moeda" readonly ></td>
+							<td><button name="btDelMoeda" id="btDelMoeda" class="btn btn-default btn-sm fluigicon fluigicon-trash fluigicon-xs" type="button" onclick="fnCustomDelete(this); fnFirstDefault('ies_moeda_default___1');"></button></td>
+						</tr>
+					</table>
+				</div>			
+					
+				<!--  ######  MOEDA ##### -->
+				<div class="col-md-4">
+					<label for="exampleTag" >
+						<button class="fluigicon fluigicon-plus-sign fluigicon-sm" name='bt_reponsavel' onclick="wdkAddChild('responsavel')" ></button> 	Responsável
+					</label>
+					<table class="table table-condensed table-bordered" border="1" tablename="responsavel"  nodeletebutton=true noaddbutton=true addbuttonclass="wdkbuttonClass" >
+						<thead>
+							<tr>
+								<td width='100%' class="cell-ellipsis"><b>Responsável</b></td>
+								<td></td>
+							</tr>
+						</thead>
+						<tr>
+							<td>
+								<div class="input-group">
+									<span class="input-group-addon" >
+										<input type="checkbox" name="ies_responsavel_default" onchange="fnSelectDefault(this.name)">
+									</span>
+									<input type="text" class="form-control" name="responsavel" id="responsavel" >
+								</div>
+							</td>
+							<td><button name="btDelResponsavel" id="btDelResponsavel" class="btn btn-default btn-sm fluigicon fluigicon-trash fluigicon-xs" type="button" onclick="fnCustomDelete(this); fnFirstDefault('ies_responsavel___1');"></button></td>
+						</tr>
+					</table>
+				</div>		
+					
+			</div>
+		</div>
+	</form>
+	
+</body>
+
+</html>

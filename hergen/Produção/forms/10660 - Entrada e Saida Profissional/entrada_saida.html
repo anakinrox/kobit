@@ -1,0 +1,450 @@
+
+<html>
+<head>
+	<link type="text/css" rel="stylesheet" href="/portal/resources/style-guide/css/fluig-style-guide.min.css"/>
+	<script type="text/javascript" src="/portal/resources/js/jquery/jquery.js"></script>
+	<script type="text/javascript" src="/portal/resources/js/jquery/jquery-ui.min.js"></script>
+	<script type="text/javascript" src="/portal/resources/js/mustache/mustache-min.js"></script>
+	<script type="text/javascript" src="/portal/resources/style-guide/js/fluig-style-guide.min.js" charset="utf-8"></script>
+	<script type="text/javascript" src="/portal/resources/js/jquery.mask.min.js"></script>
+	
+	<script type="text/javascript" src="js/zoom.js"></script>
+	<script type="text/javascript" src="js/valida.js"></script>
+	<script type="text/javascript" src="js/modalzoom.js"></script>
+	<script src='js/autosize.min.js'></script>
+	<script src="js/vcXMLRPC.js"></script>
+		
+
+	<script>
+	
+	
+	$(document).bind("DOMNodeRemoved", function(e){
+		var target = $(e.target);
+		console.log('DOMNodeRemoved.....',target.html().indexOf('id="modal-zoom' ) );
+		if( target.html().indexOf('id="modal-zoom' ) > 0 ){
+			console.log('workflowView-cardViewer.....zIndex', parent.$('#workflowView-cardViewer').css( 'zIndex') );
+			//parent.$('#workflowView-cardViewer').css( 'zIndex', 0 );
+			parent.$('#workflowview-header').show();
+			console.log('workflowView-cardViewer.....zIndex', parent.$('#workflowView-cardViewer').css( 'zIndex') );
+		}
+	});
+
+	function maskFone( id ){
+		if($('#'+id).val().length > 14 ) {  
+			$('#'+id).unmask();
+			$('#'+id).mask("(99) 99999-9999");  
+		} else {  
+			$('#'+id).unmask();
+			$('#'+id).mask("(99) 9999-9999?9");  
+		} 
+	}
+	
+	function validaCPF(id){
+        
+        var cpf = $('#'+id).val();        
+        
+        console.log('cpf.....',cpf,id)
+		if ( cpf == undefined || cpf == null || cpf == '' ){
+			return false;
+		}
+        exp = /\.|\-/g;
+        cpf = cpf.toString().replace( exp, "" ); 
+        var digitoDigitado = eval(cpf.charAt(9)+cpf.charAt(10));
+        var soma1=0, soma2=0;
+        var vlr =11;
+
+        for(var i=0;i<9;i++){
+                soma1+=eval(cpf.charAt(i)*(vlr-1));
+                soma2+=eval(cpf.charAt(i)*vlr);
+                vlr--;
+        }       
+        soma1 = (((soma1*10)%11)==10 ? 0:((soma1*10)%11));
+        soma2=(((soma2+(2*soma1))*10)%11);
+
+        var digitoGerado=(soma1*10)+soma2;
+        if(digitoGerado!=digitoDigitado){
+        	console.log('falso');
+        	FLUIGC.toast({message : 'CPF Invalido. ', type : 'warning' });
+        	setTimeout("$('#" + $(Objcpf).attr('id')+ "').focus();", 1);
+			return false;
+		}else{
+			console.log('verdadeiro');
+			return true;
+		}
+	}
+
+	function validaCNPJ(id){
+	
+		
+	    var cnpj = $('#'+id).val();
+	    console.log('cnpj.....',cnpj,id);
+		if ( cnpj == undefined || cnpj == null || cnpj == '' ){
+			return false;
+		}
+	
+		if( cnpj.length > 18 ){
+			cnpj = cnpj.substring(1);
+		}
+	
+	    var valida = new Array(6,5,4,3,2,9,8,7,6,5,4,3,2);
+	    var dig1= new Number;
+	    var dig2= new Number;
+	
+	    exp = /\.|\-|\//g;
+	    cnpj = cnpj.toString().replace( exp, "" ); 
+	    var digito = new Number(eval(cnpj.charAt(12)+cnpj.charAt(13)));
+	
+	    for( var i = 0; i<valida.length; i++){
+	            dig1 += (i>0? (cnpj.charAt(i-1)*valida[i]):0);  
+	            dig2 += cnpj.charAt(i)*valida[i];       
+	    }
+	    dig1 = (((dig1%11)<2)? 0:(11-(dig1%11)));
+	    dig2 = (((dig2%11)<2)? 0:(11-(dig2%11)));
+	
+	    if(((dig1*10)+dig2) != digito){
+	    	FLUIGC.toast({message: 'CNPJ Invalido. ', type : 'warning' });
+	    	setTimeout("$('#" + id + "').focus();", 1);
+	    	console.log('falso')
+			return false;
+		}else{
+			console.log('verdadeiro')
+			return true;
+		}
+	}
+	
+	function validaExistCPF( id ){			
+			
+		var cpf = $('#'+id).val();
+			
+		var c1 = DatasetFactory.createConstraint("cpf", cpf, cpf, ConstraintType.MUST);
+		var constraints = new Array(c1);
+		var dataset = DatasetFactory.getDataset('pessoa', null, constraints, null);
+		if ( dataset != null && dataset.values.length > 0 ){
+			FLUIGC.toast({message: 'CPF j&aacute; cadastrado.', type : 'warning' });
+	    	setTimeout("$('#" + id + "').focus();", 1);
+			return true;
+		}else{
+			return false;
+		}			
+	}
+		
+	function maiuscula(z){
+        v = z.value.toUpperCase();
+        z.value = v;
+    }
+    
+    function loadBody(){
+    
+    	console.log('loadBody.....', parent.$('#modal_tipo').val() );
+    
+    	FLUIGC.calendar('#data_entrada_prev');
+    	FLUIGC.calendar('#data_saida_prev');
+    	FLUIGC.calendar('#hora_entrada_prev', {pickDate: false, pickTime: true } );
+    	FLUIGC.calendar('#hora_saida_prev', {pickDate: false, pickTime: true } );
+    	    	
+    	 if( $("#task").val() == 0 || $("#task").val() == 4 ){
+			$(".data_hora_real").prop("readonly", true);    	 	
+    	 }else{
+    	    FLUIGC.calendar('#data_entrada_real');
+    		FLUIGC.calendar('#data_saida_real');
+    		FLUIGC.calendar('#hora_entrada_real', {pickDate: false, pickTime: true } );
+    		FLUIGC.calendar('#hora_saida_real', {pickDate: false, pickTime: true } );
+    	 }
+    	
+    	console.log('Load Body');
+    	console.log('modal_tipo ',parent.$('#modal_tipo').val() );
+    	if( parent.$('#modal_tipo').val() != undefined 
+    	 && parent.$('#modal_tipo').val() != null 
+    	 && parent.$('#modal_tipo').val() != "" ){
+    	 	$("#tipo").val( parent.$('#modal_tipo').val() );
+    	 }else{
+    	 	if ( $('#nome_funcionario').val() == "" ){
+    	 		console.log(' Entrei antes do zoom....' );
+				zoom( 'bt_matricula', 'matricula' );
+			}   	 	 
+    	 }
+    	 
+    	setTipo();
+    	loadDataSetCombo( 'motivo', 'motivo_entrada_saida', 'cod_motivo', 'den_motivo', 'N', 'S', 'S' );
+    }
+	
+	function setTipo(){
+	  
+		$('#entrada_prev').show();
+		$('#entrada_real').show();
+		$('#saida_prev').show();
+		$('#saida_real').show();
+
+	  	if( $('#tipo').val() == 'S' ){
+	  		$('#entrada_prev').hide();
+			$('#entrada_real').hide();
+	  	} else if( $('#tipo').val() == 'E' ){
+	  		$('#saida_prev').hide();
+			$('#saida_real').hide();
+	  	}
+	
+	}
+		
+		
+			function getOptCombo( combo ){				
+				var optArray = new Array();
+				$("#"+combo+" option").each(function () {
+					optArray.push( $(this).val() );
+				});
+				return optArray;
+			}
+			
+			function loadDataSetCombo( combo, dataSet, fieldCodigo, fieldDesc, concatCodDesc, clear, blankLine, fildFilter, fildFilterValue, fieldFlag ){
+				
+				var constraintsFilhos = new Array();
+				if ( fildFilter != undefined && fildFilter != "" && fildFilter != null 
+					&& fildFilterValue != undefined  && fildFilterValue != "" && fildFilterValue != null ){
+					var lstFilter = fildFilter.split(',');
+					var lstFilterValue = fildFilterValue.split(',');
+					for ( var j = 0; j < lstFilter.length; j ++ ){
+						if ( lstFilter[j] != '' && lstFilter[j] != null ){
+							constraintsFilhos.push( DatasetFactory.createConstraint(lstFilter[j], lstFilterValue[j], lstFilterValue[j], ConstraintType.MUST) );
+						}
+					}
+				}
+				
+				var orderFilhos = new Array();
+				orderFilhos.push( fieldCodigo );						
+				var datasetFilhos = DatasetFactory.getDataset(dataSet, null, constraintsFilhos, orderFilhos );
+				if ( datasetFilhos != null ){
+					var valDefault = "";
+					if ( $("#"+combo).val() != "" && $("#"+combo).val() != null && $("#"+combo).val() != undefined ){
+						valDefault = $("#"+combo).val();
+					}
+					if( clear == 'S' ){
+						$("#"+combo+" option").remove();
+					}
+					if( blankLine == 'S' ){
+						$("#"+combo).append("<option value='' ></option>");
+					}
+					var filhos = datasetFilhos.values;
+					for ( var i in filhos ) {
+						var filho = filhos[i];
+						var den = '';
+						if (  valDefault == "" && ( filho[ fieldFlag ] || filho[ fieldFlag ] == 'on' ) ){
+							valDefault = filho[ fieldCodigo ];
+						}
+						if ( $.inArray(  filho[ fieldCodigo ], getOptCombo( combo ) ) > -1 ){
+							continue;
+						} 
+						if ( fieldDesc == '' ){
+							den = filho[ fieldCodigo ];
+						}else if ( concatCodDesc == "S" ){
+							den = filho[ fieldCodigo ]+' - '+filho[ fieldDesc ];
+						}else{
+							den = filho[ fieldDesc ];
+						}
+						$("#"+combo).append("<option value='"+ filho[ fieldCodigo ] +"' >"+ den +"</option>");
+					}
+					if ( valDefault != '' ){
+						$("#"+combo).val( valDefault );
+					}
+				}
+			}		
+	</script>
+			
+			
+	<style>
+	
+	</style>
+	
+	<!--<script type="text/javascript" src="controle.js"></script>-->
+
+	
+	
+</head>
+<body onload="loadBody();" >
+<div class="fluig-style-guide" id="divPrincipal">
+<form name="form" role="form" onload="loadBody();" >
+
+
+	<div class="panel panel-info" >
+		<div class="panel-heading fs-txt-center" ><b>Controle de Entrada / Saida Profissional</b></div>
+		<div class="panel-body">
+			<div class="row">
+				<div class="col-md-2">
+					<div class="form-group">
+						<label for="exampleTag">Tipo</label>
+						<select name="tipo" id="tipo" class="form-control" onchange="setTipo();" valida="Tipo" >
+							<option></option>
+							<option value='E'>ENTRADA</option>
+							<option value='S'>SAIDA</option>
+							<option value='A'>ENTRADA/SAIDA</option>
+						</select>
+					</div>
+				</div>
+				<div class="col-md-2">
+					<div class="form-group">
+						<label for="exampleTag">Motivo</label>
+						<select name="motivo" id="motivo" class="form-control" valida="Motivo" ></select>
+					</div>
+				</div>
+
+				<div class="col-md-2">
+					<div class="form-group">
+						<label for="exampleTag">Matricula</label>
+						<div class="input-group">
+							<input type="text" mask="0000" name="matricula" id="matricula"  class="form-control" onblur="zoom('bt_matricula', this.id)" valida="Matricula" />
+							<span id = "bt_matricula" name="bt_matricula" class="input-group-addon fluigicon fluigicon-zoom-in fluigicon-sm" onclick="zoom(this.id)" ></span>
+						</div>
+					</div>
+				</div>
+				
+				<div class="col-md-6">
+					<div class="form-group">
+						<label for="exampleTag">Profissional</label>
+						<input type="text" name="nome_funcionario" id="nome_funcionario"  class="form-control"  readonly />
+					</div>
+				</div>
+			
+			</div>
+
+			<div class="row">
+				<div class="col-md-3" id="entrada_prev" >
+					<div class="panel panel-info" >
+						<div class="panel-heading fs-txt-center"  style="padding-top: 0px; padding-bottom: 0px; padding-right: 0px; padding-left: 0px;" ><b>Entrada Previsto</b></div>
+						<div class="panel-body" style="padding-bottom: 0px; padding-top: 0px;">
+							<div class="row">
+	
+								<div class="col-md-8" style="padding-right: 5px; padding-left: 5px;">
+									<div class="form-group">
+										<label for="exampleTag">Data</label>
+										<input type="text" name="data_entrada_prev" id="data_entrada_prev" class="form-control" validaEntrada="Data Entrada" />
+									</div>
+								</div>
+								<div class="col-md-4" style="padding-right: 5px; padding-left: 5px;">
+									<div class="form-group">
+										<label for="exampleTag">Hora</label>
+										<input type="text" name="hora_entrada_prev" id="hora_entrada_prev" class="form-control" validaEntrada="Hora Entrada" />
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>	
+				</div>
+								 
+				<div class="col-md-3" id="entrada_real">
+					<div class="panel panel-info" >
+						<div class="panel-heading fs-txt-center"  style="padding-top: 0px; padding-bottom: 0px; padding-right: 0px; padding-left: 0px;" ><b>Entrada Real</b></div>
+						<div class="panel-body" style="padding-bottom: 0px; padding-top: 0px;">
+							<div class="row">
+	
+								<div class="col-md-8" style="padding-right: 5px; padding-left: 5px;">
+									<div class="form-group">
+										<label for="exampleTag">Data</label>
+										<input type="text" name="data_entrada_real" id="data_entrada_real" class="form-control data_hora_real" />
+									</div>
+								</div>
+								<div class="col-md-4" style="padding-right: 5px; padding-left: 5px;">
+									<div class="form-group">
+										<label for="exampleTag">Hora</label>
+										<input type="text" name="hora_entrada_real" id="hora_entrada_real" class="form-control data_hora_real" />
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>	
+				</div>
+				
+				<div class="col-md-3" id="saida_prev" >
+					<div class="panel panel-info" >
+						<div class="panel-heading fs-txt-center"  style="padding-top: 0px; padding-bottom: 0px; padding-right: 0px; padding-left: 0px;" ><b>Saida Previsto</b></div>
+						<div class="panel-body" style="padding-bottom: 0px; padding-top: 0px;">
+							<div class="row">
+				
+								<div class="col-md-8" style="padding-right: 5px; padding-left: 5px;">
+									<div class="form-group">
+										<label for="exampleTag">Data</label>
+										<input type="text" name="data_saida_prev" id="data_saida_prev" class="form-control" validaSaida="Data Saida" />
+									</div>
+								</div>
+								<div class="col-md-4" style="padding-right: 5px; padding-left: 5px;">
+									<div class="form-group">
+										<label for="exampleTag">Hora</label>
+										<input type="text" name="hora_saida_prev" id="hora_saida_prev" class="form-control" validaSaida="Hora Saida" />
+									</div>
+								</div>
+								
+							</div>
+						</div>
+					</div>
+				</div>
+				
+				
+				<div class="col-md-3" id="saida_real" >
+					<div class="panel panel-info" >
+						<div class="panel-heading fs-txt-center"  style="padding-top: 0px; padding-bottom: 0px; padding-right: 0px; padding-left: 0px;"><b>Saida Real</b></div>
+						<div class="panel-body" style="padding-bottom: 0px; padding-top: 0px;">
+							<div class="row">
+				
+								<div class="col-md-8" style="padding-right: 5px; padding-left: 5px;">
+									<div class="form-group">
+										<label for="exampleTag">Data</label>
+										<input type="text" name="data_saida_real" id="data_saida_real" class="form-control data_hora_real" />
+									</div>
+								</div>
+								<div class="col-md-4" style="padding-right: 5px; padding-left: 5px;">
+									<div class="form-group">
+										<label for="exampleTag">Hora</label>
+										<input type="text" name="hora_saida_real" id="hora_saida_real" class="form-control data_hora_real" />
+									</div>
+								</div>	
+							</div>
+						</div>
+					</div>
+				</div>
+				
+			</div>
+						
+			<div class="row">
+				<div class="col-md-12">
+					<label for="exampleTag">Observa&ccedil;&atilde;o</label>
+					<textarea rows="3" name="observacoes" id="observacoes" class="form-control"  ></textarea>
+				</div>						
+			</div>
+			
+			<div class="row">
+
+				<div class="col-md-2">
+					<div class="form-group">
+						<label for="exampleTag">C&oacute;digo</label>
+						<input type="text" name="cod_cc" id="cod_cc"  class="form-control" readonly />
+					</div>
+				</div>
+
+				<div class="col-md-4">
+					<div class="form-group">
+						<label for="exampleTag">Centro de Custo</label>
+						<input type="text" name="den_cc" id="den_cc"  class="form-control" readonly />
+					</div>
+				</div>
+
+						
+				<div class="col-md-2">
+					<label for="exampleTag" onclick="zoom('bt_aprov','cod_cc')"  >Matricula</label>
+					<input type="text" mask="0000" name="matricula_super" id="matricula_super"  class="form-control" readonly valida="Matricula Aprovador" />
+				</div>
+				
+				<div class="col-md-4">
+					<label for="exampleTag">Superior</label>
+					<input type="text" name="nome_super" id="nome_super" class="form-control"  readonly />				
+				</div>
+				
+			</div>	
+		</div>
+	</div>
+	<input type="hidden" name="tipo_aprov" id="tipo_aprov" />
+	<input type="hidden" name="aprovado" id="aprovado" />
+	<input type="hidden" name="user_abert" id="user_abert" />
+	<input type="hidden" name="nome_user_abert" id="nome_user_abert" />
+	<input type="hidden" name="user_aprov" id="user_aprov" />
+	<input type="hidden" name="task" id="task" />
+</form>
+</div>
+</body>
+</html>

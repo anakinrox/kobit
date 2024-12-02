@@ -1,0 +1,7 @@
+2023-06-21T21:40:48.5573888-03:00  [INF] Executando em segundo plano... (242b6371)
+2023-06-21T21:40:48.7882080-03:00  [INF] Now listening on: "http://localhost:5000" (d826f4b8)
+2023-06-21T21:40:48.7885035-03:00  [INF] Application started. Press Ctrl+C to shut down. (dcaefe54)
+2023-06-21T21:40:48.7885772-03:00  [INF] Hosting environment: "Production" (bc5a1a4e)
+2023-06-21T21:40:48.7885932-03:00  [INF] Content root path: "C:\Users\amjun\Downloads\Kobit\3 - Instalador da Api de Leitura de Biometria\ApiLeituraDeBiometria" (cc26f24e)
+2023-06-21T21:40:58.5738326-03:00  [INF] Executando em segundo plano... (242b6371)
+2023-06-21T21:41:08.5749222-03:00  [INF] Executando em segundo plano... (242b6371)

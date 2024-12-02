@@ -1,0 +1,313 @@
+<html>
+<head>
+	<link type="text/css" rel="stylesheet" href="controle.css"/>
+	<link type="text/css" rel="stylesheet" href="/portal/resources/style-guide/css/fluig-style-guide.min.css"/>
+	<script type="text/javascript" src="/portal/resources/js/jquery/jquery.js"></script>
+	<script type="text/javascript" src="/portal/resources/js/jquery/jquery-ui.min.js"></script>
+	<script type="text/javascript" src="/portal/resources/js/mustache/mustache-min.js"></script>
+	<script type="text/javascript" src="/portal/resources/style-guide/js/fluig-style-guide.min.js" charset="utf-8"></script>
+	
+	<script type="text/javascript" src="/portal/resources/js/jquery.mask.min.js"></script>
+	<script type="text/javascript" src="jquery.maskMoney.min.js"></script>
+	<script type="text/javascript" src="./controle.js"></script>
+	<script type="text/javascript" src="/webdesk/vcXMLRPC.js"></script>
+	<script type="text/javascript" src="./utils.js"></script>
+	<script type="text/javascript" src="./zoom.js"></script>
+	<script type="text/javascript" src="./modalZoom.js"></script>
+	<script type="text/javascript" src="./print.js"></script>
+	
+</head>
+<body class="fluig-style-guide" onload="loadBody()"> 
+	<form name="form" role="form" >
+		<div class="container-fluid" style="padding-left: 0px; padding-right: 0px; ">
+			
+			<div class="panel panel-info">
+				<div class="panel-heading fs-txt-center">
+					<table width="100%">
+						<tr>
+							<td width="5%" align=left></td>
+							<td width="90%" align=center><b>Invent&aacute;rio</b></td>
+							<td width="5%" align=right></td>
+						</tr>
+					</table>
+				</div>
+				<div class="panel-body">
+
+					<!-- Dados Pessoais -->
+					<div class="row">
+					
+						<div class="col-sm-10" >
+							<label for="txtNome">T&iacute;tulo</label>
+							<input type="text" class="form-control data-fluig" name="titulo" id="titulo" valida="field"/>
+						</div>
+						
+						<div class="col-sm-2">
+							<label for="txtNome">Empresa</label>
+							<select name="empresa" id="empresa" class="form-control valida" onchange="setEmpresa()"></select>
+							<input type="hidden" name="matricula_aprov_estoque" id="matricula_aprov_estoque"/>
+						</div>
+						
+					</div>
+					<div class="row">
+						
+						<div class="col-sm-3">
+							<label for="txtNome">Respons&aacute;vel</label>
+							<div class="input-group">
+								<input type="hidden" class="grp_responsavel" name="cod_responsavel" id="cod_responsavel"/>
+								<input type="text" class="form-control grp_responsavel valida" name="nome_responsavel" id="nome_responsavel" valida="field" readonly/>
+								<span class="input-group-addon fluigicon fluigicon-eraser fluigicon-sm" onclick="$('.grp_responsavel').val('')"></span>
+								<span id="bt_responsavel" class="input-group-addon fluigicon fluigicon-zoom-in fluigicon-sm" onclick="zoom(this.id)"></span>
+						  	</div>
+						</div>
+						
+						<div class="col-sm-2">
+				        	<label for="exampleTag"> Unidade Funcional </label>
+				            <div class="input-group">
+					              <input type="text" name="cod_uni_funcio" id="cod_uni_funcio" class="form-control" readonly />
+					              <span name="bt_uf" id="bt_uf" class="input-group-addon fluigicon fluigicon-zoom-in fluigicon-sm" onclick="zoom(this.id)"></span>
+				            </div>
+				        </div>
+				        
+						
+						<div class="col-sm-2" >
+							<label for="txtNome">Data Refer</label>
+							<input type="text" class="form-control data-fluig valida" name="data_refer" id="data_refer" valida="field" readonly />
+						</div>
+						<div class="col-sm-2" style="display: none;">
+							<label for="txtNome">Hora Refer</label>
+							<input type="text" class="form-control hora-fluig valida" name="hora_refer" id="hora_refer" valida="field"/>
+						</div>
+						<div class="col-sm-1">
+							<label for="txtNome">Inv. Cego</label>
+							<select name="inv_cego" id="inv_cego" class="form-control" onchange="invCego();">
+								<option value="N">N&atilde;o</option>
+								<option value="S">Sim</option>								
+							</select>
+						</div>
+						
+						<div class="col-sm-2 custo_ajuste">
+							<label for="txtNome">Valor total Ajuste</label>
+							<input type="text" class="form-control hora-fluig" name="valor_tot_ajuste" id="valor_tot_ajuste" readonly/>
+						</div>
+						
+					</div>
+					&nbsp;
+					<div class="row">
+						<div id="tabs">
+							<ul class="nav nav-tabs" role="tablist">
+							   <li class="active"><a href="#aba_itens" role="tab" data-toggle="tab"><strong>Itens</strong></a></li>
+							   <li><a href="#aba_followup" role="tab" data-toggle="tab"><strong>Follow UP</strong></a></li>
+							</ul>
+						</div>
+					</div>
+					<div class="row">
+						<div class="tab-content">
+							<div class="tab-pane active" id="aba_itens">
+								<div class="panel panel-info">
+									<div class="panel-heading fs-txt-center">
+										<table width="100%">
+											<tr>
+												<td width="5%" align=left><button class="fluigicon fluigicon-plus-sign fluigicon-sm" name="btnFilhos" id="btnFilhos" onclick="zoom('cod_item')"></button></td>
+												<td width="90%" align=center><b></b></td>
+												<td width="5%" align=right><button class="fluigicon fluigicon-print fluigicon-sm" name="btnPrint" id="btnPrint" onclick="print()"></button></td>
+											</tr>
+										</table>
+									</div>
+									<div class="panel-body" style="padding-top: 0px; padding-bottom: 0px;">
+										<div class="row">
+											<table class="table table-striped" id="tbl_filhos" tablename="tbl_filhos" nodeletebutton="false" noaddbutton="true" addbuttonclass="wdkbuttonClass" deleteicon="trash.png" customFnDelete="deleteFilhos(this)" >
+												<thead>
+													<tr>
+														<th class="cell-ellipsis item" width="30%" >Item</th>
+														<th class="cell-ellipsis estoque" width="10%" >Local</th>
+														<th class="cell-ellipsis estoque" width="10%" >Lote</th>
+														<th class="cell-ellipsis estoque" width="10%" >Sit</th>
+														<th class="cell-ellipsis estoque" width="10%" >Qtd. Estoque</th>
+														<th class="cell-ellipsis qtd_contada1" width="10%">Qtd. Contada 1</th>
+														<th class="cell-ellipsis qtd_contada2" width="10%">Qtd. Contada 2</th>
+														<th class="cell-ellipsis qtd_contada3" width="10%">Qtd. Contada 3</th>
+														<th class="cell-ellipsis qtd_contada4" width="10%">Qtd. Contada 4</th>
+														<th class="cell-ellipsis qtd_contada5" width="10%">Qtd. Contada 5</th>
+														<th class="cell-ellipsis qtd_aceita" width="10%">Qtd. Aceita</th>
+														<th class="cell-ellipsis custo_ajuste" width="10%">Custo Movto</th>
+														<th class="cell-ellipsis dif_contagem" style="display:none"width="10%">Dif. Contagem</th>
+														<th class="cell-ellipsis status" width="10%">Status</th>
+														<th class="cell-ellipsis follow_up" width="5%"></th>
+													</tr>
+												</thead>
+												<tbody>
+													<tr detail="true" detailname="tblFilho" id="linha_filhos" ondblclick="editItem( this.id )">
+														<td style="padding-top: 0px; padding-bottom: 0px; padding-left: 0px;">
+															<div class="input-group">
+																<span class="input-group-addon fluigicon fluigicon-plus fluigicon-sm" onclick="novoItem($(this).closest('tr'))"></span>
+																<input id="cod_den_item" name="cod_den_item" class="form-control grp_item" type="text" readonly/>
+																<input id="den_item" name="den_item" type="hidden" />
+																<!-- <span class="input-group-addon fluigicon fluigicon-eraser fluigicon-sm" onclick="$('.grp_item').val('')"></span> -->
+																<!-- <span class="input-group-addon fluigicon fluigicon-zoom-in fluigicon-sm" onclick="zoom(this.children[0].id)"> -->
+																<input id="cod_item" name="cod_item" class="grp_item" type="hidden"/>
+																<input id="ies_original" name="ies_original" class="grp_item" type="hidden"/>
+																<input id="status_integracao_item" name="status_integracao_item" class="grp_item" type="hidden"/>
+																<input id="motivo_integracao_item" name="motivo_integracao_item" class="grp_item" type="hidden"/>
+																<!-- </span> -->
+															  </div>										
+														</td>
+														<td class="dimencional" style="padding-top: 0px; padding-bottom: 0px; padding-left: 0px;">
+															<div class="input-group">
+																<input id="local_est" name="local_est" class="form-control grp_item" type="text" readonly/>
+																<span class="input-group-addon fluigicon fluigicon-zoom-in fluigicon-sm" onclick="zoom( this.children[0].id )">
+																	<input id="local_est_original" name="local_est_original" type="hidden" />
+																</span>
+															</div>
+														</td>
+														<td class="dimencional" style="padding-top: 0px; padding-bottom: 0px; padding-left: 0px;">
+															<input id="lote" name="lote" class="form-control grp_item" type="text" readonly/>
+															<input id="lote_original" name="lote_original" type="hidden" />
+															<input id="ies_ctr_lote" name="ies_ctr_lote" type="hidden"/>
+														</td>
+														
+														<td class="dimencional" style="padding-top: 0px; padding-bottom: 0px; padding-left: 0px;">
+															<input id="ies_situa_qtd_original" name="ies_situa_qtd_original" type="hidden"/>
+															<select name="ies_situa_qtd" id="ies_situa_qtd" class="form-control" >
+																<option value=""></option>
+																<option value="L">L</option>
+																<option value="I">I</option>
+																<option value="E">E</option>								
+															</select>
+														</td>
+														
+														<td class="estoque" style="padding-top: 0px; padding-bottom: 0px; padding-left: 0px;">
+															<input id="endereco" name="endereco" class="grp_item" type="hidden"/>
+															<input id="qtd_estoque" name="qtd_estoque" class="form-control grp_item" type="text" readonly/>
+														</td>
+														<td class="qtd_contada1" style="padding-top: 0px; padding-bottom: 0px; padding-left: 0px;">
+															<input type="hidden" name="seq_contagem" id="seq_contagem">
+															<input id="qtd_contada1" name="qtd_contada1" class="form-control decimal-3 contagem" type="text" />
+														</td>
+														<td class="qtd_contada2" style="padding-top: 0px; padding-bottom: 0px; padding-left: 0px;">
+															<input id="qtd_contada2" name="qtd_contada2" class="form-control decimal-3 contagem" type="text" />
+														</td>
+														<td class="qtd_contada3" style="padding-top: 0px; padding-bottom: 0px; padding-left: 0px;">
+															<input id="qtd_contada3" name="qtd_contada3" class="form-control decimal-3 contagem" type="text" />
+														</td>
+														<td class="qtd_contada4" style="padding-top: 0px; padding-bottom: 0px; padding-left: 0px;">
+															<input id="qtd_contada4" name="qtd_contada4" class="form-control decimal-3 contagem" type="text" />
+														</td>
+														<td class="qtd_contada5" style="padding-top: 0px; padding-bottom: 0px; padding-left: 0px;">
+															<input id="qtd_contada5" name="qtd_contada5" class="form-control decimal-3 contagem" type="text" />
+														</td>
+														<td class="qtd_aceita" style="padding-top: 0px; padding-bottom: 0px; padding-left: 0px;">
+															<input id="qtd_aceita" name="qtd_aceita" class="form-control decimal-3" type="text" onkeyup="calculaTotal()"/>
+														</td>
+														<td class="custo_ajuste" style="padding-top: 0px; padding-bottom: 0px; padding-left: 0px;">
+															<input id="custo_ajuste" name="custo_ajuste" class="form-control decimal-2" type="text" readonly/>
+															<input id="custo_item" name="custo_item" type="hidden" />
+														</td>
+														<td class="dif_contagem" style="display:none" style="padding-top: 0px; padding-bottom: 0px; padding-left: 0px;">
+															<input id="dif_contagem" name="dif_contagem" class="form-control" type="text" readonly/>
+														</td>
+														<td class="status" style="padding-top: 0px; padding-bottom: 0px; padding-left: 0px;">
+															<select name="status" id="status" class="form-control" onchange="validaStatus(); trataStatus(this.id);">
+																<option value=""></option>
+																<option value="O" id="status_ok">OK</option>
+																<!-- $("option[value='stackoverflow']").attr("disabled", "disabled"); -->
+																<option value="A">Assumir</option>
+																<option value="R">Recontar</option>
+																<option value="I">Ignorar</option>
+															</select>
+														</td>
+														<td class="follow_up" style="padding-top: 0px; padding-bottom: 0px; padding-left: 0px;">
+															<button type="button" id="bt_fup" class="btn btn-success form-control" onclick="fupItem($(this).closest('tr'))"><span class="fluigicon fluigicon-comment icon-sm"></span></button>
+														</td>
+													</tr>
+												</tbody>
+											</table>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="tab-pane" id="aba_followup">
+	        	
+								<!-- <div class="row"> -->
+									<!-- <div class="col-sm-2">
+										<label for="exampleTag">Data</label>
+										<input type="text" class="form-control" name="data_fup" id="data_fup" readonly >
+									</div>
+									<div class="col-sm-4 pd_her">
+										<label for="exampleTag">Usuario</label>
+										<input type="text" class="form-control" name="user_fup" id="user_fup" readonly >
+										<input type="hidden" class="form-control" name="cod_user_fup" id="cod_user_fup" readonly >
+									</div> -->
+									<!-- <div class="col-sm-6 pd_her">
+										<label for="exampleTag">Item</label>
+										<input type="text" class="form-control" name="item_fup" id="item_fup" readonly >
+										<input type="hidden" class="form-control" name="cod_item_fup" id="cod_item_fup" readonly >
+										<input type="hidden" class="form-control" name="den_item_fup" id="den_item_fup" readonly >
+									</div> -->
+								<!-- </div> -->
+								<div class="row follow_up">
+									<div class="col-sm-12">
+										<label for="exampleTag">Descri&ccedil;&atilde;o de Intera&ccedil;&atilde;o</label>
+										<textarea rows="3" name="descricao" id="descricao" class="form-control"  valida="true" ></textarea>
+									</div>				
+								</div>
+								<div class="row" id="hist" name="hist" >	
+									<div class="col-sm-12 pd_her">	
+										<table class="table table-condensed table-bordered" border="1" tablename="followup"  noaddbutton=true nodeletebutton=true addbuttonclass="wdkbuttonClass" >
+											<thead>
+												<tr>
+													<td width='100%' class="cell-ellipsis"><b>Historico</b></td>
+												</tr>
+											</thead>
+												<tr>
+													<td id="tbl_fup">
+														<div class="row  row_table">
+															<div class="col-sm-2 pd_her">
+																<label for="exampleTag">Data Hist.</label>
+																<input type="text" class="form-control" name="data_hist" id="data_hist" readonly >
+															</div>
+															
+															<div class="col-sm-4 pd_her">
+																<label for="exampleTag">Usuario</label>
+																<input type="text" class="form-control" name="user_hist" id="user_hist" readonly >
+																<input type="hidden" class="form-control" name="cod_user_hist" id="cod_user_hist" readonly >
+															</div>
+															<div class="col-sm-6 pd_her">
+																<label for="exampleTag">Item</label>
+																<input type="text" class="form-control" name="item_hist" id="item_hist" readonly >
+																<input type="hidden" class="form-control" name="cod_item_hist" id="cod_item_hist" readonly >
+																<input type="hidden" class="form-control" name="den_item_hist" id="den_item_hist" readonly >
+															</div>
+														</div>
+					
+														<div class="row  row_table">
+															<div class="col-sm-12 pd_her">
+																<textarea rows="1" name="desc_hist" id="desc_hist" class="form-control"  readonly ></textarea>
+															</div>
+														</div>	
+													</td>					
+												</tr>
+										</table>
+									</div>			
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			
+
+		</div>
+
+		
+	</div>
+		<input type="hidden" name="descritor" id="descritor">
+		<input type="hidden" name="usuario" id="usuario">
+		<input type="hidden" name="gestor" id="gestor">
+		<input type="hidden" name="task" id="task">
+		<input type="hidden" name="aprovado" id="aprovado">		
+		<input type="hidden" name="valid_status" id="valid_status">
+		<input type="hidden" name="status_integracao" id="status_integracao">
+	</form>	
+</body>
+</html>

@@ -1,0 +1,599 @@
+<html>
+
+<head>
+	<link type="text/css" rel="stylesheet" href="/portal/resources/style-guide/css/fluig-style-guide.min.css" />
+	<link type="text/css" rel="stylesheet" href="/fdwt_template/resources/css/fdwt_formularios.css" />
+	<title>i18n.translate("dadosadc.title.titulo")</title>
+</head>
+
+<body>
+	<div class="fluig-style-guide">
+		<div class="row">
+			<div class="col-xs-12">
+				<div id="header">
+					<h3>i18n.translate("dadosadc.title.titulo")</h3>
+					<p>
+						<span class="fluigicon fluigicon-sm fluigicon-warning-sign"></span> i18n.translate("dadosadc.span.todoscampos")
+						<span class="fs-color-danger">*</span> i18n.translate("dadosadc.span.preenchimentoobrigatorio")
+						 
+					</p>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-xs-12" id="lgpdDiv">
+				<form name="form" role="form" class="form-horizontal" id="accordion">
+					<div class="panel-group" id="accordion">
+						<div class="panel panel-default">
+							<div class="panel-heading">
+								<h4 class="panel-title">
+									<a class="collapse-icon up" data-toggle="collapse" data-parent="#accordion" href="#cDados">
+										i18n.translate("dadosadc.a.dados")
+									</a>
+								</h4>
+							</div>
+							<div id="cDados" class="panel-collapse collapse in">
+								<div class="panel-body">
+									<div class="form-group">
+										<div class="col-xs-12">
+											<label for="nomeCompleto">i18n.translate("dadosadc.label.nomecompleto")<span class="fs-color-danger">*</span></label>
+											<input name="nomeCompleto" id="nomeCompleto" type="text" class="form-control input-sm" 
+												data-protection='Nome completo do colaborador'
+												data-protection-anonymizable 
+												data-protection-sensitive 
+												data-protection-name 
+												data-protection-class-consent='Privacidade do colaborador'>
+										</div>
+									</div>
+									<div class="form-group">
+										<div class="col-xs-5">
+											<label for="nome">i18n.translate("dadosadc.label.nome") </label>
+											<input name="nome" id="nome" type="text" class="form-control input-sm"
+												data-protection='Nome do colaborador'
+												data-protection-anonymizable 
+												data-protection-sensitive 
+												data-protection-name 
+												data-protection-class-consent='Privacidade do colaborador'>
+										</div>
+										<div class="col-xs-5">
+											<label for="sobrenome">i18n.translate("dadosadc.label.sobrenome") </label>
+											<input name="sobrenome" id="sobrenome" type="text" class="form-control input-sm"
+												data-protection='Sobrenome do colaborador'
+												data-protection-anonymizable 
+												data-protection-sensitive 
+												data-protection-name 
+												data-protection-class-consent='Privacidade do colaborador'>
+										</div>
+										<div class="col-xs-2">
+											<label for="genero">i18n.translate("dadosadc.label.genero")</label>
+											<select name="genero" id="genero" class="form-control input-sm">
+												<option value="masculino">i18n.translate("dadosadc.option.masculino")</option>
+												<option value="feminino">i18n.translate("dadosadc.option.feminino")</option>
+											</select>
+										</div>
+									</div>
+									<div class="form-group">
+										<div class="col-xs-6">
+											<label for="nomeCargo">i18n.translate("dadosadc.label.cargo") </label>
+											<input type="zoom" name="nomeCargo" id="nomeCargo" class="form-control input-sm" data-zoom="{
+												    'displayKey':'cargoNome',
+												    'datasetId':'fdwt_estrutura_empresa_cargo',
+												    'fields':[
+												       {
+												          'field':'cargoId',
+												          'label':'i18n.translate(&quot;dadosadc.label.zoom.codigo&quot;)' },{ 'field' :'cargoNome', 'label'
+											 :'i18n.translate(&quot;dadosadc.label.zoom.descricao&quot;)', 'standard' :'true', 'search' :'true' } ] }">
+											<input type="hidden" name="cargo" id="cargo">
+										</div>
+										<div class="col-xs-6">
+											<label for="nomeDepartamento">i18n.translate("dadosadc.label.departamento") </label>
+											<input type="zoom" name="nomeDepartamento" id="nomeDepartamento" class="form-control input-sm" data-zoom="{
+												    'displayKey':'estruturaNome',
+												    'datasetId':'fdwt_estrutura_empresa',
+												    'fields':
+												    [{
+												          'field':'estruturaId',
+												          'label':'i18n.translate(&quot;dadosadc.label.zoom.codigo&quot;)'
+													},
+													{ 	'field' :'estruturaNome',
+														'label':'i18n.translate(&quot;dadosadc.label.nome&quot;)', 
+														'standard' :'true',
+														'search' :'true' 
+													} 
+													]}">
+											<input type="hidden" name="departamento" id="departamento">
+										</div>
+									</div>
+									<div class="form-group">
+										<div class="col-xs-6">
+											<label for="nomeUnidade">i18n.translate("dadosadc.label.unidade") </label>
+											<input type="zoom" name="nomeUnidade" id="nomeUnidade" class="form-control input-sm" data-zoom="{
+												    'displayKey':'lojaNome',
+												    'datasetId':'fdwt_lojas',
+												    'fields':
+												    [{
+												          'field':'lojaCodigo',
+														'label':'i18n.translate(&quot;dadosadc.label.zoom.codigo&quot;)'
+													},
+													{ 
+														'field' :'lojaNome', 
+														'label' :'i18n.translate(&quot;dadosadc.label.nome&quot;)',
+														 'standard' :'true',
+														  'search' :'true' 
+													}
+													] }">
+											<input type="hidden" name="unidade" id="unidade">
+										</div>
+										<div class="col-xs-6">
+											<label for="nomeEmpresa">i18n.translate("nomeEmpresa") </label>
+											<input type="zoom" name="nomeEmpresa" id="nomeEmpresa" class="form-control input-sm" data-zoom="{
+												    'displayKey':'descricao',
+												    'datasetId':'fdwt_empresas',
+												    'fields':
+												     [
+										  		     {
+												          'field':'empresaId',
+														'label':'i18n.translate(&quot;dadosadc.label.zoom.codigo&quot;)' 
+													},
+													{ 
+														'field' :'descricao', 
+														'label' :'i18n.translate(&quot;dadosadc.label.nome&quot;)',
+											 			'standard' :'true', 
+														 'search' :'true' 
+													}
+													] }">
+											<input type="hidden" name="empresa" id="empresa">
+										</div>
+									</div>
+									<div class="form-group">
+										<div class="col-xs-3">
+											<label for="telefone">i18n.translate("dadosadc.label.telefone") </label>
+											<input name="telefone" id="telefone" type="text" class="form-control input-sm">
+										</div>
+										<div class="col-xs-3">
+											<label for="celular">i18n.translate("dadosadc.label.celular") </label>
+											<input name="celular" id="celular" type="text" class="form-control input-sm">
+										</div>
+										<div class="col-xs-2">
+											<label for="ramal">i18n.translate("dadosadc.label.ramal") </label>
+											<input name="ramal" id="ramal" type="text" class="form-control input-sm">
+										</div>
+										<div class="col-xs-4">
+											<label for="dataInicioEmpresa">i18n.translate("dadosadc.label.datainicio")</label>
+											<input name="dataInicioEmpresa" id="dataInicioEmpresa" type="text" class="form-control input-sm" onblur="javascript:changeDataInicioEmpresaTS(this);">
+											<input name="dataInicioEmpresaTs" id="dataInicioEmpresaTs" type="hidden" class="form-control input-sm">
+										</div>
+									</div>
+									<div class="form-group">
+										<div class="col-xs-3">
+											<label for="email">i18n.translate("dadosadc.label.email") </label>
+											<input name="email" id="email" type="text" class="form-control input-sm"
+												data-protection='E-mail de cadastro do colaborador'
+												data-protection-anonymizable 
+												data-protection-sensitive 
+												data-protection-mail 
+												data-protection-class-consent='Privacidade do colaborador'>
+										</div>
+										<div class="col-xs-3">
+											<label for="emailContato">i18n.translate("dadosadc.label.emailcontato") </label>
+											<input name="emailContato" id="emailContato" type="text" class="form-control input-sm"
+												data-protection='E-mail de contato do colaborador'
+												data-protection-anonymizable 
+												data-protection-sensitive 
+												data-protection-mail 
+												data-protection-class-consent='Privacidade do colaborador'>
+										</div>
+										<div class="col-xs-3">
+											<label for="matricula">i18n.translate("dadosadc.label.matricula") </label>
+											<input name="matricula" id="matricula" type="text" class="form-control input-sm">
+										</div>
+										<div class="col-xs-3">
+											<label for="login">i18n.translate("dadosadc.label.login")</label>
+											<input name="login" id="login" type="text" class="form-control input-sm">
+										</div>
+									</div>
+									<div class="form-group">
+										<div class="col-xs-4">
+											<label for="dataNascimento">i18n.translate("dadosadc.label.datanascimento") </label>
+											<input name="dataNascimento" id="dataNascimento" type="text" class="form-control input-sm" onblur="javascript:changeDataAniversarioTS(this);">
+											<input name="dataNascimentoTs" id="dataNascimentoTs" type="hidden" class="form-control input-sm">
+										</div>
+										<div class="col-xs-4">
+											<label for="aniversarioDia">i18n.translate("dadosadc.label.diaaniversario") </label>
+											<input name="aniversarioDia" id="aniversarioDia" type="text" class="form-control input-sm">
+										</div>
+										<div class="col-xs-4">
+											<label for="aniversarioMes">i18n.translate("dadosadc.label.mesaniversario") </label>
+											<input name="aniversarioMes" id="aniversarioMes" type="text" class="form-control input-sm">
+										</div>
+									</div>
+									<div class="form-group">
+										<div class="col-xs-12">
+											<label for="aniversarioMes">i18n.translate("dadosadc.label.resumo") </label>
+											<textarea name="resumo" id="resumo" class="form-control input-sm"></textarea>
+										</div>
+									</div>
+									<div class="form-group">
+										<div class="col-xs-6">
+											<label for="idCorporativo">i18n.translate("dadosadc.label.idcorporativo")</label>
+											<input name="idCorporativo" id="idCorporativo" type="text" class="form-control input-sm">
+										</div>
+										<div class="col-xs-6">
+											<label for="idPessoal">i18n.translate("dadosadc.label.idpessoal")</label>
+											<input name="idPessoal" id="idPessoal" type="text" class="form-control input-sm"
+												data-protection='Documento pessoal do colaborador'
+												data-protection-anonymizable 
+												data-protection-sensitive 
+												data-protection-cpf 
+												data-protection-class-consent='Privacidade do colaborador'>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="panel panel-default">
+							<div class="panel-heading">
+								<h4 class="panel-title">
+									<a class="collapse-icon down" data-toggle="collapse" data-parent="#accordion" href="#cPolitica">
+										i18n.translate("dadosadc.a.politicasuso")
+									</a>
+								</h4>
+							</div>
+							<div id="cPolitica" class="panel-collapse collapse">
+								<div class="panel-body">
+									<div class="form-group">
+										<div class="col-xs-6">
+											<label for="politicaDocumento">i18n.translate("dadosadc.label.iddocumento")</label>
+											<input name="politicaDocumento" id="politicaDocumento" type="text" class="form-control input-sm">
+										</div>
+										<div class="col-xs-6">
+											<label for="politicaVersao">i18n.translate("dadosadc.label.versaodocumento")</label>
+											<input name="politicaVersao" id="politicaVersao" type="text" class="form-control input-sm">
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="panel panel-default">
+							<div class="panel-heading">
+								<h4 class="panel-title">
+									<a class="collapse-icon down" data-toggle="collapse" data-parent="#accordion" href="#cTutorial">
+										i18n.translate("dadosadc.label.tutorialacesso")
+									</a>
+								</h4>
+							</div>
+							<div id="cTutorial" class="panel-collapse collapse">
+								<div class="panel-body">
+									<div class="form-group">
+										<div class="col-xs-12">
+											<label for="tutorialConclusao">i18n.translate("dadosadc.label.conclusao")</label>
+											<input name="tutorialConclusao" id="tutorialConclusao" type="text" class="form-control input-sm">
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="panel panel-default">
+							<div class="panel-heading">
+								<h4 class="panel-title">
+									<a class="collapse-icon down" data-toggle="collapse" data-parent="#accordion" href="#cTreinamentos">
+										i18n.translate("dadosadc.label.treinamento")
+									</a>
+								</h4>
+							</div>
+							<div id="cTreinamentos" class="panel-collapse collapse">
+								<div class="panel-body">
+									<div class="form-group">
+										<div class="col-xs-6">
+											<label for="tEmpresa">i18n.translate("dadosadc.label.ministratreinamento")</label>
+											<select name="tMinistra" id="tMinistra" class="form-control input-sm">
+												<option value="1">i18n.translate("dadosadc.option.sim")</option>
+												<option value="0">i18n.translate("dadosadc.option.nao")</option>
+											</select>
+										</div>
+										<div class="col-xs-6">
+											<label for="tEmpresa">i18n.translate("dadosadc.label.qualempresa")</label>
+											<input name="tEmpresa" id="tEmpresa" type="text" class="form-control input-sm">
+										</div>
+									</div>
+									<div class="form-group">
+										<div class="col-xs-12">
+											<div class="form-group" style="margin-top:15px;">
+												<div class="col-xs-12">
+													<legend class="fs-overflow-hidden hm-md-margin-top">
+														i18n.translate("dadosadc.legend.lista")
+														<div class="fs-float-right hm-sm-margin-bottom">
+															<input type="button" class="btn btn-primary" id="btnAdicionar" value="i18n.translate(&quot;dadosadc.adicionar&quot;)" style="margin-bottom:15px;">
+														</div>
+													</legend>
+												</div>
+											</div>
+											<table id="tnTreinamentos" tablename="tnTreinamentos" noaddbutton="true" nodeletebutton="true" class="table fs-no-margin-bottom table-striped">
+												<thead>
+													<tr>
+														<td></td>
+													</tr>
+												</thead>
+												<tbody>
+													<tr id="tLinha">
+														<td>
+															<div class="form-group">
+																<div class="col-xs-9">
+																	<label for="tId">i18n.translate("dadosadc.label.id")</label>
+																	<input type="zoom" id="tId" name="tId" rowIndex="0" data-zoom="{
+																		'displayKey': 'id',
+																		'datasetId': 'disciplineItemDataset',
+																		'resultLimit': 50, 
+																		'fields':[{
+																			'field': 'name', 
+																			'label': 'i18n.translate(&quot;dadosadc.label.name.treinamentos&quot;)', 
+																			'standard': 'true'
+																		},
+																		{
+																			'field': 'id', 
+																			'label': 'Id'
+																		}]}">
+																</div>
+																<div class="col-xs-3">
+																	<span class="fluigicon fluigicon-trash fluigicon-sm fs-cursor-pointer" data-toggle="tooltip"
+																	 data-placement="right" title="Excluir" style="margin-top: 25px;"></span>
+																</div>
+															</div>
+														</td>
+													</tr>
+												</tbody>
+											</table>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="panel panel-default">
+							<div class="panel-heading">
+								<h4 class="panel-title">
+									<a class="collapse-icon down" data-toggle="collapse" data-parent="#accordion" href="#camposCustomizados">
+										i18n.translate("camposCustomizados")
+									</a>
+								</h4>
+							</div>
+							<div id="camposCustomizados" class="panel-collapse collapse">
+								<div class="panel-body">
+									<div class="form-group">
+										<div class="col-xs-6">
+											<label for="campoCustomizado1">i18n.translate("campoCustomizado1")</label>
+											<input name="campoCustomizado1" id="campoCustomizado1" type="text" class="form-control input-sm">
+										</div>
+										<div class="col-xs-6">
+											<label for="campoCustomizado2">i18n.translate("campoCustomizado2")</label>
+											<input name="campoCustomizado2" id="campoCustomizado2" type="text" class="form-control input-sm">
+										</div>
+									</div>
+									<div class="form-group">
+										<div class="col-xs-6">
+											<label for="campoCustomizado3">i18n.translate("campoCustomizado3")</label>
+											<input name="campoCustomizado3" id="campoCustomizado3" type="text" class="form-control input-sm">
+										</div>
+										<div class="col-xs-6">
+											<label for="campoCustomizado4">i18n.translate("campoCustomizado4")</label>
+											<input name="campoCustomizado4" id="campoCustomizado4" type="text" class="form-control input-sm">
+										</div>
+									</div>
+									<div class="form-group">
+										<div class="col-xs-6">
+											<label for="campoCustomizado5">i18n.translate("campoCustomizado5")</label>
+											<input name="campoCustomizado5" id="campoCustomizado5" type="text" class="form-control input-sm">
+										</div>
+									</div>
+									<input name="campoCustomizado6" id="campoCustomizado6" type="hidden" class="form-control input-sm">
+									<input name="campoCustomizado7" id="campoCustomizado7" type="hidden" class="form-control input-sm">
+									<input name="campoCustomizado8" id="campoCustomizado8" type="hidden" class="form-control input-sm">
+									<input name="campoCustomizado9" id="campoCustomizado9" type="hidden" class="form-control input-sm">
+									<input name="campoCustomizado10" id="campoCustomizado10" type="hidden" class="form-control input-sm">
+								</div>
+							</div>
+						</div>
+						<div class="panel panel-default">
+							<div class="panel-heading">
+								<h4 class="panel-title">
+									<a class="collapse-icon down" data-toggle="collapse" data-parent="#accordion" href="#cHumor">
+										i18n.translate("dadosadc.a.humor")
+									</a>
+								</h4>
+							</div>
+							<div id="cHumor" class="panel-collapse collapse">
+								<div class="panel-body">
+									<div class="form-group">
+										<div class="col-xs-4">
+											<label for="nomeHumor">i18n.translate("dadosadc.label.nomeHumor")</label>
+											<input name="nomeHumor" id="nomeHumor" type="text" class="form-control input-sm">
+										</div>
+										<div class="col-xs-4">
+											<label for="fraseHumor">i18n.translate("dadosadc.label.fraseHumor")</label>
+											<input name="fraseHumor" id="fraseHumor" type="text" class="form-control input-sm">
+										</div>
+										<div class="col-xs-4">
+											<label for="corHumor">i18n.translate("dadosadc.label.corHumor")</label>
+											<input name="corHumor" id="corHumor" type="text" class="form-control input-sm">
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="panel panel-default">
+							<div class="panel-heading">
+								<h4 class="panel-title">
+									<a class="collapse-icon down" data-toggle="collapse" data-parent="#accordion" href="#cStatus">
+										i18n.translate("dadosadc.a.status")
+									</a>
+								</h4>
+							</div>
+							<div id="cStatus" class="panel-collapse collapse">
+								<div class="panel-body">
+									<div class="form-group">
+										<div class="col-xs-4">
+											<label for="status">i18n.translate("dadosadc.label.status")</label>
+											<input type="text" name="status" id="status" class="form-control input-sm">
+										</div>
+										<div class="col-xs-4">
+											<label for="statusDataInicio">i18n.translate("dadosadc.label.statusDataInicio")</label>
+											<input name="statusDataInicio" id="statusDataInicio" type="text" class="form-control input-sm" onblur="javascript:changeStatusStartDateToTS(this);">
+											<input type="hidden" name="statusDataInicioTs" id="statusDataInicioTs">
+										</div>
+										<div class="col-xs-4">
+											<label for="statusDataFim">i18n.translate("dadosadc.label.statusDataFim")</label>
+											<input name="statusDataFim" id="statusDataFim" type="text" class="form-control input-sm" onblur="javascript:changeStatusEndDateToTS(this);">
+											<input type="hidden" name="statusDataFimTs" id="statusDataFimTs">
+										</div>
+									</div>
+									<div class="form-group">
+										<div class="col-xs-12">
+											<label for="statusObservacoes">i18n.translate("dadosadc.label.status.observacoes")</label>
+											<input name="statusObservacoes" id="statusObservacoes" type="text" class="form-control input-sm">
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+
+	<script type="text/javascript" src="/portal/resources/js/jquery/jquery.js"></script>
+	<script type="text/javascript" src="/portal/resources/js/jquery/jquery-ui.min.js"></script>
+	<script type="text/javascript" src="/portal/resources/js/mustache/mustache-min.js"></script>
+	<script type="text/javascript" src="/portal/resources/style-guide/js/fluig-style-guide.min.js" charset="utf-8"></script>
+	<script type="text/javascript" src="/fdwt_template/resources/js/jquery.mask.min.js"></script>
+
+	<script>
+		var Dados = {
+			init: function () {
+				Dados.clickBtnAdicionar();
+				Dados.clickBtnRemover();
+				Dados.mascaras();
+				Dados.loadDatasetFactory();
+			},
+			reload: function () {
+				$('#btnAdicionar').remove();
+				$('[id^=tLinha___] .fluigicon-trash').remove();
+			},
+			edit: function () {
+				Dados.clickBtnAdicionar();
+				Dados.clickBtnRemover();
+				Dados.mascaras();
+				Dados.loadDatasetFactory();
+			},
+			mascaras: function () {
+				$('#dataNascimento').mask('00/00/0000');
+				$('#aniversarioDia').mask('00');
+				$('#aniversarioMes').mask('00');
+			},
+			clickBtnAdicionar: function () {
+				$('body').on('click', '#btnAdicionar', function (e) {
+					e.preventDefault();
+
+					Dados.removeVazio($('[tablename="tnTreinamentos"]'));
+					var indice = wdkAddChild('tnTreinamentos');
+				});
+			},
+			clickBtnRemover: function () {
+				$('body').on('click', '[id*=tLinha___] .fluigicon-trash', function (e) {
+					e.preventDefault();
+
+					var $btn = $(this).parents('[id^=tLinha___]');
+					var index = $btn.attr('id').split('___')[1];
+
+					fnWdkRemoveChild(this);
+
+					if ($('[tablename="tnTreinamentos"] tr[id^=tLinha___]').length == 0) {
+						Dados.setVazio($('#eLinha'), 'i18n.translate("dadosadc.javascript.nenhumitem")');
+					}
+				});
+			},
+			setVazio: function ($linha, mensagem) {
+				var $tr = $('<tr>', {
+						'class': 'nenhum-registro'
+					}),
+					$td = $('<td>'),
+					$divGroup = $('<div>', {
+						'class': 'form-group'
+					}),
+					$divCol = $('<div>', {
+						'class': 'col-xs-12'
+					}),
+					$p = $('<p>', {
+						'text': mensagem
+					});
+
+				$divCol.append($p);
+				$divGroup.append($divCol);
+				$td.append($divGroup);
+				$tr.append($td);
+
+				$linha.parent().append($tr);
+			},
+			removeVazio: function ($tablename) {
+				$tablename.find('tr.nenhum-registro').remove();
+			},
+			loadDatasetFactory: function () {
+				var script = $('<script>', {
+					'src': '/webdesk/vcXMLRPC.js'
+				});
+
+				$('body').append(script);
+			},
+			lgpd: function() {
+				var url = window.parent.location.href;
+
+				if(Dados.mode != "ADD" && url.indexOf("DigteDWTCrud") == -1)
+					$('#lgpdDiv').html('<h3>i18n.translate("dadosadc.javascript.lgpd").</h3>');
+			}
+		}
+
+		function changeStatusStartDateToTS(txtStatusData) {
+			var dataStatus = txtStatusData.value;
+			var dataStatusTS = moment(moment(dataStatus, 'DD/MM/YYYY').format('MM/DD/YYYY')).unix();
+			$('#statusDataInicioTs').val(dataStatusTS);
+		}
+
+		function changeStatusEndDateToTS(txtStatusData) {
+			var dataStatus = txtStatusData.value;
+			var dataStatusTS = moment(moment(dataStatus, 'DD/MM/YYYY').format('MM/DD/YYYY')).unix();
+			$('#statusDataFimTs').val(dataStatusTS);
+		}
+
+		function changeDataAniversarioTS(txtDataAniversario) {
+			var dataAniversario = txtDataAniversario.value;
+			var dataAniversarioTS = moment(moment(dataAniversario, 'DD/MM/YYYY').format('MM/DD/YYYY')).unix();
+			$('#dataNascimentoTs').val(dataAniversarioTS);
+		}
+
+		function changeDataInicioEmpresaTS(txtDataInicioEmpresa) {
+			var dataInicioEmpresa = txtDataInicioEmpresa.value;
+			var dataInicioEmpresaTS = moment(moment(dataInicioEmpresa, 'DD/MM/YYYY').format('MM/DD/YYYY')).unix();
+			$('#dataInicioEmpresaTs').val(dataInicioEmpresaTS);
+		}
+
+		function setSelectedZoomItem(selectedItem) {
+			var inputId = selectedItem.inputId;
+
+			switch (inputId) {
+				case "nomeUnidade":
+					$('#unidade').val(selectedItem['lojaCodigo']);
+					break;
+				case "nomeCargo":
+					$('#cargo').val(selectedItem['cargoId']);
+					break;
+				case "nomeDepartamento":
+					$('#departamento').val(selectedItem['estruturaId']);
+					break;
+				case "nomeEmpresa":
+					$('#empresa').val(selectedItem['empresaId']);
+					break;
+			}
+		}
+	</script>
+</body>
+
+</html>

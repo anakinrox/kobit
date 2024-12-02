@@ -1,0 +1,18 @@
+INDEX VERSION 1.3+C:\Trabalho\Kobit\hergen\.metadata\.plugins\org.eclipse.wst.jsdt.core\indexes
+2445062759.index
+2408973909.index
+1415095323.index
+2265522808.index
+1478291776.index
+1215901127.index
+817257736.index
+798279053.index
+2994160040.index
+2776614024.index
+2220966852.index
+2996411480.index
+3701162620.index
+3584933409.index
+656517545.index
+3103301490.index
+4188827004.index

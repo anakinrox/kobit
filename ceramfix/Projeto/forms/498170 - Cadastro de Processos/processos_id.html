@@ -1,0 +1,71 @@
+<html>
+<head>
+	<link type="text/css" rel="stylesheet" href="/portal/resources/style-guide/css/fluig-style-guide.min.css"/>
+	<script type="text/javascript" src="/portal/resources/js/jquery/jquery.js"></script>
+	<script type="text/javascript" src="/portal/resources/js/jquery/jquery-ui.min.js"></script>
+	<script type="text/javascript" src="/portal/resources/js/mustache/mustache-min.js"></script>
+	<script type="text/javascript" src="/portal/resources/style-guide/js/fluig-style-guide.min.js" charset="utf-8"></script>
+	
+	<link type="text/css" rel="stylesheet" href="controle.css"/>	
+	<script type="text/javascript" src="controle.js"></script>
+	<script type="text/javascript" src="zoom.js"></script>
+	<script type="text/javascript" src="modalZoom.js"></script>
+	<script type="text/javascript" src="beforeSendValidate.js" charset="utf-8"></script>
+	<script src="/webdesk/vcXMLRPC.js"></script>
+	<script>
+		var beforeMovementOptions = function(numState){
+			window.parent.$("[data-send]").on("click", function(ev) { validateForms(ev); });
+	   }
+	   function validateForms(ev){
+		console.log('validateForms')
+		var validate     =    "validateStep"+stepWF+"();";
+
+		if(eval(validate)){
+			blockPage();    // O formulário recebe uma máscara escura
+
+			// Se não validou, impede o evento padrão do botão:
+			ev.stopImmediatePropagation();
+			ev.stopPropagation();
+			ev.preventDefault();
+			return false;
+		}
+	}	
+   </script>
+</head>
+<body class="fluig-style-guide" onload="loadBody()">
+	<div class="fluig-style-guide">
+		<form name="form" role="form">
+			<div class="container-fluid" style="padding-left: 0px; padding-right: 0px; ">
+				<div class="panel panel-info">
+					<div class="panel-heading fs-txt-center">
+						<table width="100%">
+							<tr>
+								<td width="5%" align=left></td>
+								<td width="90%" align=center><b>CADASTRO DE PROCESSOS</b></td>
+								<td width="5%" align=right></td>
+							</tr>
+						</table>
+					</div>
+					<div class="panel-body">
+						<div class="row">
+
+
+
+							<div class="form-group col-md-3 col-lg-3">
+								<label class="control-label" for="txtNome">Processo</label>
+								<div class="input-group">
+									<input type="hidden" class="grp_processo" name="cod_proc" id="cod_proc" />
+									<input type="text" class="form-control grp_processo valida" name="descr_proc" id="descr_proc" readonly>
+									<span class="input-group-addon fluigicon fluigicon-eraser fluigicon-sm" onclick="$('.grp_processo').val('');"></span>
+									<span id="bt_cargo" class="input-group-addon fluigicon fluigicon-zoom-in fluigicon-sm" onclick="openZoom({ field: 'processos' })"></span>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</form>
+	</div>
+</body>
+</html>
+

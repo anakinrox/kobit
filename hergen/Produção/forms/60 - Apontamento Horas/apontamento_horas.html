@@ -1,0 +1,233 @@
+<html>
+
+<head>
+	<link type="text/css" rel="stylesheet" href="/style-guide/css/fluig-style-guide.min.css" />
+	<script type="text/javascript" src="/portal/resources/js/jquery/jquery.js"></script>
+	<script type="text/javascript" src="/portal/resources/js/jquery/jquery-ui.min.js"></script>
+	<script type="text/javascript" src="/portal/resources/js/mustache/mustache-min.js"></script>
+	<script type="text/javascript" src="/style-guide/js/fluig-style-guide.min.js" charset="utf-8"></script>
+	<script type="text/javascript" src="/webdesk/vcXMLRPC.js" charset="utf-8"></script>
+	
+	<script type="text/javascript" src="zoom.js"></script>
+	<script type="text/javascript" src="valida.js"></script>
+	<script type="text/javascript" src="modalZoom.js"></script>
+	<script type="text/javascript" src='autosize.min.js'></script>
+	<script type="text/javascript" src="controle.js"></script>
+	
+</head>
+<style>
+	.alinharCenter {
+		text-align: center;
+	}
+
+	.espacoForm {
+		padding: 4%;
+	}
+
+	.hidden {
+		display: none;
+	}
+</style>
+
+<body onload="loadBody();">
+
+	<div class="fluig-style-guide">
+		<form name="form" role="form">
+
+			<input type="hidden" id="codAprov" name="codAprov">
+			<input type="hidden" id="codCcusto" name="codCcusto">
+			<input type="hidden" id="registroColab" name="registroColab">
+			
+			<input type="hidden" id="nome_user_abert" name="nome_user_abert">
+			<input type="hidden" id="user_abert" name="user_abert">
+
+			<div class="panel panel-primary">
+				<div class="panel-heading">
+					<h3 class="panel-title alinharCenter">
+						APONTAMENTO DE HORAS
+					</h3>
+				</div>
+				<div class="espacoForm">
+					<div class="panel panel-info">
+						<div class="panel-body">
+							<div class="row">
+								<div class="col-md-2">
+									<div class="form-group">
+										<label for="dataSolic">Data</label>
+										<div class="input-group">
+											<input type="text" class="form-control" id="dataSolic" name="dataSolic"
+												readonly>
+											<span class="input-group-addon">
+												<i class="flaticon flaticon-date-range icon-sm" aria-hidden="true"></i>
+											</span>
+										</div>
+									</div>
+								</div>
+								<div class="col-md-2">
+									<div class="form-group">
+										<label for="exampleTag">Matricula</label>
+										<div class="input-group">
+											<input type="text" mask="0000" name="matricula" id="matricula"  class="form-control" onblur="zoom('bt_matricula', this.id)" valida="Matricula" />
+											<span id = "bt_matricula" name="bt_matricula" class="input-group-addon fluigicon fluigicon-zoom-in fluigicon-sm" onclick="zoom(this.id)" ></span>
+										</div>
+									</div>
+								</div>
+								
+								<div class="col-md-6">
+									<div class="form-group">
+										<label for="exampleTag">Profissional</label>
+										<input type="text" name="nome_funcionario" id="nome_funcionario"  class="form-control"  readonly />
+									</div>
+								</div>
+							</div>
+							<div class="row">
+
+								<div class="col-md-2">
+									<div class="form-group">
+										<label for="exampleTag">C&oacute;digo</label>
+										<input type="text" name="cod_cc" id="cod_cc"  class="form-control" readonly />
+									</div>
+								</div>
+				
+								<div class="col-md-4">
+									<div class="form-group">
+										<label for="exampleTag">Centro de Custo</label>
+										<input type="text" name="den_cc" id="den_cc"  class="form-control" readonly />
+									</div>
+								</div>
+				
+										
+								<div class="col-md-2">
+									<label for="exampleTag" onclick="zoom('bt_aprov','cod_cc')"  >Matricula</label>
+									<input type="text" mask="0000" name="matricula_super" id="matricula_super"  class="form-control" readonly valida="Matricula Aprovador" />
+								</div>
+								
+								<div class="col-md-4">
+									<label for="exampleTag">Superior</label>
+									<input type="text" name="nome_super" id="nome_super" class="form-control"  readonly />				
+								</div>
+								
+							</div>	
+							
+						</div>
+					</div>
+					<div class="panel panel-info">
+
+						<div class="panel-heading">
+							<table>
+								<tr >
+									<th style="width:5%" >
+										<button type="button" id="btnAddChild" class="btn btn-success btns"
+											style="margin-bottom: 0.3em;" onclick="addChild()">
+											<i style="color:white;" class="fluigicon fluigicon-plus icon-sm"></i>
+										</button>
+									</th>
+									<th style="width:95%" >
+										<h3 class="panel-title alinharCenter">
+											<span><i class="fluigicon fluigicon-user-edit icon-sm" aria-hidden="true"></i>
+												HORÁRIOS DE ENTRADA/SAÍDA
+											</span>
+										</h3>
+									</th>
+								</tr>
+							</table>
+							
+						</div>
+						<div class="panel-body">
+							<table tablename="tbApontamento" id="tbApontamento" class="table" noaddbutton="true"
+								nodeletebutton="true">
+								<thead>
+									<tr>
+										<td style="width:20%" >
+											Data Apontamento
+										</td>
+										<td style="width:18%">
+											Entrada
+										</td>
+										<td style="width:18%">
+											Saída
+										</td>
+										<td style="width:40%">
+											Motivo
+										</td>
+										<td style="width:5%">
+										</td>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>
+											<div class="input-group">
+												<input type="text" class="form-control" name="dataApontada" id="dataApontada" onfocus="addCalendar(this)">
+												<span class="input-group-addon">
+													<i class="flaticon flaticon-date-range icon-sm" aria-hidden="true"></i>
+												</span>
+											</div>
+										</td>
+										<td>
+											<div class="input-group">
+												<input type="text" class="form-control" name="horaEntrada1" id="horaEntrada1" onchange="validaHora(this)" placeholder="00:00">
+												<span class="input-group-addon">
+													<i class="flaticon flaticon-clock icon-sm" aria-hidden="true"></i>
+												</span>
+											</div>
+										</td>
+										<td>
+											<div class="input-group">
+												<input type="text" class="form-control" name="horaSaida1" id="horaSaida1"  onchange="(validaHora(this), calculaHoras(this))" placeholder="00:00">
+												<span class="input-group-addon">
+													<i class="flaticon flaticon-clock icon-sm" 	aria-hidden="true"></i>
+												</span>
+											</div>
+										</td>
+										<td>
+											<input type="zoom" class="form-control" 
+													id="motivos"
+													name="motivos" data-zoom="{
+															'displayKey':'motivo',
+															'datasetId':'ds_motivos_cadastrados',
+															'maximumSelectionLength':'1',
+															'placeholder':'Selecione...',
+															'fields':[
+																{
+																	'field': 'codigo',
+																	'label': 'CÃ³digo',
+																	'visible': 'false'
+																}, {
+																	'field': 'motivo',
+																	'label': 'Motivo',
+																	'visible': 'false'
+																}, {
+																	'field': 'codDesc',
+																	'label': 'Motivos',
+																	'standard': 'true'
+																}]
+															 }"
+											/>
+										</td>
+										<td>
+											<div class="form-group">
+												<button type="button" id="btnRemove" class="btn btn-danger btns" onclick="fnWdkRemoveChild(this)" class="form-control">
+													<i style="color: white;" class="fluigicon fluigicon-remove icon-sm"></i>
+												</button>
+											</div>
+										</td>
+									</tr>
+								</tbody>
+							</table>
+							<div class="form-group">
+								<label for="obsApontamento">Observações:</label>
+								<textarea class="form-control" name="obsApontamento" id="obsApontamento" rows="4"
+									placeholder="Descreva aqui..."></textarea>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</form>
+	</div>
+	<script src="script.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
+</body>
+
+</html>

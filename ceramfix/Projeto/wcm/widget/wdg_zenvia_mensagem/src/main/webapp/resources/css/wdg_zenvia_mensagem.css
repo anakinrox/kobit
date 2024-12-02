@@ -1,0 +1,80 @@
+/* Coloque aqui seu codigo CSS */
+
+
+.mensagem {
+    display: flex;
+    position: relative;
+    width: 100%;
+    margin: 5px 0;
+}
+
+.mensagem p{
+    position: relative;
+    right: 0;
+    text-align: right;
+    min-width: 65%;
+    padding: 12px;
+    background-color: #dcf8c8;
+    border-radius: 10px;
+    font-size: 0.9em;
+}
+
+.mensagem p::before{
+    content: "";
+    position: absolute;
+    top: 0;
+    right: -12;
+    width: 20px;
+    height: 20px;
+    /* background: linear-gradient(
+        135deg,
+        #dcf8c6 0%,
+        #dcf8c6 50%,
+        transparent 50%,
+        transparent
+    );   */
+}
+
+.mensagem p span{
+    display: block;
+    margin-top: 5px;
+    font-size: 0.85em;
+    opacity: 0.5;
+}
+
+.msg_out {
+    justify-content: flex-end;
+}
+
+.msg_in {
+    justify-content: flex-start;
+}
+
+.msg_in p{
+    background-color: #c7c3c3;
+    text-align: left;
+}
+
+.mensagem .msg_in p::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: -12;
+    width: 20px;
+    height: 20px;
+    background: linear-gradient(
+        225deg,
+        #c7c3c3 0%,
+        #c7c3c3 50%,
+        transparent 50%,
+        transparent);
+}
+
+.scrollable {
+    position: relative;
+    overflow: hidden;
+    height: 253px;
+    overflow-y: scroll;
+    flex-direction: column-reverse;
+    transform-origin: 50% 50%;
+}

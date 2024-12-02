@@ -1,0 +1,131 @@
+<!-- dsReservasGerais -->
+<html>
+  <head>
+    <link type="text/css" rel="stylesheet" href="/style-guide/css/fluig-style-guide.min.css" />
+    <link rel="stylesheet" type="text/css" href="/style-guide/css/fluig-style-guide-colorpicker.min.css" />
+    <script type="text/javascript" src="/portal/resources/js/jquery/jquery.js" charset="utf-8"></script>
+    <script type="text/javascript" src="/portal/resources/js/jquery/jquery-ui.min.js" charset="utf-8"></script>
+    <script type="text/javascript" src="/portal/resources/js/mustache/mustache-min.js" charset="utf-8"></script>
+    <script type="text/javascript" src="/style-guide/js/fluig-style-guide.min.js" charset="utf-8"></script>
+    <script type="text/javascript" src="/style-guide/js/fluig-style-guide-colorpicker.min.js" charset="utf-8"></script>
+    <script type="text/javascript" src="js/modalZoom.js"></script>
+    <script type="text/javascript" src="js/zoom.js"></script>
+    <script type="text/javascript" src="js/main.js"></script>
+  </head>
+  <body onload="main()">
+    <div class="fluig-style-guide">
+      <form name="form" role="form">
+        <input type="hidden" name="responsavelCodigo" />
+        <input type="hidden" name="empresaCodigo" id="empresaCodigo" />
+        <input type="hidden" name="tipoObjetoReservaCodigo" id="tipoObjetoReservaCodigo" />
+        <input type="hidden" name="objetoReservaCodigo" id="objetoReservaCodigo" />
+        <input type="hidden" name="dataHoraInicioMillis" id="dataHoraInicioMillis" />
+        <input type="hidden" name="dataHoraFimMillis" id="dataHoraFimMillis" />
+        <input type="hidden" name="timeZone" id="timeZone" />
+
+        <div class="panel panel-default">
+          <div class="panel-body">
+            <h2 class="page-header"><i class="fluigicon fluigicon-query-multiple"></i> <strong>Reserva</strong></h2>
+
+            <div class="row">
+              <div class="col-md-6 col-xs-12">
+                <div class="form-group">
+                  <label class="control-label" for="responsavel">Responsável</label>
+                  <input type="text" name="responsavel" id="responsavel" class="form-control" readonly />
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-3 col-xs-12">
+                <div class="form-group">
+                  <label class="control-label" for="dataHoraInicio">Data e hora de início</label>
+                  <span class="required text-danger"><strong>*</strong></span>
+                  <input type="text" name="dataHoraInicio" id="dataHoraInicio" class="form-control" />
+                </div>
+              </div>
+              <div class="col-md-3 col-xs-12">
+                <div class="form-group">
+                  <label class="control-label" for="dataHoraFim">Data e hora de fim</label>
+                  <span class="required text-danger"><strong>*</strong></span>
+                  <input type="text" name="dataHoraFim" id="dataHoraFim" class="form-control" />
+                </div>
+              </div>
+              <div class="col-md-4 col-xs-12">
+                <div class="form-group">
+                  <label class="control-label" for="titulo">Título</label>
+                  <span class="required text-danger"><strong>*</strong></span>
+                  <input type="text" name="titulo" id="titulo" class="form-control" />
+                </div>
+              </div>
+              <div class="col-md-2 col-xs-12">
+                <div class="form-group">
+                  <label class="control-label" for="cor">Cor</label>
+                  <input type="text" name="cor" id="cor" class="form-control" />
+                </div>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-md-4 col-xs-12">
+                <div class="form-group">
+                  <label class="control-label" for="empresa">Empresa</label>
+                  <span class="required text-danger"><strong>*</strong></span>
+                  <div class="input-append input-group">
+                    <input type="text" name="empresa" id="empresa" class="form-control" readonly />
+                    <span tabindex="100" class="fs-cursor-pointer btn-primary add-on input-group-addon" id="btnClearEmpresa">
+                      <i class="fluigicon fluigicon-trash"></i>
+                    </span>
+                    <span tabindex="101" class="fs-cursor-pointer btn-primary add-on input-group-addon" id="btnZoomEmpresa">
+                      <i class="fluigicon fluigicon-zoom-in"></i>
+                    </span>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4 col-xs-12">
+                <div class="form-group">
+                  <label class="control-label" for="tipoObjetoReserva">Tipo de Objeto de Reserva</label>
+                  <span class="required text-danger"><strong>*</strong></span>
+                  <div class="input-append input-group">
+                    <input type="text" name="tipoObjetoReserva" id="tipoObjetoReserva" class="form-control" readonly />
+                    <span tabindex="100" class="fs-cursor-pointer btn-primary add-on input-group-addon" id="btnClearTipoObjetoReserva">
+                      <i class="fluigicon fluigicon-trash"></i>
+                    </span>
+                    <span tabindex="101" class="fs-cursor-pointer btn-primary add-on input-group-addon" id="btnZoomTipoObjetoReserva">
+                      <i class="fluigicon fluigicon-zoom-in"></i>
+                    </span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-md-4 col-xs-12">
+                <div class="form-group">
+                  <label class="control-label" for="objetoReserva">Objeto de Reserva</label>
+                  <span class="required text-danger"><strong>*</strong></span>
+                  <div class="input-append input-group">
+                    <input type="text" name="objetoReserva" id="objetoReserva" class="form-control" readonly />
+                    <span tabindex="100" class="fs-cursor-pointer btn-primary add-on input-group-addon" id="btnClearObjetoReserva">
+                      <i class="fluigicon fluigicon-trash"></i>
+                    </span>
+                    <span tabindex="101" class="fs-cursor-pointer btn-primary add-on input-group-addon" id="btnZoomObjetoReserva">
+                      <i class="fluigicon fluigicon-zoom-in"></i>
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-md-12 col-xs-12">
+                <div class="form-group">
+                  <label class="control-label" for="descricao">Descrição</label>
+                  <span class="required text-danger"><strong>*</strong></span>
+                  <textarea id="descricao" name="descricao" class="form-control"></textarea>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </body>
+</html>

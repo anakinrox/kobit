@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog">
+  <uri name="http://www.omg.org/spec/BPMN/20100524/MODEL" uri="jar:file:/C:/Totvs/TotvsDeveloperStudio-11.3/plugins/com.totvs.tds.ecm.designer.eclipse_1.8.0.1.jar!/xsd/BPMN20.xsd"/>
+</catalog>

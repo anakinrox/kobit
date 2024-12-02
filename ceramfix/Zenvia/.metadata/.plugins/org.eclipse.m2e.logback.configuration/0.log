@@ -1,0 +1,19 @@
+2024-09-30 16:13:15,773 [Worker-1] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: br.com.kobit:zenvia_hook:0.0.1-SNAPSHOT @ C:\Trabalho\Kobit\ceramfix\zenvia_hook\pom.xml.
+2024-09-30 16:13:15,773 [Worker-0] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: br.com.kobit:zenvia_hook:0.0.1-SNAPSHOT @ C:\Trabalho\Kobit\ceramfix\zenvia_hook\pom.xml.
+2024-09-30 16:13:18,891 [Worker-1] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2024-09-30 16:13:18,894 [Worker-1] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 7 resources
+2024-09-30 16:13:18,920 [Worker-1] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2024-09-30 16:13:18,921 [Worker-1] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Trabalho\Kobit\ceramfix\zenvia_hook\src\test\resources
+2024-09-30 16:13:20,266 [Worker-0] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: br.com.kobit:zenvia_hook:0.0.1-SNAPSHOT @ C:\Trabalho\Kobit\ceramfix\zenvia_hook\pom.xml.
+2024-09-30 16:13:21,821 [Worker-7] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2024-09-30 16:13:21,827 [Worker-7] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 7 resources
+2024-09-30 16:13:21,844 [Worker-7] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2024-09-30 16:13:21,844 [Worker-7] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Trabalho\Kobit\ceramfix\zenvia_hook\src\test\resources
+2024-09-30 16:13:23,739 [Worker-0] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2024-09-30 16:13:23,739 [Worker-0] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2024-09-30 16:13:23,740 [Worker-0] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2024-09-30 16:13:23,740 [Worker-0] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Trabalho\Kobit\ceramfix\zenvia_hook\src\test\resources
+2024-09-30 16:13:49,638 [Worker-0] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2024-09-30 16:13:49,646 [Worker-0] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 7 resources
+2024-09-30 16:13:49,655 [Worker-0] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2024-09-30 16:13:49,655 [Worker-0] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Trabalho\Kobit\ceramfix\zenvia_hook\src\test\resources

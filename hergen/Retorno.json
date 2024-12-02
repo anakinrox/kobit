@@ -1,0 +1,17 @@
+{
+    "codEmpresa": "02",
+    "numDocumento": "320",
+    "codItem": "",
+    "codOperador": "959",
+    "dataIni": "2022-11-03",
+    "HoraIni": "09:52",
+    "DataFim": "2022-11-03",
+    "HoraFim": "09:52",
+    "ordens": [
+        {
+            "numOrdem": "4730265",
+            "codOperacao": "410",
+            "codCentroCusto": "320"
+        }
+    ]
+}

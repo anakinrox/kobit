@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy element &apos;validateForm.js&apos; to &apos;events&apos;&#x0D;&#x0A;- Original project: &apos;Produção&apos;&#x0D;&#x0A;- Destination element: &apos;events&apos;&#x0D;&#x0A;- Original element: &apos;validateForm.js&apos;" description="Copy file" element1="forms/111778 - Comercial HW/events/validateForm.js" files="1" flags="589830" folders="0" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyResources" stamp="1687557609567" target="/Produção/forms/33 - Cadastro de Funcionários/events" units="0" version="1.0"/>
+</session>

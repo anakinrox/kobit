@@ -1,0 +1,25 @@
+------- ----------------Vamos lá ----------------------
+
+Nesse documento descreve passo a passo  o processo de instalação
+
+Primeiro instale driver do equipamento fingertec disponivel na pasta "1 - Driver da Finger Tec" 
+
+Segundo instale driver da Api disponivel na pasta "2 - Drivers Api de Leitura Biometria" 
+
+Terceiro instale a Api disponivel na pasta "3 - Instalador da Api de Leitura de Biometria"
+
+
+Diretoria da aplicação Instalação 
+
+C:\Program Files\Kobit\ApiLeituraDeBiometria\ApiLeituraDeBiometria.exe
+
+basta clique na aplicação manualmente para iniciala.
+
+endereço padrão acesso ao swagger, o c# core usa padrão a porta 5000.
+
+http://localhost:5000/swagger/index.html
+
+
+
+liberar Host Cors
+chrome://flags/#block-insecure-private-network-requests

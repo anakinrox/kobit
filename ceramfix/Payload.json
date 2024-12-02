@@ -1,0 +1,100 @@
+[
+    {
+        "preorder_id": "123456",
+        "order_id": "123123",
+        "order_type": "dropshipping",
+        "order_desc": "1085340",
+        "fiscal_desc": "",
+        "freight_type": "CIF",
+        "location_cnpj": "07.293.000/0001-76",
+        "items": [
+            {
+                "code": "318004",
+                "description": "",
+                "quantity": "17280",
+                "purchase_value": "3.03",
+                "sale_value": "13.90",
+                "promised_date": "2024-11-10",
+                "required_date": "2024-11-05"
+            },
+            {
+                "code": "318000",
+                "description": "",
+                "quantity": "2880",
+                "purchase_value": "0.37",
+                "sale_value": "3.37",
+                "promised_date": "2024-11-10",
+                "required_date": "2024-11-05"
+            },
+            {
+                "code": "318023",
+                "description": "",
+                "quantity": "1400",
+                "purchase_value": "19.32",
+                "sale_value": "22.32",
+                "promised_date": "2024-11-10",
+                "required_date": "2024-11-05"
+            },
+            {
+                "code": "318007",
+                "description": "",
+                "quantity": "600",
+                "purchase_value": "19.39",
+                "sale_value": "22.39",
+                "promised_date": "2024-11-10",
+                "required_date": "2024-11-05"
+            },
+            {
+                "code": "318008",
+                "description": "",
+                "quantity": "600",
+                "purchase_value": "19.32",
+                "sale_value": "22.32",
+                "promised_date": "2024-11-10",
+                "required_date": "2024-11-05"
+            },
+            {
+                "code": "318014",
+                "description": "",
+                "quantity": "600",
+                "purchase_value": "19.32",
+                "sale_value": "22.32",
+                "promised_date": "2024-11-10",
+                "required_date": "2024-11-05"
+            }
+        ],
+        "buyer_info": {
+            "name": "John da Silva",
+            "cpf": "12345678900",
+            "address": "Rua Alfredo José"
+        },
+        "client_info": {
+            "cnpj": "41.993.467/0001-67",
+            "state_registration": "ISENTO",
+            "company_name": "Patricia Sabino Teixeira02925364969",
+            "trade_name": "Patricia Sabino Teixeira",
+            "postal_code": "89251060",
+            "ibge_code": "4208906",
+            "street_type": "Rua",
+            "street_name": "Felipe Schmidt",
+            "street_number": "218",
+            "neighborhood": "Centro",
+            "phone": "47 20331741",
+            "email": "marcio@gmail.com"
+        },
+        "carrier_info": {
+            "cnpj": "65.969.431/0001-06",
+            "state_registration": "ISENTO",
+            "company_name": "RAZAO  CLIENTE",
+            "trade_name": "F CLIENTE",
+            "postal_code": "89251200",
+            "ibge_code": "123854789",
+            "street_type": "VC",
+            "street_name": "ALGUMA COISA",
+            "street_number": "001",
+            "neighborhood": "VILA NOVA",
+            "phone": "47 20331741",
+            "email": "email@yahoo.com.br"
+        }
+    }
+]

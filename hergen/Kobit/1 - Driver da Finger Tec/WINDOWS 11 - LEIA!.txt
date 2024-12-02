@@ -1,0 +1,6 @@
+Para uso do leitor HAMSTER no Windows 11, você deve DESATIVAR o recurso "ISOLAMENTO DE NÚCLEO", 
+reiniciar o computador e instalar o driver contido nesta pasta.
+
+Basta digitar "Isolamento de núcleo" na barra pesquisa do menu Iniciar do Windows.
+
+Para mais dúvidas, contate o SUPORTE Fingertech: suporte@fingertech.com.br

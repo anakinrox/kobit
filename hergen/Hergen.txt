@@ -1,0 +1,22 @@
+*h3rg3n@40 - Senha WiFi
+
+*h3rg3n@40
+
+
+Edelcio e Matheus - EPI
+Controle de Documentação - Edevaldo
+
+
+
+ - Finalizar a Solicitação antiga assim que a nova for entregue. = ok
+ - Atualizar o cadastro do funcionario ao atualizar cadastro do Senior. = ok
+ - Colocar o campo de assinatura em todas as peginas a serem impressa.
+ - Ocultar campos Centro de Custo/Função quando não forem terceiros. = ok
+ - Ao incluir um item no Grid abrir o zoom dos EPI's = ok
+
+
+DataSet por Formularios
+
+- Cadastro de EPI's = 	 - Cadastro de EPI's
+- Cadastro de Funcionarios = ds_cadastro_funcionario - Cadastro de Funcionários
+- Solicitação de EPI's = ds_solicitacao_epi - Solicitação de EPI's

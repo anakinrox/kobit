@@ -1,0 +1,185 @@
+<html>
+
+<head>
+	<link type="text/css" rel="stylesheet" href="/style-guide/css/fluig-style-guide.min.css" />
+	<script type="text/javascript" src="/portal/resources/js/jquery/jquery.js"></script>
+	<script type="text/javascript" src="/portal/resources/js/jquery/jquery-ui.min.js"></script>
+	<script type="text/javascript" src="/portal/resources/js/mustache/mustache-min.js"></script>
+	<script type="text/javascript" src="/style-guide/js/fluig-style-guide.min.js" charset="utf-8"></script>
+
+	<script type="text/javascript" src="/webdesk/vcXMLRPC.js"></script>
+	<script type="text/javascript" src="modalZoom.js" charset="utf-8"></script>
+	<script type="text/javascript" src="controle.js" charset="utf-8"></script>
+	<script type="text/javascript" src="util.js" charset="utf-8"></script>
+	<script type="text/javascript" src="zoom.js" charset="utf-8"></script>
+	<link type="text/css" rel="stylesheet" href="style.css" />	
+</head>
+
+<body onLoad="loadBody()">
+	<div class="fluig-style-guide">
+		<form name="form" role="form">
+			<div class="panel panel-info">
+				<div class="panel-heading fs-txt-center">
+					Solicitação de EPI's
+				</div>
+				<div class="panel-body">
+					<div class="row">
+						<div class="col-md-2">
+							<label>Terceiro</label>
+							<select class="form-control" id="terceiro" name="terceiro" onchange="handleTerceiro();" tabindex="-1" readonly="readonly">
+								<option value="N" selected>Não</option>
+								<option value="S">Sim</option>
+							</select>
+						</div>
+						<div class="col-md-4 mt">
+							<label>Nome do Funcionário</label>
+							<div class="input-group">
+								<input type="text" class="form-control" name="nome_funcionario" id="nome_funcionario" readonly/>
+								<input type="hidden" class="form-control" name="idvalidade" id="idvalidade"/>
+								<input type="hidden" class="form-control" name="hash_cadastrada" id="hash_cadastrada"/>
+								<input type="hidden" class="form-control" name="hash_utilizado" id="hash_utilizado"/>
+								<span class="input-group-addon fluigicon fluigicon-zoom-in fluigicon-sm" style="cursor: pointer" onclick="zoom('matricula')"> </span>
+								<span class="input-group-addon flaticon flaticon-digital icon-lg" style="cursor: pointer" title="Validar digital" id="btnDigital" onclick="f_validaDigital();"> </span>								
+							</div>
+						</div>
+						<div class="col-md-2 mt">
+							<label>Crach&aacute;</label>
+							<input type="text" class="form-control" name="cracha" id="cracha" readonly/>
+						</div>
+						
+						<div class="col-md-2 mt">
+							<label>Data</label>
+							<input type="text" class="form-control" name="data_refer" id="data_refer" readonly/>
+						</div>
+						
+					</div>
+					
+					<div class="row terceiro">
+						<div class="col-md-2 mt">
+							<label>Cod Fornecedor</label>
+							<div class="input-group">
+								<input type="text" class="form-control fornecedor" name="cod_fornecedor" id="cod_fornecedor" value="" readonly />
+								<span class="input-group-addon fluigicon fluigicon-eraser icon-md"
+									style="cursor: pointer" onclick="$('.fornecedor').val('')">
+								</span>
+								<span class="input-group-addon fluigicon fluigicon-zoom-in fluigicon-sm"
+									style="cursor: pointer" onclick="zoom('fornecedor')">
+								</span>
+							</div>
+						</div>
+						<div class="col-md-4 mt">
+							<label>Fornecedor</label>
+							<input type="text" class="form-control fornecedor" name="raz_social" id="raz_social" readonly />
+						</div>
+					</div>
+					
+					<div class="row">
+					
+						<div class="col-md-2 mt">
+							<label>Centro de Custo</label>
+							<div class="input-group">
+								<input type="text" class="form-control" name="ccusto" id="ccusto" value="" readonly />
+								<span class="input-group-addon fluigicon fluigicon-zoom-in fluigicon-sm"
+									style="cursor: pointer" onclick="zoom('ccusto')">
+								</span>
+							</div>
+						</div>
+						<div class="col-md-4 mt">
+							<label>Descri&ccedil;&atilde;o Centro de Custo</label>
+							<input type="text" class="form-control" name="desc_ccusto" id="desc_ccusto" readonly />
+						</div>
+						<div class="col-md-2 mt">
+							<label>Fun&ccedil;&atilde;o</label>
+							<div class="input-group">
+								<input type="text" class="form-control" name="funcao" id="funcao" value="" readonly />
+								<span class="input-group-addon fluigicon fluigicon-zoom-in fluigicon-sm"
+									style="cursor: pointer" onclick="zoom('funcao')">
+								</span>
+							</div>
+						</div>
+						<div class="col-md-4 mt">
+							<label>Descri&ccedil;&atilde;o Fun&ccedil;&atilde;o</label>
+							<input type="text" class="form-control" name="desc_funcao" id="desc_funcao" readonly />
+						</div>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="row">
+						<div class="col-md-2">
+							<button type="button" class="btn btn-primary" id="addEpi" onclick="addLineTable();"
+								style="margin-left: 40px;">Adicionar</button>
+						</div>
+					</div>
+					<div class="col-md-12">
+						<table id="epi" tablename="epi" class="table" noaddbutton="true" nodeletebutton="true">
+							<thead>
+								<tr>
+								</tr>
+							</thead>
+							<tbody>
+								<tr class="line_epi">
+									<td data-fluig-state-hide="" class="hideView">
+										<i class="fluigicon fluigicon-trash icon-md"
+											style="margin-top: 20px; cursor: pointer"
+											onclick="removeLineTable(this)"></i>
+									</td>
+									<td>
+										<div class="row">
+											<div class="col-sm-2">
+												<label class="control-label">C&oacute;digo do EPI</label>
+												<div class="input-group">
+													<input type="text" class="form-control" name="codigo_item"
+														id="codigo_item" value="" readonly />
+													<span
+														class="input-group-addon fluigicon fluigicon-zoom-in fluigicon-sm"
+														style="cursor: pointer" onclick="zoom(this.children[0].id)">
+														<input type="hidden" name="codigo_epi" id="codigo_epi" />
+													</span>
+												</div>
+											</div>
+											<div class="col-sm-3">
+												<label class="control-label">Descri&ccedil;&atilde;o</label>
+												<input type="text" class="form-control" id="descricao_item"
+													name="descricao_item" readonly />
+											</div>
+											<div class="col-sm-1">
+												<label class="control-label">Refer&ecirc;ncia</label>
+												<input type="text" class="form-control" id="referencia"
+													name="referencia" readonly />
+											</div>
+											<div class="col-sm-1">
+												<label class="control-label">Quantidade</label>
+												<input type="text" class="form-control" id="quantidade"
+													name="quantidade" />
+											</div>
+											<div class="col-sm-1">
+												<label class="control-label">Padr&atilde;o de Troca (dias)</label>
+												<input type="text" class="form-control" id="padrao_troca"
+													name="padrao_troca" readonly />
+											</div>
+											<div class="col-sm-2">
+												<label class="control-label">Pr&oacute;xima Troca</label>
+												<input type="text" class="form-control" id="prox_troca"
+													name="prox_troca" readonly />
+											</div>
+											<div class="col-sm-2">
+												<label class="control-label">CA</label>
+												<input type="text" class="form-control" id="ca"
+													name="ca" readonly />
+											</div>
+											<input type="hidden" name="data_impressao_ficha" id="data_impressao_ficha" />
+											<input type="hidden" name="indice" id="indice" />
+										</div>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+		</form>
+	</div>
+</body>
+
+</html>

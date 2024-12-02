@@ -1,0 +1,89 @@
+{
+    "clientName": "Thunder Client",
+    "collectionName": "Pedidos",
+    "collectionId": "c1e8fb9a-a991-4ffb-9b3b-54bf3102190b",
+    "dateExported": "2024-10-28T19:12:45.302Z",
+    "version": "1.2",
+    "folders": [],
+    "requests": [
+        {
+            "_id": "55d207ea-2a3b-4275-92a9-e7a5dbf99ed2",
+            "colId": "c1e8fb9a-a991-4ffb-9b3b-54bf3102190b",
+            "containerId": "",
+            "name": "Envio Pedidos",
+            "url": "{{baseUrl}}/integra_pedidos/api/v1/pedidos",
+            "method": "POST",
+            "sortNum": 10000,
+            "created": "2024-10-08T14:19:05.402Z",
+            "modified": "2024-10-22T15:33:40.173Z",
+            "headers": [
+                {
+                    "name": "token",
+                    "value": "WTkwjRCmZvfZd5bVArI2yFJMfQvLkPkY5yUTDFV3CdfCVYGwrPYIISJV3k9WPTqI"
+                },
+                {
+                    "name": "Content-Type",
+                    "value": "application/json"
+                }
+            ],
+            "body": {
+                "type": "json",
+                "raw": "[\r\n    {\r\n        \"preorder_id\": \"123456\",\r\n        \"order_id\": \"123123\",\r\n        \"order_type\": \"dropshipping\",\r\n        \"order_desc\": \"1085340\",\r\n        \"fiscal_desc\": \"\",\r\n        \"freight_type\": \"CIF\",\r\n        \"location_cnpj\": \"07.293.000/0001-76\",\r\n        \"items\": [\r\n            {\r\n                \"code\": \"318004\",\r\n                \"description\": \"\",\r\n                \"quantity\": \"17280\",\r\n                \"purchase_value\": \"13.90\",\r\n                \"sale_value\": \"21.90\",\r\n                \"promised_date\": \"2024-11-10\",\r\n                \"required_date\": \"2024-11-05\"\r\n            },\r\n            {\r\n                \"code\": \"318000\",\r\n                \"description\": \"\",\r\n                \"quantity\": \"2880\",\r\n                \"purchase_value\": \"0.37\",\r\n                \"sale_value\": \"3.37\",\r\n                \"promised_date\": \"2024-11-10\",\r\n                \"required_date\": \"2024-11-05\"\r\n            },\r\n            {\r\n                \"code\": \"318023\",\r\n                \"description\": \"\",\r\n                \"quantity\": \"1400\",\r\n                \"purchase_value\": \"19.32\",\r\n                \"sale_value\": \"22.32\",\r\n                \"promised_date\": \"2024-11-10\",\r\n                \"required_date\": \"2024-11-05\"\r\n            },\r\n            {\r\n                \"code\": \"318007\",\r\n                \"description\": \"\",\r\n                \"quantity\": \"600\",\r\n                \"purchase_value\": \"19.39\",\r\n                \"sale_value\": \"22.39\",\r\n                \"promised_date\": \"2024-11-10\",\r\n                \"required_date\": \"2024-11-05\"\r\n            },\r\n            {\r\n                \"code\": \"318008\",\r\n                \"description\": \"\",\r\n                \"quantity\": \"600\",\r\n                \"purchase_value\": \"19.32\",\r\n                \"sale_value\": \"22.32\",\r\n                \"promised_date\": \"2024-11-10\",\r\n                \"required_date\": \"2024-11-05\"\r\n            },\r\n            {\r\n                \"code\": \"318014\",\r\n                \"description\": \"\",\r\n                \"quantity\": \"600\",\r\n                \"purchase_value\": \"19.32\",\r\n                \"sale_value\": \"22.32\",\r\n                \"promised_date\": \"2024-11-10\",\r\n                \"required_date\": \"2024-11-05\"\r\n            }\r\n        ],\r\n        \"buyer_info\": {\r\n            \"name\": \"John da Silva\",\r\n            \"cpf\": \"12345678900\",\r\n            \"address\": \"Rua Alfredo José\"\r\n        },\r\n        \"client_info\": {\r\n            \"cnpj\": \"41.993.467/0001-67\",\r\n            \"state_registration\": \"ISENTO\",\r\n            \"company_name\": \"Patricia Sabino Teixeira02925364969\",\r\n            \"trade_name\": \"Patricia Sabino Teixeira\",\r\n            \"postal_code\": \"89251060\",\r\n            \"ibge_code\": \"4208906\",\r\n            \"street_type\": \"Rua\",\r\n            \"street_name\": \"Felipe Schmidt\",\r\n            \"street_number\": \"218\",\r\n            \"neighborhood\": \"Centro\",\r\n            \"phone\": \"47 20331741\",\r\n            \"email\": \"marcio@gmail.com\"\r\n        }\r\n    }\r\n]",
+                "form": []
+            }
+        },
+        {
+            "_id": "98a73c71-87e1-4c80-9d0e-3a0bd786dcfc",
+            "colId": "c1e8fb9a-a991-4ffb-9b3b-54bf3102190b",
+            "containerId": "",
+            "name": "Liebera Pedidos",
+            "url": "{{baseUrl}}/integra_pedidos/api/v1/pedidos/liberar",
+            "method": "POST",
+            "sortNum": 20000,
+            "created": "2024-10-11T17:54:49.800Z",
+            "modified": "2024-10-17T13:37:43.599Z",
+            "headers": [
+                {
+                    "name": "token",
+                    "value": "WTkwjRCmZvfZd5bVArI2yFJMfQvLkPkY5yUTDFV3CdfCVYGwrPYIISJV3k9WPTqI"
+                },
+                {
+                    "name": "Content-Type",
+                    "value": "application/json"
+                }
+            ],
+            "body": {
+                "type": "json",
+                "raw": "[\n  {\n    \"PEDIDO\": {\n      \"PEDIDO_VENDA\": \"123\",\n      \"STATUS\": \"L\"\n    }\n  },\n  {\n    \"PEDIDO\": {\n      \"PEDIDO_VENDA\": \"124\",\n      \"STATUS\": \"B\"\n    }\n  }\n]",
+                "form": []
+            }
+        },
+        {
+            "_id": "3b09e226-b00d-49cd-8fba-8516c1a439cc",
+            "colId": "c1e8fb9a-a991-4ffb-9b3b-54bf3102190b",
+            "containerId": "",
+            "name": "Atualziar Pedidos",
+            "url": "{{baseUrl}}/integra_pedidos/api/v1/pedidos/atualizar",
+            "method": "POST",
+            "sortNum": 30000,
+            "created": "2024-10-11T18:19:51.375Z",
+            "modified": "2024-10-17T13:37:51.545Z",
+            "headers": [
+                {
+                    "name": "token",
+                    "value": "WTkwjRCmZvfZd5bVArI2yFJMfQvLkPkY5yUTDFV3CdfCVYGwrPYIISJV3k9WPTqI"
+                },
+                {
+                    "name": "Content-Type",
+                    "value": "application/json"
+                }
+            ],
+            "body": {
+                "type": "json",
+                "raw": "[\n  {\n    \"PEDIDO\": {\n      \"PEDIDO_VENDA\": \"123\",\n      \"NOTAFISCAL\": \"121\",\n      \"OBSERVACOES\": \"L\"\n    }\n  },\n  {\n    \"PEDIDO\": {\n      \"PEDIDO_VENDA\": \"124\",\n      \"NOTAFISCAL\": \"121\",\n      \"OBSERVACOES\": \"L\"\n    }\n  }\n]",
+                "form": []
+            }
+        }
+    ],
+    "ref": "qmTIatdqwBZooBlae_j4Fm6_MSAdgnWi2pQImtu3qnL67vH63wlsTAdgQQ6NtCGOReeP35sX1rMtUq3IQBOcJA"
+}

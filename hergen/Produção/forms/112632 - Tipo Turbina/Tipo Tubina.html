@@ -1,0 +1,65 @@
+
+<html>
+<head>
+	<link type="text/css" rel="stylesheet" href="/portal/resources/style-guide/css/fluig-style-guide.min.css"/>
+	<script type="text/javascript" src="/portal/resources/js/jquery/jquery.js"></script>
+	<script type="text/javascript" src="/portal/resources/js/jquery/jquery-ui.min.js"></script>
+	<script type="text/javascript" src="/portal/resources/js/mustache/mustache-min.js"></script>
+	<script type="text/javascript" src="/portal/resources/style-guide/js/fluig-style-guide.min.js" charset="utf-8"></script>
+	<script type="text/javascript" src="/portal/resources/js/jquery.mask.min.js"></script>
+	
+	<script type="text/javascript" src="zoom.js"></script>
+	<script type="text/javascript" src="modalZoom.js"></script>
+	<script src='autosize.min.js'></script>
+	<script src="/webdesk/vcXMLRPC.js"></script>
+		
+	
+</head>
+<body >
+<form name="form" role="form">
+	<div class="fluig-style-guide" id="divPrincipal">
+		<div class="panel panel-info" >
+			<div class="panel-heading fs-txt-center"><b>Motivo</b></div>
+			<div class="panel-body">
+				
+				<div class="row">
+					<div class="col-md-6">
+						<label for="exampleTag">Tipo Turbina</label>
+						<input type="text" name="tipo_turbina" id="tipo_turbina" class="form-control" />
+					</div>
+					<div class="col-md-2">
+						<label for="exampleTag">Situação</label>
+						<select name="situacao" id="situacao" class="form-control" >
+							<option value='' >  </option>
+							<option value='A' > Ativo </option>
+							<option value='I' > Inativo </option>
+						</select>
+					</div>	
+				</div>
+				
+				<div class="row">
+					<div class="col-md-6">			
+						<label for="exampleTag" >
+							Detalhe
+						</label>
+						<table class="table table-condensed table-bordered" border="1" tablename="detalhe"  noaddbutton=false nodeletebutton=false addbuttonclass="wdkbuttonClass" >
+							<thead>
+								<tr>
+									<td width='100%' class="cell-ellipsis"><b>Descricao</b></td>
+								</tr>
+							</thead>
+							<tr >
+								<td>								
+									<input type="text" class="form-control" name="detalhe" id="detalhe" >
+								</td>
+							</tr>
+						</table>					
+					</div>
+				</div>
+				
+			</div>
+		</div>
+	</div>
+</form>
+</body>
+</html>

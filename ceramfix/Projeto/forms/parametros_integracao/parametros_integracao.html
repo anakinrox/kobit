@@ -1,0 +1,230 @@
+<html>
+
+<head>
+	<link type="text/css" rel="stylesheet" href="/style-guide/css/fluig-style-guide.min.css" />
+	<script type="text/javascript" src="/portal/resources/js/jquery/jquery.js"></script>
+	<script type="text/javascript" src="/portal/resources/js/jquery/jquery-ui.min.js"></script>
+	<script type="text/javascript" src="/portal/resources/js/mustache/mustache-min.js"></script>
+	<script type="text/javascript" src="/style-guide/js/fluig-style-guide.min.js" charset="utf-8"></script>
+	<script type="text/javascript" src="js/modalZoom.js"></script>
+	<script type="text/javascript" src="js/zoom.js"></script>
+	<script type="text/javascript" src="/webdesk/vcXMLRPC.js"></script>
+</head>
+
+<body>
+	<div class="fluig-style-guide">
+		<form name="form" role="form">
+			<div class="row">
+				<div class="col-md-3 col-lg-3">
+					<label class="control-label" for="txtNome">Empresa</label>
+					<div class="input-group">
+						<input type="text" class="form-control grp_empresa" name="nome_empresa" id="nome_empresa" readonly>
+                        <input type="hidden" class="form-control grp_empresa" name="cod_empresa" id="cod_empresa" />
+						<span class="input-group-addon btn btn-primary" onclick="$('.grp_empresa').val('')"><i class="fluigicon fluigicon-eraser"></i></span>
+						<span id="bt_item" class="input-group-addon btn btn-primary" onclick="openZoom({ field: 'empresa' })"><i class="fluigicon fluigicon-zoom-in fluigicon-sm"></i></span>
+					</div>
+				</div>
+				<div class="col-md-3 col-lg-3">
+                    <label for="tipo_venda">Tipo Venda</label>
+                    <select name="tipo_venda" id="tipo_venda" class="form-control"> 
+                        <option value='dropshipping' selected>dropshipping</option>
+                        <option value='estoque'>Estoque</option>
+                    </select>
+				</div>                
+			</div>
+            <div class="row">&nbsp;</div>
+            <div class="panel-group">
+                <div class="panel panel-info">
+                    <div class="panel-heading">Dados para Faturamento</div>
+                    <div class="panel-body">
+                        <div class="row">
+                            <div class="col-md-3 col-lg-3">
+                                <label class="control-label" for="txtNome">Cliente</label>
+                                <div class="input-group">
+                                    <input type="text" class="form-control grp_cliente_fat" name="nome_cliente_fat" id="nome_cliente_fat" readonly>
+                                    <input type="hidden" class="form-control grp_cliente_fat" name="cod_cliente_fat" id="cod_cliente_fat" />
+                                    <span class="input-group-addon btn btn-primary"	onclick="$('.grp_cliente_fat').val('')"><i class="fluigicon fluigicon-eraser"></i></span>
+                                    <span id="bt_cliente_fat" class="input-group-addon btn btn-primary" onclick="openZoom({ field: 'cliente_fat' })"><i class="fluigicon fluigicon-zoom-in fluigicon-sm"></i></span>
+                                </div>
+                            </div>                          
+                        </div>                        
+                        <div class="row">
+                            <div class="col-md-3 col-lg-3">
+                                <label class="control-label" for="txtNome">Natureza</label>
+                                <div class="input-group">
+                                    <input type="text" class="form-control grp_user grp_natureza_fat" name="natureza_fat" id="natureza_fat" readonly>
+                                    <input type="hidden" class="form-control grp_user grp_natureza_fat" name="cod_natureza_fat" id="cod_natureza_fat">
+                                    <span class="input-group-addon btn btn-primary"	onclick="$('.grp_natureza_fat').val('')"><i class="fluigicon fluigicon-eraser"></i></span>
+                                    <span id="bt_natureza_fat" class="input-group-addon btn btn-primary" onclick="openZoom({ field: 'natureza_fat' })"><i class="fluigicon fluigicon-zoom-in fluigicon-sm"></i></span>
+                                </div>
+                            </div>
+
+                            <div class="col-md-3 col-lg-3">
+                                <label for="finalidade_fat">Finalidade</label>
+                                <select name="finalidade_fat" id="finalidade_fat" class="form-control"> 
+                                    <option value='' selected></option>
+                                    <option value='1'>Contribuinte (Indústria / Comércio)</option>
+                                    <option value='2'>Não Contribuinte</option>
+                                    <option value='3'>Contribuinte (Uso / Consumo)</option>
+                                </select>
+                            </div> 
+
+                            <div class="col-md-3 col-lg-3">
+                                <label class="control-label" for="txtNome">Cond. Pgto.</label>
+                                <div class="input-group">
+                                    <input type="text" class="form-control grp_user grp_cond_pgto_fat" name="cond_pgto_fat" id="cond_pgto_fat" readonly>
+                                    <input type="hidden" class="form-control grp_user grp_cond_pgto_fat" name="cod_cond_pgto_fat" id="cod_cond_pgto_fat">
+                                    <span class="input-group-addon btn btn-primary"	onclick="$('.grp_cond_pgto_fat').val('')"><i class="fluigicon fluigicon-eraser"></i></span>
+                                    <span id="bt_cond_pgto_fat" class="input-group-addon btn btn-primary" onclick="openZoom({ field: 'cond_pgto_fat' })"><i class="fluigicon fluigicon-zoom-in fluigicon-sm"></i></span>
+                                </div>
+                                </div>
+
+                            <div class="col-md-3 col-lg-3">
+                                <label class="control-label" for="txtNome">Cod. Carteira</label>
+                                <div class="input-group">
+                                    <input type="text" class="form-control grp_user grp_carteira_fat" name="carteira_fat" id="carteira_fat" readonly>
+                                    <input type="hidden" class="form-control grp_user grp_carteira_fat" name="cod_carteira_fat" id="cod_carteira_fat">
+                                    <span class="input-group-addon btn btn-primary"	onclick="$('.grp_carteira_fat').val('')"><i class="fluigicon fluigicon-eraser"></i></span>
+                                    <span id="bt_carteira_fat" class="input-group-addon btn btn-primary" onclick="openZoom({ field: 'carteira_fat' })"><i class="fluigicon fluigicon-zoom-in fluigicon-sm"></i></span>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="row">
+
+                            <div class="col-md-3 col-lg-3">
+                                <label  for="tipo_entrega_fat">Tipo de Entrega</label>
+                                <select name="tipo_entrega_fat" id="tipo_entrega_fat" class="form-control"> 
+                                    <option value='1' > TOTAL </option>
+                                    <option value='2' > PARCIAL ITEM TOTAL </option>
+                                    <option value='3' selected > PARCIAL ITEM PARCIAL </option>
+                                </select>
+                            </div>
+
+                            <div class="col-md-3 col-lg-3">
+                                <label class="control-label" for="txtNome">Moeda</label>
+                                <div class="input-group">
+                                    <input type="text" class="form-control grp_moeda_fat" name="moeda_fat" id="moeda_fat" readonly>
+                                    <input type="hidden" class="form-control grp_moeda_fat" name="cod_moeda_fat" id="cod_moeda_fat">
+                                    <span class="input-group-addon btn btn-primary" onclick="$('.grp_moeda_fat').val('')"><i class="fluigicon fluigicon-eraser"></i></span>
+                                    <span id="bt_moeda_fat" class="input-group-addon btn btn-primary" onclick="openZoom({ field: 'moeda_fat' })"><i class="fluigicon fluigicon-zoom-in fluigicon-sm"></i></span>
+                                </div>
+                            </div>
+
+                            <div class="col-md-3 col-lg-3">
+                                <label class="control-label" for="txtNome">Lista de Preço</label>
+                                <div class="input-group">
+                                    <input type="text" class="form-control grp_list_preco_fat" name="list_preco_fat" id="list_preco_fat" readonly>
+                                    <input type="hidden" class="form-control grp_list_preco_fat" name="cod_list_preco_fat" id="cod_list_preco_fat">
+                                    <span class="input-group-addon btn btn-primary" onclick="$('.grp_list_preco_fat').val('')"><i class="fluigicon fluigicon-eraser"></i></span>
+                                    <span id="bt_list_preco_fat" class="input-group-addon btn btn-primary" onclick="openZoom({ field: 'list_preco_fat' })"><i class="fluigicon fluigicon-zoom-in fluigicon-sm"></i></span>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        </div>                        
+                    </div>
+                </div>
+                <div class="row">&nbsp;</div>
+                <div class="panel panel-success">
+                    <div class="panel-heading">Dados para Remessa</div>
+                    <div class="panel-body">
+                        <div class="row">
+                            <div class="col-md-3 col-lg-3">
+                                <label class="control-label" for="txtNome">Cliente</label>
+                                <div class="input-group">
+                                    <input type="text" class="form-control grp_cliente_rem" name="nome_cliente_rem" id="nome_cliente_rem" readonly>
+                                    <input type="hidden" class="form-control grp_cliente_rem" name="cod_cliente_rem" id="cod_cliente_rem" />
+                                    <span class="input-group-addon btn btn-primary" onclick="$('.grp_cliente_rem').val('')"><i class="fluigicon fluigicon-eraser"></i></span>
+                                    <span id="bt_cliente_rem" class="input-group-addon btn btn-primary" onclick="openZoom({ field: 'cliente_rem' })"><i class="fluigicon fluigicon-zoom-in fluigicon-sm"></i></span>
+                                </div>
+                            </div>                            
+                        </div>
+                        <div class="row">
+
+                            <div class="col-md-3 col-lg-3">
+                                <label class="control-label" for="txtNome">Natureza</label>
+                                <div class="input-group">
+                                    <input type="text" class="form-control grp_user grp_natureza_rem" name="natureza_rem" id="natureza_rem" readonly>
+                                    <input type="hidden" class="form-control grp_user grp_natureza_rem" name="cod_natureza_rem" id="cod_natureza_rem">
+                                    <span class="input-group-addon btn btn-primary"	onclick="$('.grp_natureza_rem').val('')"><i class="fluigicon fluigicon-eraser"></i></span>
+                                    <span id="bt_natureza_rem" class="input-group-addon btn btn-primary" onclick="openZoom({ field: 'natureza_rem' })"><i class="fluigicon fluigicon-zoom-in fluigicon-sm"></i></span>
+                                </div>
+                            </div>
+
+                            <div class="col-md-3 col-lg-3">
+                                <label for="finalidade_rem">Finalidade</label>
+                                <select name="finalidade_rem" id="finalidade_rem" class="form-control"> 
+                                    <option value='' selected></option>
+                                    <option value='1'>Contribuinte (Indústria / Comércio)</option>
+                                    <option value='2'>Não Contribuinte</option>
+                                    <option value='3'>Contribuinte (Uso / Consumo)</option>
+                                </select>
+                            </div> 
+
+                            <div class="col-md-3 col-lg-3">
+                                <label class="control-label" for="txtNome">Cond. Pgto.</label>
+                                <div class="input-group">
+                                    <input type="text" class="form-control grp_user grp_cond_pgto_rem" name="cond_pgto_rem" id="cond_pgto_rem" readonly>
+                                    <input type="hidden" class="form-control grp_user grp_cond_pgto_rem" name="cod_cond_pgto_rem" id="cod_cond_pgto_rem">
+                                    <span class="input-group-addon btn btn-primary"	onclick="$('.grp_cond_pgto_rem').val('')"><i class="fluigicon fluigicon-eraser"></i></span>
+                                    <span id="bt_cond_pgto_rem" class="input-group-addon btn btn-primary" onclick="openZoom({ field: 'cond_pgto_rem' })"><i class="fluigicon fluigicon-zoom-in fluigicon-sm"></i></span>
+                                </div>
+                            </div>
+
+                            <div class="col-md-3 col-lg-3">
+                                <label class="control-label" for="txtNome">Cod. Carteira</label>
+                                <div class="input-group">
+                                    <input type="text" class="form-control grp_user grp_carteira_rem" name="carteira_rem" id="carteira_rem" readonly>
+                                    <input type="hidden" class="form-control grp_user grp_carteira_rem" name="cod_carteira_rem" id="cod_carteira_rem">
+                                    <span class="input-group-addon btn btn-primary"	onclick="$('.grp_carteira_rem').val('')"><i class="fluigicon fluigicon-eraser"></i></span>
+                                    <span id="bt_carteira_rem" class="input-group-addon btn btn-primary" onclick="openZoom({ field: 'carteira_rem' })"><i class="fluigicon fluigicon-zoom-in fluigicon-sm"></i></span>
+                                </div>
+                            </div>
+
+                        </div>
+                        
+                        <div class="row">
+
+                            <div class="col-md-3 col-lg-3">
+                                <label  for="tipo_entrega_rem">Tipo de Entrega</label>
+                                <select name="tipo_entrega_rem" id="tipo_entrega_rem" class="form-control"> 
+                                    <option value='1' > TOTAL </option>
+                                    <option value='2' > PARCIAL ITEM TOTAL </option>
+                                    <option value='3' selected > PARCIAL ITEM PARCIAL </option>
+                                </select>
+                            </div>
+
+                            <div class="col-md-3 col-lg-3">
+                                <label class="control-label" for="txtNome">Moeda</label>
+                                <div class="input-group">
+                                    <input type="text" class="form-control grp_moeda_rem" name="moeda_rem" id="moeda_rem" readonly>
+                                    <input type="hidden" class="form-control grp_moeda_rem" name="cod_moeda_rem" id="cod_moeda_rem">
+                                    <span class="input-group-addon btn btn-primary" onclick="$('.grp_moeda_rem').val('')"><i class="fluigicon fluigicon-eraser"></i></span>
+                                    <span id="bt_moeda_rem" class="input-group-addon btn btn-primary" onclick="openZoom({ field: 'moeda_rem' })"><i class="fluigicon fluigicon-zoom-in fluigicon-sm"></i></span>
+                                </div>
+                            </div>
+
+                            <div class="col-md-3 col-lg-3">
+                                <label class="control-label" for="txtNome">Lista de Preço</label>
+                                <div class="input-group">
+                                    <input type="text" class="form-control grp_list_preco_rem" name="list_preco_rem" id="list_preco_rem" readonly>
+                                    <input type="hidden" class="form-control grp_list_preco_rem" name="cod_list_preco_rem" id="cod_list_preco_rem">
+                                    <span class="input-group-addon btn btn-primary" onclick="$('.grp_list_preco_rem').val('')"><i class="fluigicon fluigicon-eraser"></i></span>
+                                    <span id="bt_list_preco_rem" class="input-group-addon btn btn-primary" onclick="openZoom({ field: 'list_preco_rem' })"><i class="fluigicon fluigicon-zoom-in fluigicon-sm"></i></span>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+			
+		</form>
+	</div>
+</body>
+
+</html>

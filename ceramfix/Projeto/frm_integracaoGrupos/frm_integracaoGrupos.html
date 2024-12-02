@@ -1,0 +1,72 @@
+<html>
+
+<head>
+	<link type="text/css" rel="stylesheet" href="/style-guide/css/fluig-style-guide.min.css" />
+	<script type="text/javascript" src="/portal/resources/js/jquery/jquery.js"></script>
+	<script type="text/javascript" src="/portal/resources/js/jquery/jquery-ui.min.js"></script>
+	<script type="text/javascript" src="/portal/resources/js/mustache/mustache-min.js"></script>
+	<script type="text/javascript" src="/style-guide/js/fluig-style-guide.min.js" charset="utf-8"></script>
+	<script type="text/javascript" src="js/modalZoom.js"></script>
+	<script type="text/javascript" src="js/zoom.js"></script>
+	<script type="text/javascript" src="js/main.js"></script>
+</head>
+
+<body>
+	<div class="fluig-style-guide">
+		<form name="form" role="form">
+			<div class="row">
+
+				<div class="form-group col-md-3 col-lg-3">
+					<label class="control-label" for="txtNome">Cargo</label>
+					<div class="input-group">
+						<input type="hidden" class="grp_user" name="cod_cargo" id="cod_cargo" />
+						<input type="text" class="form-control grp_user valida" name="nome_cargo" id="nome_cargo"
+							readonly>
+						<span class="input-group-addon fluigicon fluigicon-eraser fluigicon-sm"></span>
+						<span id="bt_cargo" class="input-group-addon fluigicon fluigicon-zoom-in fluigicon-sm"
+							onclick="openZoom({ field: 'cargo' })"></span>
+					</div>
+				</div>
+
+				<div class="form-group col-md-3 col-lg-3">
+					<label class="control-label" for="txtNome">Departamento</label>
+					<div class="input-group">
+						<input type="hidden" class="grp_user" name="cod_departamento" id="cod_departamento" />
+						<input type="text" class="form-control grp_user valida" name="nome_departamento"
+							id="nome_departamento" valida="field" readonly />
+						<span class="input-group-addon fluigicon fluigicon-eraser fluigicon-sm"></span>
+						<span id="bt_departamento" class="input-group-addon fluigicon fluigicon-zoom-in fluigicon-sm"
+							onclick="openZoom({ field: 'departamento' })"></span>
+					</div>
+				</div>
+
+				<div class="form-group col-md-3 col-lg-3">
+					<label class="control-label" for="txtNome">Unidade</label>
+					<div class="input-group">
+						<input type="hidden" class="grp_user" name="cod_unidade" id="cod_unidade" />
+						<input type="text" class="form-control grp_user valida" name="nome_unidade" id="nome_unidade"
+							valida="field" readonly />
+						<span class="input-group-addon fluigicon fluigicon-eraser fluigicon-sm"></span>
+						<span id="bt_departamento" class="input-group-addon fluigicon fluigicon-zoom-in fluigicon-sm"
+							onclick="openZoom({ field: 'unidade' })"></span>
+					</div>
+				</div>
+
+				<div class="form-group col-md-3 col-lg-3">
+					<label class="control-label" for="txtNome">Grupos</label>
+					<div class="input-group">
+						<input type="hidden" class="grp_user" name="cod_grupo" id="cod_grupo" />
+						<input type="text" class="form-control grp_user valida" name="nome_grupo" id="nome_grupo"
+							valida="field" readonly />
+						<span class="input-group-addon fluigicon fluigicon-eraser fluigicon-sm"></span>
+						<span id="bt_grupo" class="input-group-addon fluigicon fluigicon-zoom-in fluigicon-sm"
+							onclick="openZoom({ field: 'grupos' })"></span>
+					</div>
+				</div>
+
+			</div>
+		</form>
+	</div>
+</body>
+
+</html>

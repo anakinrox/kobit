@@ -1,0 +1,18 @@
+INDEX VERSION 1.3+C:\Trabalho\Kobit\Guabifios\.metadata\.plugins\org.eclipse.wst.jsdt.core\indexes
+32107468.index
+3210237595.index
+3503285949.index
+2407829841.index
+2222183616.index
+1280823658.index
+1736075056.index
+3111931597.index
+3844344337.index
+2190021030.index
+4064919529.index
+3841067237.index
+2248457127.index
+1584345226.index
+3232381498.index
+717327058.index
+2417757224.index

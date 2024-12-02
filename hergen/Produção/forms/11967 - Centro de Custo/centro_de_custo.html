@@ -1,0 +1,103 @@
+
+<html>
+<head>
+	<link type="text/css" rel="stylesheet" href="/portal/resources/style-guide/css/fluig-style-guide.min.css"/>
+	<script type="text/javascript" src="/portal/resources/js/jquery/jquery.js"></script>
+	<script type="text/javascript" src="/portal/resources/js/jquery/jquery-ui.min.js"></script>
+	<script type="text/javascript" src="/portal/resources/js/mustache/mustache-min.js"></script>
+	<script type="text/javascript" src="/portal/resources/style-guide/js/fluig-style-guide.min.js" charset="utf-8"></script>
+	<script type="text/javascript" src="/portal/resources/js/jquery.mask.min.js"></script>
+	
+	<script type="text/javascript" src="zoom.js"></script>
+	<script type="text/javascript" src="modalzoom.js"></script>
+	<script src='autosize.min.js'></script>
+	<script src="/webdesk/vcXMLRPC.js"></script>
+		
+
+	<script>
+		
+ 	function fnCustomDelete(oElement){
+		fnWdkRemoveChild(oElement);
+	}		
+	
+	</script>
+			
+			
+	<style>
+	
+	</style>
+	
+	<!--<script type="text/javascript" src="controle.js"></script>-->
+
+	
+	
+</head>
+<body  >
+<div class="fluig-style-guide" id="divPrincipal">
+<form name="form" role="form">
+
+
+	<div class="panel panel-info" >
+		<div class="panel-heading fs-txt-center"><b>Centro de custo</b></div>
+		<div class="panel-body">
+
+			<div class="row">			
+				<div class="col-md-2">
+					<div class="form-group">
+						<label for="exampleTag">Cod. CC</label>
+						<div class="input-group">
+							<input type="text" mask="0000" name="cod_cc" id="cod_cc"  class="form-control" readonly />
+							<input type="hidden" name="descricao" id="descricao"  class="form-control" readonly />
+							<span id = "bt_cc" name="bt_cc" class="input-group-addon fluigicon fluigicon-zoom-in fluigicon-sm" onclick="zoom(this.id)" ></span>
+						</div>
+					</div>
+				</div>
+	
+				<div class="col-md-6">
+					<div class="form-group">
+						<label for="exampleTag">Centro de Custo</label>
+						<input type="text" name="den_cc" id="den_cc"  class="form-control" readonly/>
+					</div>
+				</div>
+				
+				<div class="col-md-4">
+					<div class="form-group">
+						<label for="exampleTag">Resposavel Garantia</label>
+						<div class="input-group">
+							<input type="text" name="nome_resp_garantia" id="nome_resp_garantia"  class="form-control" readonly />
+							<span id = "bt_resp_garantia" name="bt_resp_garantia" class="input-group-addon fluigicon fluigicon-search-test fluigicon-sm" onclick="zoom(this.id)" ></span>
+						</div>
+						<input type="hidden" name="matricula_resp_garantia" id="matricula_resp_garantia" class="form-control" readonly/>
+					</div>
+				</div>
+				
+			</div>			
+			
+				<div class="row">
+					<!--  ######  Aprovadores entrada e saida ##### -->
+					<div class="col-md-6">			
+							<label for="exampleTag" >
+									<button class="fluigicon fluigicon-plus-sign fluigicon-sm" name='bt_aprov_entr_saida' onclick="zoom(this.name)" ></button> 	Aprovador Saida Entrada
+							</label>
+							<table class="table table-condensed table-bordered" border="1" tablename="aprov_entrada_saida"  noaddbutton=true nodeletebutton=true addbuttonclass="wdkbuttonClass" >
+								<thead>
+									<tr>
+										<td width='40%' class="cell-ellipsis"><b>Matricula</b></td>
+										<td width='60%' class="cell-ellipsis"><b>Aprovador</b></td>
+										<td></td>
+									</tr>
+								</thead>
+								<tr>
+									<td><input type="text" class="form-control" name="matricula" id="matricula" readonly ></td>
+									<td><input type="text" class="form-control" name="aprovador" id="aprovador" readonly ></td>
+									<td><button name="btDelEmpresa" id="btDelEmpresa" class="btn btn-default btn-sm fluigicon fluigicon-trash fluigicon-xs" type="button" onclick="fnCustomDelete(this);"  ></button></td>
+								</tr>
+							</table>					
+					</div>
+				</div>
+		</div>
+	</div>
+</form>
+</div>
+</body>
+</html>

@@ -1,0 +1,227 @@
+{
+	"info": {
+		"_postman_id": "a51f8103-f44f-4dc8-89ac-b765a3a0101b",
+		"name": "Ceramfix",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "13263197"
+	},
+	"item": [
+		{
+			"name": "API pedidos",
+			"item": [
+				{
+					"name": "Enviar Pedidos",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "token",
+								"value": "WTkwjRCmZvfZd5bVArI2yFJMfQvLkPkY5yUTDFV3CdfCVYGwrPYIISJV3k9WPTqI",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "[\r\n    {\r\n        \"preorder_id\": \"123456\",\r\n        \"order_id\": \"123123\",\r\n        \"order_type\": \"dropshipping\",\r\n        \"order_desc\": \"1085340\",\r\n        \"fiscal_desc\": \"\",\r\n        \"freight_type\": \"CIF\",\r\n        \"location_cnpj\": \"07.293.000/0001-76\",\r\n        \"items\": [\r\n            {\r\n                \"code\": \"318004\",\r\n                \"description\": \"\",\r\n                \"quantity\": \"17280\",\r\n                \"purchase_value\": \"13.90\",\r\n                \"sale_value\": \"21.90\",\r\n                \"promised_date\": \"2024-11-10\",\r\n                \"required_date\": \"2024-11-05\"\r\n            },\r\n            {\r\n                \"code\": \"318000\",\r\n                \"description\": \"\",\r\n                \"quantity\": \"2880\",\r\n                \"purchase_value\": \"0.37\",\r\n                \"sale_value\": \"3.37\",\r\n                \"promised_date\": \"2024-11-10\",\r\n                \"required_date\": \"2024-11-05\"\r\n            },\r\n            {\r\n                \"code\": \"318023\",\r\n                \"description\": \"\",\r\n                \"quantity\": \"1400\",\r\n                \"purchase_value\": \"19.32\",\r\n                \"sale_value\": \"22.32\",\r\n                \"promised_date\": \"2024-11-10\",\r\n                \"required_date\": \"2024-11-05\"\r\n            },\r\n            {\r\n                \"code\": \"318007\",\r\n                \"description\": \"\",\r\n                \"quantity\": \"600\",\r\n                \"purchase_value\": \"19.39\",\r\n                \"sale_value\": \"22.39\",\r\n                \"promised_date\": \"2024-11-10\",\r\n                \"required_date\": \"2024-11-05\"\r\n            },\r\n            {\r\n                \"code\": \"318008\",\r\n                \"description\": \"\",\r\n                \"quantity\": \"600\",\r\n                \"purchase_value\": \"19.32\",\r\n                \"sale_value\": \"22.32\",\r\n                \"promised_date\": \"2024-11-10\",\r\n                \"required_date\": \"2024-11-05\"\r\n            },\r\n            {\r\n                \"code\": \"318014\",\r\n                \"description\": \"\",\r\n                \"quantity\": \"600\",\r\n                \"purchase_value\": \"19.32\",\r\n                \"sale_value\": \"22.32\",\r\n                \"promised_date\": \"2024-11-10\",\r\n                \"required_date\": \"2024-11-05\"\r\n            }\r\n        ],\r\n        \"buyer_info\": {\r\n            \"name\": \"John da Silva\",\r\n            \"cpf\": \"12345678900\",\r\n            \"address\": \"Rua Alfredo José\"\r\n        },\r\n        \"client_info\": {\r\n            \"cnpj\": \"41.993.467/0001-67\",\r\n            \"state_registration\": \"ISENTO\",\r\n            \"company_name\": \"Patricia Sabino Teixeira02925364969\",\r\n            \"trade_name\": \"Patricia Sabino Teixeira\",\r\n            \"postal_code\": \"89251060\",\r\n            \"ibge_code\": \"4208906\",\r\n            \"street_type\": \"Rua\",\r\n            \"street_name\": \"Felipe Schmidt\",\r\n            \"street_number\": \"218\",\r\n            \"neighborhood\": \"Centro\",\r\n            \"phone\": \"47 20331741\",\r\n            \"email\": \"marcio@gmail.com\"\r\n        }\r\n    }\r\n]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://fluigtst.ceramfix.com.br/integra_pedidos/api/v1/pedidos",
+							"protocol": "https",
+							"host": [
+								"fluigtst",
+								"ceramfix",
+								"com",
+								"br"
+							],
+							"path": [
+								"integra_pedidos",
+								"api",
+								"v1",
+								"pedidos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Status Pedidos",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "token",
+								"value": "WTkwjRCmZvfZd5bVArI2yFJMfQvLkPkY5yUTDFV3CdfCVYGwrPYIISJV3k9WPTqI",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "[\r\n  {\r\n    \"preorder_id\":  \"123\",\r\n    \"status\": \"L\"\r\n  },\r\n  {\r\n    \"preorder_id\":  \"124\",\r\n    \"status\": \"B\"\r\n  }\r\n]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://fluigtst.ceramfix.com.br/integra_pedidos/api/v1/status",
+							"protocol": "https",
+							"host": [
+								"fluigtst",
+								"ceramfix",
+								"com",
+								"br"
+							],
+							"path": [
+								"integra_pedidos",
+								"api",
+								"v1",
+								"status"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Atualizar Observações",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "token",
+								"value": "WTkwjRCmZvfZd5bVArI2yFJMfQvLkPkY5yUTDFV3CdfCVYGwrPYIISJV3k9WPTqI",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "[\r\n  {\r\n    \"preorder_id\": \"123\",\r\n    \"fiscal_desc\": \"\",\r\n    \"order_desc\": \"\"\r\n\r\n  },\r\n  {\r\n    \"preorder_id\": \"124\",\r\n    \"fiscal_desc\": \"\",\r\n    \"order_desc\": \"\"\r\n\r\n  }\r\n]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://fluigtst.ceramfix.com.br/integra_pedidos/api/v1/atualizar",
+							"protocol": "https",
+							"host": [
+								"fluigtst",
+								"ceramfix",
+								"com",
+								"br"
+							],
+							"path": [
+								"integra_pedidos",
+								"api",
+								"v1",
+								"atualizar"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Consulta Cliente Antiga",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "flx1820",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "fluig",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://192.168.0.11:8197/LOGIXREST/cerr3/cliente/003138281000131",
+					"protocol": "http",
+					"host": [
+						"192",
+						"168",
+						"0",
+						"11"
+					],
+					"port": "8197",
+					"path": [
+						"LOGIXREST",
+						"cerr3",
+						"cliente",
+						"003138281000131"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Consulta Cliente Nova",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "flx1820",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "fluig",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://192.168.0.11:8197/LOGIXREST/kbtr00005/cliente/003138281000131",
+					"protocol": "http",
+					"host": [
+						"192",
+						"168",
+						"0",
+						"11"
+					],
+					"port": "8197",
+					"path": [
+						"LOGIXREST",
+						"kbtr00005",
+						"cliente",
+						"003138281000131"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

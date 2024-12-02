@@ -1,0 +1,210 @@
+<style>
+table {
+  border-collapse: collapse;
+}
+th,
+td {
+  border: solid 1px;
+  padding: 0;
+}
+td:first-child {
+  width: 200px;
+}
+td:first-child + td {
+  width: 150px;
+}
+td:first-child + td + td {
+  width: 120px;
+}
+
+.table .item-description{
+  width: 40%;
+}
+
+.table-striped > tbody > tr:nth-child(odd) > td,
+.table-striped > tbody > tr:nth-child(odd) > th {
+  background-color: #f5f5dc;
+}
+
+div.pd_her.col-sm-1,
+div.pd_her.col-md-1 {
+  padding-left: 7px;
+  padding-right: 2px;
+  margin-bottom: 0px;
+}
+
+div.pd_her_switch.col-sm-1,
+div.pd_her_switch.col-md-1 {
+  padding-left: 7px;
+  padding-right: 2px;
+  margin-bottom: 0px;
+}
+
+div.pd_her.col-sm-2,
+div.pd_her.col-md-2 {
+  padding-left: 7px;
+  padding-right: 2px;
+  margin-bottom: 0px;
+}
+
+div.pd_her.col-sm-3,
+div.pd_her.col-md-3 {
+  padding-left: 7px;
+  padding-right: 2px;
+  margin-bottom: 0px;
+}
+
+div.pd_her.col-sm-4,
+div.pd_her.col-md-4 {
+  padding-left: 7px;
+  padding-right: 2px;
+  margin-bottom: 0px;
+}
+
+div.pd_her.col-sm-5,
+div.pd_her.col-md-5 {
+  padding-left: 7px;
+  padding-right: 2px;
+  margin-bottom: 0px;
+}
+
+div.pd_her.col-sm-6,
+div.pd_her.col-md-6 {
+  padding-left: 7px;
+  padding-right: 2px;
+  margin-bottom: 0px;
+}
+
+div.pd_her.col-sm-7,
+div.pd_her.col-md-7 {
+  padding-left: 7px;
+  padding-right: 2px;
+  margin-bottom: 0px;
+}
+
+div.pd_her.col-sm-8,
+div.pd_her.col-md-8 {
+  padding-left: 7px;
+  padding-right: 2px;
+  margin-bottom: 0px;
+}
+
+div.pd_her.col-sm-8,
+div.pd_her.col-md-9 {
+  padding-left: 7px;
+  padding-right: 2px;
+  margin-bottom: 0px;
+}
+
+div.pd_her.col-sm-10,
+div.pd_her.col-md-10 {
+  padding-left: 7px;
+  padding-right: 2px;
+  margin-bottom: 0px;
+}
+
+div.pd_her.col-sm-11,
+div.pd_her.col-md-11 {
+  padding-left: 7px;
+  padding-right: 2px;
+  margin-bottom: 0px;
+}
+
+div.pd_her.col-sm-12,
+div.pd_her.col-md-12 {
+  padding-left: 7px;
+  padding-right: 2px;
+  margin-bottom: 0px;
+}
+
+div.row_table.row {
+  margin-left: -0px !important;
+  margin-right: -0px !important;
+  margin-bottom: 0px !important;
+}
+
+div.row_panel.row {
+  margin-left: -5px !important;
+  margin-right: -5px !important;
+  margin-bottom: 0px !important;
+}
+
+dev.form-group {
+  margin-bottom: 0px !important;
+}
+
+.field-label {
+  border: none !important;
+  outline: none !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  font-weight: 700 !important;
+  display: inline-block !important;
+  margin-bottom: 5px !important;
+  font-size: 14px !important;
+  color: #58595b !important;
+  text-align: center !important;
+  background-color: transparent !important;
+}
+
+.choosed {
+  background-color: #d9edf7 !important;
+}
+
+.has-error input {
+  background-color: #f5f5dc !important;
+}
+
+.panel-body,
+.panel-body-kbt {
+  padding-left: 5px !important;
+  padding-right: 5px !important;
+  padding-top: 0px !important;
+  padding-bottom: 0px !important;
+}
+
+.panel-body,
+.panel-body-kbt {
+  padding-left: 5px !important;
+  padding-right: 5px !important;
+  padding-top: 0px !important;
+  padding-bottom: 0px !important;
+}
+
+.panel .panel-info .panel-info-kbt {
+  margin-bottom: 0px !important;
+}
+
+.destaque {
+  background-color: rgba(255, 255, 0, 0.723) !important;
+}
+
+</style>
+
+<html>
+	<head><title>Fluig</title></head>
+	<link href="${SERVER_URL}/globalmailsender/resources/global.css" rel="stylesheet" type="text/css">
+	<body leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+	<div align="left">
+		<table border="0" cellpadding="0" cellspacing="0">
+			<tr><td>
+				<img src="${SERVER_URL}/globalmailsender/resources/head_background.gif">
+			</td></tr>
+		</table>
+	</div>
+	<br>
+	<br>
+	<div align="left">
+		<table border="0" cellpadding="0" cellspacing="0" style="width: 100%;" >
+			<tr><td>
+				${WorkflowMailContent}
+			</td></tr>
+		</table>
+		<br>
+	</div>
+	<br><br>
+
+	</body>
+</html>
+
+

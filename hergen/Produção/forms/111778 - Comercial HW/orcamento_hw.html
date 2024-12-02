@@ -1,0 +1,1016 @@
+<html>
+<head>
+	<link type="text/css" rel="stylesheet" href="/portal/resources/style-guide/css/fluig-style-guide.min.css"/>
+	<script type="text/javascript" src="/portal/resources/js/jquery/jquery.js"></script>
+	<script type="text/javascript" src="/portal/resources/js/jquery/jquery-ui.min.js"></script>
+	<script type="text/javascript" src="/portal/resources/js/mustache/mustache-min.js"></script>
+	<script type="text/javascript" src="/portal/resources/style-guide/js/fluig-style-guide.min.js" charset="utf-8"></script>
+	<script type="text/javascript" src="/portal/resources/js/jquery.mask.min.js"></script>
+
+
+	<script type="text/javascript" src="zoom.js"></script>
+	<script type="text/javascript" src="controle.js"></script>
+	<script type="text/javascript" src="modalZoom.js"></script>
+	<script type="text/javascript" src="moment.js"></script>
+	<script type="text/javascript" src="consulta.js"></script>
+	<script src='autosize.min.js'></script>
+	<script type="text/javascript" src='jquery.maskMoney.min.js'></script>	
+	<script type="text/javascript" src="/webdesk/vcXMLRPC.js"></script>
+	<script type="text/javascript" src="util.js"></script>
+	
+	<script type="text/javascript" src="fileUpload.js"></script>
+	
+	
+	
+	<script>
+
+	</script>
+	
+</head>
+<body onload="loadBody()">
+<div class="fluig-style-guide">
+<form name="form" role="form">
+
+	<ul class="nav nav-tabs" role="tablist" onclick="autoSize()">
+		<li id='aba_principal' class="active"><a href="#principal" role="tab" data-toggle="tab">Principal</a></li>
+		<li id='aba_escopo'><a href="#escopo" role="tab" data-toggle="tab">Escopo</a></li>
+		<li id='aba_financeiro'><a href="#financeiro" role="tab" data-toggle="tab">Financeiro</a></li>
+		<li id='aba_comunicacao'><a href="#comunicacao" role="tab" data-toggle="tab">Comunicacao Interna</a></li>
+	    <li id='aba_followup'><a href="#followup" role="tab" data-toggle="tab">Follow UP</a></li>					
+	    <li id='aba_atraso'><a href="#atraso" role="tab" data-toggle="tab">Atrasos</a></li>
+	    <li id='aba_fechamento'><a href="#fechamento" role="tab" data-toggle="tab">Fechamento</a></li>
+	    <li id='aba_historico'><a href="#historico" role="tab" data-toggle="tab">Historico</a></li>
+	</ul>
+
+	<div class="tab-content">
+		<div class="tab-pane active" id="principal">
+			<div class="row  row_table">			
+				<div class="col-sm-1 pd_her">
+					<!-- onclick="parent.$('#workflowview-header').hide();" -->
+					<label for="exampleTag" >Numero</label>
+					<input type="text" name="numero" id="numero" class="form-control" readonly />
+				</div>
+				<div class="col-sm-2 pd_her">
+					<label for="exampleTag">Data</label>
+					<input type="text" name="data_abert" id="data_abert" class="form-control" readonly />
+				</div>
+
+				<div class="col-sm-2 pd_her">
+					<label for="exampleTag">Usuario Abertura</label>
+					<input type="text" name="usuario_abert" id="usuario_abert" class="form-control" readonly />
+				</div>
+				
+				<div class="col-sm-2 pd_her">
+					<label for="exampleTag">Data Prev. Orc.</label>
+					<input type="text" name="data_prev_orcamento" id="data_prev_orcamento" class="form-control" />
+				</div>
+
+				<div class="col-sm-3 pd_her">
+					<div class="col-sm-7 pd_her" style="padding-right: 0px;">
+						<label for="exampleTag">Data Assu. Orc.</label>
+						<input type="text" name="data_assumida_orcamento" id="data_assumida_orcamento" class="form-control" readonly onblur='validaData()' />
+					</div>
+					
+					<div class="col-sm-5 pd_her" style="padding-left: 0px; padding-right: 0px;">
+						<!-- onclick="parent.$('#workflowview-header').hide();" -->
+						<label for="exampleTag" >Logix</label>
+						<input type="text" name="num_orc_logix" id="num_orc_logix" class="form-control" readonly />
+					</div>
+				</div>
+				
+				<div class="col-sm-2 pd_her">
+					<label for="exampleTag">Data Prev. Proposta</label>
+					<input type="text" name="data_prev" id="data_prev" class="form-control" />
+				</div>
+
+				
+			</div>
+				
+			<div class="row  row_table">
+				
+				
+				<div class="col-sm-3 pd_her">
+					<label for="exampleTag">CNPJ</label>
+					<div class="input-group">
+						<input type="text" mask="000.000.000/0000-00" name="cnpj" id="cnpj"  class="form-control" onblur="zoom('bt_cnpj', this.id)" />
+						<span id = "bt_cnpj" name="bt_cnpj" class="input-group-addon fluigicon fluigicon-zoom-in fluigicon-sm" onclick="zoom(this.id)" ></span>
+						<input type="hidden" name="codigo" id="codigo"  class="form-control" />
+					</div>
+				</div>
+						
+				<div class="col-sm-6 pd_her">
+					<label for="exampleTag">Cliente</label>
+					<input type="text" name="empresa" id="empresa"  class="form-control" />
+					<input type="hidden" name="empresa_reduz" id="empresa_reduz"  class="form-control" />
+				</div>
+
+				<div class="col-sm-3 pd_her">
+					<label for="exampleTag">Cidade</label>
+					<input type="text" name="cidade" id="cidade"  class="form-control"  />
+				</div>
+			
+			</div>
+		
+			<div class="row row_table">
+
+				<div class="col-sm-4 pd_her">
+					<label for="exampleTag">Nome Projeto</label>
+					<div class="input-group">
+						<input type="text" name="projeto" id="projeto" class="form-control" />
+						<span class="input-group-addon fluigicon fluigicon-eye-open fluigicon-lg" id="bt_ich_open" onclick="openFolder( $('#num_pasta_projeto').val() );"  > </span>
+					</div>
+				</div>
+			
+				<div class="col-sm-3 pd_her">
+					<label for="exampleTag" >Setor Responsavel</label>
+					<select name="ies_setor" id="ies_setor" class="form-control" onchange="changeSetor()">
+						<option value='' >  </option>
+						<option value='O' > Or&ccedil;amento </option>
+						<option value='A' > Engenharia de Aplica&ccedil;&atilde;o </option>
+					</select>
+				</div>
+
+				<div class="col-sm-2 pd_her">
+					<label for="exampleTag">Data Eng. Ext.</label>
+					<input type="text" name="data_eng_externa" id="data_eng_externa" class="form-control" />
+				</div>
+
+				<div class="col-sm-3 pd_her">
+					<label for="exampleTag">Eng. Extern.</label>
+					<div class="input-group">
+						<input type="text" name="nome_user_eng_ext" id="nome_user_eng_ext"  class="form-control" readonly />
+						<span id = "bt_user_eng_ext" name="bt_user_eng_ext" class="input-group-addon fluigicon fluigicon-zoom-in fluigicon-sm" onclick="zoom(this.id)" ></span>
+						<input type="hidden" name="user_eng_ext" id="user_eng_ext"  class="form-control" />
+					</div>
+				</div>
+			</div>
+				
+			<div class="row row_table">
+			
+				<div class="col-sm-3 pd_her">
+					<label for="exampleTag">Eng. de Aplicacao</label>
+					<div class="input-group">
+						<input type="text" name="nome_user_eng_apli" id="nome_user_eng_apli"  class="form-control" readonly />
+						<span id = "bt_user_eng_apli" name="bt_user_eng_apli" class="input-group-addon fluigicon fluigicon-zoom-in fluigicon-sm" onclick="zoom(this.id)" ></span>
+						<input type="hidden" name="user_eng_apli" id="user_eng_apli"  class="form-control" />
+					</div>
+				</div>
+	
+				<div class="col-sm-3 pd_her">
+					<label for="exampleTag">Orcamentista</label>
+					<div class="input-group">
+						<input type="text" name="nome_user_orcamento" id="nome_user_orcamento"  class="form-control" readonly />
+						<span id = "bt_user_orcamento" name="bt_user_orcamento" class="input-group-addon fluigicon fluigicon-zoom-in fluigicon-sm" onclick="zoom(this.id)" ></span>
+						<input type="hidden" name="user_orcamento" id="user_orcamento"  class="form-control" />
+					</div>
+				</div>
+
+				<div class="col-sm-3 pd_her">
+					<label for="exampleTag">Elaborador Proposta</label>
+					<div class="input-group">
+						<input type="text" name="nome_user_proposta" id="nome_user_proposta"  class="form-control"  readonly />
+						<span id = "bt_user_proposta" name="bt_user_proposta" class="input-group-addon fluigicon fluigicon-zoom-in fluigicon-sm" onclick="zoom(this.id)" ></span>
+						<input type="hidden" name="user_proposta" id="user_proposta"  class="form-control" />
+					</div>
+				</div>
+
+				<div class="col-sm-3 pd_her" id="dv_resp_comerc">
+					<label for="exampleTag">Contato Comercial</label>
+					<div class="input-group">
+						<input type="text" name="nome_user_env_proposta" id="nome_user_env_proposta"  class="form-control"  readonly />
+						<span id = "bt_user_env_proposta" name="bt_user_env_proposta" class="input-group-addon fluigicon fluigicon-zoom-in fluigicon-sm" onclick="zoom(this.id)" ></span>
+						<input type="hidden" name="user_env_proposta" id="user_env_proposta"  class="form-control" />
+					</div>
+				</div>
+			</div>
+			
+		
+			<div class="row  row_table">
+			
+			
+				<div class="col-sm-2 pd_her">
+					<label for="exampleTag">Temperatura?</label>
+					<select class="form-control" name="temperatura" id="temperatura" dataset="temperatura" datasetkey="cod_temperatura" datasetvalue="den_temperatura" addBlankLine=true valida="true"  onchange="setTemperatura();" >
+					</select>
+				</div>
+		
+				<div class="col-sm-2 pd_her">
+					<label for="exampleTag">Detalhe Temp.?</label>
+					<select class="form-control" name="detalhe_temp" id="detalhe_temp"  >
+					</select>
+				</div>
+						
+				<div class="col-sm-6 pd_her">
+					<label for="exampleTag">Resumo</label>
+					<input type="text" name="resumo" id="resumo" onblur='setDescricao();' class="form-control" />
+					<input type="hidden" name="descricao_form" id="descricao_form" class="form-control" />
+				</div>
+				
+				<div class="col-sm-2 pd_her">
+					<label for="exampleTag">Valor Previsto</label>
+					<input type="tel" class="form-control" name="valor_previsto" id="valor_previsto" style="text-align:right" />
+				</div>				
+				
+			</div>
+			
+			
+			
+			<div class="row">
+				<div class="col-sm-2 pd_her">
+					<label for="doc_sah" data-toggle="tooltip" data-placement="bottom" title="SAH - SOLICITAÇÃO DE APLICAÇÃO HIDRAULICA" >SAH</label>
+					<div class="input-group">
+						<input type="text" name="doc_sah" id="doc_sah" class="form-control" readonly />
+						<span class="input-group-addon fluigicon fluigicon-file-doc fluigicon-lg" id="bt_sah" onclick="loadFile( this.id )" ></span>
+						<span class="input-group-addon fluigicon fluigicon-eye-open fluigicon-lg" id="bt_sah_open" onclick="openFile( this );"  > </span>
+					</div>
+					<input type="hidden" name="fd_sah" id="fd_sah" />
+				</div>
+				<div class="col-sm-2 pd_her">
+					<label for="doc_aha" data-toggle="tooltip" data-placement="bottom" title="AHA - ANALISE HIDRAULICA APLICAÇÃO" >AHA</label>
+					<div class="input-group">
+						<input type="text" name="doc_aha" id="doc_aha" class="form-control" readonly />
+						<span class="input-group-addon fluigicon fluigicon-file-doc fluigicon-lg" id="bt_aha" onclick="loadFile( this.id )" ></span>
+						<span class="input-group-addon fluigicon fluigicon-eye-open fluigicon-lg" id="bt_aha_open" onclick="openFile( this );"  > </span>
+					</div>
+					<input type="hidden" name="fd_aha" id="fd_aha" />
+				</div>
+				<div class="col-sm-2 pd_her">
+					<label for="doc_fig" data-toggle="tooltip" data-placement="bottom" title="FIG - FOLHA DE INTERFACE DO GERADOR" >FIG</label>
+					<div class="input-group">
+						<input type="text" name="doc_fig" id="doc_fig" class="form-control" readonly />
+						<span class="input-group-addon fluigicon fluigicon-file-doc fluigicon-lg" id="bt_fig" onclick="loadFile( this.id )" ></span>
+						<span class="input-group-addon fluigicon fluigicon-eye-open fluigicon-lg" id="bt_fig_open" onclick="openFile( this );"  > </span>
+					</div>
+					<input type="hidden" name="fd_fig" id="fd_fig" />
+				</div>
+	
+				<div class="col-sm-2 pd_her">
+					<label for="doc_cet" data-toggle="tooltip" data-placement="bottom" title="CET - CURVA DE EFICIENCIA DA TURBINA" >CET</label>
+					<div class="input-group">
+						<input type="text" name="doc_cet" id="doc_cet" class="form-control" readonly />
+						<span class="input-group-addon fluigicon fluigicon-file-doc fluigicon-lg" id="bt_cet" onclick="loadFile( this.id )" ></span>
+						<span class="input-group-addon fluigicon fluigicon-eye-open fluigicon-lg" id="bt_cet_open" onclick="openFile( this );"  > </span>
+					</div>
+					<input type="hidden" name="fd_cet" id="fd_cet" />
+				</div>
+				<div class="col-sm-2 pd_her">
+					<label for="doc_ped" data-toggle="tooltip" data-placement="bottom" title="PEP - EXTRAPOLAÇÃO DE PESO" >PEP</label>
+					<div class="input-group">
+						<input type="text" name="doc_pep" id="doc_pep" class="form-control" readonly />
+						<span class="input-group-addon fluigicon fluigicon-file-doc fluigicon-lg" id="bt_pep" onclick="loadFile( this.id )" ></span>
+						<span class="input-group-addon fluigicon fluigicon-eye-open fluigicon-lg" id="bt_pep_open" onclick="openFile( this );"  > </span>
+					</div>
+					<input type="hidden" name="fd_pep" id="fd_pep" />
+				</div>
+				<div class="col-sm-2 pd_her">
+					<label for="doc_ich" data-toggle="tooltip" data-placement="bottom" title="ICH - INVENTARIO DE CUSTOS HERGEN" >ICH</label>
+					<div class="input-group">
+						<input type="text" name="doc_ich" id="doc_ich" class="form-control" readonly />
+						<span class="input-group-addon fluigicon fluigicon-file-doc fluigicon-lg" id="bt_ich" onclick="loadFile( this.id )" ></span>
+						<span class="input-group-addon fluigicon fluigicon-eye-open fluigicon-lg" id="bt_ich_open" onclick="openFile( this );"  > </span>
+					</div>
+					<input type="hidden" name="fd_ich" id="fd_ich" />
+				</div>				
+			</div>
+
+			
+			
+			<div class="row  row_table">
+					
+				<div class="col-sm-12 pd_her">
+					<label for="exampleTag">Detallhe</label>
+					<textarea rows="3" name="detalhe" id="detalhe" class="form-control" ></textarea>
+				</div>						
+			</div>
+			
+			<div class="row  row_table" id="div_fechamento">
+				<div class="col-sm-3 pd_her">
+					<label for="exampleTag" >Resultado Fechamento</label>
+					<select name="ies_fechamento" id="ies_fechamento" class="form-control" onchange="changeSetor()">
+						<option value='' >  </option>
+						<option value='F' > Fechado </option>
+						<option value='P' > Perdido </option>
+					</select>
+				</div>
+				<div class="col-sm-3 pd_her">
+					<label for="exampleTag">Motivo</label>
+					<select class="form-control" name="motivo" id="motivo" dataset="motivo_perca_orcamento" datasetkey="cod_motivo" datasetvalue="den_motivo" addBlankLine=true >
+					</select>
+				</div>
+				<div class="col-sm-6 pd_her">
+					<label for="exampleTag">Complemento</label>
+					<input type="text" name="complemento" id="complemento" class="form-control" />
+				</div>
+			</div>
+		</div>
+
+		<div class="tab-pane" id="financeiro">
+
+			<div class="row  row_table">
+
+				<div class="col-sm-3 pd_her">
+					<label for="exampleTag">Situa&ccedil;&atilde;o Financeira</label>
+					<select class="form-control" name="situacao_financeira" id="situacao_financeira" dataset="motivo_aprov_financeiro" datasetkey="cod_motivo" datasetvalue="den_motivo" addBlankLine=true valida-fin="true" onchange="selectSitFinanc()" >
+					</select>
+					<input type="hidden" name="tipo_motivo" id="tipo_motivo" />
+				</div>
+				
+			</div>
+
+			<div class="row  row_table">				
+				<div class="col-sm-12 pd_her">
+					<label for="exampleTag">Parecer Financeiro</label>
+					<textarea rows="4" name="parecer_financeiro" id="parecer_financeiro" class="form-control" ></textarea>
+				</div>						
+			</div>
+		</div>
+	
+		<div class="tab-pane" id="escopo">
+		
+			<div class="row">
+			
+				<div class="col-sm-6">
+					<div class="col-sm-5" style="padding-right: 0px;padding-left: 0px;">
+						<label for="exampleTag">Turbina</label>
+						<select class="form-control" name="tipo_turbina" id="tipo_turbina" dataset="tipo_turbina" datasetkey="tipo_turbina" datasetvalue="tipo_turbina" addBlankLine=true valida-fin="true"  onchange="setTurbina();" >
+						</select>
+					</div>
+					
+					<div class="col-sm-5" style="padding-left: 0px; padding-right: 0px;">
+						<label for="exampleTag">&nbsp;</label>
+						<select class="form-control" name="detalhe_turbina" id="detalhe_turbina"  >
+						</select>
+					</div>
+					
+					<div class="col-sm-2" style="padding-left: 0px; padding-right: 0px;">
+						<label for="exampleTag" > &nbsp;</label>
+						<input type="text" name="qtd_turbina" id="qtd_turbina" class="form-control integer-0" />
+					</div>
+				</div>
+			
+
+				
+				<div class="col-sm-6">
+					<div class="col-sm-5" style="padding-right: 0px;padding-left: 0px;">
+						<label for="exampleTag">Valvula</label>
+						<select class="form-control" name="tipo_valvula" id="tipo_valvula" dataset="tipo_valvula" datasetkey="tipo_valvula" datasetvalue="tipo_valvula" addBlankLine=true valida-fin="true"  onchange="setValvula();" >
+						</select>
+					</div>
+					<div class="col-sm-2" style="padding-left: 0px; padding-right: 0px;">
+						<label for="exampleTag" > &nbsp;</label>
+						<input type="text" name="qtd_valvula" id="qtd_valvula" class="form-control integer-0" />
+					</div>
+				</div>
+		
+			</div>
+			
+			<div class="row" style="padding-top: 12px;">
+			
+				<div class="col-sm-2">
+					<div class="panel panel-default">
+					    <div class="panel-heading">
+					    	<table width="100%">
+					    		<tr>
+					    			<td>
+					    				HW-SAT
+					    			</td>
+					    			<td align="right" width="70px">
+					    				<input type="text" name="qtd_hw_sat" id="qtd_hw_sat" class="form-control integer-0" />
+					    			</td>
+					    		</tr>
+					    	</table> 
+					    </div>
+					    <div class="panel-body">
+				
+							<div class="col-sm-8" >
+								<div class="custom-checkbox custom-checkbox-primary">
+								    <input type="checkbox" id="HW_SAT_UHR" name="HW_SAT_UHR" class="hw-sat" >
+								    <label for="HW_SAT_UHR" title="HW-SAT-UHR - Unidade Hidráulica de Regulação de Velocidade"  >HW-SAT-UHR</label>
+								</div>
+								<div class="custom-checkbox custom-checkbox-primary">
+								    <input type="checkbox" id="HW_SAT_UHL" name="HW_SAT_UHL" class="hw-sat">
+								    <label for="HW_SAT_UHL" title="HW-SAT-UHL - Unidade Hidráulica de Lubrificação de Mancais" >HW-SAT-UHL</label>
+								</div>
+								<div class="custom-checkbox custom-checkbox-primary">
+								    <input type="checkbox" id="HW_SAT_SAV" name="HW_SAT_SAV" class="hw-sat">
+								    <label for="HW_SAT_SAV" title="HW-SAT-SAV - Sistema Água Vedação" >HW-SAT-SAV</label>
+								</div>
+								<div class="custom-checkbox custom-checkbox-primary">
+								    <input type="checkbox" id="HW_SAT_SET" name="HW_SAT_SET" class="hw-sat">
+								    <label for="HW_SAT_SET" title="HW-SAT-SET - Sistema Esgotamento da Turbina" >HW-SAT-SET</label>
+								</div>
+								<div class="custom-checkbox custom-checkbox-primary">
+								    <input type="checkbox" id="HW_SAT_SIT" name="HW_SAT_SIT" class="hw-sat">
+								    <label for="HW_SAT_SIT" title="HW-SAT-SIT - Sistema de Index Test" >HW-SAT-SIT</label>
+								</div>	
+								<div class="custom-checkbox custom-checkbox-primary">
+								    <input type="checkbox" id="HW_SAT_SEQ" name="HW_SAT_SEQ" class="hw-sat">
+								    <label for="HW_SAT_SEQ" title="HW-SAT-SEQ - Sistema de Equalização" >HW-SAT-SEQ</label>
+								</div>	
+								<div class="custom-checkbox custom-checkbox-primary">
+								    <input type="checkbox" id="HW_SAT_SAA" name="HW_SAT_SAA" class="hw-sat">
+								    <label for="HW_SAT_SAA" title="HW-SAT-SAA - Sistema de Aeração" >HW-SAT-SAA</label>
+								</div>	
+							</div>	
+						</div>
+					</div>
+				</div>
+				
+				<div class="col-sm-2">
+					<div class="panel panel-default">
+					    <div class="panel-heading">
+					    	<table width="100%">
+					    		<tr >
+					    			<td>
+					    				HW-SAM
+					    			</td>
+					    			<td align="right" width="70px">
+					    				<input type="text" name="qtd_hw_sam" id="qtd_hw_sam" class="form-control integer-0" />
+					    			</td>
+					    		</tr>
+					    	</table> 
+					    </div>
+					    <div class="panel-body">
+							<div class="custom-checkbox custom-checkbox-primary">
+							    <input type="checkbox" id="HW_SAM_SAB" name="HW_SAM_SAB" class="hw-sam" >
+							    <label for="HW_SAM_SAB" title="HW-SAM-SAB - Sistema de Agua Bruto"  >HW-SAM-SAB</label>
+							</div>
+							<div class="custom-checkbox custom-checkbox-primary">
+							    <input type="checkbox" id="HW_SAM_SDP" name="HW_SAM_SDP" class="hw-sam" >
+							    <label for="HW_SAM_SDP" title="HW-SAM-SDP - Sistema de Drenagem Principal"  >HW-SAM-SDP</label>
+							</div>
+							<div class="custom-checkbox custom-checkbox-primary">
+							    <input type="checkbox" id="HW_SAM_SAS" name="HW_SAM_SAS" class="hw-sam" >
+							    <label for="HW_SAM_SAS" title="HW-SAM-SAS - Sistema Água de Serviço"  >HW-SAM-SAS</label>
+							</div>
+							<div class="custom-checkbox custom-checkbox-primary">
+							    <input type="checkbox" id="HW_SAM_SAC" name="HW_SAM_SAC" class="hw-sam" >
+							    <label for="HW_SAM_SAC" title="HW-SAM-SAC - Sistema AR Comprimido"  >HW-SAM-SAC</label>
+							</div>
+							<div class="custom-checkbox custom-checkbox-primary">
+							    <input type="checkbox" id="HW_SAM_SMH" name="HW_SAM_SMH" class="hw-sam" >
+							    <label for="HW_SAM_SMH" title="HW-SAM-SMH - Sistema Medições Hudráulica"  >HW-SAM-SMH</label>
+							</div>
+							<div class="custom-checkbox custom-checkbox-primary">
+							    <input type="checkbox" id="HW_SAM_SCI" name="HW_SAM_SCI" class="hw-sam" >
+							    <label for="HW_SAM_SCI" title="HW-SAM-SCI - Sistema de Combate à Incêndio"  >HW-SAM-SCI</label>
+							</div>
+							<div class="custom-checkbox custom-checkbox-primary">
+							    <input type="checkbox" id="HW_SAM_SCD" name="HW_SAM_SCD" class="hw-sam" >
+							    <label for="HW_SAM_SCD" title="HW-SAM-SCD - Sistema AR Condicionado"  >HW-SAM-SCD</label>
+							</div>
+							<div class="custom-checkbox custom-checkbox-primary">
+							    <input type="checkbox" id="HW_SAM_STE" name="HW_SAM_STE" class="hw-sam" >
+							    <label for="HW_SAM_STE" title="HW-SAM-STE - Sistema Tratamento de Esgoto"  >HW-SAM-STE</label>
+							</div>
+							<div class="custom-checkbox custom-checkbox-primary">
+							    <input type="checkbox" id="HW_SAM_SAP" name="HW_SAM_SAP" class="hw-sam" >
+							    <label for="HW_SAM_SAP" title="HW-SAM-SAP - Sistema Água Potável"  >HW-SAM-SAP</label>
+							</div>
+							<div class="custom-checkbox custom-checkbox-primary">
+							    <input type="checkbox" id="HW_SAM_SVT" name="HW_SAM_SVT" class="hw-sam" >
+							    <label for="HW_SAM_SVT" title="HW-SAM-SVT - Sistema de VEntilação"  >HW-SAM-SVT</label>
+							</div>
+							<div class="custom-checkbox custom-checkbox-primary">
+							    <input type="checkbox" id="HW_SAM_SES" name="HW_SAM_SES" class="hw-sam" >
+							    <label for="HW_SAM_SES" title="HW-SAM-SES - Sistema de Exaustão"  >HW-SAM-SES</label>
+							</div>
+							<div class="custom-checkbox custom-checkbox-primary">
+							    <input type="checkbox" id="HW_SAM_SDC" name="HW_SAM_SDC" class="hw-sam" >
+							    <label for="HW_SAM_SDC" title="HW-SAM-SDC - Sistema de Drenagem das Canaletas"  >HW-SAM-SDC</label>
+							</div>
+								<div class="custom-checkbox custom-checkbox-primary">
+							    <input type="checkbox" id="HW_SAM_SIA" name="HW_SAM_SIA" class="hw-sam" >
+							    <label for="HW_SAM_SIA" title="HW-SAM-SIA - Sistema de Injeção de AR"  >HW-SAM-SIA</label>
+							</div>
+							
+						</div>
+					</div>
+				</div>	
+				
+				<div class="col-sm-2">
+					<div class="panel panel-default">
+					    <div class="panel-heading">
+					    	<table width="100%">
+					    		<tr >
+					    			<td>
+					    				HW-H
+					    			</td>
+					    			<td align="right" width="70px">
+					    				<input type="text" name="qtd_hw_h" id="qtd_hw_h" class="form-control integer-0" />
+					    			</td>
+					    		</tr>
+					    	</table> 
+					    </div>
+					    <div class="panel-body">
+							<div class="custom-checkbox custom-checkbox-primary">
+							    <input type="checkbox" id="HW_HCF" name="HW_HCF" class="hw-h" >
+							    <label for="HW_HCF" title="HW-HCF - Conduto Forçado"  >HW-HCF</label>
+							</div>
+							<div class="custom-checkbox custom-checkbox-primary">
+							    <input type="checkbox" id="HW_HGF" name="HW_HGF" class="hw-h" >
+							    <label for="HW_HGF" title="HW-HGF - Grade Fina"  >HW-HGF</label>
+							</div>
+							<div class="custom-checkbox custom-checkbox-primary">
+							    <input type="checkbox" id="HW_HGG" name="HW_HGG" class="hw-h" >
+							    <label for="HW_HGG" title="HW-HGG - Grade Grossa"  >HW-HGG</label>
+							</div>
+							<div class="custom-checkbox custom-checkbox-primary">
+							    <input type="checkbox" id="HW_HVC" name="HW_HVC" class="hw-h" >
+							    <label for="HW_HVC" title="HW-HVC - Comporta Vagão"  >HW-HVC</label>
+							</div>
+							<div class="custom-checkbox custom-checkbox-primary">
+							    <input type="checkbox" id="HW_HCE" name="HW_HCE" class="hw-h" >
+							    <label for="HW_HCE" title="HW-HCE - Comporta Ensecadeira"  >HW_HCE</label>
+							</div>
+							<div class="custom-checkbox custom-checkbox-primary">
+							    <input type="checkbox" id="HW_HCS" name="HW_HCS" class="hw-h" >
+							    <label for="HW_HCS" title="HW-HCS - Comporta Segmento"  >HW-HCS</label>
+							</div>
+							<div class="custom-checkbox custom-checkbox-primary">
+							    <input type="checkbox" id="HW_HCB" name="HW_HCB" class="hw-h" >
+							    <label for="HW_HCB" title="HW-HCB - Comporta Basculante"  >HW-HCB</label>
+							</div>
+							<div class="custom-checkbox custom-checkbox-primary">
+							    <input type="checkbox" id="HW_HCD" name="HW_HCD" class="hw-h" >
+							    <label for="HW_HCD" title="HW-HCD - Comporta Deslizante"  >HW-HCD</label>
+							</div>
+							<div class="custom-checkbox custom-checkbox-primary">
+							    <input type="checkbox" id="HW_HCM" name="HW_HCM" class="hw-h" >
+							    <label for="HW_HCM" title="HW-HCM - Comporta Mitra"  >HW-HCM</label>
+							</div>
+							<div class="custom-checkbox custom-checkbox-primary">
+							    <input type="checkbox" id="HW_HCG" name="HW_HCG" class="hw-h" >
+							    <label for="HW_HCG" title="HW-HCG - Comporta Gaveta"  >HW-HCG</label>
+							</div>
+							<div class="custom-checkbox custom-checkbox-primary">
+							    <input type="checkbox" id="HW_HCC" name="HW_HCC" class="hw-h" >
+							    <label for="HW_HCC" title="HW-HCC - Comporta Circular"  >HW-HCC</label>
+							</div>
+							<div class="custom-checkbox custom-checkbox-primary">
+							    <input type="checkbox" id="HW_HLG" name="HW_HLG" class="hw-h" >
+							    <label for="HW_HLG" title="HW-HLG - Limpa Grades"  >HW-HLG</label>
+							</div>
+							<div class="custom-checkbox custom-checkbox-primary">
+							    <input type="checkbox" id="HW_HBC" name="HW_HBC" class="hw-h" >
+							    <label for="HW_HBC" title="HW-HBC - Barreira Flutuante de Contenção"  >HW-HBC</label>
+							</div>
+
+							
+						</div>
+					</div>
+				</div>
+
+				<div class="col-sm-2">
+					<div class="panel panel-default">
+					    <div class="panel-heading">
+					    	<table width="100%">
+					    		<tr >
+					    			<td>
+					    				HW-E
+					    			</td>
+					    			<td align="right" width="70px">
+					    				<input type="text" name="qtd_hw_e" id="qtd_hw_e" class="form-control integer-0" />
+					    			</td>
+					    		</tr>
+					    	</table> 
+					    </div>
+					    <div class="panel-body">
+							<div class="custom-checkbox custom-checkbox-primary">
+							    <input type="checkbox" id="HW_EPR" name="HW_EPR" class="hw-e" >
+							    <label for="HW_EPR" title="HW-EPR - Ponte Rolante"  >HW-EPR</label>
+							</div>
+						</div>
+
+					    <div class="panel-body">
+							<div class="custom-checkbox custom-checkbox-primary">
+							    <input type="checkbox" id="HW_EPM" name="HW_EPM" class="hw-e" >
+							    <label for="HW_EPM" title="HW-EPM - Portico Móvel"  >HW-EPM</label>
+							</div>
+						</div>
+					    <div class="panel-body">
+							<div class="custom-checkbox custom-checkbox-primary">
+							    <input type="checkbox" id="HW_EPF" name="HW_EPF" class="hw-e" >
+							    <label for="HW_EPF" title="HW-EPF - Portico Fixo"  >HW-EPF</label>
+							</div>
+						</div>
+					    <div class="panel-body">
+							<div class="custom-checkbox custom-checkbox-primary">
+							    <input type="checkbox" id="HW_EMN" name="HW_EMN" class="hw-e" >
+							    <label for="HW_EMN" title="HW-EMN - Monovia"  >HW-EMN</label>
+							</div>
+						</div>
+					</div>
+				</div>
+				
+			</div>
+			
+			<div class="row" style="padding-top: 12px;">
+							
+				
+				<div class="col-sm-1" >
+					<label for="exampleTag" >Sobressalentes</label>
+					<input type="text" name="qtd_sobre" id="qtd_sobre" class="form-control integer-0" />
+				</div>			
+				
+				<div class="col-sm-1" >
+					<label for="exampleTag" >Transporte</label>
+					<input type="text" name="qtd_tranp" id="qtd_tranp" class="form-control integer-0" />
+				</div>		
+				
+				<div class="col-sm-1" >
+					<label for="exampleTag" >Movimentação</label>
+					<input type="text" name="qtd_movto" id="qtd_movto" class="form-control integer-0" />
+				</div>			
+				
+				<div class="col-sm-1" >
+					<label for="exampleTag" >Montagem</label>
+					<input type="text" name="qtd_montagem" id="qtd_montagem" class="form-control integer-0" />
+				</div>
+				
+				
+			</div>
+
+		</div>
+		
+		
+		<div class="tab-pane" id="comunicacao">
+
+			<div class="row  row_table">
+				<div class="col-sm-2 pd_her">
+					<label for="exampleTag">Data</label>
+					<input type="text" class="form-control" name="data_com" id="data_com" readonly >
+				</div>
+				<div class="col-sm-2 pd_her">
+					<label for="exampleTag">Data Prev.</label>
+					<input type="text" class="form-control" name="data_prev_com" id="data_prev_com" >
+				</div>
+				<div class="col-sm-4 pd_her">
+					<label for="exampleTag">Tipo</label>
+					<select class="form-control" name="tipo_com" id="tipo_com" dataset="tipo_folow_up" datasetkey="cod_tipo_interacao" datasetvalue="tipo_interacao" addBlankLine=true>
+					</select>
+				</div>
+				<div class="col-sm-4 pd_her">
+					<label for="exampleTag">Usuario</label>
+					<input type="text" class="form-control" name="user_com" id="user_com" readonly >
+					<input type="hidden" class="form-control" name="cod_user_com" id="cod_user_com" readonly >
+				</div>
+			</div>
+			<div class="row  row_table">
+				<div class="col-sm-12 pd_her">
+					<label for="exampleTag">Interacao</label>
+					<textarea rows="4" name="descricao_com" id="descricao_com" class="form-control" ></textarea>
+				</div>				
+			</div>
+
+			<div class="row  row_table" id="hist_com" name="hist_com" >	
+				<div class="col-sm-12 pd_her">	
+					<table class="table table-condensed table-bordered" border="1" tablename="cominicacao"  noaddbutton=true nodeletebutton=true addbuttonclass="wdkbuttonClass" >
+						<thead>
+							<tr>
+								<td width='100%' class="cell-ellipsis"><b>Historico</b></td>
+							</tr>
+						</thead>
+							<tr>
+								<td>
+									<div class="row  row_table">
+										<div class="col-sm-2 pd_her">
+											<label for="exampleTag">Data Hist.</label>
+											<input type="text" class="form-control" name="data_hist_com" id="data_hist_com" readonly >
+										</div>
+										<div class="col-sm-2 pd_her">
+											<label for="exampleTag">Data Prev.</label>
+											<input type="text" class="form-control" name="data_prev_hist_com" id="data_prev_hist_com" readonly >
+										</div>
+										<div class="col-sm-4 pd_her">
+											<label for="exampleTag">Tipo</label>
+											<input type="text" class="form-control" name="tipo_hist_com" id="tipo_hist_com" readonly >
+										</div>
+										<div class="col-sm-4 pd_her">
+											<label for="exampleTag">Usuario</label>
+											<input type="text" class="form-control" name="user_hist_com" id="user_hist_com" readonly >
+											<input type="hidden" class="form-control" name="cod_user_hist_com" id="cod_user_hist_com" readonly >
+										</div>
+									</div>
+									<div class="row  row_table">
+										<div class="col-sm-12 pd_her">
+											<textarea rows="1" name="desc_hist_com" id="desc_hist_com" class="form-control"  readonly ></textarea>
+										</div>
+									</div>						
+							</tr>
+					</table>
+				</div>			
+			</div>
+		</div>
+		<div class="tab-pane" id="followup">
+			<div class="row  row_table">
+				<div class="col-sm-2 pd_her">
+					<label for="exampleTag">Data</label>
+					<input type="text" class="form-control" name="data_fup" id="data_fup" readonly >
+				</div>
+				<div class="col-sm-2 pd_her">
+					<label for="exampleTag">Data Prev.</label>
+					<input type="text" class="form-control" name="data_prev_fup" id="data_prev_fup" >
+				</div>
+				<div class="col-sm-4 pd_her">
+					<label for="exampleTag">Tipo</label>
+					<select class="form-control" name="tipo_fup" id="tipo_fup" dataset="tipo_folow_up" datasetkey="cod_tipo_interacao" datasetvalue="tipo_interacao" addBlankLine=true>
+					</select>
+				</div>
+				<div class="col-sm-4 pd_her" id='dv_resp_comerc_dest'>
+					<label for="exampleTag">Contato Comercial</label>
+					<div class="input-group">
+						<input type="text" name="nome_user_env_proposta_fup" id="nome_user_env_proposta_fup"  class="form-control"  readonly />
+						<span id = "bt_user_env_proposta" name="bt_user_env_proposta" class="input-group-addon fluigicon fluigicon-zoom-in fluigicon-sm" onclick="zoom(this.id)" ></span>
+						<input type="hidden" name="user_env_proposta_fup" id="user_env_proposta_fup"  class="form-control" />
+					</div>
+					<!--  <label for="exampleTag">Usuario</label>
+						  <input type="text" class="form-control" name="user_fup" id="user_fup" readonly >
+						  <input type="hidden" class="form-control" name="cod_user_fup" id="cod_user_fup" readonly > -->
+				</div>
+			</div>
+			<div class="row  row_table">
+				<div class="col-sm-12 pd_her">
+					<label for="exampleTag">Interacao</label>
+					<textarea rows="4" name="descricao" id="descricao" class="form-control" ></textarea>
+				</div>				
+			</div>
+
+			<div class="row  row_table" id="hist" name="hist" >	
+				<div class="col-sm-12 pd_her">	
+					<table class="table table-condensed table-bordered" border="1" tablename="folowup"  noaddbutton=true nodeletebutton=true addbuttonclass="wdkbuttonClass" >
+						<thead>
+							<tr>
+								<td width='100%' class="cell-ellipsis"><b>Historico</b></td>
+							</tr>
+						</thead>
+							<tr>
+								<td>
+									<div class="row  row_table">
+										<div class="col-sm-2 pd_her">
+											<label for="exampleTag">Data Hist.</label>
+											<input type="text" class="form-control" name="data_hist" id="data_hist" readonly >
+										</div>
+										<div class="col-sm-2 pd_her">
+											<label for="exampleTag">Data Prev.</label>
+											<input type="text" class="form-control" name="data_prev_hist" id="data_prev_hist" readonly >
+										</div>
+										<div class="col-sm-4 pd_her">
+											<label for="exampleTag">Tipo</label>
+											<input type="text" class="form-control" name="tipo_hist" id="tipo_hist" readonly >
+										</div>
+										<div class="col-sm-4 pd_her">
+											<label for="exampleTag">Usuario</label>
+											<input type="text" class="form-control" name="user_hist" id="user_hist" readonly >
+											<input type="hidden" class="form-control" name="cod_user_hist" id="cod_user_hist" readonly >
+										</div>
+									</div>
+									<div class="row  row_table">
+										<div class="col-sm-12 pd_her">
+											<textarea rows="1" name="desc_hist" id="desc_hist" class="form-control"  readonly ></textarea>
+										</div>
+									</div>						
+							</tr>
+					</table>
+				</div>			
+			</div>
+		</div>
+		
+		<div class="tab-pane" id="atraso">
+			<div class="row  row_table">
+				<div class="col-sm-2 pd_her">
+					<label for="exampleTag">Data</label>
+					<input type="text" class="form-control" name="data_atr" id="data_atr" readonly >
+				</div>
+				<div class="col-sm-2 pd_her">
+					<label for="exampleTag">Data Prev.</label>
+					<input type="text" class="form-control" name="data_prev_atr" id="data_prev_atr" >
+					<input type="hidden" class="form-control" name="ult_data_prev_atr" id="ult_data_prev_atr" >
+				</div>
+				<div class="col-sm-4 pd_her">
+					<label for="exampleTag">Motivo</label>
+					<select class="form-control" name="motivo_atraso" id="motivo_atraso" dataset="motivo_atraso" datasetkey="cod_motivo" datasetvalue="den_motivo" addBlankLine=true onchange='selectMotivo()' >
+					</select>
+					<input type="hidden" class="form-control" name="den_motivo_atraso" id="den_motivo_atraso" readonly >
+					<input type="hidden" class="form-control" name="ult_den_motivo_atraso" id="ult_den_motivo_atraso" readonly >
+				</div>
+				
+				<div class="col-sm-4 pd_her">
+					<label for="exampleTag">Usuario</label>
+					<input type="text" class="form-control" name="user_atr" id="user_atr" readonly >
+					<input type="hidden" class="form-control" name="cod_user_atr" id="cod_user_atr" readonly >
+				</div>				
+				
+			</div>
+			<div class="row  row_table">
+				<div class="col-sm-12 pd_her">
+					<label for="exampleTag">Justificativa</label>
+					<textarea rows="4" name="justificativa" id="justificativa" class="form-control" ></textarea>
+				</div>				
+			</div>
+
+			<div class="row  row_table" id="hist_atraso" name="hist_atraso" >	
+				<div class="col-sm-12 pd_her">	
+					<table class="table table-condensed table-bordered" border="1" tablename="atraso"  noaddbutton=true nodeletebutton=true addbuttonclass="wdkbuttonClass" >
+						<thead>
+							<tr>
+								<td width='100%' class="cell-ellipsis"><b>Historico</b></td>
+							</tr>
+						</thead>
+							<tr>
+								<td>
+									<div class="row  row_table">
+										<div class="col-sm-2 pd_her">
+											<label for="exampleTag">Data Hist.</label>
+											<input type="text" class="form-control" name="data_hist_atr" id="data_hist_atr" readonly >
+										</div>
+										<div class="col-sm-2 pd_her">
+											<label for="exampleTag">Data Prev.</label>
+											<input type="text" class="form-control" name="data_prev_hist_atr" id="data_prev_hist_atr" readonly >
+										</div>
+										<div class="col-sm-4 pd_her">
+											<label for="exampleTag">Motivo</label>
+											<select class="form-control" name="motivo_atraso_hist_atr" id="motivo_atraso_hist_atr" dataset="motivo_atraso" datasetkey="cod_motivo" datasetvalue="den_motivo" addBlankLine=true onchange='selectMotivo()' onchange='selectMotivoHist(this.id)' >
+											</select>
+											<input type="hidden" class="form-control" name="cod_motivo_atraso_hist_atr" id="cod_motivo_atraso_hist_atr" readonly >
+										</div>
+										<div class="col-sm-4 pd_her">
+											<label for="exampleTag">Usuario</label>
+											<input type="text" class="form-control" name="user_hist_atr" id="user_hist_atr" readonly >
+											<input type="hidden" class="form-control" name="cod_user_hist_atr" id="cod_user_hist_atr" readonly >
+										</div>
+									</div>
+									<div class="row  row_table">
+										<div class="col-sm-12 pd_her">
+											<textarea rows="1" name="desc_hist_atr" id="desc_hist_atr" class="form-control"  readonly ></textarea>
+										</div>
+									</div>						
+							</tr>
+					</table>
+				</div>			
+			</div>
+		</div>
+
+		<div class="tab-pane" id="fechamento">
+		
+			<div class="row row_table">
+			
+				<div class="col-sm-1 pd_her">
+					<label for="exampleTag" >Empresa</label>
+					<select name="cod_empresa" id="cod_empresa" class="form-control" >
+						<option value='02' > 02 </option>
+						<option value='01' > 01 </option>
+					</select>
+				</div>
+
+				<div class="col-sm-2 pd_her">
+					<label for="exampleTag" >Pedido Logix</label>
+					<input type="text" name="pedido" id="pedido" class="form-control" />
+				</div>
+			</div>
+						<div class="row fs-txt-center" style="background-color: #d9edf7; padding: 5px 15px;">
+				<table>
+					<tr>
+						<td><button class="fluigicon fluigicon-plus-sign fluigicon-sm" name='bt_item_cab' onclick="addLinha('itens_solic', 'button')" ></button></td>
+						<td width='99%' align=center ><b>Itens</b></td>
+					</tr>
+				</table>
+			</div>
+
+			<div class="row">
+				<div class="col-sm-12 pd_her">
+					<table class="table table-condensed table-bordered table-striped" border="0" tablename="itens_solic"  noaddbutton=true nodeletebutton=true >
+						<!--<thead style="visibility: collapse;">-->
+						<thead >
+							<tr style="display:none">
+								<td width='100%' class="cell-ellipsis"><b>Itens solicitados</b></td>
+							</tr>
+						</thead>
+							<tr>
+								<td>
+									<div class="row row_table linha_item">
+										<div class="col-sm-2 pd_her">
+											<label for="exampleTag">Cod.Item</label>
+											<div class="input-group">
+												<!-- onblur="buscaItem( this.id )" -->
+												<input type="text" class="form-control" name="cod_item" id="cod_item" onblur="zoom( 'bt_item', this.id )" />
+												<span class="input-group-addon fluigicon fluigicon-search fluigicon-sm" onclick="zoom( this.children[0].id )" >
+													<input type="hidden" id="bt_item" name="bt_item" />
+												</span>
+												<input type="hidden" class="form-control" name="cod_item_busca" id="cod_item_busca"  />
+											</div>
+										</div>
+										<div class="col-sm-4 pd_her den_item_item">
+											<label for="exampleTag">Item</label>
+											<input type="text" class="form-control" name="den_item" id="den_item" readonly tabindex="-1" />
+											<input type="hidden" name="den_item_reduz" id="den_item_reduz" />
+										</div>
+										<div class="col-sm-2 pd_her">
+											<label for="exampleTag">Qtd. Solic</label>
+											<input type="tel" class="form-control" name="qtd_solic" id="qtd_solic" style="text-align:right" onblur="calcTotalItem(this.id)" />
+										</div>
+										<div class="col-sm-2 pd_her preco_unit_item">
+											<label for="exampleTag">Pre&ccedil;o Unit.</label>
+											<input type="tel" class="form-control" name="preco_unit" id="preco_unit" style="text-align:right" onblur="calcTotalItem(this.id)"/>
+										</div>
+										<div class="col-sm-2 pd_her preco_total_item">
+											<label for="exampleTag">Valor Total</label>
+											<input type="tel" class="form-control" name="preco_total" id="preco_total" style="text-align:right" readonly />
+										</div>
+									</div>
+									<div class="row row_table">
+										<div class="col-sm-9 pd_her linha_obs">
+											<label for="exampleTag">Descri&ccedil;&atilde;o complementar</label>
+											<textarea rows="1" class="form-control" name="texto_ped_cotacao" id="texto_ped_cotacao"  onkeydown="exitObsArea( event )" ></textarea> 
+										</div>
+										<div class="col-sm-2 pd_her">
+											<label for="exampleTag">Data Prev. Entrega</label>
+											<input type="text" class="form-control" name="data_prev_entr" id="data_prev_entr" >
+										</div>
+										<div class="col-sm-1 pd_her">
+											<label for="exampleTag"> &nbsp&nbsp<br> </label>
+											<button name="btDelApon" class="btn btn-default btn-sm fluigicon fluigicon-trash fluigicon-xs" type="button" onclick="fnCustomDelete(this);" style="margin-top: 25px; margin-left: 10px;"   tabindex="-1" ></button>
+										</div>
+									</div>
+								</td>
+							</tr>
+					</table>
+				</div>
+			</div>
+			<div class="form-group row linha_total_geral">
+		        <div class="col-md-12  pd_her">
+		            <div class="form-group row">
+		                <label for="inputKey" class="col-md-1 col-sm-offset-9 control-label  pd_her"><b>Total Geral</b></label>
+		                <div class="col-md-2  pd_her">
+		                    <input type="text" class="form-control" style="text-align:right" name="total_geral" id="total_geral" readonly >
+		                </div>
+		            </div>
+		        </div>
+		    </div>			
+		</div>
+
+
+		<div class="tab-pane" id="historico">		
+		
+			<div class="row row_table">
+
+				<div class="col-sm-3 pd_her">
+					<label for="exampleTag">Area</label>
+					<select class="form-control" name="aen_cons" id="aen_cons" dataset="aen" datasetkey="cod_aen" datasetvalue="den_aen_compl" addBlankLine=true onchange="changeAEN()">
+					</select>
+				</div>
+			
+				<div class="col-sm-2 pd_her">
+					<label for="exampleTag" >Periodo De:</label>
+					<input type="text" name="data_de_cons" id="data_de_cons" class="form-control" />
+				</div>
+			
+				<div class="col-sm-2 pd_her">
+					<label for="exampleTag" >Periodo Até:</label>
+					<input type="text" name="data_ate_cons" id="data_ate_cons" class="form-control" />
+				</div>
+
+				<div class="col-sm-3 pd_her">
+					<label for="exampleTag" >Descrição:</label>
+					<input type="text" name="desc_cons" id="desc_cons" class="form-control" />
+				</div>
+
+				<div class="col-sm-2">
+					<label for="exampleTag">&nbsp;</label>
+					<div class="input-group" style="width: 100%;">
+						<button id="btCons" name="btCons" class="btn fluigicon fluigicon-play-circle fluigicon-md"  style="width: 100%;" onclick='consulta()' ></button>	
+					</div>
+				</div>
+			</div>
+			
+			<div class="row row_table">
+				<div class="col-sm-12 pd_her" id='consulta'>
+				
+				</div>				
+			</div>
+		</div>
+		
+	</div>
+	
+	<input type="hidden" name="data_prazo" id="data_prazo" />
+	<input type="hidden" name="data_prazo_orig" id="data_prazo_orig" />
+	
+	<input type="hidden" name="task" id="task" />
+	<input type="hidden" name="user_abert" id="user_abert" />	
+	<input type="hidden" name="user_atual" id="user_atual" />
+	<input type="hidden" name="user_name" id="user_name" />
+	
+	<input type="hidden" name="processo" id="processo" />
+	<input type="hidden" name="WKUser" id="user" />
+	
+	<input type="hidden" name="num_pasta_projeto" id="num_pasta_projeto" />
+	<input type="hidden" name="num_pasta_projetos" id="num_pasta_projetos" />
+	<input type="file" name="load_file" id="load_file" title="" style="display: none;" onchange="selectFile(this.files)" />
+
+	
+v 3.04
+</form>
+</div>
+</body>
+</html>
+

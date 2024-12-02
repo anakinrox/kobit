@@ -1,0 +1,18 @@
+INDEX VERSION 1.3+C:\Trabalho\Kobit\ceramfix\.metadata\.plugins\org.eclipse.wst.jsdt.core\indexes
+2702360753.index
+2502902422.index
+4149099884.index
+1706616079.index
+222318851.index
+551346781.index
+327323174.index
+3612207113.index
+3847348844.index
+3318153588.index
+3878412779.index
+410373047.index
+953404634.index
+2092874184.index
+3129844219.index
+375285149.index
+780997675.index

@@ -1,0 +1,17 @@
+{
+	"version": "1.0.0",
+	"configurations": [
+		{
+			"id": "we2277i7dmm1r22nl81k3a9vq43ir",
+			"name": "Fluig Teste",
+			"host": "fluigtst.ceramfix.com.br",
+			"ssl": true,
+			"port": 443,
+			"username": "admin",
+			"password": "eyJpdiI6IjI0YzA5YTVmYTZkMWI3ZWU0NmUwZmQ4NzcwOTJlMzFiIiwic2FsdCI6ImVlMjczYTNkYTAyZWEwNDY0OWUxYjU1ODE4NGM5Y2EzIiwidGV4dCI6IjIyNWVhMTIxYWZmNjljMTkyMTA4ZjdlY2U2ZGRjNjZkIn0=",
+			"userCode": "admin",
+			"confirmExporting": false,
+			"companyId": 1
+		}
+	]
+}

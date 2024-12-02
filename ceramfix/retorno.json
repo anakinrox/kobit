@@ -1,0 +1,60 @@
+[
+    {
+        "preorder_id": 19981568,
+        "order_id": null,
+        "order_type": "dropshipping",
+        "order_desc": "01-MI - Venda - MI",
+        "fiscal_desc": "fiscal_desc",
+        "freight_type": "FOB",
+        "location_cnpj": "07.293.000/0001-76",
+        "client_info": {
+            "company_name": "RISTRETTO DALLO EMPREENDIMENTOS SPE LTDA",
+            "cnpj": "39.687.924/0001-43",
+            "state_registration": "ISENTO",
+            "municipality_registration": null,
+            "address": "AV NEREU RAMOS, 4077 - EDIF DALLO B. CENTER SALA 1601 J",
+            "trade_name": null,
+            "postal_code": "88220000",
+            "ibge_code": null,
+            "street_type": null,
+            "street_name": "AV NEREU RAMOS",
+            "street_number": "4077",
+            "street_compl": "EDIF DALLO B. CENTER SALA 1601 J",
+            "neighborhood": "MEIA PRAIA",
+            "city": "ITAPEMA",
+            "state": "SC",
+            "country": "BR",
+            "phone": "55-47-32671111",
+            "email": "MODIF.projetonfe@portobello.com.br"
+        },
+        "items": [
+            {
+                "code": "205992PK",
+                "description": "ARG INTERIORES ACI PORTOBELLO SC 20KG",
+                "quantity": 1440,
+                "purchase_value": 0.68,
+                "sale_value": 0.68,
+                "promised_date": "2024-11-04",
+                "required_date": "2024-11-04"
+            },
+            {
+                "code": "205993PK",
+                "description": "ARG INTERNO E EXTERNO ACII PORTOBELLO SC 20KG",
+                "quantity": 1600,
+                "purchase_value": 1.24,
+                "sale_value": 1.24,
+                "promised_date": "2024-11-04",
+                "required_date": "2024-11-04"
+            },
+            {
+                "code": "205996PK",
+                "description": "ARG SUPER FLEXIVEL ACIII PORTOBELLO SC 20KG",
+                "quantity": 1600,
+                "purchase_value": 1.69,
+                "sale_value": 1.69,
+                "promised_date": "2024-11-04",
+                "required_date": "2024-11-04"
+            }
+        ]
+    }
+]

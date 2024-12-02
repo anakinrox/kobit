@@ -1,0 +1,102 @@
+<html>
+
+<head>
+	<link type="text/css" rel="stylesheet" href="/style-guide/css/fluig-style-guide.min.css" />
+	<script type="text/javascript" src="/portal/resources/js/jquery/jquery.js"></script>
+	<script type="text/javascript" src="/portal/resources/js/jquery/jquery-ui.min.js"></script>
+	<script type="text/javascript" src="/portal/resources/js/mustache/mustache-min.js"></script>
+	<script type="text/javascript" src="/style-guide/js/fluig-style-guide.min.js" charset="utf-8"></script>
+
+	<script type="text/javascript" src="/webdesk/vcXMLRPC.js"></script>
+	<script type="text/javascript" src="modalZoom.js" charset="utf-8"></script>
+	<script type="text/javascript" src="controle.js" charset="utf-8"></script>
+	<script type="text/javascript" src="util.js" charset="utf-8"></script>
+	<script type="text/javascript" src="zoom.js" charset="utf-8"></script>
+</head>
+
+<body onLoad="loadBody()">
+	<div class="fluig-style-guide">
+		<form name="form" role="form">
+			<div class="panel panel-info">
+				<div class="panel-heading fs-txt-center">
+					Cadastro de EPI's
+				</div>
+				<div class="panel-body">
+					<div class="row">
+						<div class="col-md-2">
+							<label>Código</label>
+							<input type="text" name="codigo" id="codigo" class="form-control" readonly />
+						</div>
+						<div class="col-md-6">
+							<label>Descrição</label>
+							<input type="text" name="descricao" id="descricao" class="form-control" />
+						</div>
+						<div class="col-md-2">
+							<label>Padrão de Troca (dias)</label>
+							<input type="text" class="form-control dataSet" name="padrao_troca" id="padrao_troca" mask="#000000000"/>
+						</div>
+						<div class="col-sm-2">
+							<label class="control-label">CA</label>
+							<input type="text" class="form-control" id="ca_epi"
+								name="ca_epi" />
+						</div>
+					</div>
+
+					<div class="row">
+						<div class="row">
+							<div class="col-md-2">
+								<button type="button" class="btn btn-primary" id="addItens" onclick="addLineTable();"
+									style="margin: 15px 0 15px 15px;">Adicionar</button>
+							</div>
+						</div>
+						<div class="col-md-12">
+							<table id="itens" tablename="itens" class="table" noaddbutton="true" nodeletebutton="true">
+								<thead>
+									<tr>
+									</tr>
+								</thead>
+								<tbody>
+									<tr class="line_itens">
+										<td data-fluig-state-hide="" class="hideView">
+											<i class="fluigicon fluigicon-trash icon-md"
+												style="margin-top: 20px; cursor: pointer"
+												onclick="removeLineTable(this)"></i>
+										</td>
+										<td>
+											<div class="row">
+												<div class="col-sm-2">
+													<label class="control-label">Código do EPI</label>
+													<div class="input-group">
+														<input type="text" class="form-control" name="codigo_item"
+															id="codigo_item" value="" readonly />
+														<span
+															class="input-group-addon fluigicon fluigicon-zoom-in fluigicon-sm"
+															onclick="zoom(this.children[0].id)">
+															<input type="hidden" name="cod_item" id="cod_item" />
+														</span>
+													</div>
+												</div>
+												<div class="col-sm-8">
+													<label class="control-label">Descrição</label>
+													<input type="text" class="form-control" id="descricao_item"
+														name="descricao_item" readonly/>
+												</div>
+												<div class="col-sm-2">
+													<label class="control-label">Referência</label>
+													<input type="text" class="form-control" id="referencia"
+														name="referencia" />
+												</div>
+											</div>
+										</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</div>
+			</div>
+		</form>
+	</div>
+</body>
+
+</html>
