@@ -1,0 +1,20 @@
+{
+  "id": "6514b1d4-10e2-4e8d-9d7b-8848b11bbc95",
+  "timestamp": "2024-05-02T16:50:31.080Z",
+  "type": "MESSAGE_STATUS",
+  "subscriptionId": "715c6bd9-03f4-4b63-aaac-8d3bca04c869",
+  "channel": "whatsapp",
+  "messageId": "d6fe7ead-1bd8-48f2-a5d5-9cab44aadc19",
+  "messageStatus": {
+    "timestamp": "2024-05-02T16:50:30+00:00",
+    "code": "NOT_DELIVERED",
+    "description": "The provider was unable to deliver the message",
+    "causes": [
+      {
+        "channelErrorCode": "131047",
+        "reason": "Message failed to send because more than 24 hours have passed since the customer last replied to this number."
+      }
+    ]
+  },
+  "contentIndex": 0
+}

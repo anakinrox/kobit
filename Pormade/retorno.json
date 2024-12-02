@@ -1,0 +1,102 @@
+[
+    {
+        "ID": "237",
+        "DOCUMENTID": "1263510",
+        "EVENTO": "Teste",
+        "DETALHE": "Teste teste",
+        "INICIO": "2024-06-26",
+        "FIM": "2024-06-28",
+        "CODCIDADE": "SC276",
+        "ENDERECO": "Rua Francisco Pereira, 227",
+        "BAIRRO": "São Pedro",
+        "CEP": "89400-000",
+        "CODORIGEM": "321",
+        "USUARIOS": [
+            {
+                "DOCUMENTID": "1263510",
+                "LOGIN": "kaue.guilherme",
+                "CPF": "13558657942",
+                "INICIO": "2024-06-26",
+                "FIM": "2024-06-28"
+            },
+            {
+                "DOCUMENTID": "1263510",
+                "LOGIN": "gabriel.silveira",
+                "CPF": "11835856918",
+                "INICIO": "2024-06-26",
+                "FIM": "2024-06-28"
+            },
+            {
+                "DOCUMENTID": "1263510",
+                "LOGIN": "matheus.valenga",
+                "CPF": "12176207963",
+                "INICIO": "2024-06-26",
+                "FIM": "2024-06-28"
+            },
+            {
+                "DOCUMENTID": "1263510",
+                "LOGIN": "gabriel.silveira",
+                "CPF": "11835856918",
+                "INICIO": "2024-06-26",
+                "FIM": "2024-06-28"
+            }
+        ]
+    },
+    {
+        "ID": "238",
+        "DOCUMENTID": "1265141",
+        "EVENTO": "Teste AutoLeads",
+        "DETALHE": "Teste de integração do app Pormade Leads com o sistema AutoLeads",
+        "INICIO": "2024-06-27",
+        "FIM": "2024-06-29",
+        "CODCIDADE": "PR732",
+        "ENDERECO": "Avenida Bento Munhoz da Rocha Neto",
+        "BAIRRO": "São Basilio Magno",
+        "CEP": "84600-530",
+        "CODORIGEM": "32",
+        "USUARIOS": [
+            {
+                "DOCUMENTID": "1265141",
+                "LOGIN": "gabriel.silveira",
+                "CPF": "11835856918",
+                "INICIO": "2024-06-27",
+                "FIM": "2024-06-29"
+            },
+            {
+                "DOCUMENTID": "1265141",
+                "LOGIN": "matheus.valenga",
+                "CPF": "12176207963",
+                "INICIO": "2024-06-27",
+                "FIM": "2024-06-29"
+            },
+            {
+                "DOCUMENTID": "1265141",
+                "LOGIN": "kaue.guilherme",
+                "CPF": "13558657942",
+                "INICIO": "2024-06-27",
+                "FIM": "2024-06-29"
+            },
+            {
+                "DOCUMENTID": "1265141",
+                "LOGIN": "gabriela",
+                "CPF": "08494595911",
+                "INICIO": "2024-06-27",
+                "FIM": "2024-06-29"
+            },
+            {
+                "DOCUMENTID": "1265141",
+                "LOGIN": "caroline",
+                "CPF": "07808361976",
+                "INICIO": "2024-06-27",
+                "FIM": "2024-06-29"
+            },
+            {
+                "DOCUMENTID": "1265141",
+                "LOGIN": "kelly",
+                "CPF": "07606223963",
+                "INICIO": "2024-06-27",
+                "FIM": "2024-06-29"
+            }
+        ]
+    }
+]

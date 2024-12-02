@@ -1,0 +1,704 @@
+<html>
+
+<head>
+	<link type="text/css" rel="stylesheet" href="controle.css" />
+	<link type="text/css" rel="stylesheet" href="/portal/resources/style-guide/css/fluig-style-guide.min.css" />
+	<script type="text/javascript" src="/portal/resources/js/jquery/jquery.js"></script>
+	<script type="text/javascript" src="/portal/resources/js/jquery/jquery-ui.min.js"></script>
+	<script type="text/javascript" src="/portal/resources/js/mustache/mustache-min.js"></script>
+	<script type="text/javascript" src="/portal/resources/style-guide/js/fluig-style-guide.min.js"
+		charset="utf-8"></script>
+
+	<script type="text/javascript" src="/portal/resources/js/jquery.mask.min.js"></script>
+	<script type="text/javascript" src="jquery.maskMoney.min.js"></script>
+	<script type="text/javascript" src="./controle.js"></script>
+	<script type="text/javascript" src="/webdesk/vcXMLRPC.js"></script>
+	<script type="text/javascript" src="./utils.js"></script>
+	<script type="text/javascript" src="./zoom.js"></script>
+	<script type="text/javascript" src="./modalZoom.js"></script>
+	<script type="text/javascript" src="./fileUpload.js"></script>
+
+</head>
+
+<body class="fluig-style-guide" onload="loadBody()">
+	<form name="form" role="form">
+		<div class="container-fluid">
+
+			<div class="panel panel-info">
+				<div class="panel-heading fs-txt-center">
+					Cadastro de motorista
+				</div>
+				<div class="panel-body">
+
+					<!-- Dados Pessoais -->
+					<div class="row">
+						<div class="col-sm-2">
+							<label for="txtNome">Empresa</label>
+							<select name="empresa" id="empresa" class="form-control"></select>
+						</div>
+						<div class="col-sm-2">
+							<label for="txtNome">Código motorista</label>
+							<div class="input-group">
+								<input type="text" class="form-control grp_motorista" name="cod_motorista"
+									id="cod_motorista" readonly />
+								<span class="input-group-addon fluigicon fluigicon-eraser fluigicon-sm"
+									onclick="$('.grp_motorista').val('')"></span>
+								<span id="bt_motorista"
+									class="input-group-addon fluigicon fluigicon-zoom-in fluigicon-sm"
+									onclick="zoom(this.id)"></span>
+								<span class="input-group-addon fluigicon fluigicon-eye-open fluigicon-lg"
+									id="bt_ich_open" onclick="openFolder($('#num_pasta_motorista').val());"> </span>
+								<input type="hidden" name="num_pasta_motorista" id="num_pasta_motorista" />
+								<input type="hidden" name="num_pasta_motoristas" id="num_pasta_motoristas"
+									value="173945" />
+							</div>
+						</div>
+						<div class="col-sm-4">
+							<label for="txtNome">Nome Motorista</label>
+							<input type="text" class="form-control grp_motorista" name="nome_motorista"
+								id="nome_motorista" readonly />
+						</div>
+						<div class="col-sm-2">
+							<label for="txtNome" data-toggle="tooltip" data-placement="bottom"
+								title="DAD - Documento de Admissão">DAD</label>
+							<div class="input-group">
+								<input type="text" name="doc_dad" id="doc_dad" class="form-control" readonly />
+								<span class="input-group-addon fluigicon fluigicon-file-doc fluigicon-lg" id="bt_dad"
+									onclick="loadFile( this.id )"></span>
+								<span class="input-group-addon fluigicon fluigicon-eye-open fluigicon-lg"
+									id="bt_dad_open" onclick="openFile( this );"> </span>
+							</div>
+							<input type="hidden" name="fd_dad" id="fd_dad" />
+						</div>
+						<div class="col-sm-2">
+							<label for="txtNome">Data Admissão</label>
+							<input type="text" class="form-control data-fluig" name="data_admissao"
+								id="data_admissao" />
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-sm-1">
+							<label for="txtNome">Data Nasc.</label>
+							<input type="text" name="dt_nascimento" id="dt_nascimento" class="form-control data-fluig">
+						</div>
+						<div class="col-sm-1">
+							<label for="txtNome">Estado civil</label>
+							<select name="estado_civil" id="estado_civil" class="form-control">
+								<option value="S">Solteiro</option>
+								<option value="C">Casado</option>
+								<option value="E">Separado</option>
+								<option value="D">Divorciado</option>
+								<option value="V">Viúvo</option>
+							</select>
+						</div>
+						<div class="col-sm-1">
+							<label for="txtNome">Aposentado</label>
+							<select name="aposentado" id="aposentado" class="form-control">
+								<option value="N">Não</option>
+								<option value="S">Sim</option>
+							</select>
+						</div>
+						<div class="col-sm-2">
+							<label for="txtNome" data-toggle="tooltip" data-placement="bottom"
+								title="DAP - Documento de Aposentadoria">DAP</label>
+							<div class="input-group">
+								<input type="text" name="doc_dap" id="doc_dap" class="form-control" readonly />
+								<span class="input-group-addon fluigicon fluigicon-file-doc fluigicon-lg" id="bt_dap"
+									onclick="loadFile( this.id )"></span>
+								<span class="input-group-addon fluigicon fluigicon-eye-open fluigicon-lg"
+									id="bt_dap_open" onclick="openFile( this );"> </span>
+							</div>
+							<input type="hidden" name="fd_dap" id="fd_dap" />
+						</div>
+						<div class="col-sm-2">
+							<label for="txtNome">Data Aposentadoria</label>
+							<input type="text" name="dt_aposentadoria" id="dt_aposentadoria"
+								class="form-control data-fluig">
+						</div>
+						<div class="col-sm-2">
+							<label for="txtNome">Placa</label>
+							<div class="input-group">
+								<input type="text" class="form-control grp_placa" name="placa" id="placa" readonly />
+								<input type="hidden" class="grp_placa" name="modelo" id="modelo" />
+								<span class="input-group-addon fluigicon fluigicon-eraser fluigicon-sm"
+									onclick="$('.grp_placa').val('')"></span>
+								<span id="bt_placa" class="input-group-addon fluigicon fluigicon-zoom-in fluigicon-sm"
+									onclick="zoom(this.id)"></span>
+							</div>
+						</div>
+						<div class="col-sm-1" style="display:none">
+							<label for="txtNome">Fluig</label>
+							<input type="text" class="form-control" name="fluig" id="fluig" />
+						</div>
+						<div class="col-sm-1" style="display:none">
+							<label for="txtNome">Logix</label>
+							<input type="text" class="form-control" name="logix" id="logix" />
+						</div>
+						<div class="col-sm-1">
+							<label for="txtNome">Ativo</label>
+							<select class="form-control" name="ativo" id="ativo">
+								<option value="S">Sim</option>
+								<option value="N">Não</option>
+							</select>
+						</div>
+						<div class="col-sm-2">
+							<label for="txtNome">Ultimo dia trabalhado</label>
+							<input type="text" class="form-control data-fluig" name="data_demissao"
+								id="data_demissao" />
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="panel panel-info">
+				<div class="panel-heading fs-txt-center">
+					Documentos
+				</div>
+				<div class="panel-body">
+
+					<div class="row">
+						<!-- Documentos -->
+						<div class="col-sm-2">
+							<label for="txtNome">PIS</label>
+							<input type="text" name="pis" id="pis" class="form-control">
+						</div>
+						<div class="col-sm-2">
+							<label for="txtNome">CTPS</label>
+							<input type="text" name="ctps" id="ctps" class="form-control">
+						</div>
+
+						<div class="col-sm-2">
+							<label for="txtNome">RG</label>
+							<input type="text" class="form-control" name="rg" id="rg" />
+						</div>
+						<div class="col-sm-2">
+							<label for="txtNome" data-toggle="tooltip" data-placement="bottom"
+								title="DRG - Documento Registro Geral">DRG</label>
+							<div class="input-group">
+								<input type="text" name="doc_drg" id="doc_drg" class="form-control" readonly />
+								<span class="input-group-addon fluigicon fluigicon-file-doc fluigicon-lg" id="bt_drg"
+									onclick="loadFile( this.id )"></span>
+								<span class="input-group-addon fluigicon fluigicon-eye-open fluigicon-lg" id="bt_drg"
+									onclick="openFile( this );"> </span>
+							</div>
+							<input type="hidden" name="fd_drg" id="fd_drg" />
+						</div>
+						<div class="col-sm-2">
+							<label for="txtNome">CPF</label>
+							<input type="text" class="form-control grp_motorista" name="cpf" id="cpf" />
+						</div>
+						<div class="col-sm-2">
+							<label for="txtNome" data-toggle="tooltip" data-placement="bottom"
+								title="DPF - Documento Pessoa Física">DPF</label>
+							<div class="input-group">
+								<input type="text" name="doc_dpf" id="doc_dpf" class="form-control" readonly />
+								<span class="input-group-addon fluigicon fluigicon-file-doc fluigicon-lg" id="bt_dpf"
+									onclick="loadFile( this.id )"></span>
+								<span class="input-group-addon fluigicon fluigicon-eye-open fluigicon-lg" id="bt_dpf"
+									onclick="openFile( this );"> </span>
+							</div>
+							<input type="hidden" name="fd_dpf" id="fd_dpf" />
+						</div>
+					</div>
+
+					<div class="row">
+						<div class="col-sm-2">
+							<label for="txtNome">CNH</label>
+							<input type="text" class="form-control" name="cnh" id="cnh" />
+						</div>
+						<div class="col-sm-2">
+							<label for="txtNome" data-toggle="tooltip" data-placement="bottom"
+								title="DCM - Documento Carteira de Motorista">DCM</label>
+							<div class="input-group">
+								<input type="text" name="doc_dcm" id="doc_dcm" class="form-control" readonly />
+								<span class="input-group-addon fluigicon fluigicon-file-doc fluigicon-lg" id="bt_dcm"
+									onclick="loadFile( this.id )"></span>
+								<span class="input-group-addon fluigicon fluigicon-eye-open fluigicon-lg"
+									id="bt_dad_dcm" onclick="openFile( this );"> </span>
+							</div>
+							<input type="hidden" name="fd_cnh" id="fd_cnh" />
+						</div>
+						<div class="col-sm-2">
+							<label for="txtNome">Validade CNH</label>
+							<input type="text" class="form-control data-fluig" name="validade_cnh" id="validade_cnh" />
+						</div>
+
+					</div>
+				</div>
+			</div>
+
+			<div class="panel panel-info">
+				<div class="panel-heading fs-txt-center">
+					Contato
+				</div>
+				<div class="panel-body">
+
+					<div class="row">
+
+						<!-- Contato -->
+						<div class="col-sm-5">
+							<label for="txtNome">Endereço</label>
+							<input type="text" name="endereco" id="endereco" class="form-control">
+						</div>
+						<div class="col-sm-3">
+							<label for="txtNome">E-mail</label>
+							<input type="text" class="form-control grp_motorista" name="email" id="email" />
+						</div>
+						<div class="col-sm-2">
+							<label for="txtNome">whatsapp</label>
+							<input type="text" class="form-control grp_motorista telefone" name="whatsapp"
+								id="whatsapp" />
+						</div>
+						<div class="col-sm-2">
+							<label for="txtNome">Telefone</label>
+							<input type="text" class="form-control grp_motorista telefone" name="telefone"
+								id="telefone" />
+						</div>
+
+
+					</div>
+
+					<div class="row">
+						<!-- Contato -->
+						<div class="col-sm-5">
+							<label for="txtNome">Nome Esposa</label>
+							<input type="text" name="nome_esposa" id="nome_esposa" class="form-control">
+						</div>
+						<div class="col-sm-2">
+							<label for="txtNome">Telefone Esposa</label>
+							<input type="text" name="tel_esposa" id="tel_esposa" class="form-control telefone">
+						</div>
+
+					</div>
+
+				</div>
+			</div>
+
+			<div class="row">
+				<div id="tabs">
+					<ul class="nav nav-tabs" role="tablist">
+						<li class="active"><a href="#aba_dependentes" role="tab"
+								data-toggle="tab"><strong>Dependentes</strong></a></li>
+						<li><a href="#aba_salarios" role="tab" data-toggle="tab"><strong>Salário</strong></a></li>
+						<li><a href="#aba_despesas" role="tab" data-toggle="tab"><strong>Despesas
+									Recorrentes</strong></a></li>
+						<li><a href="#aba_ferias" role="tab" data-toggle="tab"><strong>Férias</strong></a></li>
+						<li><a href="#aba_folgas" role="tab" data-toggle="tab"><strong>Folgas</strong></a></li>
+						<li><a href="#aba_atestados" role="tab" data-toggle="tab"><strong>Atestados</strong></a></li>
+					</ul>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="tab-content">
+
+					<div class="tab-pane active" id="aba_dependentes">
+						<div class="panel panel-info">
+							<div class="panel-heading fs-txt-center">
+								<table width="100%">
+									<tr>
+										<td width="5%" align=left>
+											<button class="fluigicon fluigicon-plus-sign fluigicon-sm" name="btnFilhos"
+												onclick="addFilho('tbl_filhos')"></button>
+										</td>
+										<td width="90%" align=center>
+											Dependentes
+										</td>
+										<td width="5%" align=right>
+											<!-- <a class="collapse-icon up" data-toggle="collapse" href="#collapseLancamentos"> -->
+											<!-- <span class="collapse-icon up"></span> -->
+											</a>
+										</td>
+									</tr>
+								</table>
+							</div>
+							<div class="panel-body">
+								<div class="row">
+									<table class="table table-striped" id="tbl_filhos" tablename="tbl_filhos"
+										nodeletebutton="false" noaddbutton="true" addbuttonclass="wdkbuttonClass">
+										<thead>
+											<tr>
+												<th width="20%" class="cell-ellipsis">CPF</th>
+												<th width="20%" class="cell-ellipsis">RG</th>
+												<th width="40%" class="cell-ellipsis">Nome</th>
+												<th width="20%" class="cell-ellipsis">Data Nascimento</th>
+											</tr>
+										</thead>
+										<tbody>
+											<tr detail="true" detailname="tblFilho" id="linha_filhos"
+												ondblclick="editItem( this.id )">
+												<td>
+													<input id="cpf_filho" name="cpf_filho" class="form-control"
+														type="text" />
+												</td>
+												<td>
+													<input id="rg_filho" name="rg_filho" class="form-control"
+														type="text" />
+												</td>
+												<td>
+													<input id="nome_filho" name="nome_filho" class="form-control"
+														type="text" />
+												</td>
+												<td>
+													<input id="dt_nasc_filho" name="dt_nasc_filho"
+														class="form-control data-fluig" type="text" />
+												</td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="tab-pane" id="aba_salarios">
+						<div class="panel panel-info">
+							<div class="panel-heading fs-txt-center">
+								<table width="100%">
+									<tr>
+										<td width="5%" align=left>
+											<button class="fluigicon fluigicon-plus-sign fluigicon-sm" name="btnSalario"
+												onclick="addFilho('tbl_salario')"></button>
+										</td>
+										<td width="90%" align=center>
+											Salário
+										</td>
+										<td width="5%" align=right>
+											<!-- <a class="collapse-icon up" data-toggle="collapse" href="#collapseLancamentos"> -->
+											<!-- <span class="collapse-icon up"></span> -->
+											</a>
+										</td>
+									</tr>
+								</table>
+							</div>
+							<div class="panel-body">
+								<div class="row">
+									<table class="table table-striped" id="tblSalario" tablename="tbl_salario"
+										nodeletebutton="false" noaddbutton="true" addbuttonclass="wdkbuttonClass">
+										<thead>
+											<tr>
+												<th width="34%" class="cell-ellipsis">Valor</th>
+												<th width="33%" class="cell-ellipsis">Data início</th>
+												<th width="33%" class="cell-ellipsis">Data fim</th>
+											</tr>
+										</thead>
+										<tbody>
+											<tr detail="true" detailname="tbl_salario" id="linha_salario"
+												ondblclick="editItem( this.id )">
+												<td>
+													<input id="val_sal" name="val_sal" class="form-control"
+														type="text" />
+												</td>
+												<td>
+													<input id="dt_ini_sal" name="dt_ini_sal"
+														class="form-control data-fluig" type="text" />
+												</td>
+												<td>
+													<input id="dt_fim_sal" name="dt_fim_sal"
+														class="form-control data-fluig" type="text" />
+												</td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="tab-pane" id="aba_despesas">
+						<div class="panel panel-info">
+							<div class="panel-heading fs-txt-center">
+								<table width="100%">
+									<tr>
+										<td width="5%" align=left>
+											<button class="fluigicon fluigicon-plus-sign fluigicon-sm"
+												name="btnDespesas" onclick="addFilho('tbl_despesas')"></button>
+										</td>
+										<td width="90%" align=center>
+											Despesas Recorrentes
+										</td>
+										<td width="5%" align=right>
+											<!-- <a class="collapse-icon up" data-toggle="collapse" href="#collapseLancamentos"> -->
+											<!-- <span class="collapse-icon up"></span> -->
+											</a>
+										</td>
+									</tr>
+								</table>
+							</div>
+							<div class="panel-body">
+								<div class="row">
+									<table class="table table-striped" id="tblDespesas" tablename="tbl_despesas"
+										tbl_salario="false" noaddbutton="true" addbuttonclass="wdkbuttonClass">
+										<thead>
+											<tr>
+												<th width="34%" class="cell-ellipsis">Despesa</th>
+												<th width="33%" class="cell-ellipsis">Data início</th>
+												<th width="33%" class="cell-ellipsis">Data fim</th>
+											</tr>
+										</thead>
+										<tbody>
+											<tr detail="true" detailname="tbl_salario" id="linha_salario"
+												ondblclick="editItem( this.id )">
+												<td>
+
+													<div class="input-group">
+														<input id="tipo_despesa" name="tipo_despesa"
+															class="form-control" type="text" />
+														<span
+															class="input-group-addon btn btn-default btn-sm fluigicon fluigicon-zoom-in fluigicon-xs"
+															type="button" onclick="zoom(  this.children[0].id )"
+															tabindex="-1">
+															<input type="hidden" name="cod_tipo_despesa"
+																id="cod_tipo_despesa" />
+														</span>
+													</div>
+												</td>
+												<td>
+													<input id="dt_ini_desp" name="dt_ini_desp"
+														class="form-control data-fluig" type="text" />
+												</td>
+												<td>
+													<input id="dt_fim_desp" name="dt_fim_desp"
+														class="form-control data-fluig" type="text" />
+												</td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="tab-pane" id="aba_ferias">
+						<div class="panel panel-info">
+							<div class="panel-heading fs-txt-center">
+								<table width="100%">
+									<tr>
+										<td width="5%" align=left>
+											<button class="fluigicon fluigicon-plus-sign fluigicon-sm" name="btnFerias"
+												onclick="addFilho('tbl_ferias')"></button>
+										</td>
+										<td width="90%" align=center>
+											Férias
+										</td>
+										<td width="5%" align=right>
+											<!-- <a class="collapse-icon up" data-toggle="collapse" href="#collapseLancamentos"> -->
+											<!-- <span class="collapse-icon up"></span> -->
+											</a>
+										</td>
+									</tr>
+								</table>
+							</div>
+							<div class="panel-body">
+								<div class="row">
+									<table class="table table-striped" id="tblFerias" tablename="tbl_ferias"
+										nodeletebutton="false" noaddbutton="true" addbuttonclass="wdkbuttonClass">
+										<thead>
+											<tr>
+												<th width="25%" class="cell-ellipsis">Data Referência</th>
+												<th width="25%" class="cell-ellipsis">Data Início</th>
+												<th width="25%" class="cell-ellipsis">Data Fim</th>
+												<th width="25%" class="cell-ellipsis"></th>
+											</tr>
+										</thead>
+										<tbody>
+											<tr detail="true" detailname="tbl_ferias" id="linha_ferias"
+												ondblclick="editItem( this.id )">
+												<td>
+													<input id="dt_refer_ferias" name="dt_refer_ferias"
+														class="form-control data-fluig" type="text" />
+												</td>
+												<td>
+													<input id="dt_ini_ferias" name="dt_ini_ferias"
+														class="form-control data-fluig" type="text" />
+												</td>
+												<td>
+													<input id="dt_fim_ferias" name="dt_fim_ferias"
+														class="form-control data-fluig" type="text" />
+												</td>
+												<td>
+													<div class="input-group">
+														<input type="text" name="doc_dfe" id="doc_dfe"
+															class="form-control" readonly />
+														<span
+															class="input-group-addon fluigicon fluigicon-file-doc fluigicon-lg"
+															onclick="loadFile( this.children[0].id )">
+															<input type="hidden" name="bt_dfe" id="bt_dfe" />
+														</span>
+														<span
+															class="input-group-addon fluigicon fluigicon-eye-open fluigicon-lg"
+															id="bt_dfe" onclick="openFile( this );"> </span>
+													</div>
+													<input type="hidden" name="fd_dfe" id="fd_dfe" />
+												</td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="tab-pane" id="aba_folgas">
+						<div class="panel panel-info">
+							<div class="panel-heading fs-txt-center">
+								<table width="100%">
+									<tr>
+										<td width="5%" align=left>
+											<button class="fluigicon fluigicon-plus-sign fluigicon-sm" name="btnFolgas"
+												onclick="addFilho('tbl_folgas')"></button>
+										</td>
+										<td width="90%" align=center>
+											Férias
+										</td>
+										<td width="5%" align=right>
+											<!-- <a class="collapse-icon up" data-toggle="collapse" href="#collapseLancamentos"> -->
+											<!-- <span class="collapse-icon up"></span> -->
+											</a>
+										</td>
+									</tr>
+								</table>
+							</div>
+							<div class="panel-body">
+								<div class="row">
+									<table class="table table-striped" id="tblFerias" tablename="tbl_folgas"
+										nodeletebutton="false" noaddbutton="true" addbuttonclass="wdkbuttonClass">
+										<thead>
+											<tr>
+												<th width="25%" class="cell-ellipsis">Data Referência</th>
+												<th width="25%" class="cell-ellipsis">Data Início</th>
+												<th width="25%" class="cell-ellipsis">Data Fim</th>
+												<th width="25%" class="cell-ellipsis"></th>
+											</tr>
+										</thead>
+										<tbody>
+											<tr detail="true" detailname="tbl_ferias" id="linha_ferias"
+												ondblclick="editItem( this.id )">
+												<td>
+													<input id="dt_refer_folga" name="dt_refer_folga"
+														class="form-control data-fluig" type="text" />
+												</td>
+												<td>
+													<input id="dt_ini_folga" name="dt_ini_folga"
+														class="form-control data-fluig" type="text" />
+												</td>
+												<td>
+													<input id="dt_fim_folga" name="dt_fim_folga"
+														class="form-control data-fluig" type="text" />
+												</td>
+												<td>
+													<div class="input-group">
+														<input type="text" name="doc_dfo" id="doc_dfo"
+															class="form-control" readonly />
+														<span
+															class="input-group-addon fluigicon fluigicon-file-doc fluigicon-lg"
+															onclick="loadFile( this.children[0].id )">
+															<input type="hidden" name="bt_dfo" id="bt_dfo" />
+														</span>
+														<span
+															class="input-group-addon fluigicon fluigicon-eye-open fluigicon-lg"
+															id="bt_dfe" onclick="openFile( this );"> </span>
+													</div>
+													<input type="hidden" name="fd_dfo" id="fd_dfo" />
+												</td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="tab-pane" id="aba_atestados">
+						<div class="panel panel-info">
+							<div class="panel-heading fs-txt-center">
+								<table width="100%">
+									<tr>
+										<td width="5%" align=left>
+											<button class="fluigicon fluigicon-plus-sign fluigicon-sm"
+												name="btnAtestados" onclick="addFilho('tbl_atestados')"></button>
+										</td>
+										<td width="90%" align=center>
+											Atestados
+										</td>
+										<td width="5%" align=right>
+											<!-- <a class="collapse-icon up" data-toggle="collapse" href="#collapseLancamentos"> -->
+											<!-- <span class="collapse-icon up"></span> -->
+											</a>
+										</td>
+									</tr>
+								</table>
+							</div>
+							<div class="panel-body">
+								<div class="row">
+									<table class="table table-striped" id="tblAtestados" tablename="tbl_atestados"
+										nodeletebutton="false" noaddbutton="true" addbuttonclass="wdkbuttonClass">
+										<thead>
+											<tr>
+												<th width="25%" class="cell-ellipsis">Motivo</th>
+												<th width="25%" class="cell-ellipsis">Data Início</th>
+												<th width="25%" class="cell-ellipsis">Data Fim</th>
+												<th width="25%" class="cell-ellipsis"></th>
+											</tr>
+										</thead>
+										<tbody>
+											<tr detail="true" detailname="tbl_atestados" id="linha_atestado"
+												ondblclick="editItem( this.id )">
+												<td>
+													<div class="input-group">
+														<input id="den_mot_atestado" name="den_mot_atestado"
+															class="form-control" type="text" readonly />
+														<span
+															class="input-group-addon btn btn-default btn-sm fluigicon fluigicon-zoom-in fluigicon-xs"
+															type="button" onclick="zoom(  this.children[0].id )"
+															tabindex="-1">
+															<input type="hidden" name="cod_mot_atestado"
+																id="cod_mot_atestado" />
+														</span>
+													</div>
+												</td>
+												<td>
+													<input id="dt_ini_atestado" name="dt_ini_atestado"
+														class="form-control data-fluig" type="text" />
+												</td>
+												<td>
+													<input id="dt_fim_atestado" name="dt_fim_atestado"
+														class="form-control data-fluig" type="text" />
+												</td>
+												<td>
+													<div class="input-group">
+														<input type="text" name="doc_dat" id="doc_dat"
+															class="form-control" readonly />
+														<span
+															class="input-group-addon fluigicon fluigicon-file-doc fluigicon-lg"
+															onclick="loadFile( this.children[0].id )">
+															<input type="hidden" name="bt_dat" id="bt_dat" />
+														</span>
+														<span
+															class="input-group-addon fluigicon fluigicon-eye-open fluigicon-lg"
+															id="bt_dat" onclick="openFile( this );"> </span>
+													</div>
+													<input type="hidden" name="fd_dat" id="fd_dat" />
+												</td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+							</div>
+						</div>
+					</div>
+
+				</div>
+			</div>
+
+		</div>
+
+
+		</div>
+		<input type="hidden" name="descritor" id="descritor">
+		<input type="file" name="load_file" id="load_file" title="" style="display: none;"
+			onchange="selectFile(this.files)" />
+	</form>
+</body>
+
+</html>

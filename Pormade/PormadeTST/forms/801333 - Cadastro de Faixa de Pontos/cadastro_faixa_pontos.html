@@ -1,0 +1,45 @@
+<html>
+
+<head>
+	<link type="text/css" rel="stylesheet" href="/style-guide/css/fluig-style-guide.min.css" />
+	<script type="text/javascript" src="/portal/resources/js/jquery/jquery.js"></script>
+	<script type="text/javascript" src="/portal/resources/js/jquery/jquery-ui.min.js"></script>
+	<script type="text/javascript" src="/portal/resources/js/mustache/mustache-min.js"></script>
+	<script type="text/javascript" src="/style-guide/js/fluig-style-guide.min.js" charset="utf-8"></script>
+</head>
+
+<body>
+	<div class="fluig-style-guide">
+		<form name="form" role="form">
+
+			<div class="panel panel-info" style="margin-top: 30px;">
+				<div class="panel-heading">
+					<h3 class="panel-title alinharCenter"><span><i class="fluigicon fluigicon-user-edit icon-sm"
+								aria-hidden="true"></i>
+							CADASTRO DE FAIXA DE PONTOS</span>
+					</h3>
+				</div>
+				<div class="panel-body">
+					<div class="row" style="margin-top: 10px;">
+						<div class="col-md-6 form-group">
+							<label for="pontos">Pontos</label>
+							<input type="text" class="form-control" id="pontos" name="pontos"
+								onchange="semMascara(this.value)">
+							<input type="hidden" class="form-control" id="pontosHide" name="pontosHide">
+						</div>
+					</div>
+				</div>
+			</div>
+		</form>
+	</div>
+	<script>
+		function semMascara(e) {
+			var pts = $("#pontos").val()
+			pts = pts.replace(".", "")
+			pts = pts.replace(",", "")
+			$("#pontosHide").val(pts)
+		}
+	</script>
+</body>
+
+</html>

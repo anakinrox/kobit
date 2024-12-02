@@ -1,0 +1,757 @@
+<html  lang="pt-br">
+<head>
+    
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" charset="utf-8" />
+
+	<link rel="stylesheet" type="text/css" href="/style-guide/css/fluig-style-guide.min.css">
+	<script src="/portal/resources/js/jquery/jquery.js"></script>
+	<script src="/portal/resources/js/jquery/jquery-ui.min.js"></script>
+	<script src="/portal/resources/js/mustache/mustache-min.js"></script>
+	<script src="/style-guide/js/fluig-style-guide.min.js"></script>
+	<script src="/portal/resources/style-guide/js/fluig-style-guide.min.js"></script>
+	<script src="/portal/resources/js/jquery.mask.min.js"></script>	
+	
+
+	<script type="text/javascript" src="cep.js"></script>
+	<script type="text/javascript" src="zoom.js"></script>
+	<script type="text/javascript" src="perguntas.js"></script>
+	<script type="text/javascript" src="controle.js"></script>
+	<script type="text/javascript" src="modalZoom.js"></script>
+	<script type="text/javascript" src="valida.js"></script>
+	<script type="text/javascript" src="consulta.js"></script>
+	<script type="text/javascript" src='autosize.min.js'></script>
+	<script type="text/javascript" src='jquery.maskMoney.min.js'></script>	
+	<script type="text/javascript" src="/webdesk/vcXMLRPC.js"></script>
+	<script type="text/javascript" src="modalTable.js"></script>
+	<script type="text/javascript" src="validaCpfCnpj.js"></script>
+	
+	
+	<script>
+		function disablePullToRefresh(){
+        	return true;
+    	}
+	</script>
+	
+</head>
+<body onload="loadBody()">
+<div class="fluig-style-guide">
+<form name="form" role="form">
+
+	<div class="row row_table">
+		<div id="tit_parceiro">
+
+			<div class="col-sm-2">
+				<label for="exampleTag" >Tipo Cadastro</label>
+				<select name="tipo_cadastro" id="tipo_cadastro" class="form-control" valida="true" onchange="pctBonus()">
+					<!-- <option value='' ></option>
+					<option value='A' selected> Arquiteto </option>
+					<option value='I' > Instalador </option>
+					<option value='S'> Store in store </option>
+					<option value='V'> Varejo </option> -->
+					<!-- <option value='P' > Promotor </option> -->
+				</select>				
+			</div>
+
+			<div class="col-sm-2" style="display: none;">
+				<label for="exampleTag" >Fisca/Juridica</label>
+				<select name="fisico_juridico" id="fisico_juridico" class="form-control" valida="true" > 
+					<option value='F'> Fisica </option>
+					<option value='J' > Juridica </option>
+				</select>
+			</div>
+		
+			<div class="col-sm-2">
+				<label for="exampleTag">CPF/CNPJ&nbsp;<b style="color:red">*</b></label>
+				<div class="input-group">
+					<input type="text" name="cnpj_cpf" id="cnpj_cpf" class="form-control" onblur="zoom('bt_cnpj_cpf', this.id)" valida="true" />
+					<span id="bt_cnpj_cpf" name="bt_cnpj_cpf" class="input-group-addon fluigicon fluigicon-zoom-in fluigicon-sm" onclick="zoom(this.id)" ></span>
+					<input type="hidden" name="id_pessoa" id="id_pessoa"  class="form-control" />
+				</div>
+			</div>
+
+			<div class="col-sm-2">
+				<label for="exampleTag">RG&nbsp;</label>
+				<input type="tel" name="rg_ie" id="rg_ie" class="form-control"/>
+			</div>
+
+			<div class="col-sm-6">
+				<label for="exampleTag">Nome&nbsp;<b style="color:red">*</b></label>
+				<div class="input-group">
+					<input type="text" name="nome" id="nome"  class="form-control" valida="Nome" valida="true" />
+					<span class="input-group-addon fluigicon fluigicon-document-square fluigicon-sm" onclick="visualizaContrato(this.children[0].id)" >
+						<input type="hidden" name="doc_assinatura" id="doc_assinatura">
+						<input type="hidden" name="doc_contrato" id="doc_contrato">
+					</span>
+				</div>
+			</div>
+
+			<div class="col-sm-2" style="display: none;">
+				<label for="exampleTag">Data Prev.</label>
+				<input type="text" class="form-control" name="data_prev_fup" id="data_prev_fup"  >
+			</div>
+			
+		</div>
+	
+	</div>
+
+	<ul class="nav nav-tabs" role="tablist">
+		<li class="active"><a href="#aba_principal" role="tab" data-toggle="tab">Principal</a></li>
+	    <li><a href="#aba_complemento" role="tab" data-toggle="tab">Complemento</a></li>
+		<li class="aba_dadosOrcamento"><a href="#aba_dadosOrcamento" role="tab" data-toggle="tab">Dados Orçamento</a></li>
+	    <li><a href="#aba_folowup" role="tab" data-toggle="tab">Folow UP</a></li>			
+	    <li style="display: none;"><a href="#aba_qualificacao" role="tab" data-toggle="tab">Question&aacute;rio</a></li>
+	    <li style="display: none;"><a href="#aba_palestra_vistas" role="tab" data-toggle="tab" onclick="consulta()">Palestras / Visitas</a></li>
+	</ul>
+
+	<div class="tab-content">
+		<div class="tab-pane active" id="aba_principal">
+		
+			<div class="row row_table">
+				
+				<div class="col-sm-2" style="display: none;">
+					<label for="exampleTag">Temperatura?</label>
+					<select class="form-control" name="probabilidade" id="probabilidade" dataset="probabilidade" datasetkey="cod_probabilidade" datasetvalue="den_probabilidade" addBlankLine=true   onchange="setDetalhe();" >
+					</select>
+				</div>
+	
+				<div class="col-sm-2" style="display: none;" >
+					<label for="exampleTag">Detalhe Temp.?</label>
+					<select class="form-control" name="detalhe_prob" id="detalhe_prob">
+					</select>
+				</div>
+
+				<div class="col-sm-4">
+					<label for="exampleTag">Profiss&atilde;o&nbsp;<b style="color:red">*</b></label>
+					<select class="form-control" name="profissao" id="profissao" dataset="profissao" datasetkey="cod_profissao" datasetvalue="den_profissao" addBlankLine=true valida="true" onchange="setProfissao();pctBonus()" >
+					</select>
+				</div>
+				
+				<div class="col-sm-4">
+					<label for="exampleTag">Especialidade?</label>
+					<div class="input-group">
+						<textarea class="form-control" id="especialidade" name="especialidade" readonly rows="1" ></textarea>
+						<span id = "bt_esp" name="bt_esp" class="input-group-addon fluigicon fluigicon-zoom-in fluigicon-sm" onclick="openEspecialidade( this.id )" ></span>
+					</div>
+					<input type="hidden" name="cod_especialidade" id="cod_especialidade" >	
+				</div>	
+
+				<div class="col-sm-4">
+					<label for="exampleTag">Atividade</label>
+					<input type="text" name="atividade" id="atividade" class="form-control" readonly/>
+				</div>
+			</div>
+						
+			<div class="row">							
+				<div class="col-sm-6">
+					<label for="exampleTag">E-Mail&nbsp;<b style="color:red">*</b></label>
+					<input type="email" name="email" id="email" class="form-control"  valida="true" onblur="validaExistEmail(this.id)" />
+					<input type="hidden" name="idemail" id="idemail" />
+				</div>
+				
+				<div class="col-sm-2">
+					<label for="exampleTag">Telefone&nbsp;<b style="color:red">*</b></label>
+					<input type="tel" name="telefone1" id="telefone1" onkeyup="maskFone(this.id)" class="form-control" valida="true" onblur="validaExistFone(this.id)"  />
+					<input type="hidden" name="idtelefone" id="idtelefone" />
+				</div>
+					
+				<div class="col-sm-2">
+					<label for="exampleTag">Telefone</label>
+					<input type="tel" name="telefone2" id="telefone2" onkeyup="maskFone(this.id)" class="form-control"  onblur="validaExistFone(this.id)" />
+				</div>
+	
+				<div class="col-sm-2">
+					<label for="exampleTag">Telefone</label>
+					<input type="tel" name="telefone3" id="telefone3" onkeyup="maskFone(this.id)" class="form-control"  onblur="validaExistFone(this.id)" />
+				</div>
+			</div>
+
+			<div class="row juridico" style="display: none;">							
+				<div class="col-sm-6">
+					<label for="exampleTag">Pessoa contato</label>
+					<input type="text" name="pessoa_contato" id="pessoa_contato" class="form-control" />
+				</div>
+				
+				<div class="col-sm-2">
+					<label for="exampleTag">E-mail da pessoa</label>
+					<input type="email" name="email_pessoa" id="email_pessoa" class="form-control" onblur="validaExistEmail(this.id)"  />
+				</div>
+					
+				<div class="col-sm-2">
+					<label for="exampleTag">Telefone da pessoa</label>
+					<input type="tel" name="telefone_pessoa" id="telefone_pessoa" onkeyup="maskFone(this.id)" class="form-control"  onblur="validaExistFone(this.id)" />
+				</div>
+	
+				<div class="col-sm-2">
+					<label for="exampleTag">CPF da pessoa</label>
+					<input type="tel" name="cpf_pessoa" id="cpf_pessoa" class="form-control" />
+				</div>
+			</div>
+
+			<div class="row">
+
+				<div class="col-sm-4">
+					<label for="exampleTag">Operador Call Center</label>					
+					<div class="input-group">
+						<input type="text" name="nome_call_center" id="nome_call_center" class="form-control" readonly>
+						<span id="bt_call_center" name="bt_call_center" class="input-group-addon fluigicon fluigicon-search fluigicon-sm" onclick="zoom(this.id)" ></span>
+						<input type="hidden" name="cod_call_center" id="cod_call_center" class="form-control" />
+					</div>
+				</div>
+			
+				<div class="col-sm-4">
+					<label for="exampleTag">Origem&nbsp;<b style="color:red">*</b></label>					
+					<div class="input-group">
+						<input type="text" name="origem" id="origem" class="form-control" valida="true" readonly>
+						<span id="bt_origem" name="bt_origem" class="input-group-addon fluigicon fluigicon-search fluigicon-sm" onclick="zoom(this.id)" ></span>
+						<input type="hidden" name="cod_origem" id="cod_origem" class="form-control" />
+					</div>
+				</div>
+
+				<div class="col-sm-4">
+					<label for="exampleTag">Patrocinador</label>
+					<div class="input-group">
+						<input type="text" name="usuario_respon" id="usuario_respon" class="form-control" readonly />
+						<span id = "bt_user_respon" name="bt_user_respon" class="input-group-addon fluigicon fluigicon-zoom-in fluigicon-sm" onclick="zoom(this.id)" ></span>
+						<input type="hidden" name="cod_usuario_respon" id="cod_usuario_respon" />
+						<input type="hidden" name="cod_usuario_abert" id="cod_usuario_abert" />
+						<input type="hidden" name="sponsor" id="sponsor" />
+						<input type="hidden" name="usuario_responsavel" id="usuario_responsavel" />
+						<input type="hidden" name="sponsorGroupId" id="sponsorGroupId" />
+						<input type="hidden" name="sponsorBonus" id="sponsorBonus" />
+						<input type="hidden" name="utiliza_rpa" id="utiliza_rpa" />
+						<input type="hidden" name="ativo" id="ativo" />
+					</div>
+				</div>
+		
+				<div class="col-sm-6" style="display: none;">
+					<label for="exampleTag">Empresa</label>
+					<input type="text" name="empresa" id="empresa" class="form-control" />
+				</div>				
+				
+			</div>				
+
+			<div class="row" style="display: none;">
+				<!-- <div class="col-sm-6">
+					<label for="exampleTag">Patrocinador</label>
+					<div class="input-group">
+						<input type="text" name="nom_patrocinador" id="nom_patrocinador"  class="form-control" readonly  valida="true" />
+						<span id = "bt_pat" name="bt_pat" class="input-group-addon fluigicon fluigicon-zoom-in fluigicon-sm" onclick="zoom(this.id)" ></span>
+						<input type="hidden" name="id_patrocinador" id="id_patrocinador"  class="form-control" />
+					</div>
+				</div> -->
+				
+				<div class="col-sm-6">
+					<label for="exampleTag">Motivo Rejei&ccedil;&atilde;o</label>
+					<select class="form-control" name="motivo_perca" id="motivo_perca" dataset="motivo_perca" datasetkey="cod_motivo" datasetvalue="den_motivo" addBlankLine=true>
+					</select>
+				</div>
+
+			</div>
+			
+			<div class="row" style="display: none;">			
+				
+				<div class="col-sm-12">
+					<label for="exampleTag">Detalhe da Rejei&ccedil;&atilde;o</label>
+					<textarea rows="1" name="detalhe_rejeicao" id="detalhe_rejeicao" class="form-control" ></textarea>
+				</div>
+					
+			</div>
+
+			<div class="row">
+				
+				<div class="col-sm-2">
+					<label for="exampleTag" >Numero</label>
+					<input type="text" name="processo" id="processo" class="form-control" readonly />
+				</div>
+
+				<div class="col-sm-2">
+					<label for="exampleTag">Data</label>
+					<input type="text" name="data_abert" id="data_abert" class="form-control" readonly />
+				</div>
+
+				<div class="col-sm-2">
+					<label for="exampleTag">Data Nascimento</label>
+					<input type="text" name="data_nascimento" id="data_nascimento" class="form-control" />
+				</div>
+				
+				<div class="col-sm-2">
+					<label for="exampleTag" >Status Cadastro&nbsp;<b style="color:red">*</b></label>
+					<select name="status_cadastro" id="status_cadastro" class="form-control" valida="true" >
+						<option value='' ></option>
+						<option value='A' > Ativo </option>
+						<option value='I' > Inativo </option>
+					</select>
+				</div>
+
+				<div class="col-sm-2">
+					<label for="exampleTag" >Solicitou Orçamento?</label>
+					<select name="solicitou_orcamento" id="solicitou_orcamento" class="form-control" onchange="trataOrcamento()">
+						<option value='N' >Não</option>
+						<option value='S' >Sim</option>						
+					</select>
+				</div>
+
+				<div class="col-sm-2 destino dest">
+					<label for="exampleTag">Destino</label>
+					<input type="hidden" name="sis_integracao" id="sis_integracao"/>
+					<select name="destino" id="destino" class="form-control" onchange="trataDestino()">
+						<option value='' ></option>
+						<option value='CC' >Televendas</option>
+						<option value='S' >Showroom</option>
+					</select>
+				</div>
+
+				<div class="col-sm-2 showroom">
+					<label for="exampleTag">Showroom / Franquia</label>
+					<select name="showroom" id="showroom" class="form-control" onchange="getUserShowroom();" ></select>
+					</select>
+				</div>	
+
+				<div class="col-sm-4" style="display: none;">
+					<label for="exampleTag">Ca&ccedil;aObras?</label>
+					<div class="input-group">
+						<input type="texte" class="form-control" id="proc_caca_obra" name="proc_caca_obra" readonly />
+						<span id = "bt_cacaObra" name="bt_cacaObra" class="input-group-addon fluigicon fluigicon-zoom-in fluigicon-sm" onclick="openProcCacaObra()" ></span>
+					</div>
+				</div>	
+				
+			</div>
+
+			<div class="row destino robo">
+				<div class="col-sm-2 juridico">
+					<label for="exampleTag">Zoom Organização</label>
+					<div class="input-group">
+						<input type="text" name="id_org" id="id_org" class="form-control" readonly />
+						<span id="bt_org" class="input-group-addon fluigicon fluigicon-zoom-in fluigicon-sm" onclick="zoom(this.id)" ></span>
+					</div>
+				</div>
+				
+				<div class="col-sm-2 robo">
+					<label for="exampleTag">Zoom Pessoa</label>
+					<div class="input-group">
+						<input type="text" name="id_person" id="id_person" class="form-control" readonly />
+						<span id="bt_person" class="input-group-addon fluigicon fluigicon-zoom-in fluigicon-sm" onclick="zoom(this.id)" ></span>
+					</div>
+				</div>
+
+				<div class="col-sm-2 user_pipedrive">
+					<label for="exampleTag">id User</label>
+					<input type="text" name="nome_user_pipedrive" id="nome_user_pipedrive" class="form-control" readonly />
+					<input type="hidden" name="id_user_pipedrive" id="id_user_pipedrive"/>
+					<input type="hidden" name="area" id="area"/>
+				</div>
+
+				<div class="col-sm-2">
+					<label for="exampleTag">id Deal</label>
+					<input type="text" name="id_deals" id="id_deals" class="form-control" readonly />
+				</div>
+
+				<div class="col-sm-2 user_pipedrive">
+					<label for="exampleTag">id User Vendedor</label>
+					<input type="text" name="nome_user_vendedor" id="nome_user_vendedor" class="form-control" readonly />
+					<input type="hidden" name="id_user_vendedor" id="id_user_vendedor"/>
+					<input type="hidden" name="area_vendedor" id="area_vendedor"/>
+				</div>
+
+				<div class="col-sm-2">
+					<label for="exampleTag">id Deal Vendedor</label>
+					<input type="text" name="id_deals_vendedor" id="id_deals_vendedor" class="form-control" readonly />
+					
+				</div>
+			</div>
+			
+			<div class="row">
+				<div class="col-sm-6" style="display: none;">
+					<label for="exampleTag">Resp. Visita</label>
+					<div class="input-group">
+						<input type="text" name="usuario_visita" id="usuario_visita" class="form-control" readonly />
+						<span id = "bt_user_visita" name="bt_user_visita" class="input-group-addon fluigicon fluigicon-zoom-in fluigicon-sm" onclick="zoom(this.id)" ></span>
+						<input type="hidden" name="cod_usuario_visita" id="cod_usuario_visita" />			
+					</div>
+				</div>			
+				
+			</div>
+			
+		</div>
+
+		<div class="tab-pane" id="aba_complemento">
+
+			<div class="row">
+			
+				<div class="col-sm-2">
+					<label for="exampleTag">CEP&nbsp;<b style="color:red">*</b></label>
+					<input type="tel" mask="00000-000" name="cep" id="cep" class="form-control" valida="true" onblur="buscaCep(this.id)"  />
+				</div>
+		
+				<div class="col-sm-4">
+					<label for="exampleTag">Cidade&nbsp;<b style="color:red">*</b></label>
+					<div class="input-group">
+						<input type="text" name="den_cidade_uf" id="den_cidade_uf"  class="form-control" readonly  valida="true" />
+						<span id = "bt_cid" name="bt_cid" class="input-group-addon fluigicon fluigicon-zoom-in fluigicon-sm" onclick="zoom(this.id)" ></span>
+						<input type="hidden" name="id_cidade" id="id_cidade" />
+						<input type="hidden" name="den_cidade" id="den_cidade" />
+						<input type="hidden" name="uf" id="uf" />
+						<input type="hidden" name="cod_uf" id="cod_uf" />
+						<input type="hidden" name="cod_pais" id="cod_pais" />
+						<input type="hidden" name="cod_cidade" id="cod_cidade" />
+					</div>
+				</div>
+			
+				<div class="col-sm-6">
+					<label for="exampleTag">Bairro&nbsp;<b style="color:red">*</b></label>
+					<input type="text" name="bairro" id="bairro" class="form-control"  valida="true" />
+				</div>
+			</div>
+
+		
+			<div class="row">
+			
+				<div class="col-sm-2">
+					<label for="exampleTag">Tipo Endereço&nbsp;<b style="color:red">*</b></label>
+					<select class="form-control" name="tipo_endereco" id="tipo_endereco" dataset="tipo_endereco" datasetkey="id" datasetvalue="tipo_endereco" addBlankLine=true valida="true" >
+					</select>
+				</div>
+				
+				<div class="col-sm-8">
+					<label for="exampleTag">Endere&ccedil;o&nbsp;<b style="color:red">*</b></label>
+					<input type="text" name="endereco" id="endereco" class="form-control"  valida="true" placeholder="Ex: Rua"/>
+					<input type="hidden" name="idendereco" id="idendereco" />
+				</div>
+				
+				<div class="col-sm-2">
+					<label for="exampleTag">N&uacute;mero&nbsp;<b style="color:red">*</b></label>
+					<input type="tel" name="numero" id="numero" class="form-control integer_0"  valida="true" />
+				</div>
+				
+			</div>
+						
+			<div class="row">
+				<div class="col-sm-6">
+					<label for="exampleTag">Complemento</label>
+					<input type="text" name="site" id="site" class="form-control" placeholder="Ex: Apto, Bloco"/>
+				</div>
+
+				<div class="col-sm-2">
+					<label for="exampleTag">CAU / CREA</label>
+					<input type="text" name="num_cau_crea" id="num_cau_crea" class="form-control" />
+				</div>
+
+				<div class="col-sm-2">
+					<label for="exampleTag">% Bônus&nbsp;<b style="color:red">*</b></label>
+					<!-- <input type="text" name="comissao" id="comissao" class="form-control" valida-cupom="true" valida="true" /> -->
+					<select name="comissao" id="comissao" class="form-control" valida="true">
+						<option value=''></option>
+						<option value='0.00'>0.00</option>
+						<option value='5.00'>5.00</option>
+						<option value='10.00'>10.00</option>
+						<option value='15.00'>15.00</option>
+					</select>
+				</div>
+
+				<div class="col-sm-2">
+					<label for="exampleTag">Cupom</label>
+					<div class="input-group">
+						<input type="text" name="cupon" id="cupon" class="form-control" valida-cupom="true" readonly />
+						<span id="bt_cupon" name="bt_cupon" class="btn-success input-group-addon fluigicon fluigicon-user-card fluigicon-sm" onclick="zoom(this.id)" ></span>
+					</div>
+				</div>
+			</div>
+						
+			<div class="row">
+				
+				<div class="col-sm-2" style="display: none;">
+					<label for="exampleTag" >Fisca/Juridica</label>
+					<select name="tipo_pessoa" id="tipo_pessoa" class="form-control" onchange="setMarcaraCpfCnpj('cpf_cnpj_titular',this.id, true)" > 
+						<option value='F' > Fisica </option>
+						<option value='J' > Juridica </option>
+					</select>
+				</div>
+			
+				<div class="col-sm-2" style="display: none;">
+					<label for="exampleTag">CPF/CNPJ Titular</label>
+					<input type="text" name="cpf_cnpj_titular" id="cpf_cnpj_titular" class="form-control" />
+				</div>
+
+				<div class="col-sm-12">
+					<label for="exampleTag">Nome Titular</label>
+					<input type="text" name="nome_titular" id="nome_titular" class="form-control"/>
+				</div>
+				
+			</div>
+
+			<div class="row conselho" style="display: none">
+				<div class="col-md-2 col-xs-12">
+					<div class="form-group has-feedback ">
+						<label for="sexo" class="control-label">Sexo</label> <span class="required text-danger"><strong>*</strong></span> 
+						<select name="sexo" id="sexo" class="form-control">
+							<option value="">Selecione</option>
+							<option value="M">Masculino</option>
+							<option value="F">Feminino</option>
+						</select>
+					</div>
+				</div>
+				<div class="col-md-2 col-xs-12">
+					<div class="form-group has-feedback ">
+						<label for="estado_civil" class="control-label">Estado Civil</label> <span class="required text-danger"><strong>*</strong></span> 
+						<select name="estado_civil" id="estado_civil" class="form-control">
+							<option value="">Selecione</option>
+							<option value="1">Solteiro(a)</option>
+							<option value="2">Casado(a)</option>
+							<option value="3">Viúvo(a)</option>
+							<option value="4">Separado(a) judicialmente</option>
+							<option value="5">Desquitado(a)</option>
+							<option value="6">Divorciado(a)</option>
+							<option value="7">União Estável</option>
+						</select>
+					</div>
+				</div>
+				<div class="col-md-2 col-xs-12">
+					<div class="form-group has-feedback ">
+						<label for="raca" class="control-label">Raça</label> <span class="required text-danger"><strong>*</strong></span> 
+						<select name="raca" id="raca" class="form-control">
+							<option value="">Selecione</option>
+							<option value="0">Indígena</option>
+							<option value="2">Branca</option>
+							<option value="4">Negra</option>
+							<option value="6">Amarela</option>
+							<option value="8">Parda</option>
+							<option value="9">Não informado</option>
+						</select>
+					</div>
+				</div>
+				<div class="col-md-3 col-xs-12">
+					<div class="form-group has-feedback ">
+						<label for="escolaridade" class="control-label">Escolaridade</label> <span class="required text-danger"><strong>*</strong></span> 
+						<select name="escolaridade" id="escolaridade" class="form-control">
+							<option value="">Selecione</option>
+							<option value="1">Analfabeto</option>
+							<option value="2">Ate 5º Ano Incompleto</option>
+							<option value="3">5º Ano Completo</option>
+							<option value="4">6º Ao 9º Ano Incompleto</option>
+							<option value="5">Fundamental Completo</option>
+							<option value="6">Ensino Médio Incompleto</option>
+							<option value="7">Ensino Médio Completo</option>
+							<option value="8">Superior Incompleto</option>
+							<option value="9">Superior Completo</option>
+							<option value="10">Mestrado Completo</option>
+							<option value="11">Doutorado Completo</option>
+							<option value="12">Pós-Graduação Completa</option>
+						</select>
+					</div>
+				</div>
+				<div class="col-md-3 col-xs-12">
+					<div class="form-group has-feedback ">
+						<label for="nacionalidade" class="control-label">Nacionalidade</label> <span class="required text-danger"><strong>*</strong></span> 
+						<input type="text" name="nacionalidade" id="nacionalidade" placeholder="Ex: Brasileiro" aria-describedby="nacionalidadeStatus" class="form-control">
+						<input type="hidden" name="cod_nacionalidade" id="cod_nacionalidade" />
+					</div>
+				</div>
+				<div class="col-md-3 col-xs-12">
+					<div class="form-group has-feedback ">
+						<label for="naturalidade" class="control-label">Naturalidade</label> <span class="required text-danger"><strong>*</strong></span> 
+						<input type="text" name="naturalidade" id="naturalidade" placeholder="Ex: União da Vitória" aria-describedby="naturalidadeStatus" class="form-control">
+						<input type="hidden" name="cod_naturalidade" id="cod_naturalidade" />
+					</div>
+				</div>
+				<div class="col-md-4 col-xs-12">
+					<div class="form-group has-feedback ">
+						<label for="pis" class="control-label">PIS</label> <span class="required text-danger"><strong>*</strong></span> <input type="text" name="pis" id="pis" placeholder="Número do pis" aria-describedby="pis" class="form-control"> <!----> <!----> <!----> <!---->
+					</div>
+				</div>
+				<div class="col-md-2 col-xs-12" style="display:  none;">
+					<div class="form-group has-feedback ">
+						<label for="tipo_sanguineo" class="control-label">Tipo Sanguíneo</label> <span class="required text-danger"><strong>*</strong></span> 
+						<select name="tipo_sanguineo" id="tipo_sanguineo" class="form-control">
+							<option value="">Selecione</option>
+							<option value="O+">O+</option>
+							<option value="O-">O-</option>
+							<option value="A+">A+</option>
+							<option value="A-">A-</option>
+							<option value="B+">B+</option>
+							<option value="B-">B-</option>
+							<option value="AB+">AB+</option>
+							<option value="AB-">AB-</option>
+						</select>
+					</div>
+				</div>
+			</div>
+			
+				
+			<div class="row">				
+				<div class="col-sm-3">
+					<label for="exampleTag">Banco</label>
+					<div class="input-group">
+						<input type="text" name="banco" id="banco" class="form-control" valida-conta="true" readonly />
+						<span id="bt_banco" name="bt_banco" class="input-group-addon fluigicon fluigicon-zoom-in fluigicon-sm" onclick="zoom(this.id)" ></span>
+						<input type="hidden" name="id_banco" id="id_banco"  class="form-control" />
+					</div>
+				</div>
+				
+				<div class="col-sm-3">
+					<label for="exampleTag">Agencia</label>
+					<input type="text" name="agencia" id="agencia" class="form-control" />
+				</div>
+				
+				<div class="col-sm-3">
+					<label for="exampleTag">Conta</label>
+					<input type="text" name="conta" id="conta" class="form-control" />
+				</div>
+	
+				<div class="col-sm-3">
+					<label for="exampleTag" >Operacao</label>
+					<select name="operacao" id="operacao" class="form-control" >
+						<option value='' >  </option> 
+						<option value='CONTA CORRENTE' > Corrente </option>
+						<option value='CONTA POUPANCA' > Poupan&ccedil;a </option>
+					</select>
+				</div>
+			</div>
+			<div class="row">
+		
+				<div class="col-sm-12">
+					<label for="exampleTag">PIX</label>
+					<input type="text" name="pix" id="pix" class="form-control">
+				</div>
+			</div>
+		</div>
+
+		<div class="tab-pane" id="aba_dadosOrcamento">
+			<div class="row">
+				<div class="col-sm-12">
+					<label for="exampleTag">Dados Orçamento</label>
+					<textarea rows="4" name="dados_orcamento" id="dados_orcamento" class="form-control"></textarea>
+				</div>
+			</div>
+		</div>
+		
+		<div class="tab-pane" id="aba_folowup">
+			<div class="row">
+				<div class="col-sm-2">
+					<label for="exampleTag">Data</label>
+					<input type="text" class="form-control" name="data_fup" id="data_fup" readonly >
+				</div>
+				<div class="col-sm-4">
+					<label for="exampleTag">Usuario</label>
+					<input type="text" class="form-control" name="user_fup" id="user_fup" readonly >
+					<input type="hidden" class="form-control" name="cod_user_fup" id="cod_user_fup" readonly >
+				</div>
+				
+			</div>
+			<div class="row">
+				<div class="col-sm-12">
+					<label for="exampleTag">Interacao</label>
+					<textarea rows="4" name="descricao" id="descricao" class="form-control" ></textarea>
+				</div>				
+			</div>
+
+			<div class="row" id="hist" name="hist" >	
+				<div class="col-sm-12">	
+					<table class="table table-condensed table-bordered" border="1" tablename="folowup"  noaddbutton=true nodeletebutton=true addbuttonclass="wdkbuttonClass" >
+						<thead>
+							<tr>
+								<td width='100%' class="cell-ellipsis"><b>Historico</b></td>
+							</tr>
+						</thead>
+							<tr>
+								<td>
+									<div class="row">
+										<div class="col-sm-2">
+											<label for="exampleTag">Data Hist.</label>
+											<input type="text" class="form-control" name="data_hist" id="data_hist" readonly >
+										</div>
+										<div class="col-sm-2">
+											<label for="exampleTag">Data Prev.</label>
+											<input type="text" class="form-control" name="data_prev_hist" id="data_prev_hist" readonly >
+										</div>
+										<div class="col-sm-4">
+											<label for="exampleTag">Usuario</label>
+											<input type="text" class="form-control" name="user_hist" id="user_hist" readonly >
+											<input type="hidden" class="form-control" name="cod_user_hist" id="cod_user_hist" readonly >
+										</div>
+									</div>
+									<div class="row">
+										<div class="col-sm-12">
+											<textarea rows="3" name="desc_hist" id="desc_hist" class="form-control"  readonly ></textarea>
+										</div>
+									</div>
+								</td>
+							</tr>
+					</table>
+				</div>			
+			</div>
+		</div>
+		
+		
+		<div class="tab-pane" id="aba_qualificacao">
+			<div class="row  row_table">
+
+				<div class="col-md-12">
+					<div class="form-field table-responsive" data-type="tabledetail" data-show-properties="" data-field-name="tabledetail">
+						<table class="table table-condensed table-bordered table-striped" border="1" tablename="perguntas" nodeletebutton=true noaddbutton=true addbuttonclass="wdkbuttonClass">
+							<thead>
+								<tr class="tableHeadRow" >	
+									<th width="100%" class="tableColumn"><b>Perguntas</b></th>
+								</tr>
+							</thead>
+							<tr id="linha" name="linha" ondblclick="editItem( this.id )">
+								<td>
+									<div class="row row_table">
+										<div class="col-sm-10">
+											<input type="text" class="form-control" name="pergunta" id="pergunta" readonly >
+										</div>
+										<div class="col-sm-2">
+											<select name="questao" id="questao" class="form-control" onchange="" > 
+									 		</select>
+									 	</div>
+									 </div>
+									 <div class="row row_table">									 	
+									 	<div class="col-sm-12">
+											<textarea rows="1" name="resposta" id="resposta" class="form-control" ></textarea>
+									 	</div>
+									 </div>
+	
+									<input type="hidden" name="pergunta_documentid" id="pergunta_documentid" />								 
+									<input type="hidden" name="pergunta_version" id="pergunta_version" />
+									<input type="hidden" name="questao_ant" id="questao_ant" />
+									
+							    </td>
+							</tr>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="tab-pane" id="aba_palestra_vistas">
+			<div class="row">
+				<div class="col-sm-1 col-sm-offset-9">
+					<button id="bt_atualiza" name="bt_atualiza" class="fluigicon fluigicon-test-refresh fluigicon-sm" onclick="consulta()" >&nbsp;&nbsp;Atualiza</button>
+				</div>
+				<div class="col-sm-1">
+					<button id="bt_add_viagem" name="bt_add_viagem" class="fluigicon fluigicon-checkin fluigicon-sm" onclick="zoom(this.id)" >&nbsp;&nbsp;Viagem</button>
+				</div>
+				<div class="col-sm-1">
+					<button id="bt_add_palestra" name="bt_add_palestra" class="fluigicon fluigicon-bullhorn fluigicon-sm" onclick="zoom(this.id)" >&nbsp;&nbsp;Palestra</button>
+				</div>				
+			</div>
+			<div class="row">
+				<div class="col-sm-12 pd_her" id='consulta'>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+		
+	<input type="hidden" name="task" id="task" />
+	<input type="hidden" name="user_abert" id="user_abert" />	
+	<input type="hidden" name="user_atual" id="user_atual" />
+	<input type="hidden" name="user_name" id="user_name" />
+	<input type="hidden" name="startAutomatico" id="startAutomatico" />
+	<input type="hidden" name="altera" id="altera" />
+	<input type="hidden" name="somente_cadastro" id="somente_cadastro" />
+	<input type="hidden" name="id_contato" id="id_contato" />
+	
+</form>
+</div>
+</body>
+</html>
+

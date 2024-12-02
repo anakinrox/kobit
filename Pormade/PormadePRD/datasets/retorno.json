@@ -1,0 +1,83 @@
+[
+    {
+        "INDACAO": "A",
+        "IDINT": 6316.0,
+        "DATREGISTRO": "2024-08-13",
+        "PROPOSTA": "312144-2",
+        "IDPROPOSTA": "344576",
+        "SEQINSTALL": "1",
+        "CLIENTE": "MARCELO FERNANDES DE SOUZA",
+        "NUMTELEFONE": "(11) 94722-5152",
+        "ENDERECO": "AVENIDA DELFIM VERDE, 264",
+        "BAIRRO": "JARDIM ELISA",
+        "CEP": "06872023",
+        "CIDADE": "ITAPECERICA DA SERRA",
+        "UF": "SP",
+        "INSTALADOR": "46009149000132",
+        "DATATRIBUIDO": "2024-08-26",
+        "DATAGENDA": "2024-08-26",
+        "DATAGENDAFIM": "2024-08-26",
+        "DOCUMENTO": {
+            "ID": 1396083.0,
+            "URLDOCUMENTO": "https://fluig.pormade.com.br:8443/volume/stream/Rmx1aWc\u003d/P3Q9MSZ2b2w9RGVmYXVsdCZpZD0xMzk2MDgzJnZlcj0xMDAwJmZpbGU9VGVybW8rLStJbnN0YWxhZG9yZXMrY29uc2lkZXJhJUMzJUE3JUMzJUI1ZXMrQWRyaWFuKy0rMzAtMTAtMjAyNC5wZGYmY3JjPTMyMTI5NTEwMDAmc2l6ZT0wLjIxNTcmdUlkPTMmZlNJZD0xJnVTSWQ9MSZkPWZhbHNlJnRrbj0mcHVibGljVXJsPWZhbHNl.pdf"
+        },
+        "SERVICOS": [
+            {
+                "SEQ": "2053153@4",
+                "DESCRICAO": "PORTA LISA 72X210 SOLIDO BRANCO - LAVABO MARCELO"
+            },
+            {
+                "SEQ": "2053154@5",
+                "DESCRICAO": "PORTA LISA 80X210 SOLIDO BRANCO - QUARTO MÃE MARCELO"
+            },
+            {
+                "SEQ": "2053157@5",
+                "DESCRICAO": "PORTA LISA 80X210 SOLIDO BRANCO - QUARTO MARCELO"
+            },
+            {
+                "SEQ": "2053159@5",
+                "DESCRICAO": "PORTA LISA 80X210 SOLIDO BRANCO - SUITE 1"
+            },
+            {
+                "SEQ": "2053163@6",
+                "DESCRICAO": "PORTA LISA 82X210 SOLIDO BRANCO - QUARTO 1"
+            },
+            {
+                "SEQ": "2053164@4",
+                "DESCRICAO": "PORTA LISA 72X210 SOLIDO BRANCO - QUARTO 2"
+            },
+            {
+                "SEQ": "2053165@2",
+                "DESCRICAO": "PORTA LISA 62X210 SOLIDO BRANCO - BANHEIRO 2PAVIMENTO"
+            },
+            {
+                "SEQ": "2053166@3",
+                "DESCRICAO": "PORTA LISA 70X210 SOLIDO BRANCO - AREA GOURMET"
+            },
+            {
+                "SEQ": "2055509@4",
+                "DESCRICAO": "PORTA LISA 72X210 SOLIDO BRANCO - QUARTO 3"
+            },
+            {
+                "SEQ": "2055520@2",
+                "DESCRICAO": "PORTA LISA 62X210 SOLIDO BRANCO - WC QUARTO 3"
+            },
+            {
+                "SEQ": "-99@-99",
+                "DESCRICAO": "TERMO - TERMO"
+            },
+            {
+                "SEQ": "2053156@4",
+                "DESCRICAO": "PORTA LISA 72X210 SOLIDO BRANCO - P02A WC MÃE"
+            },
+            {
+                "SEQ": "2053158@3",
+                "DESCRICAO": "PORTA LISA 70X210 SOLIDO BRANCO - LAVABO BEATRIZ"
+            },
+            {
+                "SEQ": "2053162@4",
+                "DESCRICAO": "PORTA LISA 72X210 SOLIDO BRANCO - WC SUITE 1"
+            }
+        ]
+    }
+]

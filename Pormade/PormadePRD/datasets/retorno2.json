@@ -1,0 +1,107 @@
+[
+    {
+        "fieldName": "indacao",
+        "initialValue": "INC",
+        "finalValue": "INC",
+        "contraintType": "MUST",
+        "likeSearch": false
+    },
+    {
+        "fieldName": "idregistro",
+        "initialValue": "7431",
+        "finalValue": "7431",
+        "contraintType": "MUST",
+        "likeSearch": false
+    },
+    {
+        "fieldName": "sequencia",
+        "initialValue": "1",
+        "finalValue": "1",
+        "contraintType": "MUST",
+        "likeSearch": false
+    },
+    {
+        "fieldName": "idproposta",
+        "initialValue": "357912",
+        "finalValue": "357912",
+        "contraintType": "MUST",
+        "likeSearch": false
+    },
+    {
+        "fieldName": "idinstalador",
+        "initialValue": "91778",
+        "finalValue": "91778",
+        "contraintType": "MUST",
+        "likeSearch": false
+    },
+    {
+        "fieldName": "datinicio",
+        "initialValue": "",
+        "finalValue": "",
+        "contraintType": "MUST",
+        "likeSearch": false
+    },
+    {
+        "fieldName": "datfim",
+        "initialValue": "",
+        "finalValue": "",
+        "contraintType": "MUST",
+        "likeSearch": false
+    },
+    {
+        "fieldName": "responsavel",
+        "initialValue": "VANESSA",
+        "finalValue": "VANESSA",
+        "contraintType": "MUST",
+        "likeSearch": false
+    },
+    {
+        "fieldName": "whats",
+        "initialValue": "(11) 96434-3322",
+        "finalValue": "(11) 96434-3322",
+        "contraintType": "MUST",
+        "likeSearch": false
+    },
+    {
+        "fieldName": "indtermo",
+        "initialValue": "S",
+        "finalValue": "S",
+        "contraintType": "MUST",
+        "likeSearch": false
+    },
+    {
+        "fieldName": "idStatusAtual",
+        "initialValue": "12",
+        "finalValue": "12",
+        "contraintType": "MUST",
+        "likeSearch": false
+    },
+    {
+        "fieldName": "idStatusNovo",
+        "initialValue": "13",
+        "finalValue": "13",
+        "contraintType": "MUST",
+        "likeSearch": false
+    },
+    {
+        "fieldName": "observacao",
+        "initialValue": "10 Kits PPG  R$360,00 cada \nTotal R$ 3.960,00",
+        "finalValue": "10 Kits PPG  R$360,00 cada \nTotal R$ 3.960,00",
+        "contraintType": "MUST",
+        "likeSearch": false
+    },
+    {
+        "fieldName": "usuario",
+        "initialValue": "07115507945",
+        "finalValue": "07115507945",
+        "contraintType": "MUST",
+        "likeSearch": false
+    },
+    {
+        "fieldName": "json",
+        "initialValue": "[{\"idproposta\":\"357912\",\"seq\":\"2153066\",\"produto\":\"17658\",\"descricao\":\"PORTA PRONTA DE ABRIR SOB MEDIDA\",\"local\":\"Bh visita\"},{\"idproposta\":\"357912\",\"seq\":\"2153080\",\"produto\":\"18073\",\"descricao\":\"FECHADURA WC PADO IXE  BARRA  55MM\",\"local\":\"Bh Suite filhos  \"},{\"idproposta\":\"357912\",\"seq\":\"2153086\",\"produto\":\"18073\",\"descricao\":\"FECHADURA WC PADO IXE  BARRA  55MM\",\"local\":\"Bh Suite Filha  \"},{\"idproposta\":\"357912\",\"seq\":\"2153067\",\"produto\":\"17658\",\"descricao\":\"PORTA PRONTA DE ABRIR SOB MEDIDA\",\"local\":\"Suite Master  \"},{\"idproposta\":\"357912\",\"seq\":\"2153080\",\"produto\":\"17658\",\"descricao\":\"PORTA PRONTA DE ABRIR SOB MEDIDA\",\"local\":\"Bh Suite filhos  \"},{\"idproposta\":\"357912\",\"seq\":\"2153059\",\"produto\":\"17658\",\"descricao\":\"PORTA PRONTA DE ABRIR SOB MEDIDA\",\"local\":\"Bh escritório   \"},{\"idproposta\":\"357912\",\"seq\":\"2153078\",\"produto\":\"18072\",\"descricao\":\"FECHADURA INT PADO IXE  BARRA  55MM\",\"local\":\"Suite filhos \"},{\"idproposta\":\"357912\",\"seq\":\"2153059\",\"produto\":\"18073\",\"descricao\":\"FECHADURA WC PADO IXE  BARRA  55MM\",\"local\":\"Bh escritório   \"},{\"idproposta\":\"357912\",\"seq\":\"2153066\",\"produto\":\"18073\",\"descricao\":\"FECHADURA WC PADO IXE  BARRA  55MM\",\"local\":\"Bh visita\"},{\"idproposta\":\"357912\",\"seq\":\"2153084\",\"produto\":\"18072\",\"descricao\":\"FECHADURA INT PADO IXE  BARRA  55MM\",\"local\":\"Suite Filha \"},{\"idproposta\":\"357912\",\"seq\":\"2153074\",\"produto\":\"17658\",\"descricao\":\"PORTA PRONTA DE ABRIR SOB MEDIDA\",\"local\":\"Bh Suite Master\"},{\"idproposta\":\"357912\",\"seq\":\"2153086\",\"produto\":\"17658\",\"descricao\":\"PORTA PRONTA DE ABRIR SOB MEDIDA\",\"local\":\"Bh Suite Filha  \"},{\"idproposta\":\"357912\",\"seq\":\"2153064\",\"produto\":\"18072\",\"descricao\":\"FECHADURA INT PADO IXE  BARRA  55MM\",\"local\":\"Roupeiro \"},{\"idproposta\":\"357912\",\"seq\":\"2153084\",\"produto\":\"17658\",\"descricao\":\"PORTA PRONTA DE ABRIR SOB MEDIDA\",\"local\":\"Suite Filha \"},{\"idproposta\":\"357912\",\"seq\":\"2153064\",\"produto\":\"17658\",\"descricao\":\"PORTA PRONTA DE ABRIR SOB MEDIDA\",\"local\":\"Roupeiro \"},{\"idproposta\":\"357912\",\"seq\":\"2153067\",\"produto\":\"18072\",\"descricao\":\"FECHADURA INT PADO IXE  BARRA  55MM\",\"local\":\"Suite Master  \"},{\"idproposta\":\"357912\",\"seq\":\"2153074\",\"produto\":\"18073\",\"descricao\":\"FECHADURA WC PADO IXE  BARRA  55MM\",\"local\":\"Bh Suite Master\"},{\"idproposta\":\"357912\",\"seq\":\"2153078\",\"produto\":\"17658\",\"descricao\":\"PORTA PRONTA DE ABRIR SOB MEDIDA\",\"local\":\"Suite filhos \"}]",
+        "finalValue": "[{\"idproposta\":\"357912\",\"seq\":\"2153066\",\"produto\":\"17658\",\"descricao\":\"PORTA PRONTA DE ABRIR SOB MEDIDA\",\"local\":\"Bh visita\"},{\"idproposta\":\"357912\",\"seq\":\"2153080\",\"produto\":\"18073\",\"descricao\":\"FECHADURA WC PADO IXE  BARRA  55MM\",\"local\":\"Bh Suite filhos  \"},{\"idproposta\":\"357912\",\"seq\":\"2153086\",\"produto\":\"18073\",\"descricao\":\"FECHADURA WC PADO IXE  BARRA  55MM\",\"local\":\"Bh Suite Filha  \"},{\"idproposta\":\"357912\",\"seq\":\"2153067\",\"produto\":\"17658\",\"descricao\":\"PORTA PRONTA DE ABRIR SOB MEDIDA\",\"local\":\"Suite Master  \"},{\"idproposta\":\"357912\",\"seq\":\"2153080\",\"produto\":\"17658\",\"descricao\":\"PORTA PRONTA DE ABRIR SOB MEDIDA\",\"local\":\"Bh Suite filhos  \"},{\"idproposta\":\"357912\",\"seq\":\"2153059\",\"produto\":\"17658\",\"descricao\":\"PORTA PRONTA DE ABRIR SOB MEDIDA\",\"local\":\"Bh escritório   \"},{\"idproposta\":\"357912\",\"seq\":\"2153078\",\"produto\":\"18072\",\"descricao\":\"FECHADURA INT PADO IXE  BARRA  55MM\",\"local\":\"Suite filhos \"},{\"idproposta\":\"357912\",\"seq\":\"2153059\",\"produto\":\"18073\",\"descricao\":\"FECHADURA WC PADO IXE  BARRA  55MM\",\"local\":\"Bh escritório   \"},{\"idproposta\":\"357912\",\"seq\":\"2153066\",\"produto\":\"18073\",\"descricao\":\"FECHADURA WC PADO IXE  BARRA  55MM\",\"local\":\"Bh visita\"},{\"idproposta\":\"357912\",\"seq\":\"2153084\",\"produto\":\"18072\",\"descricao\":\"FECHADURA INT PADO IXE  BARRA  55MM\",\"local\":\"Suite Filha \"},{\"idproposta\":\"357912\",\"seq\":\"2153074\",\"produto\":\"17658\",\"descricao\":\"PORTA PRONTA DE ABRIR SOB MEDIDA\",\"local\":\"Bh Suite Master\"},{\"idproposta\":\"357912\",\"seq\":\"2153086\",\"produto\":\"17658\",\"descricao\":\"PORTA PRONTA DE ABRIR SOB MEDIDA\",\"local\":\"Bh Suite Filha  \"},{\"idproposta\":\"357912\",\"seq\":\"2153064\",\"produto\":\"18072\",\"descricao\":\"FECHADURA INT PADO IXE  BARRA  55MM\",\"local\":\"Roupeiro \"},{\"idproposta\":\"357912\",\"seq\":\"2153084\",\"produto\":\"17658\",\"descricao\":\"PORTA PRONTA DE ABRIR SOB MEDIDA\",\"local\":\"Suite Filha \"},{\"idproposta\":\"357912\",\"seq\":\"2153064\",\"produto\":\"17658\",\"descricao\":\"PORTA PRONTA DE ABRIR SOB MEDIDA\",\"local\":\"Roupeiro \"},{\"idproposta\":\"357912\",\"seq\":\"2153067\",\"produto\":\"18072\",\"descricao\":\"FECHADURA INT PADO IXE  BARRA  55MM\",\"local\":\"Suite Master  \"},{\"idproposta\":\"357912\",\"seq\":\"2153074\",\"produto\":\"18073\",\"descricao\":\"FECHADURA WC PADO IXE  BARRA  55MM\",\"local\":\"Bh Suite Master\"},{\"idproposta\":\"357912\",\"seq\":\"2153078\",\"produto\":\"17658\",\"descricao\":\"PORTA PRONTA DE ABRIR SOB MEDIDA\",\"local\":\"Suite filhos \"}]",
+        "contraintType": "MUST",
+        "likeSearch": false
+    }
+]

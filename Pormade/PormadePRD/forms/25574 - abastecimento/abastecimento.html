@@ -1,0 +1,98 @@
+<html>
+<head>
+	<link type="text/css" rel="stylesheet" href="/portal/resources/style-guide/css/fluig-style-guide.min.css"/>
+	<link rel="stylesheet" type="text/css" href="/portal/resources/style-guide/css/fluig-style-guide-filter.min.css"/>
+	<link href="FLUIGADHOC.css" type="text/css" rel="stylesheet" />
+	<script type="text/javascript" src="/portal/resources/js/jquery/jquery.js"></script>
+	<script type="text/javascript" src="/portal/resources/js/jquery/jquery-ui.min.js"></script>
+	<script type="text/javascript" src="/portal/resources/js/mustache/mustache-min.js"></script>
+	<script type="text/javascript" src="/portal/resources/style-guide/js/fluig-style-guide.min.js" charset="utf-8"></script>
+	<script	type="text/javascript" src="/portal/resources/style-guide/js/fluig-style-guide-filter.min.js"></script>	
+
+	<script type="text/javascript" src="controle.js"></script>
+	<script type="text/javascript" src='autosize.min.js'></script>
+	<script type="text/javascript" src='zoom.js'></script>
+	<script type="text/javascript" src='modalZoom.js'></script>
+		
+	<script>
+	
+	$(document).ready(function() {
+	 /*
+	 	var hoje = new Date();
+        var dia = hoje.getDate();
+        var mes = hoje.getMonth();
+        var ano = hoje.getFullYear();
+        if (dia < 10)
+           dia = "0" + dia;
+        mes = mes + 1;
+        if (mes < 10)
+            mes = "0" + mes;
+
+        var dataatual = dia + "/" + mes + "/" + ano;
+
+         $("#dataalmoco").val(dataatual);
+      */
+         
+       // var d = new Date(); 
+		//console.log('d.toLocaleString()........', d.toLocaleString() );
+		//$('#dataalmoco').val( d.toLocaleString().substring(0,10) ) ;
+	    	
+    });
+	
+	</script>
+</head>
+<body class="fluig-style-guide" onload="loadBody()"> 
+<form name="form" role="form">
+	<div class="container-fluid">
+	
+		<div class="fluig-style-guide" id="divPrincipal">
+			<div class="panel panel-info" id="aba_1"  >
+				<div class="panel-heading fs-txt-center">
+	            	Abastecimento - SBA
+	            </div>
+	    		<div class="row">
+						<div class="col-sm-2" >
+							<label for="exampleTag">Data</label>
+							<input type="text" name="dataabastecimento" id="dataabastecimento" class="form-control fluig-data"/>
+						</div>
+						<div class="col-sm-4">
+							<label for="exampleTag">Motorista</label>
+							<div class="input-group">
+								<input type="text" name="motorista" id="motorista" class="form-control" readonly />
+								<span id="bt_motorista" name="bt_motorista" class="input-group-addon fluigicon fluigicon-zoom-in fluigicon-sm" onclick="zoom(this.id)" ></span>
+								<input type="hidden" name="id_motorista" id="id_motorista"  class="form-control" />
+								<input type="hidden" name="emp_motorista" id="emp_motorista"  class="form-control" />
+							</div>
+						</div>
+						<div class="col-sm-2">
+							<label for="exampleTag">Placa</label>
+							<div class="input-group">
+								<input type="text" name="placa" id="placa" class="form-control" readonly />
+								<span id="bt_placa" name="bt_placa" class="input-group-addon fluigicon fluigicon-zoom-in fluigicon-sm" onclick="zoom(this.id)" ></span>
+							</div>
+						</div>
+						<div class="col-sm-2">
+							<label for="exampleTag">Km</label>
+							<input type="text" name="km" id="km" class="form-control"/>
+						</div>
+						<div class="col-sm-1">
+							<label for="exampleTag">Tanque</label>
+								<select name="tanque" id="tanque" class="form-control">
+									<option value='' ></option>
+									<option value='1' > 1 </option>
+									<option value='2' > 2 </option>
+									<!-- <option value='P' > Promotor </option> -->
+								</select>	
+						</div>
+						<div class="col-sm-1">
+							<label for="exampleTag">Litros</label>
+							<input type="text" name="litros" id="litros" class="form-control"/>
+						</div>
+		    		</div>
+		    	</div>
+		    </div>	
+		</div>
+	</div>
+</form>	
+</body>
+</html>

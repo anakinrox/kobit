@@ -1,0 +1,183 @@
+select 1 from pmd_dealsSummary where id_usuario = 1 and id_pipeline = 1
+
+
+    id_usuario int4 NULL
+    cod_empresa int4 NULL
+    id_pipeline int4 NULL
+    status varchar(5)
+
+
+" insert into pmd_dealsSummary (id_usuario, cod_empresa, id_pipeline, status) values " +
+"                              (" + jr.data[i].deals[j]['user_id'] + ",0, + " jr.data[i].deals[j]['pipeline_id'] + ",'" + jr.data[i].deals[j]['status'] + ")";
+
+
+
+
+CREATE TABLE public.kbt_t_dealsSummary ( 
+    reg_cod       	int4 NOT NULL,
+    reg_nome      	varchar(255) NULL,
+    reg_descricao 	varchar(2000) NULL,
+    reg_params    	varchar(500) NULL,
+    reg_variaveis 	varchar(500) NULL,
+    reg_params_out	varchar(500) NULL,
+    reg_interface 	text NULL,
+    reg_script    	text NULL,
+    reg_data      	timestamp NULL,
+    reg_hora      	timestamp NULL,
+    reg_compilada 	varchar(1) NULL,
+    reg_destino   	int4 NULL,
+    reg_hash      	varchar(50) NULL,
+    cat_cod       	int4 NULL DEFAULT 1,
+    usr_codigo    	int4 NULL,
+    PRIMARY KEY(reg_cod)
+)
+
+
+
+
+
+CREATE TABLE public.kbt_t_dealsSummary ( 
+    id int4 NULL,
+    creator_user_id int4 NULL,
+    user_id int4 NULL,
+    person_id int4 NULL,
+    org_id int4 NULL,
+    stage_id int4 NULL,
+    title varchar(40),
+    value float,
+    currency varchar(5),
+    add_time timestamp NULL,
+    update_time timestamp NULL,
+    stage_change_time time,
+    active boolean,
+    deleted boolean,
+    status varchar(5),
+    probability null,
+    lost_reason null,
+    visible_to varchar(3),
+    close_time time,
+    pipeline_id int4 NULL,
+    won_time time,
+    first_won_time time,
+    lost_time time,
+    expected_close_date date,
+    label varchar(40),
+    origemNegocio varchar(40),
+    codigo_Parceiro varchar(40),
+    responsavelInstalacao varchar(40),
+    numProcessoFluig int4 NULL,
+    IDWSOBRA varchar(40),
+    ShowRoom varchar(40),
+    Area varchar(40),
+    numProposta varchar(40),
+    disparaEmailVencido varchar(40),
+    operadorCallCenter varchar(40),
+    percentBonus varchar(40),
+    renewal_type varchar(10),
+    aceitaPormadeMovel varchar(3),
+    stage_order_nr int4 NULL,
+    person_name varchar(40),
+    org_name varchar(40),
+    group_id int4 NULL,
+    group_name varchar(40),
+    rotten_time timestamp NULL,
+    PRIMARY KEY(id)
+)
+
+
+
+
+
+
+
+fc2101060c7a3ec0982eb7376590273350873aed varchar(40),   origemNegocio
+9b4993871584a554c83f15cdee87c96f0d0260a7 varchar(40),   codigo_Parceiro
+0732891d55eb3fa27b0cf4a4c0373b1c20021752 varchar(40),   responsavelInstalacao
+f00de0b109d9c4ea0d3258f12f99837c8d164c72 int4 NULL, numProcessoFluig
+d0f013ff2b9ac878d7ed12146b34adc51f46943f varchar(40),   IDWSOBRA
+63c5181ddae566980d409ee8b625a0596477b5db varchar(40),   ShowRoom
+3349989cba7cc0ed0feaa3a593a0c5ee54ace217 varchar(40),   Area
+95959a576b193b37d31a6f6404b3c4b9f10d4b05 varchar(40),   numProposta
+219d2dcf439c95ff2193a12a2bf1dead6ccb6d28 varchar(40),   disparaEmailVencido
+f7a0b4016041381d97f28f931479aea1255731d7 varchar(40),   operadorCallCenter
+fb9bf341a3385a475b8d73a23fc1634d3ff4ac4f varchar(40),   percentBonus
+renewal_type varchar(10),
+12b9429f3013162aff5d0ef4d84d46ab7a826a49 varchar(3),  -> aceitaPormadeMovel
+
+
+
+"INSERT INTO public.kbt_t_dealssummary( id, creator_user_id, user_id, person_id, org_id, " +
+"                                       stage_id, title, value, currency, add_time, update_time, " +
+"                                       stage_change_time, active, deleted, status, probability, " +
+"                                       lost_reason, visible_to, close_time, pipeline_id, won_time, " +
+"                                       first_won_time, lost_time, expected_close_date, label, " +
+"                                       origemnegocio, codigo_parceiro, responsavelinstalacao, " +
+"                                       numprocessofluig, idwsobra, showroom, area, numproposta, " +
+"                                       disparaemailvencido, operadorcallcenter, percentbonus, " +
+"                                       renewal_type, aceitapormademovel, stage_order_nr, person_name, " +
+"                                       org_name, group_id, group_name, rotten_time) VALUES  " +
+"                                    (" + jr.data[i].deals[j]['id'] + "," + jr.data[i].deals[j]['creator_user_id'] + "," + jr.data[i].deals[j]['user_id'] + "," + " +
+"                                     " + jr.data[i].deals[j]['person_id'] + "," + jr.data[i].deals[j]['org_id'] + "," + jr.data[i].deals[j]['stage_id'] + "," + 
+"                                     '" + jr.data[i].deals[j]['title'] + "'," + jr.data[i].deals[j]['value'] + ",'" + jr.data[i].deals[j]['currency']+ "', " +
+"                                     " + jr.data[i].deals[j]['add_time'] + "," + jr.data[i].deals[j]['update_time'] + ",'" + jr.data[i].deals[j]['stage_change_time'] + "', " +
+"                                     " + jr.data[i].deals[j]['active'] + "," + jr.data[i].deals[j]['deleted'] + ",'" +jr.data[i].deals[j]['status']', " +
+"                                     '" + jr.data[i].deals[j]['probability'] + "','" + jr.data[i].deals[j]['lost_reason'] + "','" + jr.data[i].deals[j]['visible_to']', " +
+"                                     '" + jr.data[i].deals[j]['close_time']+ "'," + jr.data[i].deals[j]['pipeline_id'] + ",'" +jr.data[i].deals[j]['won_time']', " +
+"                                     '" + jr.data[i].deals[j]['first_won_time'] + "','" + jr.data[i].deals[j]['lost_time'] + "','" + jr.data[i].deals[j]['expected_close_date']', " +
+"                                     '" + jr.data[i].deals[j]['label'] + "','" + jr.data[i].deals[j]['fc2101060c7a3ec0982eb7376590273350873aed'] + "','" + jr.data[i].deals[j]['9b4993871584a554c83f15cdee87c96f0d0260a7']', " +
+"                                     '" + jr.data[i].deals[j]['0732891d55eb3fa27b0cf4a4c0373b1c20021752']+ "'," + jr.data[i].deals[j]['f00de0b109d9c4ea0d3258f12f99837c8d164c72'] + ",'" +jr.data[i].deals[j]['d0f013ff2b9ac878d7ed12146b34adc51f46943f']', " +
+"                                     '" + jr.data[i].deals[j]['63c5181ddae566980d409ee8b625a0596477b5db'] + "','" + jr.data[i].deals[j]['3349989cba7cc0ed0feaa3a593a0c5ee54ace217'] + "','" + jr.data[i].deals[j]['95959a576b193b37d31a6f6404b3c4b9f10d4b05']', " +
+"                                     '" + jr.data[i].deals[j]['219d2dcf439c95ff2193a12a2bf1dead6ccb6d28'] + "','" + jr.data[i].deals[j]['f7a0b4016041381d97f28f931479aea1255731d7'] + "','" + jr.data[i].deals[j]['fb9bf341a3385a475b8d73a23fc1634d3ff4ac4f']', " +
+"                                     '" + jr.data[i].deals[j]['renewal_type'] + "','" + jr.data[i].deals[j]['12b9429f3013162aff5d0ef4d84d46ab7a826a49']+ "'," + jr.data[i].deals[j]['stage_order_nr'] + "," + " +
+"                                     '" + jr.data[i].deals[j]['person_name'] + "','" + jr.data[i].deals[j]['org_name']+ "'," + jr.data[i].deals[j]['group_id'] + "," + 
+"                                     '" + jr.data[i].deals[j]['group_name'] + "'," + jr.data[i].deals[j]['rotten_time'] + ")";
+
+
+
+
+"id": 104330,
+          "creator_user_id": 12163570,
+          "user_id": 12163570,
+          "person_id": 104432,
+          "org_id": null,
+          "stage_id": 70,
+          "title": "Almir Pedreiro e Pintor",
+          "value": 20000,
+          "currency": "BRL",
+          "add_time": "2021-04-15 14:08:30",
+          "update_time": "2021-04-30 11:44:45",
+          "stage_change_time": null,
+          "active": true,
+          "deleted": false,
+          "status": "open",
+          "probability": null,
+          "lost_reason": null,
+          "visible_to": "1",
+          "close_time": null,
+          "pipeline_id": 14,
+          "won_time": null,
+          "first_won_time": null,
+          "lost_time": null,
+          "expected_close_date": "2021-07-15",
+          "label": null,
+          "fc2101060c7a3ec0982eb7376590273350873aed": "35",
+          "9b4993871584a554c83f15cdee87c96f0d0260a7": null,
+          "0732891d55eb3fa27b0cf4a4c0373b1c20021752": null,
+          "f00de0b109d9c4ea0d3258f12f99837c8d164c72": null,
+          "d0f013ff2b9ac878d7ed12146b34adc51f46943f": null,
+          "63c5181ddae566980d409ee8b625a0596477b5db": null,
+          "3349989cba7cc0ed0feaa3a593a0c5ee54ace217": null,
+          "95959a576b193b37d31a6f6404b3c4b9f10d4b05": null,
+          "219d2dcf439c95ff2193a12a2bf1dead6ccb6d28": null,
+          "f7a0b4016041381d97f28f931479aea1255731d7": null,
+          "fb9bf341a3385a475b8d73a23fc1634d3ff4ac4f": null,
+          "renewal_type": "one_time",
+          "12b9429f3013162aff5d0ef4d84d46ab7a826a49": null,
+          "stage_order_nr": 1,
+          "person_name": "Almir Pedreiro e Pintor",
+          "org_name": null,
+          "group_id": null,
+          "group_name": null,
+          "rotten_time": "2021-05-20 11:44:45",
+          "owner_name": "Marisa Prestes | Divulgador",
+          "cc_email": "pormadeb2c+deal104330@pipedrivemail.com"    

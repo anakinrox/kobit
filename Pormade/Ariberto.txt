@@ -1,0 +1,9 @@
+rosana
+
+fdn_usertanat
+
+
+status = 0 ativo
+status = 2 inativo
+
+intergracao 

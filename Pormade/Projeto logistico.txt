@@ -1,0 +1,36 @@
+
+1. Cotação de Fretes para Ecommerce;
+2. Registro de Cotações;
+3. Regras de Cotação/Frete;
+4. Tratamento P/ Cargas Multi-Origem;
+5. Acompanhamento via Portal C/ Prazo de Produção;
+6. Inclusão de Coleta/Entrega;
+7. Integrações;
+
+
+--------------------------------------
+Cadastros:
+ - Transportadoras
+ - Cadastro de Cotação.
+ - Cidades
+ - Rotas por transportadoras
+ - Tabelas de Preco
+ - Regras para cotação
+ - Regras para Frete
+
+-------------------------------------
+API
+ - Cotação no Site
+ - Integração da AWS com base interna
+ - Integração EDI
+
+-------------------------------------
+* Recebimento de CT-e
+★ Auditoria de frete
+★ Conciliação financeira
+★ Pré-fatura
+★ Auditoria de faturas
+★ Processo indenizatório
+
+★ Gestão de ocorrência
+★ Gestão de entrega

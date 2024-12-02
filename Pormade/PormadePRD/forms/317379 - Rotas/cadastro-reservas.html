@@ -1,0 +1,385 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <link type="text/css" rel="stylesheet" href="/style-guide/css/fluig-style-guide.min.css" />
+    <script type="text/javascript" src="/portal/resources/js/jquery/jquery.js"></script>
+    <script type="text/javascript" src="/portal/resources/js/jquery/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="/portal/resources/js/mustache/mustache-min.js"></script>
+    <script type="text/javascript" src="/style-guide/js/fluig-style-guide.min.js"></script>
+  </head>
+  <body>
+    <div class="fluig-style-guide">
+      <form name="form" role="form">
+        <input type="hidden" name="tipo" id="tipo" />
+        <div class="row">
+          <div class="form-group col-md-3 col-lg-3">
+            <label for="dataset" class="control-label">Responsável pela Reserva</label>
+            <input name="nomeColaborador" id="nomeColaborador" class="form-control" readonly />
+          </div>
+          <div class="form-group col-md-3 col-lg-3">
+            <label for="description">Sala</label>
+            <input type="text" name="sala" id="sala" class="form-control" />
+            <!-- <select name="sala" id="sala" class="form-control">
+              <option selected disabled>Selecione uma sala</option>
+              <option>Sala de Reunião - Administrativo</option>
+              <option>Sala de Reunião - Engenharia</option>
+              <option>Sala de Reunião - Luciano Bento</option>
+              <option>Sala de Reunião - Planejamento</option>
+              <option>Sala de Reunião - Hydrowheel</option>
+            </select> -->
+          </div>
+          <div class="form-group col-md-3 col-lg-3">
+            <label for="titulografico">Descrição</label>
+            <input type="text" name="nomeEvento" id="nomeEvento" class="form-control" />
+          </div>
+          <div class="form-group col-md-2">
+            <div class="input-group">
+              <input type="text" id="filial" name="filial" class="form-control" />
+              <!-- <select type="text" id="filial" name="filial" class="form-control">
+                <option value="Matriz">Matriz</option>
+              </select> -->
+              <span class="input-group-addon"> <span class="fluigicon fluigicon-calendar fluigicon-ms"></span></span>
+            </div>
+          </div>
+          <div class="form-group col-md-3 col-lg-3">
+            <label for="color">Cor</label>
+            <input class="form-control" id="color" type="text" name="color" value="#58595B" />
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="form-group col-md-6 col-lg-6">
+            <label for="coffebreak">Necessita café?</label>
+            <input type="radio" name="coffebreak" value="Sim" /> Sim <input type="radio" name="coffebreak" value="Não" checked /> NÃo
+          </div>
+          <div class="conf form-group col-md-6 col-lg-6" style="display: none">
+            <label for="conferencia">Video Conferencia?</label>
+            <input type="radio" name="conferencia" value="Sim" /> Sim <input type="radio" name="conferencia" value="Não" checked /> NÃo
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="form-group col-md-12 col-lg-12">
+            <label for="description">Descrição</label>
+            <textarea class="form-control" rows="5" name="description" id="description"></textarea>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="form-group col-md-6">
+            <label>Data Início</label>
+            <div class="input-group">
+              <input type="text" id="dataIni" name="dataIni" class="form-control" mask="00/00/0000" value="01/01/2020" maxlength="10" />
+              <span class="input-group-addon"> <span class="fluigicon fluigicon-calendar fluigicon-ms"></span></span>
+            </div>
+          </div>
+          <div class="form-group col-md-6">
+            <label>Data Término</label>
+            <div class="input-group">
+              <input type="text" id="dataFim" name="dataFim" class="form-control" mask="00/00/0000" value="01/01/2020" maxlength="10" />
+              <span class="input-group-addon"> <span class="fluigicon fluigicon-calendar fluigicon-ms"></span></span>
+            </div>
+          </div>
+
+          <div class="form-group col-md-6">
+            <label>Data prevista de início de viagem</label>
+            <div class="input-group">
+              <input
+                type="text"
+                id="data_prevista_inicio"
+                name="data_prevista_inicio"
+                class="form-control"
+                mask="00/00/0000"
+                value="01/01/2020"
+                maxlength="10"
+              />
+              <span class="input-group-addon"> <span class="fluigicon fluigicon-calendar fluigicon-ms"></span></span>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="form-group col-md-6">
+            <label>Hora Início</label>
+            <div class="input-group">
+              <input type="time" name="horaIni" id="horaIni" class="form-control" mask="00:00" maxlength="5" />
+              <span class="input-group-addon"> <span class="fluigicon fluigicon-time fluigicon-ms"></span></span>
+            </div>
+          </div>
+          <div class="form-group col-md-6">
+            <label>Hora Término</label>
+            <div class="input-group">
+              <input type="time" name="horaFim" id="horaFim" class="form-control" mask="00:00" maxlength="5" />
+              <span class="input-group-addon"> <span class="fluigicon fluigicon-time fluigicon-ms"></span></span>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <input type="hidden" name="id_motorista" id="id_motorista" />
+          <input type="hidden" name="email_motorista" id="email_motorista" />
+          <input type="hidden" name="id_ajudante" id="id_ajudante" />
+          <input type="hidden" name="email_ajudante" id="email_ajudante" />
+
+          <fieldset id="itinerario">
+            <legend>Itinerário</legend>
+            <table class="table table-striped" tablename="tabela_cidades" nodeletebutton="true" noaddbutton="true">
+              <thead>
+                <tr class="tableHeadRow">
+                  <th></th>
+                </tr>
+              </thead>
+
+              <tbody>
+                <td>
+                  <input type="hidden" name="id_itinerario" />
+                  <input type="hidden" name="nome_cidade" />
+                  <input type="hidden" name="cod" />
+                  <input type="hidden" name="uf" />
+                  <input type="hidden" name="cod_uf" />
+                  <input type="hidden" name="cod_pais" />
+
+                  <div class="col-md-4 col-xs-12">
+                    <div class="form-group">
+                      <label for="cidade_uf">Cidade</label>
+                      <input type="text" name="cidade_uf" id="cidade_uf" class="form-control" readonly />
+                    </div>
+                  </div>
+                  <div class="col-md-4 col-xs-12">
+                    <div class="form-group">
+                      <label for="cidade_data_prevista_ini">Data Prevista Inicio</label>
+                      <input type="text" name="cidade_data_prevista_ini" id="cidade_data_prevista_ini" class="form-control" readonly />
+                    </div>
+                  </div>
+                  <div class="col-md-4 col-xs-12">
+                    <div class="form-group">
+                      <label for="cidade_data_prevista_fim">Data Prevista Fim</label>
+                      <input type="text" name="cidade_data_prevista_fim" id="cidade_data_prevista_fim" class="form-control" readonly />
+                    </div>
+                  </div>
+
+                  <div class="col-md-4 col-xs-12">
+                    <div class="form-group">
+                      <label for="expediente_cidade">Expediente</label>
+                      <span class="required text-danger"><strong>*</strong></span>
+                      <input type="text" name="expediente_cidade" id="expediente_cidade" class="form-control" />
+                    </div>
+                  </div>
+                </td>
+              </tbody>
+            </table>
+          </fieldset>
+
+          <fieldset id="visitas">
+            <legend>Visitas</legend>
+
+            <table class="table table-striped" tablename="tabela_visitas" nodeletebutton="true" noaddbutton="true">
+              <thead>
+                <tr class="tableHeadRow">
+                  <th></th>
+                </tr>
+              </thead>
+
+              <tbody>
+                <td>
+                  <input type="hidden" name="codigo_visita" />
+                  <input type="hidden" name="cidade_visita" />
+                  <input type="hidden" name="cod_cidade_visita" />
+                  <input type="hidden" name="uf_visita" />
+                  <input type="hidden" name="cod_uf_visita" />
+                  <input type="hidden" name="cod_pais_visita" />
+                  <input type="hidden" name="email_solicitante_visita" />
+                  <input type="hidden" name="id_solicitante_visita" />
+                  <input type="hidden" name="lat_visita" />
+                  <input type="hidden" name="long_visita" />
+
+                  <div class="col-md-3 col-xs-12">
+                    <div class="form-group">
+                      <label for="local_visita">Local</label>
+                      <span class="required text-danger"><strong>*</strong></span>
+                      <input type="text" name="local_visita" id="local_visita" readonly />
+                    </div>
+                  </div>
+
+                  <div class="col-md-3 col-xs-12">
+                    <div class="form-group">
+                      <label for="tipo_local_visita">Tipo Local</label>
+                      <input type="text" name="tipo_local_visita" id="tipo_local_visita" readonly />
+                    </div>
+                  </div>
+
+                  <div class="col-md-2 col-xs-12">
+                    <div class="form-group">
+                      <label for="data_visita">Data</label>
+                      <span class="required text-danger"><strong>*</strong></span>
+                      <input type="text" name="data_visita" id="data_visita" readonly />
+                    </div>
+                  </div>
+                  <!-- <div class="col-md-2 col-xs-12">
+                    <div class="form-group">
+                      <label for="data_fim_visita">Data Fim</label>
+                      <span class="required text-danger"><strong>*</strong></span>
+                      <input type="text" name="data_fim_visita" id="data_fim_visita" readonly />
+                    </div>
+                  </div> -->
+
+                  <div class="col-md-2 col-xs-12">
+                    <div class="form-group">
+                      <label for="expediente_visita">Expediente</label>
+                      <span class="required text-danger"><strong>*</strong></span>
+                      <input type="text" name="expediente_visita" id="expediente_visita" readonly />
+                    </div>
+                  </div>
+
+                  <div class="col-md-4 col-xs-12">
+                    <div class="form-group">
+                      <label for="contato_visita">Contato</label>
+                      <span class="required text-danger"><strong>*</strong></span>
+                      <input type="text" name="contato_visita" id="contato_visita" readonly />
+                    </div>
+                  </div>
+
+                  <div class="col-md-4 col-xs-12">
+                    <div class="form-group">
+                      <label for="telefone_visita">Telefone</label>
+                      <input type="text" name="telefone_visita" id="telefone_visita" class="form-control" readonly />
+                    </div>
+                  </div>
+
+                  <div class="col-md-4 col-xs-12">
+                    <div class="form-group">
+                      <label for="cidade_uf_visita">Cidade</label>
+                      <input type="text" name="cidade_uf_visita" id="cidade_uf_visita" class="form-control" readonly />
+                    </div>
+                  </div>
+
+                  <div class="col-md-4 col-xs-12">
+                    <div class="form-group">
+                      <label for="solicitante_visita">Solicitante</label>
+                      <input type="text" name="solicitante_visita" id="solicitante_visita" class="form-control" readonly />
+                    </div>
+                  </div>
+                </td>
+              </tbody>
+            </table>
+          </fieldset>
+
+          <fieldset id="parceiros">
+            <legend>Parceiros</legend>
+
+            <table class="table table-striped" tablename="tabela_parceiros" nodeletebutton="true" noaddbutton="true">
+              <thead>
+                <tr class="tableHeadRow">
+                  <th></th>
+                </tr>
+              </thead>
+
+              <tbody>
+                <td>
+                  <input type="hidden" name="codigo_parceiro" />
+                  <input type="hidden" name="cidade_parceiro" />
+                  <input type="hidden" name="cod_cidade_parceiro" />
+                  <input type="hidden" name="uf_parceiro" />
+                  <input type="hidden" name="cod_uf_parceiro" />
+                  <input type="hidden" name="cod_pais_parceiro" />
+                  <input type="hidden" name="lat_parceiro" />
+                  <input type="hidden" name="long_parceiro" />
+
+                  <div class="col-md-3 col-xs-12">
+                    <div class="form-group">
+                      <label for="nome_parceiro">Nome</label>
+                      <span class="required text-danger"><strong>*</strong></span>
+                      <input type="text" name="nome_parceiro" id="nome_parceiro" readonly />
+                    </div>
+                  </div>
+
+                  <div class="col-md-3 col-xs-12">
+                    <div class="form-group">
+                      <label for="local_parceiro">Local</label>
+                      <span class="required text-danger"><strong>*</strong></span>
+                      <input type="text" name="local_parceiro" id="local_parceiro" readonly />
+                    </div>
+                  </div>
+
+                  <div class="col-md-3 col-xs-12">
+                    <div class="form-group">
+                      <label for="codigo_cupom">Código Cupom</label>
+                      <span class="required text-danger"><strong>*</strong></span>
+                      <input type="text" name="codigo_cupom" id="codigo_cupom" readonly />
+                    </div>
+                  </div>
+
+                  <div class="col-md-2 col-xs-12">
+                    <div class="form-group">
+                      <label for="data_parceiro">Data</label>
+                      <span class="required text-danger"><strong>*</strong></span>
+                      <input type="text" name="data_parceiro" id="data_parceiro" readonly />
+                    </div>
+                  </div>
+
+                  <div class="col-md-4 col-xs-12">
+                    <div class="form-group">
+                      <label for="contato_parceiro">Contato</label>
+                      <span class="required text-danger"><strong>*</strong></span>
+                      <input type="text" name="contato_parceiro" id="contato_parceiro" readonly />
+                    </div>
+                  </div>
+
+                  <div class="col-md-4 col-xs-12">
+                    <div class="form-group">
+                      <label for="telefone_parceiro">Telefone</label>
+                      <input type="text" name="telefone_parceiro" id="telefone_parceiro" class="form-control" readonly />
+                    </div>
+                  </div>
+
+                  <div class="col-md-4 col-xs-12">
+                    <div class="form-group">
+                      <label for="cidade_uf_parceiro">Cidade</label>
+                      <input type="text" name="cidade_uf_parceiro" id="cidade_uf_parceiro" class="form-control" readonly />
+                    </div>
+                  </div>
+
+                  <div class="col-md-4 col-xs-12">
+                    <div class="form-group">
+                      <label for="interesse_parceiro">Interesse</label>
+                      <input type="text" name="interesse_parceiro" id="interesse_parceiro" class="form-control" readonly />
+                    </div>
+                  </div>
+
+                  <div class="col-md-4 col-xs-12">
+                    <div class="form-group">
+                      <label for="area_interesse_parceiro">Área de Interesse</label>
+                      <input type="text" name="area_interesse_parceiro" id="area_interesse_parceiro" class="form-control" readonly />
+                    </div>
+                  </div>
+                </td>
+              </tbody>
+            </table>
+          </fieldset>
+
+          <div class="col-md-4 col-xs-12">
+            <div class="form-group">
+              <label for="nome_motorista">Motorista</label>
+              <input type="text" name="nome_motorista" id="nome_motorista" class="form-control" readonly />
+            </div>
+          </div>
+          <div class="col-md-4 col-xs-12">
+            <div class="form-group">
+              <label for="nome_ajudante">Especificador</label>
+              <input type="text" name="nome_ajudante" id="nome_ajudante" class="form-control" readonly />
+            </div>
+          </div>
+          <div class="col-md-4 col-xs-12">
+            <div class="form-group">
+              <label for="expediente">Expediente</label>
+              <input type="text" name="expediente" id="expediente" class="form-control" readonly />
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </body>
+  <script defer>
+    var calendarDataIni = FLUIGC.calendar('#dataIni');
+    var calendarDataFim = FLUIGC.calendar('#dataFim');
+  </script>
+</html>

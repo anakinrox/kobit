@@ -1,0 +1,27 @@
+{
+  "id": "57db6bd3-fafe-46b0-94cf-c073784f4649",
+  "timestamp": "2024-05-02T17:23:43.825Z",
+  "type": "MESSAGE",
+  "subscriptionId": "17ebb2c7-37f3-4198-abb7-f5cc83f4e267",
+  "channel": "whatsapp",
+  "direction": "IN",
+  "message": {
+    "id": "64d17486-e2c2-471f-a18b-4be83b2bea1d",
+    "from": "5547988091499",
+    "to": "554791832890",
+    "direction": "IN",
+    "channel": "whatsapp",
+    "visitor": {
+      "name": "🦋🍂 HELOISA🍂🦋",
+      "firstName": "🦋🍂",
+      "lastName": "HELOISA🍂🦋"
+    },
+    "contents": [
+      {
+        "type": "text",
+        "text": "Oi"
+      }
+    ],
+    "timestamp": "2024-05-02T17:23:43+00:00"
+  }
+}

@@ -1,0 +1,450 @@
+<html>
+<head>
+	<link type="text/css" rel="stylesheet" href="/style-guide/css/fluig-style-guide.min.css"/>
+	<script type="text/javascript" src="/portal/resources/js/jquery/jquery.js"></script>
+	<script type="text/javascript" src="/portal/resources/js/jquery/jquery-ui.min.js"></script>
+	<script type="text/javascript" src="/portal/resources/js/mustache/mustache-min.js"></script>
+	<script type="text/javascript" src="/style-guide/js/fluig-style-guide.min.js" charset="utf-8"></script>
+	
+	<script src="/webdesk/vcXMLRPC.js"></script>
+	
+	<script src="util.js"></script>
+	<script src="controle.js"></script>
+	<script src="modalZoom.js"></script>
+	<script src="zoom.js"></script>
+	<script src="modalTable.js"></script>
+	<script src="cep.js"></script>
+	
+	
+</head>
+<body onload="loadBody()"  >
+<div class="fluig-style-guide">
+<form name="form" role="form">
+
+	<div class="panel panel-info">
+		<div class="panel-heading fs-txt-center">
+			<b>Obra</b>
+		</div>
+		<!-- <div class="panel-body" style="padding-top: 0px; padding-right: 0px; padding-left: 0px; padding-bottom: 0px;" >	 -->
+		<div class="panel-body" >	
+
+			<div class="row">
+				<div class="col-sm-2">
+					<label for="exampleTag" >Origem</label>
+					<select class="form-control principal" name="origem" id="origem" dataset="indicacao_origem" datasetkey="cod_origem" datasetvalue="den_origem" addBlankLine="true" >
+					</select>				
+				</div>
+				
+				<div class="col-sm-2">
+					<label for="exampleTag">CEP</label>
+					<input type="tel" mask="00000-000" name="cep" id="cep" class="form-control" valida="true" onblur="buscaCep(this.id)"  />
+				</div>
+				
+				<div class="col-sm-4">
+					<label for="exampleTag">Cidade</label>
+					<div class="input-group">
+						<input type="text" name="cidade" id="cidade"  class="form-control principal" readonly />
+						<span id = "bt_cid" name="bt_cid" class="input-group-addon fluigicon fluigicon-zoom-in fluigicon-sm" onclick="zoom(this.id)" ></span>
+						<input type="hidden" name="id_cidade" id="id_cidade" />
+						<input type="hidden" name="cod_cidade" id="cod_cidade" />
+					</div>
+				</div>
+			
+				<div class="col-sm-1">
+					<label for="uf">UF</label>
+					<input type="text" name="uf" id="uf" class="form-control principal" readonly />
+					<input type="hidden" name="cod_uf" id="cod_uf" />
+					<input type="hidden" name="cod_pais" id="cod_pais" />
+				</div>
+				
+				<div class="col-sm-3">
+					<label for="exampleTag">Bairro</label>
+					<input type="text" name="bairro" id="bairro" class="form-control principal"  valida="true" />
+				</div>
+				
+			</div>
+		
+			<div class="row">
+			
+				<div class="col-sm-2">
+					<label for="exampleTag">Tipo Endereço</label>
+					<select class="form-control" name="tipo_endereco" id="tipo_endereco" dataset="tipo_endereco" datasetkey="id" datasetvalue="tipo_endereco" addBlankLine=true valida="true" >
+					</select>
+				</div>
+				
+				<div class="col-sm-6">
+					<label for="exampleTag">Endere&ccedil;o</label>
+					<input type="text" name="endereco" id="endereco" class="form-control principal"  valida="true" />
+				</div>
+				
+				<div class="col-sm-2">
+					<label for="exampleTag">N&uacute;mero</label>
+					<input type="tel" name="numero" id="numero" class="form-control integer_0 principal"  valida="true" />
+				</div>
+				
+				<div class="col-sm-2">
+					<label for="exampleTag">Cod. Origem</label>
+					<input type="text" name="id_ws" id="id_ws" class="form-control"  valida="true" />
+				</div>
+				
+			</div>
+
+			<div class="row">
+			
+				<div class="col-sm-12" >
+					<label for="complemento">Complemento</label>
+					<input name="complemento" id="complemento" type="text" class="form-control" />
+				</div>
+				
+			</div>
+
+			
+			<div class="row">
+				
+				<div class="col-sm-4" >
+					<label for="proprietario">Proprietário</label>
+					<input name="proprietario" id="proprietario" type="text" class="form-control" />
+				</div>
+				
+				<div class="col-sm-2">
+					<label for="exampleTag">Telefone</label>
+					<input type="tel" name="telefone_prop" id="telefone_prop" onkeyup="maskFone(this.id)" class="form-control" valida="true" onblur="validaExistFone(this.id)"  />
+				</div>
+
+				<div class="col-sm-6">
+					<label for="exampleTag">E-mail</label>
+					<input type="tel" name="email_prop" id="email_prop" class="form-control" valida="true" />
+				</div>
+			</div>
+				
+			<div class="row">
+				
+				<div class="col-sm-2">
+					<label for="exampleTag" >Tipo</label>
+					<select class="form-control" name="tipo_contato" id="tipo_contato" dataset="tipo_contato" datasetkey="cod_tipo_contato" datasetvalue="den_tipo_contato" addBlankLine="true" >
+					</select>				
+				</div>
+				
+				<div class="col-sm-4" >
+					<label for="profissional">Profissional</label>
+					<input name="profissional" id="profissional" type="text" class="form-control" />
+				</div>
+				
+				<div class="col-sm-2">
+					<label for="exampleTag">Telefone</label>
+					<input type="tel" name="telefone_prof" id="telefone_prof" onkeyup="maskFone(this.id)" class="form-control" valida="true" onblur="validaExistFone(this.id)"  />
+				</div>
+	
+				<div class="col-sm-4">
+					<label for="exampleTag">E-mail</label>
+					<input type="tel" name="email_prof" id="email_prof" class="form-control" valida="true" />
+				</div>
+				
+			</div>
+						
+			<div class="row">
+		
+				<div class="col-sm-2" >
+					<label for="data_inicio">Data Inicio</label>
+					<input name="data_inicio" id="data_inicio" type="text" class="form-control data-fluig" />
+				</div>
+				
+				<div class="col-sm-2" >
+					<label for="data_termino">Data Termino</label>
+					<input name="data_termino" id="data_termino" type="text" class="form-control data-fluig" />
+				</div>
+				
+				<div class="col-sm-4" >
+					<label for="tamanho">Tamanho Obra</label>
+					<input name="tamanho" id="tamanho" type="text" class="form-control" />
+				</div>
+				
+				<div class="col-sm-2">
+					<label for="exampleTag" >Tipo Obra</label>
+					<select class="form-control" name="tipo_obra" id="tipo_obra" dataset="tipo_obra" datasetkey="cod_tipo_obra" datasetvalue="den_tipo_obra" addBlankLine="true" >
+					</select>				
+				</div>
+				
+				<div class="col-sm-2">
+					<label for="exampleTag" >Fase</label>
+					<select class="form-control" name="fase_obra" id="fase_obra" dataset="fase_obra" datasetkey="cod_fase" datasetvalue="den_fase" addBlankLine="true" >
+					</select>				
+				</div>
+				
+			</div>
+				
+			<div class="row">
+				<div class="col-sm-12">
+					<label for="detalhes">Detalhes</label>
+					<textarea rows="2" name="detalhes" id="detalhes" class="form-control" ></textarea>
+				</div>	
+			</div>
+		</div>
+		
+		<div class="panel-heading fs-txt-center">
+			<b>Direcionamento</b>
+		</div>
+		<!-- <div class="panel-body" style="padding-top: 0px; padding-right: 0px; padding-left: 0px; padding-bottom: 0px;" >	 -->
+		<div class="panel-body" >	
+			
+			<div class="row">			
+				<div class="col-md-2 area" >
+					<label for="qualificado">&Aacute;rea</label>
+					<select name="area" id="area" class="form-control principal" onchange="trataLoja(); limpa_respon();">
+						<option value=""></option>
+						<option value="E">Engenharia</option>
+						<option value="A">ADVA</option>		
+						<option value="I">ADVI</option>	
+						<option value="V">Vendedores</option>
+						<option value="S">Showroom</option>
+						<option value="J">Varejo</option>
+					</select>
+				</div>	
+		
+				<div class="col-md-2 showroom" >
+					<label for="qualificado">Showroom / Franquia</label>
+					<select name="showroom" id="showroom" class="form-control" onchange="loadUserShowroom()">
+					</select>
+				</div>
+				
+				<div class="col-sm-4 engenharia" >
+					<label for="conta">Construtora</label>
+					<input name="construtora" id="construtora" type="text" class="form-control">
+				</div>
+				<div class="col-sm-4 engenharia" >
+					<label for="conta">Obra</label>
+					<input name="obra" id="obra" type="text" class="form-control">
+				</div>
+			
+				<div class="col-sm-2 parceiro showroom">
+					<label for="exampleTag">Responsavel</label>
+					<div class="input-group">
+						<input type="text" name="nome_usuario" id="nome_usuario"  class="form-control" valida="Nome" />
+						<span id="bt_usuario" name="bt_usuario" class="input-group-addon fluigicon fluigicon-zoom-in fluigicon-sm" onclick="zoom(this.id)" ></span>
+					</div>
+					<input type="hidden" name="matricula" id="matricula"  class="form-control" />
+					<input type="hidden" name="tipo_usuario" id="tipo_usuario"  class="form-control" />
+				</div>
+				
+			
+				<div class="col-sm-4 parceiro showroom">
+					<label for="exampleTag">Contato</label>
+					<div class="input-group">
+						<input type="text" name="nome" id="nome"  class="form-control" valida="Nome" />
+						<span id="bt_parceiro" name="bt_parceiro" class="input-group-addon fluigicon fluigicon-zoom-in fluigicon-sm" onclick="zoom(this.id)" ></span>
+					</div>
+					<input type="hidden" name="id_pessoa" id="id_pessoa"  class="form-control" />
+				</div>
+				
+				<div class="col-sm-2 parceiro showroom">
+					<label for="exampleTag">Telefone</label>
+					<div class="input-group">
+						<input type="tel" name="telefone1" id="telefone1" onkeyup="maskFone(this.id)" class="form-control" valida="true" onblur="validaExistFone(this.id)"  />
+						<span id="bt_fone_pipe_drive" name="bt_fone_pipe_drive" class="input-group-addon fluigicon fluigicon-user-config fluigicon-sm" onclick="zoom(this.id)" ></span>
+					</div>
+					<input type="hidden" name="telefone1_valid" id="telefone1_valid" />
+				</div>
+				
+				<div class="col-sm-2 parceiro">
+					<label for="exampleTag">Cupom</label>
+					<input type="tel" name="cupom" id="cupom" class="form-control"  />
+				</div>
+				
+				<div class="col-sm-12 parceiro showroom">
+					<label for="exampleTag">E-Mail</label>
+					<input type="text" name="email1" id="email1"  class="form-control" valida="Nome" />
+				</div>				
+				
+						
+			</div>
+
+			<div class="row organizacao">
+				<div class="col-sm-4">
+					<label for="exampleTag">Organização</label>
+					<div class="input-group">
+						<input type="text" name="nome_organizacao" id="nome_organizacao"  class="form-control" />
+						<span id="bt_organizacao" name="bt_organizacao" class="input-group-addon fluigicon fluigicon-zoom-in fluigicon-sm" onclick="zoom(this.id)" ></span>
+					</div>
+					<input type="hidden" name="id_organizacao" id="id_organizacao"  class="form-control" />
+				</div>
+
+				<div class="col-sm-2">
+					<label for="exampleTag">Telefone Organização</label>
+					<div class="input-group">
+						<input type="tel" name="tel_organizacao" id="tel_organizacao" onkeyup="maskFone(this.id)" class="form-control" valida="true" onblur="validaExistFone(this.id)"  />
+						<span id="bt_fone_pipe_drive_org" name="bt_fone_pipe_drive_org" class="input-group-addon fluigicon fluigicon-user-config fluigicon-sm" onclick="zoom(this.id)" ></span>
+					</div>
+					<!-- <input type="hidden" name="tel_organizacao_valid" id="telefone1_valid" /> -->
+				</div>
+
+				<div class="col-sm-6">
+					<label for="exampleTag">E-Mail Organização</label>
+					<input type="text" name="email2" id="email2"  class="form-control" valida="Nome" />
+				</div>
+				
+			</div>
+				
+		
+			<div class="row fechamento">
+				
+				<div class="col-sm-2">
+					<label for="exampleTag">Temperatura?</label>
+					<select class="form-control" name="probabilidade" id="probabilidade" dataset="probabilidade" datasetkey="cod_probabilidade" datasetvalue="den_probabilidade" addBlankLine=true valida="true"  onchange="setDetalhe();" >
+					</select>
+				</div>
+		
+				<div class="col-sm-2">
+					<label for="exampleTag">Detalhe Temp.?</label>
+					<select class="form-control" name="detalhe_prob" id="detalhe_prob"  >
+					</select>
+				</div>		
+						
+				<div class="col-md-2" >
+					<label for="qualificado">Gerou Oportunidade</label>
+					<select name="oportunidade" id="oportunidade" class="form-control" >
+						<option value=""></option>
+						<option value="S">Sim</option>
+						<option value="N">N&atilde;o</option>		
+					</select>
+				</div>
+				
+				<div class="col-sm-2">
+					<label for="exampleTag">Motivo Perca</label>
+					<select class="form-control" name="motivo_perca" id="motivo_perca" dataset="motivo_perca" datasetkey="cod_motivo" datasetvalue="den_motivo" addBlankLine=true valida-perda="true" onchange="$( '#den_motivo_perca' ).val(  $('#motivo_perca option:selected').text() );" >
+					</select>
+					<input type="hidden" name="den_motivo_perca" id="den_motivo_perca" >
+				</div>
+				
+				<div class="col-sm-4 pd_her">
+					<label for="exampleTag">Detalhe da Perca</label>
+					<textarea rows="1" name="detalhe_perda" id="detalhe_perda" class="form-control" valida-perda="true" ></textarea>
+				</div>
+			
+			</div>
+			&nbsp;
+			<div class="panel panel-info">
+				<div class="panel-heading fs-txt-center">
+					<b>CheckList</b>	
+				</div>
+				<!-- <div class="panel-body" style="padding-top: 0px; padding-right: 0px; padding-left: 0px; padding-bottom: 0px;" >	 -->
+				<div class="panel-body" >	
+					<div class="row">
+						<div class="col-md-12">
+							<div class="form-field table-responsive" data-type="tabledetail" data-show-properties="" data-field-name="tabledetail">
+								<table class="table table-condensed table-bordered table-striped" border="1" tablename="perguntas" nodeletebutton=true noaddbutton=true addbuttonclass="wdkbuttonClass">
+									<thead>
+										<tr class="tableHeadRow" >	
+											<th width="50%" class="tableColumn"><b>Questão</b></th>
+											<th width="10%" class="tableColumn"><b>Resp.</b></th>
+											<th width="40%" class="tableColumn"><b>Observação</b></th>
+										</tr>
+									</thead>
+									<tr id="linha" name="linha" >
+										<td>
+											<input type="text" class="form-control" name="pergunta" id="pergunta" readonly >
+										</td>
+										<td>
+											<select name="questao" id="questao" class="form-control" onchange="" > 
+									 		</select>
+									 	</td>
+										<td>
+											<textarea rows="1" name="resposta" id="resposta" class="form-control" ></textarea>
+											<input type="hidden" name="pergunta_documentid" id="pergunta_documentid" />								 
+											<input type="hidden" name="pergunta_version" id="pergunta_version" />
+											<input type="hidden" name="questao_ant" id="questao_ant" />
+										</td>
+									</tr>
+								</table>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+					
+			<div class="panel panel-info">
+				<div class="panel-heading fs-txt-center">
+					<b>Intera&ccedil;&atilde;o</b>
+				</div>
+				<!-- <div class="panel-body" style="padding-top: 0px; padding-right: 0px; padding-left: 0px; padding-bottom: 0px;" >	 -->
+				<div class="panel-body" >	
+					<div class="row">
+						<div class="col-md-10">
+							<textarea rows="5" class="form-control" name="descricao" id="descricao" ></textarea> 
+						</div>
+						<div class="col-sm-2">
+							<label for="exampleTag">Data Prev.</label>
+							<input type="text" class="form-control data-hora-fluig" name="data_prev_fup" id="data_prev_fup"  >
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+		
+	<div class="panel panel-info">
+		<div class="panel-heading fs-txt-center">
+			<b>Hist&oacute;rico</b>	
+		</div>
+		<!-- <div class="panel-body" style="padding-top: 0px; padding-right: 0px; padding-left: 0px; padding-bottom: 0px;" >	 -->
+		<div class="panel-body" >	
+			<div class="row">
+				<div class="col-md-12">
+					<table class="table table-condensed table-bordered" border="1" tablename="folowup"  noaddbutton=true nodeletebutton=true addbuttonclass="wdkbuttonClass" >			
+						<thead>
+							<tr>
+								<td width='100%' class="cell-ellipsis"><b>Historico</b></td>
+							</tr>
+						</thead>
+						<tr>
+							<td>
+								<div class="row">
+									<div class="col-md-2">
+										<input type="text" class="form-control" name="data_hist" id="data_hist" readonly >
+										<input type="hidden" name="data_prev_hist" id="data_prev_hist" >
+									</div>
+									<div class="col-md-6">
+										<input type="text" class="form-control" name="user_hist" id="user_hist" readonly >
+										<input type="hidden" name="cod_user_hist" id="cod_user_hist" >
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-md-12">
+										<textarea rows="1" name="desc_hist" id="desc_hist" class="form-control"  readonly ></textarea>
+									</div>
+								</div>
+							</td>
+						</tr>
+					</table> 
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	
+	
+	<input type="hidden" name="user_atual" id="user_atual" />
+	<input type="hidden" name="task" id="task" />
+	<input type="hidden" name="processo" id="processo" />
+
+	<input type="hidden" name="user_fup" id="user_fup" />
+	<input type="hidden" name="cod_user_fup" id="cod_user_fup" />
+
+	<input type="hidden" name="user_abertura" id="user_abertura" />
+	<input type="hidden" name="cod_call_center_pipedrive" id="cod_call_center_pipedrive" />
+
+	<input type="hidden" name="id_ws_usuario" id="id_ws_usuario" />
+
+	<input type="hidden" name="cod_user_dest_eng" id="cod_user_dest_eng" />
+	
+	<input type="hidden" name="id_deals" id="id_deals" />
+	<input type="hidden" name="id_person" id="id_person" />
+	<input type="hidden" name="id_user" id="id_user" />
+
+	<input type="hidden" name="loadPergunta" id="loadPergunta" />
+	
+	
+	
+</form>
+</div>
+</body>
+</html>

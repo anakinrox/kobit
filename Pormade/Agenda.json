@@ -1,0 +1,339 @@
+{
+    "insertPerson": {
+        "name": "GUSTAVAO",
+        "identity": "95403013008",
+        "identityType": "CPF",
+        "document": "000000000000",
+        "obs": "ciyirow569@votooe.com",
+        "complement": "",
+        "zipCode": "07727585",
+        "street": "RUA RIO DE JANEIRO",
+        "number": "100",
+        "neighbourhood": "ALPES DE CAIEIRAS",
+        "city": "CAIEIRAS",
+        "state": "SP",
+        "country": "BRASIL",
+        "mobileNumber": "11 111111111",
+        "email": "DIVULGADOR59520@DIVULGADOR.NET.BR",
+        "partnerCoupon": "DIV59520",
+        "partnerBonus": 0,
+        "partner": true,
+        "provider": false,
+        "bankId": "001",
+        "bankBranch": "0193",
+        "bankAccount": "12345-0",
+        "bankAccountType": 1,
+        "bankAccountOperation": "",
+        "pix": "47988112917",
+        "partnerGroupId": 36,
+        "partnerOccupationId": 0,
+        "sponsorId": 46,
+        "sponsor": true,
+        "sponsorBonus": 2,
+        "sponsorGroupId": 37,
+        "partnerPisPasep": "123456789"
+    }
+}
+
+
+
+{
+    "success": true,
+    "message": "Pessoa inserida com sucesso!",
+    "data": [
+        {
+            "personId": 79674,
+            "customerId": 66346,
+            "name": "GUSTAVAO",
+            "identityType": "CPF",
+            "identity": "95403013008",
+            "obs": "ciyirow569@votooe.com",
+            "zipCode": "07727585",
+            "street": "RUA RIO DE JANEIRO",
+            "number": "100",
+            "complement": "",
+            "neighbourhood": "ALPES DE CAIEIRAS",
+            "city": "CAIEIRAS",
+            "state": "SP",
+            "country": "BRASIL",
+            "mobileNumber": "11 111111111",
+            "email": "DIVULGADOR59520@DIVULGADOR.NET.BR",
+            "idPipedrive": null,
+            "partnerCoupon": "DIV59520",
+            "partnerBonus": 0.00,
+            "partnerCau": null,
+            "partnerPisPasep": "123456789",
+            "partnerMaritalStatus": null,
+            "partnerCityOfBirthId": null,
+            "partnerNationality": null,
+            "partnerSchoolingLevel": null,
+            "partnerEthinicity": null,
+            "partnerGender": null,
+            "sponsorId": 46,
+            "sponsorName": "10652922000218 - DRZ PORTAS ECOLOGICAS LTDA.",
+            "partner": true,
+            "provider": false,
+            "sponsor": true,
+            "type": [
+                {
+                    "id": 1176,
+                    "type": "PATROCINADOR"
+                },
+                {
+                    "id": 66346,
+                    "type": "CLIENTE"
+                },
+                {
+                    "id": 39591,
+                    "type": "PARCEIRO"
+                }
+            ]
+        }
+    ]
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{
+    nome: 'GUSTAVAO',
+    cnpj_cpf: '954.030.130-08',
+    fisico_juridico: 'F',
+    data_nacimento: "24/03/1979",
+    contato: 'ciyirow569@votooe.com',
+    telefone1: '(11) 11111-1111',
+    email: 'divulgador59520@divulgador.net.br',
+    cupon: 'DIV59520',
+    comissao: '0',
+    id_banco: '001',
+    agencia: '0000',
+    conta: '000000',
+    operacao: '13',
+    pix: '47988112917',
+    pis: '123456789',
+    num_cau_crea: '',
+    tipo_cadastro: 'D',
+    profissao: '',
+    cod_usuario_respon: '46',
+    sponsor: true,
+    sponsorBonus: 2,
+    sponsorGroupId: 37,
+    endereco: [
+        {
+            id: 1,
+            cep: '07727-585',
+            endereco: 'Rua Rio de Janeiro',
+            complemento: 'casa 2',
+            numero: '100',
+            bairro: 'Alpes de Caieiras',
+            den_cidade: 'CAIEIRAS',
+            uf: 'SP',
+            pais: 'BRASIL',
+        }
+    ]
+}
+
+
+{
+    "updatePerson": {
+        "personId": 73424,
+        "identity": "26227457027",
+        "identityType": "CPF",
+        "name": "JOAO DA SILVA ALTERADO - 26227457027",
+        "obs": "Alterei o Bonus de 10 para 5%",
+        "birthDate": "20/08/1995",
+        "partnerCoupon": null,
+        "partnerGroupId": 24,
+        "partnerOccupationId": 1,
+        "partnerOriginId": 30,
+        "partnerCallCenterOperatorId": 44,
+        "partnerBonus": 5,
+        "sponsorId": 30,
+        "partnerCau": null,
+        "bankId": "001",
+        "bankBranch": "0135-X",
+        "bankAccount": "22123-6",
+        "bankAccountType": 1,
+        "bankAccountOperation": "1",
+        "bankAccountHolder": "JOAO DA SILVA ALTERADO",
+        "pix": "juliocesarbsi@gmail.com",
+        "sponsorLeaderId": null,
+        "sponsorCRM": 122469319,
+        "sponsorBonus": 5,
+        "sponsorGroupId": 36,
+        "partner": "true",
+        "provider": "false",
+        "sponsor": "true"
+    }
+}
+
+
+
+{
+    "updatePerson": {
+        "personId": 79674,
+        "name": "GUSTAVAO",
+        "identity": "95403013008",
+        "identityType": "CPF",
+        "obs": "ciyirow569@votooe.com",
+        "birthDate": "24/03/1979",
+        "mobileNumber": "11 111111111",
+        "email": "DIVULGADOR59520@DIVULGADOR.NET.BR",
+        "partnerCoupon": "DIV59520",
+        "partnerBonus": 0,
+        "partner": true,
+        "provider": false,
+        "bankId": "001",
+        "bankBranch": "0000",
+        "bankAccount": "000000",
+        "bankAccountType": 1,
+        "bankAccountOperation": "",
+        "pix": "47988112917",
+        "partnerGroupId": 36,
+        "partnerGender": "M",
+        "partnerCityOfBirthId": 4127700,
+        "partnerNationality": 10,
+        "partnerMaritalStatus": "1",
+        "partnerPisPasep": "123456789",
+        "partnerSchoolingLevel": 8,
+        "partnerEthinicity": 8,
+        "partnerOccupationId": 0,
+        "sponsorId": 46,
+        "sponsor": true,
+        "sponsorBonus": 2,
+        "sponsorGroupId": 37
+    }
+}
+
+
+
+
+{
+    "insertPerson": {
+        "name": "GUSTAVAO",
+        "identity": "95403013008",
+        "identityType": "CPF",
+        "document": "000000000000",
+        "birthDate": "24/03/1979",
+        "obs": "ciyirow569@votooe.com",
+        "complement": "",
+        "zipCode": "07727585",
+        "street": "RUA RIO DE JANEIRO",
+        "number": "100",
+        "neighbourhood": "ALPES DE CAIEIRAS",
+        "city": "CAIEIRAS",
+        "state": "SP",
+        "country": "BRASIL",
+        "mobileNumber": "11 111111111",
+        "email": "DIVULGADOR59520@DIVULGADOR.NET.BR",
+        "partnerCoupon": "DIV59520",
+        "partnerBonus": 0,
+        "partner": true,
+        "provider": false,
+        "bankId": "001",
+        "bankBranch": "1234",
+        "bankAccount": "1234-5",
+        "bankAccountType": 1,
+        "bankAccountOperation": "",
+        "pix": "47988112917",
+        "partnerGroupId": 36,
+        "partnerGender": "M",
+        "partnerCityOfBirthId": 4127700,
+        "partnerNationality": 10,
+        "partnerMaritalStatus": "2",
+        "partnerPisPasep": "123456789",
+        "partnerSchoolingLevel": 8,
+        "partnerEthinicity": 8,
+        "partnerOccupationId": 0,
+        "sponsorId": 46,
+        "sponsor": true,
+        "sponsorBonus": 2,
+        "sponsorGroupId": 37
+    }
+}
+
+
+{
+    "updatePerson": {
+        "personId": "79674",
+        "name": "NULL",
+        "identity": "null",
+        "identityType": "CPF",
+        "obs": "null",
+        "birthDate": "24/03/1979",
+        "mobileNumber": "11 111111111",
+        "email": "NULL",
+        "partnerCoupon": "DIV59520",
+        "partnerBonus": 0.0,
+        "partner": true,
+        "provider": false,
+        "bankId": "null",
+        "bankBranch": "1234",
+        "bankAccount": "1234",
+        "bankAccountType": 1.0,
+        "bankAccountOperation": "",
+        "pix": "47988112917",
+        "partnerCau": "null",
+        "partnerGroupId": 0.0,
+        "partnerGender": "M",
+        "partnerCityOfBirthId": "4127700",
+        "partnerNationality": "10",
+        "partnerMaritalStatus": "2",
+        "partnerPisPasep": "123.4567.89",
+        "partnerSchoolingLevel": "8",
+        "partnerEthinicity": "8",
+        "partnerOccupationId": 0.0,
+        "sponsorId": 46.0
+    }
+}
+
+
+{
+    "updatePerson": {
+        "personId": "79674",
+        "name": "GUSTAVAO",
+        "identity": "95403013008",
+        "identityType": "CPF",
+        "obs": "ciyirow569@votooe.com",
+        "birthDate": "24/03/1979",
+        "mobileNumber": "11 111111111",
+        "email": "DIVULGADOR59520@DIVULGADOR.NET.BR",
+        "partnerCoupon": "DIV59520",
+        "partnerBonus": 0.0,
+        "partner": true,
+        "provider": false,
+        "bankId": "001",
+        "bankBranch": "1234",
+        "bankAccount": "1234",
+        "bankAccountType": 1.0,
+        "bankAccountOperation": "",
+        "pix": "47988112917",
+        "partnerCau": "null",
+        "partnerGroupId": 36.0,
+        "partnerGender": "M",
+        "partnerCityOfBirthId": "4127700",
+        "partnerNationality": "10",
+        "partnerMaritalStatus": "3",
+        "partnerPisPasep": "123.4567.89",
+        "partnerSchoolingLevel": "8",
+        "partnerEthinicity": "8",
+        "partnerOccupationId": 0.0,
+        "sponsorId": 46.0
+    }
+}

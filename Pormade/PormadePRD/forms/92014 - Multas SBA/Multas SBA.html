@@ -1,0 +1,377 @@
+<html>
+<head>	
+	<!-- <link type="text/css" rel="stylesheet" href="/portal/resources/style-guide/css/fluig-style-guide.min.css"/> -->
+	<link type="text/css" rel="stylesheet" href="controle.css"/>
+	<script type="text/javascript" src="/portal/resources/js/jquery/jquery.js"></script>
+	<script type="text/javascript" src="/portal/resources/js/jquery/jquery-ui.min.js"></script>
+	<script type="text/javascript" src="/portal/resources/js/mustache/mustache-min.js"></script>
+	<script type="text/javascript" src="/portal/resources/style-guide/js/fluig-style-guide.min.js" charset="utf-8"></script>
+	
+	<!-- <script type="text/javascript" language="javascript" src="validafunctions.js"></script> -->
+	<script type="text/javascript" src="/portal/resources/js/jquery.mask.min.js"></script>
+	<script type="text/javascript" src="jquery.maskMoney.min.js"></script>
+	<script type="text/javascript" src="./controle.js"></script>
+	<script type="text/javascript" src="/webdesk/vcXMLRPC.js"></script>
+	<script type="text/javascript" src="./utils.js"></script>
+	<script type="text/javascript" src="./zoom.js"></script>
+	<script type="text/javascript" src="./modalZoom.js"></script>
+	<script type="text/javascript" src="./print.js"></script>	
+	<script type="text/javascript" src="./fileUpload.js"></script>	
+</head>
+<body class="fluig-style-guide" onload="loadBody()"> 
+	<form name="form" role="form" >
+		<div class="container-fluid">
+			<div class="panel panel-info" id="aba_1"  >
+				<div class="panel-heading fs-txt-center">
+					<table width='100%' >
+						<tr>
+							<td width='5%' align=left > &nbsp; </td>
+							<td width='90%' align=center ><b>Multas SBA</b></td>
+							<td width='5%' align=right >
+								<span class="fluigicon fluigicon-print fluigicon-sm" onclick="print();" ></span>
+							</td>
+						</tr>
+					</table>					
+				</div>
+				<div class="panel-body">
+					<div class="row">
+						<div class="col-sm-2">
+							<label for="txtNome">Data Lançamento</label>
+							<input type="text" class="form-control data-hoje" name="data_lancamento" id="data_lancamento" readonly/>
+						</div>
+
+						<div class="col-sm-1">
+							<label for="txtNome">Acerto</label>
+							<select name="ind_acerto" id="ind_acerto" class="form-control" onchange="controleZoom();">
+								<option value="S">Sim</option>
+								<option value="N">Não</option>								
+							</select>
+						</div>
+
+						<div class="col-sm-2">
+							<label for="txtNome">Data Infração</label>
+							<input type="text" class="form-control data-hora" name="data_infracao" id="data_infracao" />
+						</div>
+						
+						<!-- <div class="col-sm-2">
+							<label for="txtNome">Hora Infração</label>
+							<input type="text" class="form-control hora-fluig" name="hora_infracao" id="hora_infracao" />
+						</div> -->
+						
+						<div class="col-sm-2">
+							<label for="txtNome">Número Infração</label>
+							<input type="text" class="form-control" name="num_infracao" id="num_infracao" onblur="validaAutoInfracao()"/>
+						</div>
+
+						<div class="col-sm-2">
+							<label for="txtNome">Data Vencimento</label>
+							<input type="text" class="form-control data-fluig" name="data_vencimento" id="data_vencimento" />
+						</div>
+
+						<div class="col-sm-2">
+							<label for="txtNome">Data Pagamento</label>
+							<input type="text" class="form-control data-fluig" name="data_pagamento" id="data_pagamento" />
+						</div>
+
+						<div class="col-sm-1">
+							<label for="txtNome">Ind Condutor</label>
+							<select name="ind_condutor" id="ind_condutor" class="form-control" onchange="valCalculado();">
+								<option value="N">Não</option>
+								<option value="S">Sim</option>
+							</select>
+						</div>
+
+					</div>
+					<div class="row">
+						
+						<div class="col-sm-2">
+							<label for="txtNome">Placa</label>
+							<div class="input-group">
+								<input name="placa" id="placa" type="text" class="form-control grp_placa" readonly />
+								<span class="input-group-addon fluigicon fluigicon-eraser fluigicon-sm" onclick="limpaCampos('placa')"></span>
+								<span class="input-group-addon fluigicon fluigicon-zoom-in fluigicon-sm" id="btnPlaca" onclick="zoom(this.id)"></span>
+							</div>
+						</div>						
+						<div class="col-sm-3">
+							<label for="txtNome">Motorista</label>
+							<div class="input-group div_motorista">
+								<input type="hidden" class="grp_motorista" name="cod_motorista" id="cod_motorista" />
+								<input type="hidden" class="grp_motorista" name="matricula" id="matricula" />
+								<input type="text" class="form-control grp_motorista" name="motorista" id="motorista" readonly />
+								<span class="input-group-addon fluigicon fluigicon-eraser fluigicon-sm" onclick="limpaCampos('motorista')"></span>
+								<span class="input-group-addon fluigicon fluigicon-zoom-in fluigicon-sm" id="bt_motorista" onclick="zoom(this.id)"></span>
+							</div>
+							
+						</div>
+						
+						<div class="col-sm-3">
+							<label for="txtNome">Infração</label>
+							<div class="input-group">
+								<span class="input-group-addon fluigicon fluigicon-plus-sign fluigicon-sm" onclick="novoCadastro('cadastro_infracao_transito')"></span>
+								<input type="hidden" class="grp_infracao" name="cod_infracao" id="cod_infracao" />
+								<input type="text" class="form-control grp_infracao" name="infracao" id="infracao" readonly />
+								<span class="input-group-addon fluigicon fluigicon-eraser fluigicon-sm" onclick="$('.grp_infracao').val('')"></span>
+								<span class="input-group-addon fluigicon fluigicon-zoom-in fluigicon-sm" id="btnInfracao" onclick="zoom(this.id)"></span>
+							</div>							
+						</div>
+						<div class="col-sm-2">
+							<label for="txtNome">Pontos</label>
+							<input type="text" class="form-control grp_infracao" name="pontos" id="pontos" readonly />
+						</div>
+						<div class="col-sm-2">
+							<label for="txtNome">Infrator</label>
+							<input type="text" class="form-control grp_infracao" name="infrator" id="infrator" readonly />
+						</div>						
+					</div>
+					<div class="row">
+
+						<div class="col-sm-2">
+							<label for="txtNome">Informa Motorista</label>
+							<!-- <input type="text" class="form-control grp_infracao" name="recurso" id="recurso" readonly /> -->
+							<select type="text" class="form-control" name="informa_motorista" id="informa_motorista">
+								<option value="N">Não</option>
+								<option value="S">Sim</option>
+							</select>
+						</div>
+
+						<div class="col-sm-2">
+							<label for="txtNome">Recurso</label>
+							<!-- <input type="text" class="form-control grp_infracao" name="recurso" id="recurso" readonly /> -->
+							<select type="text" class="form-control" name="recurso" id="recurso">
+								<option value="N">Não</option>
+								<option value="S">Sim</option>
+							</select>
+						</div>
+
+						<div class="col-sm-2">
+							<label for="txtNome">Res. Recurso</label>
+							<!-- <input type="text" class="form-control grp_infracao" name="recurso" id="recurso" readonly /> -->
+							<select type="text" class="form-control" name="res_recurso" id="res_recurso">
+								<option value=""></option>
+								<option value="D">Deferido</option>
+								<option value="I">Indeferido</option>
+							</select>
+						</div>
+
+						<div class="col-sm-2">
+							<label for="txtNome">Valor Total</label>
+							<input type="text" class="form-control grp_infracao decimal-2" name="valor" id="valor" readonly />
+						</div>
+
+						<div class="dv_multiplo">
+							<div class="col-sm-1">
+								<label for="txtNome">Multiplo</label>
+								<select type="text" class="form-control" name="multiplo" id="multiplo" onchange="multiParcelas()">
+									<option value=""></option>
+									<option value="1">1</option>
+									<option value="2">2</option>
+									<option value="3">3</option>
+								</select>
+							</div>					
+						</div>	
+
+						<div class="col-sm-2">
+							<label for="txtNome">Valor Pago</label>
+							<input type="text" class="form-control grp_infracao decimal-2" name="valor_calculado" id="valor_calculado" />
+						</div>
+						
+						<div class="col-sm-2">
+							<label for="txtNome">Desconta Motorista</label>
+							<select type="text" class="form-control" name="pago" id="pago">
+								<option value="N">Não</option>
+								<option value="S">Sim</option>
+							</select>
+						</div>
+
+						<div class="dv_parcelas" style="display: nones;">
+							<div class="col-sm-1">
+								<label for="txtNome">Parcelas</label>
+								<select type="text" class="form-control" name="parcelas" id="parcelas" onchange="expandeParcelas(this.id)">
+									<option value=""></option>
+									<option value="1">1</option>
+									<option value="2">2</option>
+									<option value="3">3</option>
+									<option value="4">4</option>
+									<option value="5">5</option>
+									<option value="6">6</option>
+									<option value="7">7</option>
+									<option value="8">8</option>
+									<option value="9">9</option>
+									<option value="10">10</option>
+									<option value="11">11</option>
+									<option value="12">12</option>
+								</select>
+							</div>					
+						</div>	
+						
+					</div>
+					
+					<div class="row">
+						<div class="col-sm-3">
+							<label for="txtNome">Número Infração Vinculado</label>
+							<div class="input-group">
+								<input name="auto_vinculado" id="auto_vinculado" type="text" class="form-control grp_auto" readonly />
+								<span class="input-group-addon fluigicon fluigicon-eraser fluigicon-sm" onclick="$('.grp_auto').val('')"></span>
+								<span class="input-group-addon fluigicon fluigicon-zoom-in fluigicon-sm" id="btnAuto" onclick="zoom(this.id)"></span>
+							</div>
+						</div>	
+					</div>
+
+					<div class="row">
+						<div class="col-sm-5">
+							<label for="txtNome">Tipo Documento</label>
+							<!-- <div class="input-group"> -->
+								<input name="auto_infracao" id="auto_infracao" type="text" class="form-control" value="Auto de infração" readonly>
+								<!-- <span class="input-group-addon fluigicon fluigicon-zoom-in" onclick="zoom( this.children[0].id )" >
+									<input type="hidden" class="form-control" name="cod_tip_docum" id="cod_tip_docum">
+								</span> -->
+							<!-- </div> -->
+						</div>
+						<div class="col-sm-5">
+							<label for="txtNome">Nome Documento</label>
+							<div class="input-group">								
+								<input type="hidden" class="form-control" name="doc_aif" id="doc_aif">
+								<input type="text" class="form-control" name="doc_infracao" id="doc_infracao" readonly>
+								<span class="input-group-addon fluigicon fluigicon-eye-open fluigicon-lg" id="bt_aif" onclick="openFile( this );"  > </span>
+							</div>
+						</div>
+						<div class="col-sm-2">
+							<label for="txtNome">Anexar</label>
+							<span class="btn btn-default form-control fluigicon fluigicon-paperclip botao" onclick="loadFile( this.children[0].id )" >
+								<input type="hidden" name="bt_aif" id="bt_aif" />
+							</span>
+						</div>
+					</div>
+
+					<div class="row">
+						<div class="col-sm-5">
+							<label for="txtNome">Tipo Documento</label>
+							<input name="comp_pagamento" id="comp_pagamento" type="text" class="form-control" value="Boleto para pagamento" readonly>
+						</div>
+						<div class="col-sm-5">
+							<label for="txtNome">Nome Documento</label>
+							<div class="input-group">
+								<input type="hidden" class="form-control" name="doc_cpg" id="doc_cpg">
+								<input type="text" class="form-control" name="doc_pagamento" id="doc_pagamento" readonly>
+								<span class="input-group-addon fluigicon fluigicon-eye-open fluigicon-lg" onclick="openFile( this );"  > </span>
+							</div>
+						</div>
+						<div class="col-sm-2">
+							<label for="txtNome">Anexar</label>
+							<span class="btn btn-default form-control fluigicon fluigicon-paperclip botao" onclick="loadFile( this.children[0].id )" >
+								<input type="hidden" name="bt_cpg" id="bt_cpg" />
+							</span>
+						</div>
+					</div>
+					&nbsp;
+					<div class="row">
+						<div class="col-md-12">
+							<ul class="nav nav-tabs nav-justified" role="tablist" id="menuAbas">
+								<li id="liParcelas" style="display: none;"><a href="#tabParcelas" role="tab" data-toggle="tab">Parcelas</a></li>
+								<li id="liFollowup" class="active"><a href="#tabFollowup" role="tab" data-toggle="tab">Follow Up</a></li>
+							</ul>
+						</div>
+					</div>
+
+					<div class="row">
+						<div class="col-md-12">
+							<div class="tab-content" style="padding: 0;">
+								<div class="tab-pane fade" id="tabParcelas">
+									<div class="panel panel-default">
+										<div class="panel-body">
+											<table class="table table-striped" id="tbl_parcelas" tablename="tbl_parcelas" nodeletebutton="true" noaddbutton="true" customFnDelete="fnCustomDelete(this)">
+												<thead>
+													<tr>
+														<th width="10%" class="detalhe" >Nº Parcela</th>
+														<th width="15%" class="detalhe" >Data Parcela</th>										
+														<th width="75%" class="detalhe" >Valor Parcela</th>
+													</tr>
+												</thead>
+												<tbody>
+													<tr detail="true" detailname="tbParcelas" id="linha_parcelas">
+														<td class="detalhe" >											
+															<input type="text" name="n_parcela" id="n_parcela" class="form-control" readonly />
+														</td>
+														<td class="detalhe" >
+															<input type="text" name="data_parcela" id="data_parcela" class="form-control data-fluig"/>
+														</td>										
+														<td class="detalhe" >
+															<input type="text" name="valor_parcela" id="valor_parcela" class="form-control" />
+														</td>
+													</tr>
+												</tbody>
+											</table>
+										</div>
+									</div>
+								</div>
+
+								<div class="tab-pane fade in active" id="tabFollowup">
+									<div class="panel panel-default">
+										<div class="panel-body">
+											<div class="row">
+												<!-- <div class="col-sm-2">
+													<label for="exampleTag">Data</label>
+													<input type="text" class="form-control" name="data_fup" id="data_fup" readonly >
+												</div> -->
+												<div class="col-sm-4 pd_her">
+													<label for="exampleTag">Usuario</label>
+													<input type="text" class="form-control" name="user_fup" id="user_fup" readonly >
+													<input type="hidden" class="form-control" name="cod_user_fup" id="cod_user_fup" readonly >
+												</div>
+											</div>
+											<div class="row">
+												<div class="col-sm-12">
+													<label for="exampleTag">Descri&ccedil;&atilde;o de Intera&ccedil;&atilde;o</label>
+													<textarea rows="4" name="descricao" id="descricao" class="form-control"  valida="true" ></textarea>
+												</div>				
+											</div>
+											<div class="row" id="hist" name="hist" >	
+												<div class="col-sm-12 pd_her">	
+													<table class="table table-condensed table-bordered" border="1" tablename="folowup"  noaddbutton=true nodeletebutton=true addbuttonclass="wdkbuttonClass" >
+														<thead>
+															<tr>
+																<td width='100%' class="cell-ellipsis"><b>Historico</b></td>
+															</tr>
+														</thead>
+															<tr>
+																<td>
+																	<div class="row  row_table">
+																		<div class="col-sm-2 pd_her">
+																			<label for="exampleTag">Data Hist.</label>
+																			<input type="text" class="form-control" name="data_hist" id="data_hist" readonly >
+																		</div>
+																		
+																		<div class="col-sm-4 pd_her">
+																			<label for="exampleTag">Usuario</label>
+																			<input type="text" class="form-control" name="user_hist" id="user_hist" readonly >
+																			<input type="hidden" class="form-control" name="cod_user_hist" id="cod_user_hist" readonly >
+																		</div>
+																	</div>
+								
+																	<div class="row  row_table">
+																		<div class="col-sm-12 pd_her">
+																			<textarea rows="1" name="desc_hist" id="desc_hist" class="form-control"  readonly ></textarea>
+																		</div>
+																	</div>	
+																</td>					
+															</tr>
+													</table>
+												</div>			
+											</div>	
+										</div>
+									</div>		
+								</div>
+							</div>
+						</div>
+					</div>
+
+				</div>
+			</div>
+		</div>
+		<input type="hidden" name="descritor" id="descritor">
+		<input type="hidden" name="num_process" id="num_process">
+		<input type="hidden" name="task" id="task">
+		<input type="file" name="load_file" id="load_file" title="" style="display: none;" onchange="selectFile(this.files)" />
+	</form>	
+</body>
+</html>

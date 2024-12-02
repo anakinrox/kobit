@@ -1,0 +1,58 @@
+{
+    "numero": "145683",
+    "serie": "3",
+    "emitente": {
+        "cnpj": "91359711000102",
+        "cep": 95780000
+    },
+    "destinatario": {
+        "cnpj": "05974441000108",
+        "cep": 19700000
+    },
+    "modalidadeFrete": "0",
+    "tipoOperacao": "0",
+    "dataEmissao": "2021-12-12 21:17:6",
+    "peso": 30240,
+    "pesoLiquido": 30240,
+    "cubagem": 949.344,
+    "volumes": 984,
+    "quantidadeItens": 24000,
+    "valor": 183600,
+    "valorProdutos": 183600,
+    "prazoCliente": "2021-12-12 21:17:6"
+}
+
+{
+    "numero": ,
+    "serie": "3",
+    "emitente": {
+        "cnpj": "22979609000197",
+        "cep": 88356322
+    },
+    "destinatario": {
+        "cnpj": "02329713000129",
+        "cep": 88356322
+    },
+    "modalidadeFrete": "0",
+    "tipoOperacao": "0",
+    "dataEmissao": "2021-12-07 12:00:00",
+    "peso": 100,
+    "pesoLiquido": 100,
+    "cubagem": 100,
+    "volumes": 2,
+    "quantidadeItens": 100,
+    "valor": 5000,
+    "valorProdutos": 5000,
+    "prazoCliente": "2021-12-15 12:00:00"
+}
+
+
+{
+    "prenotas": [
+        {
+            "cnpjEmissorPreNotaFiscal": "91359711000102",
+            "numeroPreNotaFiscal": 145683,
+            "seriePreNotaFiscal": "3"
+        }
+    ]
+}

@@ -1,0 +1,149 @@
+<html>
+
+<head>
+	<link type="text/css" rel="stylesheet" href="/style-guide/css/fluig-style-guide.min.css" />
+	<script type="text/javascript" src="/portal/resources/js/jquery/jquery.js"></script>
+	<script type="text/javascript" src="/portal/resources/js/jquery/jquery-ui.min.js"></script>
+	<script type="text/javascript" src="/portal/resources/js/mustache/mustache-min.js"></script>
+	<script type="text/javascript" src="/style-guide/js/fluig-style-guide.min.js" charset="utf-8"></script>
+	<script type="text/javascript" src="/portal/resources/style-guide/js/fluig-style-guide-richeditor.min.js"></script>
+	<style>
+		.logotipo {
+			margin: 15px;
+			height: 200px;
+			width: 200px;
+		}
+	</style>
+</head>
+
+<body>
+	<div class="fluig-style-guide">
+		<form name="form" role="form">
+
+
+			<div class="panel panel-info" style="margin-top: 30px;">
+				<div class="panel-heading">
+					<h3 class="panel-title alinharCenter"><span><i class="fluigicon fluigicon-user-edit icon-sm"
+								aria-hidden="true"></i>
+							FORMULÁRIO DE CADASTROS DE PREMIAÇÕES</span>
+					</h3>
+				</div>
+				<div class="panel panel-primary" style="margin: 23px;">
+					<div class="panel-heading">
+						<h3 class="panel-title alinharCenter"><span><i class="fluigicon fluigicon-user-edit icon-sm"
+									aria-hidden="true"></i>
+								CADASTROS </span>
+						</h3>
+					</div>
+					<div class="panel-body">
+						<div class="row" style="margin-top: 10px;">
+							<div class="col-md-12 form-group">
+								<label for="tituloPremio">Título do Prêmio</label>
+								<input type="text" class="form-control" id="tituloPremio" name="tituloPremio">
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-md-12 form-group">
+								<label for="txtPremio">Texto do Prêmio</label>
+								<textarea class="form-control" name="txtPremio" id="txtPremio"
+									placeholder="Digite aqui..."></textarea>
+							</div>
+						</div>
+						<div class="row">
+
+							<div class="col-md-4">
+								<label for="numPontos">Número de Pontos do Prêmio</label>
+								<select class="form-control" name="numPontos" id="numPontos"
+									dataset="ds_cadastro_faixa_pontos" datasetkey="pontos" datasetvalue="pontos"
+									addBlankLine="true"></select>
+							</div>
+							<div class="col-md-4">
+								<label for="checkResgate"><span style="color: rgb(201, 5, 5);">*</span>Prêmio possui
+									regra de resgate?</label>
+								<div>
+									<input type="radio" name="checkResgate" id="resgateSim" value="sim"
+										onchange="verificaResgate()">
+									<label style="color: green;">Sim</label>
+									<br>
+									<input type="radio" name="checkResgate" id="resgateNao" value="nao"
+										onchange="verificaResgate()">
+									<label style="color: rgb(201, 5, 5);">Não</label>
+								</div>
+							</div>
+
+						</div>
+
+					</div>
+					<div class="row hidden" id="regrasData">
+						<div class="col-md-3">
+							<label for="dataInicio">Data Inicio</label>
+							<input type="text" class="form-control" id="dataInicio" name="dataInicio">
+						</div>
+						<div class="col-md-3">
+							<label for="dataFinal">Data Final</label>
+							<input type="text" class="form-control" id="dataFinal" name="dataFinal">
+						</div>
+						<div class="col-md-3">
+							<label for="dataInicioResgate">Data Inicio Resgate</label>
+							<input type="text" class="form-control" id="dataInicioResgate" name="dataInicioResgate">
+						</div>
+						<div class="col-md-3">
+							<label for="dataFinalResgate">Data Final Resgate</label>
+							<input type="text" class="form-control" id="dataFinalResgate" name="dataFinalResgate">
+						</div>
+					</div>
+					<div>
+						<div style="margin: 20px 0 0 30px;">
+							<button type="button" id="btnAddChild" class="btn btn-success btns"
+								style="margin-bottom: 0.3em;" onclick="wdkAddChild('tbImagens')">
+								Adicionar Imagem</button>
+						</div>
+						<table tablename="tbImagens" id="tbImagens" class="table" noaddbutton="true"
+							nodeletebutton="true">
+							<thead>
+								<tr></tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>
+										<div class="row">
+											<div class="col-md-4">
+												<label for="fotoPremio">Foto do Prêmio</label>
+												<input type="file" name="fotoPremio" id="fotoPremio"
+													onchange="convertToBase64(this)">
+												<textarea class="hidden" name="imgBase64" id="imgBase64" cols="50"
+													rows="30"></textarea>
+												<input type="hidden" name="idImagem" id="idImagem">
+											</div>
+											<!-- <div class="col-md-1" style="padding: 25px 0 0 10px;">
+												<div class="form-group">
+													<button type="button" id="btnRemove" class="btn btn-danger btns"
+														onclick="deletaImagem(this)" class="form-control">
+														<i style="color: white;"
+															class="fluigicon fluigicon-remove icon-sm"></i></button>
+													<input type="text" id="btnRemove" name="btnRemove"
+														class="btn btn-danger btns" onclick="deletaImagem(this)"
+														class="form-control">
+												</div>
+											</div> -->
+											<div class="col-md-6" id="imagemTeste">
+												<input type="hidden" id="imagemFoto" name="imagemFoto">
+											</div>
+										</div>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+					<div id="divImage">
+
+					</div>
+				</div>
+			</div>
+	</div>
+	</form>
+	</div>
+	<script src="script.js"></script>
+</body>
+
+</html>

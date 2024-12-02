@@ -1,0 +1,17 @@
+{
+	"version": "1.0.0",
+	"configurations": [
+		{
+			"id": "7rdg74l9ktbm19chb1bgw9d7norn3o",
+			"name": "Pormade Produção",
+			"host": "fluig.pormade.com.br",
+			"ssl": true,
+			"port": 8443,
+			"username": "admlog",
+			"password": "eyJpdiI6ImI0MDJmNzUwMTlhZmI2YjQ2OGFiMTc1NzVlY2RiNTg0Iiwic2FsdCI6IjU5ZTdmYzY5NzRjMjc4MzNkNDdhOWFmYmRiNzVlM2FjIiwidGV4dCI6IjVmYzEyMzAzZmQ5NGIyYWI0ZDg0NjM0ODUyNzBmNTI2In0=",
+			"userCode": "admlog",
+			"confirmExporting": true,
+			"companyId": 1
+		}
+	]
+}

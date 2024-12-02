@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Renomear recurso &quot;Pormade&quot; a &quot;PormadePRD&quot;" description="Renomear recurso &quot;Pormade&quot;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="/Pormade" name="PormadePRD" stamp="1620401201876" updateReferences="true"/>
+</session>

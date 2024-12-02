@@ -1,0 +1,18 @@
+Unidades:
+
+
+Concluidas:
+Em construçao:
+-----------------
+Dados dos Arquitetos:
+- Nome: 
+- Telefone
+
+# Resumo dos filtros aplicados com somatórios dos condominios e visitas
+
+
+
+Criar Legenda com PM, Carretinha e Condominio
+
+
+

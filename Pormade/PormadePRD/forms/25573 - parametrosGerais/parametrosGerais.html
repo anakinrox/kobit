@@ -1,0 +1,247 @@
+<html>
+	<head>
+		<link type="text/css" rel="stylesheet" href="/portal/resources/style-guide/css/fluig-style-guide.min.css"/>
+		<link type="text/css" rel="stylesheet" type="text/css" href="/style-guide/css/fluig-style-guide-ratingstars.min.css">
+		<script type="text/javascript" src="/portal/resources/js/jquery/jquery.js"></script>
+		<script type="text/javascript" src="/portal/resources/js/jquery/jquery-ui.min.js"></script>
+		<script type="text/javascript" src="/portal/resources/js/mustache/mustache-min.js"></script>
+		<script type="text/javascript" src="/portal/resources/style-guide/js/fluig-style-guide.min.js" charset="utf-8"></script>
+		<script type="text/javascript" src="/style-guide/js/fluig-style-guide-ratingstars.min.js"></script>
+		<script type="text/javascript" language="javascript" src="funcoes/vcXMLRPC.js"></script>
+		<script type="text/javascript" language="javascript" src="funcoes/zoom.js"></script>		
+		<script type="text/javascript" language="javascript" src="funcoes/validafunctions.js"></script>
+	    <script type="text/javascript" language="javascript" src="funcoes/jquery_mask.js"></script>
+	    <script type="text/javascript" language="javascript" src="funcoes/priceformat.js"></script>		
+		
+		
+	</head>
+	<body>
+		<div class="fluig-style-guide">
+			<form name="form" role="form">
+				<div class="form-group">	
+					
+					<div class="col-sm-12">
+						<div class="row" style="background:#ccc; text-align:center">
+							<h1>PARAMETROS GERAIS DA PROPOSTA</h1>
+						</div>
+					</div>
+					<div class="col-sm-12">
+						<div class="row" >
+								&nbsp;
+						</div>
+					</div>
+					
+		
+					<input name="orcamento_config_cod" id="orcamento_config_cod" type="hidden"  class="form-control">
+					 	
+					<div id="divCabecalho">  <!-- INICIO divCabecalho -->
+						<div class="col-sm-12">
+							<div class="row" style="background:#B0E0E6; height=28; text-align:center">
+								<strong>Parametros Gerais</strong>
+							</div>
+						</div>
+						<div class="col-sm-12">
+							<div class="row" >
+									&nbsp;
+							</div>
+						</div>
+						
+						<div class="col-sm-12">
+							<div class="row">							
+						   		<div class="col-sm-3 col-md-offset-3">
+						   			<label for="ocg_dias_prev_entrega">Dias Previsto Entrega</label>   
+					   				<input name="ocg_dias_prev_entrega" id="ocg_dias_prev_entrega" type="text" class="form-control" >
+						   		</div>
+								<div class="col-sm-3" >
+									<label for="prev_entrega_comp_modelo">Dias Previsto Entrega (Comple. /Modelo)</label>   
+									<input name="prev_entrega_comp_modelo" id="prev_entrega_comp_modelo" type="text" class="form-control" >
+						   		</div>						   		
+						   	</div>
+						</div>
+				
+						<div class="col-sm-12">
+							<div class="row" >
+									&nbsp;
+							</div>
+						</div>
+						
+						<div class="col-sm-12">
+							<div class="row" >
+								<div class="col-sm-6 col-md-offset-3" >
+									<label for="ocg_comentario_prev_entrega">Comentário Previsto para Entrega</label>   	 
+						   			<textarea name="ocg_comentario_prev_entrega" id="ocg_comentario_prev_entrega" class="form-control" ></textarea> 
+								</div>
+							</div>
+						</div>
+						
+						<div class="col-sm-12">
+							<div class="row" >
+									&nbsp;
+							</div>
+						</div>				
+						
+						<div class="col-sm-12">
+							<div class="row">
+								<div class="col-sm-3 col-md-offset-3" >
+									<label for="valor_frete_min">Valor Frete Mínimo</label>   
+							   		<input name="valor_frete_min" id="valor_frete_min" type="text" class="form-control" onKeyPress="validafunctions.setMoeda(this.id, 2, false , '')">
+								</div>						   		
+								<div class="col-sm-3">
+						   			<label for="ocg_frete_porcentagem">% Máximo de Desconto Frete</label>   	 
+						   			<input name="ocg_frete_porcentagem" id="ocg_frete_porcentagem" type="text" class="form-control" onKeyPress="validafunctions.setMoeda(this.id, 2, false, '')">
+						   		</div>						   		
+						   	</div>
+						</div>	
+						
+						<div class="col-sm-12">
+							<div class="row" >
+									&nbsp;
+							</div>
+						</div>		
+						
+						<div class="col-sm-12">
+							<div class="row" >
+								<div class="col-sm-3 col-md-offset-3" >
+									<label for="orc_desconto_vendedor_porc">% Máximo de Desconto para o Vendedor</label>   	 
+							   		<input name="orc_desconto_vendedor_porc" id="orc_desconto_vendedor_porc" type="text" class="form-control" onKeyPress="validafunctions.setMoeda(this.id, 2, false, '')">
+								</div>						   		
+								<div class="col-sm-3">
+						   			<label for="valor_fsc">Valor FSC</label>   	 
+						   			<input name="valor_fsc" id="valor_fsc" type="text" class="form-control" onKeyPress="validafunctions.setMoeda(this.id, 2, false , '')">
+						   		</div>						   		
+							</div>
+						</div>
+								
+						<div class="col-sm-12">
+							<div class="row" >
+									&nbsp;
+							</div>
+						</div>	
+						
+						<div class="col-sm-12">
+							<div class="row" >
+								<div class="col-sm-3 col-md-offset-3">
+						   			<label for="dias_expiracao_proposta">Dias Expiração Proposta</label>   	 
+						   			<input name="dias_expiracao_proposta" id="dias_expiracao_proposta" type="text" class="form-control">
+						   		</div>
+								<div class="col-sm-3 ">
+						   			<label for="txtNome">Condição de Pagamento</label>   	 
+									<div class="input-group">
+										<input name="condicao_pagamento_cod" id="condicao_pagamento_cod" type="hidden" class="form-control" readonly>
+							   			<input name="cond_pagto_padrao_proposta" id="cond_pagto_padrao_proposta" type="text" class="form-control" readonly>
+							   			<span id="btnTarefa" class="input-group-addon group-zoom no-view zoom-click btn-info" data-event="condPagto">
+									    	<span class="fluigicon fluigicon-zoom-in "></span>
+									    </span>							
+						   			</div>
+						   		</div>
+						   	</div>
+						 </div>
+						<div class="col-sm-12">
+							<div class="row" >
+								&nbsp;
+							</div>
+						</div>						   		
+
+						<div class="col-sm-12">
+							<div class="row">		
+								<div class="col-sm-3 col-md-offset-3">
+							   		<label for="pasta_fechamento">Pasta Anexo Fechamento</label>   
+						   			<input name="pasta_fechamento" id="pasta_fechamento" type="text" class="form-control" >
+							   	</div>	
+						   		<div class="col-sm-3">
+						   			<label for="pasta_anexo_prop">Pasta Anexo Propostas</label>   
+					   				<input name="pasta_anexo_prop" id="pasta_anexo_prop" type="text" class="form-control" >
+						   		</div>					   		
+						   	</div>
+						</div>
+				
+						<div class="col-sm-12">
+							<div class="row" >
+									&nbsp;
+							</div>
+						</div>
+
+						<div class="col-sm-12">
+							<div class="row">
+								<div class="col-sm-3 col-md-offset-3">
+							   		<label for="pasta_instaladora">Pasta Instaladora</label>   
+						   			<input name="pasta_instaladora" id="pasta_instaladora" type="text" class="form-control" >
+							   	</div>							
+								<div class="col-sm-3">														
+							   		<label for="txtNome">Receber E-mail Fechamento</label>   	 
+									<div class="input-group">
+										<input name="id_grupo_email" id="id_grupo_email" type="hidden" class="form-control" readonly>
+								   		<input name="desc_grupo_email" id=desc_grupo_email type="text" class="form-control" readonly>
+								   		<span id="btnTarefa" class="input-group-addon group-zoom no-view zoom-click btn-info" data-event="grupoEmail">
+									    	<span class="fluigicon fluigicon-zoom-in "></span>
+									    </span>							
+							   		</div>	
+							   	</div>					   					   		
+						   	</div>
+						</div>
+				
+						<div class="col-sm-12">
+							<div class="row" >
+									&nbsp;
+							</div>
+						</div>
+
+						<div class="col-sm-12">
+							<div class="row">
+								<div class="col-sm-3 col-md-offset-3">
+						   			<label for="txtNome">Receber E-mail Expiração</label>   	 
+									<div class="input-group">
+										<input name="id_grupo_expira" id="id_grupo_expira" type="hidden" class="form-control" readonly>
+							   			<input name="desc_grupo_expira" id=desc_grupo_expira type="text" class="form-control" readonly>
+							   			<span id="btnTarefa" class="input-group-addon group-zoom no-view zoom-click btn-info" data-event="grupoExpira">
+									    	<span class="fluigicon fluigicon-zoom-in "></span>
+									    </span>							
+						   			</div>
+						   		</div>											
+								<div class="col-sm-3">
+						   			<label for="txtNome">Visualizar Todas Propostas</label>   	 
+									<div class="input-group">
+										<input name="id_grupo_prop" id="id_grupo_prop" type="hidden" class="form-control" readonly>
+							   			<input name="desc_grupo_prop" id=desc_grupo_prop type="text" class="form-control" readonly>
+							   			<span id="btnTarefa" class="input-group-addon group-zoom no-view zoom-click btn-info" data-event="grupoVisu">
+									    	<span class="fluigicon fluigicon-zoom-in "></span>
+									    </span>							
+						   			</div>
+						   		</div>							   					   		
+						   	</div>
+						</div>
+				
+						<div class="col-sm-12">
+							<div class="row" >
+									&nbsp;
+							</div>
+						</div>
+															   		
+						<div class="col-sm-12">
+							<div class="row">	
+								<div class="col-sm-3 col-md-offset-3">
+									<label for="seq_cidade_fluig">Sequência Cidades</label>   	 
+								   	<input name="seq_cidade_fluig" id="seq_cidade_fluig" type="text" class="form-control" readonly="readonly">
+								</div>														
+								<div class="col-sm-3">
+									<label for="sequencia_num_proposta">Sequência Proposta</label>   	 
+								   	<input name="sequencia_num_proposta" id="sequencia_num_proposta" type="text" class="form-control" readonly="readonly">
+								</div>							
+							</div>
+						</div>						   								   		
+					</div>
+				</div>														
+																					
+								
+						<div class="col-sm-12">
+							<div class="row" >
+									&nbsp;
+							</div>
+						</div>									
+					</div>  <!-- FIM divCabecalho -->
+				</div>
+					
+			</form>
+		</div>
+	</body>
+</html>

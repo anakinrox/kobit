@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Renomear recurso &quot;PormadePRD/wcm/widget/wdg_confirmacao_instalador/src/main/webapp/resources/js/dataTable.js&quot; a &quot;datatable.js&quot;" description="Renomear recurso &quot;dataTable.js&quot;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="wcm/widget/wdg_confirmacao_instalador/src/main/webapp/resources/js/dataTable.js" name="datatable.js" stamp="1688054332902" updateReferences="true"/>
+</session>

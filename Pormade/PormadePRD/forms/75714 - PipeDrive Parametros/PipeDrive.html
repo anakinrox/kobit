@@ -1,0 +1,168 @@
+<html>
+
+<head>
+
+	<link type="text/css" rel="stylesheet" href="/portal/resources/style-guide/css/fluig-style-guide.min.css" />
+	<script type="text/javascript" src="/portal/resources/js/jquery/jquery.js"></script>
+	<script type="text/javascript" src="/portal/resources/js/jquery/jquery-ui.min.js"></script>
+	<script type="text/javascript" src="/portal/resources/js/mustache/mustache-min.js"></script>
+	<script type="text/javascript" src="/portal/resources/style-guide/js/fluig-style-guide.min.js"
+		charset="utf-8"></script>
+
+	<script type="text/javascript" src="util.js" charset="utf-8"></script>
+	<script type="text/javascript" src="modalZoom.js" charset="utf-8"></script>
+
+
+	<script src="/webdesk/vcXMLRPC.js"></script>
+
+
+	<script>
+
+
+
+	</script>
+
+</head>
+
+<body>
+
+	<form id="form" name="form" role="form">
+		<div class="fluig-style-guide">
+			<div class="row">
+				<div class="col-md-2 area">
+					<label for="qualificado">&Aacute;rea</label>
+					<input type="text" name="area" id="area" class="form-control" />
+					<!-- <select name="area" id="area" class="form-control" onchange="$( '#den_area' ).val( $('#area option:selected').text() );">
+						<option value=""></option>
+						<option value="E">Engenharia</option>
+						<option value="VA">ADVA</option>
+						<option value="VI">ADVI</option>
+						<option value="V">Vendedores</option>
+						<option value="S">Showroom</option>
+						<option value="VJ">Store in Store</option>
+						<option value="CC">Televendas</option>
+						<option value="C">Já é Cliente</option>
+						<option value="IT">Instaladores</option>
+						<option value="PP">Parceiro Person</option>
+						<option value="PO">Parceiro Organiz</option>
+						<option value="DI">DIV</option>
+						<option value="VR">Varejo</option>
+						<option value="PL">Prosposta Loja</option>
+						<option value="PM">Parceiro Movel</option>
+						<option value="JF">JotForm</option>
+						<option value="PPE">Parceiro Person ENG</option>
+						<option value="POE">Parceiro Organiz ENG</option>
+					</select> -->
+				</div>
+				<div class="col-md-4">
+					<label for="qualificado">Den &Aacute;rea</label>
+					<input type="text" name="den_area" id="den_area" class="form-control" />
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-md-3">
+					<label class="control-label" for="token_api">Token API</label>
+					<input type="text" class="form-control" name="token_api" id="token_api" value="" />
+				</div>
+				<div class="col-md-1">
+					<label class="control-label" for="token_origem">ID Funil</label>
+					<input type="text" class="form-control" name="id_funil" id="id_funil" value="" />
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-md-3">
+					<label class="control-label" for="token_origem">Token Field Origem do Negócio</label>
+					<input type="text" class="form-control" name="token_origem" id="token_origem" value="" />
+				</div>
+				<div class="col-md-1">
+					<label class="control-label" for="token_origem">ID Origem</label>
+					<input type="text" class="form-control" name="id_origem" id="id_origem" value="" />
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-3">
+					<label class="control-label" for="token_id_ws">Token Field Id Caça Obras</label>
+					<input type="text" class="form-control" name="token_id_ws" id="token_id_ws" value="" />
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-3">
+					<label class="control-label" for="token_proc_fluig">Token Field Processo Fluig</label>
+					<input type="text" class="form-control" name="token_proc_fluig" id="token_proc_fluig" value="" />
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-3">
+					<label class="control-label" for="token_showroom">Token Field Showroom</label>
+					<input type="text" class="form-control" name="token_showroom" id="token_showroom" value="" />
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-3">
+					<label class="control-label" for="token_area">Token Field Area</label>
+					<input type="text" class="form-control" name="token_area" id="token_area" value="" />
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-6">
+					<label class="control-label" for="token_showroom">Token Organição</label>
+					<table class="table table-condensed table-bordered table-striped " border="1" border="1"
+						deleteicon="trash.png" tablename="token_organization"
+						addbuttonlabel="Adicionar campo Organição">
+						<thead>
+							<tr>
+								<td><b>Token</b></td>
+								<td><b>Campo</b></td>
+							</tr>
+						</thead>
+						<tr>
+							<td><input type="text" name="token_org" class="form-control"></td>
+							<td><input type="text" name="campo_org" class="form-control"></td>
+						</tr>
+					</table>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-6">
+					<label class="control-label" for="token_showroom">Token Pessoa</label>
+					<table class="table table-condensed table-bordered table-striped " border="1" border="1"
+						deleteicon="trash.png" tablename="token_person" addbuttonlabel="Adicionar campo Pessoa">
+						<thead>
+							<tr>
+								<td><b>Token</b></td>
+								<td><b>Campo</b></td>
+							</tr>
+						</thead>
+						<tr>
+							<td><input type="text" name="token_pes" class="form-control"></td>
+							<td><input type="text" name="campo_pes" class="form-control"></td>
+						</tr>
+					</table>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-6">
+					<label class="control-label" for="token_showroom">Token Oportunidade</label>
+					<table class="table table-condensed table-bordered table-striped " border="1" border="1"
+						deleteicon="trash.png" tablename="token_deal" addbuttonlabel="Adicionar campo Oportunidade">
+						<thead>
+							<tr>
+								<td><b>Token</b></td>
+								<td><b>Campo</b></td>
+							</tr>
+						</thead>
+						<tr>
+							<td><input type="text" name="token_opor" class="form-control"></td>
+							<td><input type="text" name="campo_opor" class="form-control"></td>
+						</tr>
+					</table>
+				</div>
+			</div>
+		</div>
+	</form>
+</body>
+v 0.01B
+
+</html>

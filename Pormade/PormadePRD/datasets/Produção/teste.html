@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <title>TOAST UI Calendar App DEMO</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="https://uicdn.toast.com/tui.time-picker/latest/tui-time-picker.css">
+    <link rel="stylesheet" type="text/css" href="https://uicdn.toast.com/tui.date-picker/latest/tui-date-picker.css">
+    <link rel="stylesheet" type="text/css" href="../dist/tui-calendar.css">
+    <link rel="stylesheet" type="text/css" href="./css/default.css">
+    <link rel="stylesheet" type="text/css" href="./css/icons.css">
+</head>
+
+<body>
+
+    <script>
+
+        function converteData(valor) {
+            console.log("Converter data: " + valor);
+
+            if (valor != null && valor != undefined && valor != "null") {
+                var parts = valor.split('-');
+                var mydate = new Date(valor);
+
+                dia = mydate.getDate().toString(),
+                    diaF = (dia.length == 1) ? '0' + dia : dia,
+                    mes = (mydate.getMonth() + 1).toString(), //+1 pois no getMonth Janeiro começa com zero.
+                    mesF = (mes.length == 1) ? '0' + mes : mes,
+                    anoF = mydate.getFullYear();
+
+                var data = diaF + "/" + mesF + "/" + anoF;
+
+
+                console.log("Retorno do converter: " + data);
+                return "'" + mydate + "'";
+            } else {
+                return null;
+            }
+        }
+
+        converteData('2021-04-26 21:00:17');
+    </script>
+
+
+</body>
+
+</html>

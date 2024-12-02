@@ -1,0 +1,2 @@
+Clientes/Fornecedor = TGFPAR
+Pedidos/Nota = TGFCAB = movitem "P"

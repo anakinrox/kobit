@@ -1,0 +1,8 @@
+CREATE TABLE "public"."kbt_t_instalacoes" ( 
+	"id"         	int NULL,
+	"idProposta" 	int NULL,
+	"datRegistro"	date NULL,
+	"datAgenda"  	date NULL,
+	"indSituacao"	varchar(1) NULL,
+	PRIMARY KEY("id")
+)

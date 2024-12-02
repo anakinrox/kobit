@@ -1,0 +1,6 @@
+.fluig-style-guide .input-group-addon:last-child {
+    border-left: 1px solid #ccc;
+    padding: 8px;
+    border-radius: 4px;
+    cursor: pointer;
+}

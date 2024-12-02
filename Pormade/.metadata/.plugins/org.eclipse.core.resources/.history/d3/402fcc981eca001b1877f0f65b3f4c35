@@ -1,0 +1,144 @@
+function defineStructure() {
+
+}
+
+function onSync(lastSyncDate) {
+
+}
+
+function createDataset(fields, constraints, sortFields) {
+
+    log.info("## Tracking START ##");
+    var newDataset = DatasetBuilder.newDataset();
+    newDataset.addColumn('manifesto');
+    newDataset.addColumn('motorista');
+    newDataset.addColumn('dat_liberacao');
+    newDataset.addColumn('dat_viagem');
+    newDataset.addColumn('veiculo');
+    newDataset.addColumn('placa');
+    newDataset.addColumn('entrege');
+    newDataset.addColumn('total');
+    newDataset.addColumn('status');
+
+    var wToken = '';
+    var listaConstraits = {};
+    listaConstraits['endpoint'] = "";
+    listaConstraits['numpedido'] = "";
+    listaConstraits['numnota'] = "";
+    listaConstraits['motorista'] = "";
+    listaConstraits['datini'] = "";
+    listaConstraits['datfim'] = "";
+    var params = {};
+    var area = "V";
+    if (constraints != null) {
+        for (var i = 0; i < constraints.length; i++) {
+            if (constraints[i].fieldName.trim() == "area") {
+                area = constraints[i].initialValue;
+            } else {
+                listaConstraits[constraints[i].fieldName.trim()] = constraints[i].initialValue;
+                params[constraints[i].fieldName.trim()] = constraints[i].initialValue + "";
+                log.info('fieldName.....' + constraints[i].fieldName + '...value....' + constraints[i].initialValue);
+            }
+        }
+    }
+
+
+    var params = {
+        login: "02925364969",
+        senha: "123"
+    };
+    var endpoint = "/login"; // endPoint para buscar o Token
+
+
+    try {
+        if (listaConstraits['endpoint'] != '') {
+            var clientService = fluigAPI.getAuthorizeClientService();
+            var data = {
+                companyId: getValue("WKCompany") + "",
+                serviceCode: "tracking",
+                endpoint: endpoint,
+                timeoutService: "240",
+                method: "POST",
+            };
+
+            var headers = {};
+            headers["Content-Type"] = "application/json";
+            data["headers"] = headers;
+            data["params"] = params;
+
+            var jj = JSON.stringify(data);
+
+            var vo = clientService.invoke(jj);
+            if (vo.getResult() == "" || vo.getResult().isEmpty()) {
+                throw "Retorno esta vazio";
+            } else {
+                var jr = JSON.parse(vo.getResult());
+                
+                if (jr.STATUS == 'NOK') {
+                    throw 'Usuário não encontrado';
+                }
+                
+                if (jr.STATUS == 'OK') {
+                    // Pegar o Token da conexão e para as consultas
+                    wToken = jr.TOKEN;
+
+                    if (listaConstraits['endpoint'] == 'manifesto') {
+
+                        var params;
+                        var endpoint = "/logManifesto?numpedido=" + listaConstraits['numpedido'] + "&numnota=" + listaConstraits['numnota'] + "&motorista=" + listaConstraits['motorista'] +
+                            "&datini=" + listaConstraits['datini'] + "&datfim=" + listaConstraits['datfim'];
+                        log.info("Tracking Pedido: " + listaConstraits['numpedido']);
+
+                        var data = {
+                            companyId: getValue("WKCompany") + "",
+                            serviceCode: "tracking",
+                            endpoint: endpoint,
+                            timeoutService: "240",
+                            method: "GET",
+                        };
+
+                        var headers = {};
+                        headers["x-access-token"] = wToken;
+                        headers["Content-Type"] = "application/json";
+                        data["headers"] = headers;
+                        data["params"] = params;
+
+                        var jj = JSON.stringify(data);
+
+                        var vo = clientService.invoke(jj);
+                        if (vo.getResult() == "" || vo.getResult().isEmpty()) {
+                            throw "Retorno esta vazio";
+                        } else {
+                            var jr = JSON.parse(vo.getResult());
+                            for (var i = 0; i < jr.length; i++) {
+                                newDataset.addRow(
+                                    new Array(jr[i].NUMMANIFESTO + "",
+                                        jr[i].MOTORISTA + "",
+                                        jr[i].DATREGISTRO + "",
+                                        jr[i].DATVIAGEM + "",
+                                        jr[i].VEICULO + "",
+                                        jr[i].PLACA + "",
+                                        jr[i].ENTREGASFEITAS + "",
+                                        jr[i].TOTENTREGAS + "",
+                                        jr[i].SITUACAO + ""
+                                    ));
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+    } catch (error) {
+        log.info("Error SQL deal: " + error.toString());
+        newDataset.addRow(new Array(error.toString()));
+    } finally {
+        return newDataset;
+    }
+
+
+}
+
+function onMobileSync(user) {
+
+}

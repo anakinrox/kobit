@@ -1,0 +1,3796 @@
+[
+    {
+        "DOCUMENTID": "1158137",
+        "MOTORISTA": "01174335602",
+        "AJUDANTE": "",
+        "NUMPLACA": "RFI2F49",
+        "TITULO": "Rota \u003d Belo Horizonte MG",
+        "DETALHE": "",
+        "INICIO": "01/03/2024",
+        "FIM": "30/06/2024",
+        "INTINARARIO": [
+            {
+                "DOCUMENTID": "1158137",
+                "IDINTINARARIO": "eedf97b3-89a4-432c-b11e-768a65bd5950",
+                "UF": "MG",
+                "CIDADE": "BELO HORIZONTE",
+                "INICIO": "01/03/2024",
+                "FIM": "30/06/2024",
+                "EXPEDIENTE": ""
+            },
+            {
+                "DOCUMENTID": "1158137",
+                "IDINTINARARIO": "a5756421-22da-4076-b21f-a5dc612dce70",
+                "UF": "MG",
+                "CIDADE": "LAGOA SANTA",
+                "INICIO": "21/05/2024",
+                "FIM": "30/06/2024",
+                "EXPEDIENTE": ""
+            },
+            {
+                "DOCUMENTID": "1158137",
+                "IDINTINARARIO": "ea09cc96-489f-4263-adcc-06edfbadf65f",
+                "UF": "MG",
+                "CIDADE": "NOVA LIMA",
+                "INICIO": "21/05/2024",
+                "FIM": "30/06/2024",
+                "EXPEDIENTE": ""
+            },
+            {
+                "DOCUMENTID": "1158137",
+                "IDINTINARARIO": "17400610-0249-489a-a4d8-fad5270c8a44",
+                "UF": "MG",
+                "CIDADE": "CONTAGEM",
+                "INICIO": "21/05/2024",
+                "FIM": "30/06/2024",
+                "EXPEDIENTE": ""
+            },
+            {
+                "DOCUMENTID": "1158137",
+                "IDINTINARARIO": "5c0a950d-fe05-4da9-9305-072b97b935a5",
+                "UF": "MG",
+                "CIDADE": "BETIM",
+                "INICIO": "21/05/2024",
+                "FIM": "30/06/2024",
+                "EXPEDIENTE": ""
+            },
+            {
+                "DOCUMENTID": "1158137",
+                "IDINTINARARIO": "15cb668b-1c1f-4ade-b4f3-1215bcc4211e",
+                "UF": "MG",
+                "CIDADE": "BRUMADINHO",
+                "INICIO": "21/05/2024",
+                "FIM": "30/06/2024",
+                "EXPEDIENTE": ""
+            },
+            {
+                "DOCUMENTID": "1158137",
+                "IDINTINARARIO": "cfa5e8b9-7c82-4202-a736-0d5270604892",
+                "UF": "MG",
+                "CIDADE": "VESPASIANO",
+                "INICIO": "21/05/2024",
+                "FIM": "30/06/2024",
+                "EXPEDIENTE": ""
+            },
+            {
+                "DOCUMENTID": "1158137",
+                "IDINTINARARIO": "c971b61f-9c6b-428d-b742-bf7c400239e3",
+                "UF": "MG",
+                "CIDADE": "CONFINS",
+                "INICIO": "21/05/2024",
+                "FIM": "30/06/2024",
+                "EXPEDIENTE": ""
+            },
+            {
+                "DOCUMENTID": "1158137",
+                "IDINTINARARIO": "f6655e3b-a62b-4c21-8736-9a58b275b885",
+                "UF": "MG",
+                "CIDADE": "SETE LAGOAS",
+                "INICIO": "21/05/2024",
+                "FIM": "30/06/2024",
+                "EXPEDIENTE": ""
+            },
+            {
+                "DOCUMENTID": "1158137",
+                "IDINTINARARIO": "9e76e02c-aa27-4d48-876a-321e0cdf7217",
+                "UF": "MG",
+                "CIDADE": "ITABIRA",
+                "INICIO": "21/05/2024",
+                "FIM": "30/06/2024",
+                "EXPEDIENTE": ""
+            },
+            {
+                "DOCUMENTID": "1158137",
+                "IDINTINARARIO": "27601e86-ef7e-4db0-a0ad-5f561986eb1e",
+                "UF": "MG",
+                "CIDADE": "PEDRO LEOPOLDO",
+                "INICIO": "21/05/2024",
+                "FIM": "30/06/2024",
+                "EXPEDIENTE": ""
+            },
+            {
+                "DOCUMENTID": "1158137",
+                "IDINTINARARIO": "9b13c5de-b84e-49ac-a668-b858920f09c6",
+                "UF": "MG",
+                "CIDADE": "OURO BRANCO",
+                "INICIO": "21/05/2024",
+                "FIM": "30/06/2024",
+                "EXPEDIENTE": ""
+            }
+        ],
+        "VISITAS": []
+    },
+    {
+        "DOCUMENTID": "1158140",
+        "MOTORISTA": "02253626198",
+        "AJUDANTE": "",
+        "NUMPLACA": "REP7A94",
+        "TITULO": "Rota \u003d Goiânia GO",
+        "DETALHE": "",
+        "INICIO": "01/03/2024",
+        "FIM": "30/06/2024",
+        "INTINARARIO": [
+            {
+                "DOCUMENTID": "1158140",
+                "IDINTINARARIO": "3c554ca4-33aa-48ac-aa9c-4e14eb7b9043",
+                "UF": "GO",
+                "CIDADE": "GOIANIA",
+                "INICIO": "01/03/2024",
+                "FIM": "30/06/2024",
+                "EXPEDIENTE": ""
+            }
+        ],
+        "VISITAS": []
+    },
+    {
+        "DOCUMENTID": "1158145",
+        "MOTORISTA": "19944230804",
+        "AJUDANTE": "",
+        "NUMPLACA": "RFF3H25",
+        "TITULO": "Rota \u003d Praia Grande SP",
+        "DETALHE": "",
+        "INICIO": "01/03/2024",
+        "FIM": "30/06/2024",
+        "INTINARARIO": [
+            {
+                "DOCUMENTID": "1158145",
+                "IDINTINARARIO": "b3b49096-c1d6-447b-a592-18f4934ce1f0",
+                "UF": "SP",
+                "CIDADE": "PRAIA GRANDE",
+                "INICIO": "01/03/2024",
+                "FIM": "30/06/2024",
+                "EXPEDIENTE": ""
+            }
+        ],
+        "VISITAS": []
+    },
+    {
+        "DOCUMENTID": "1158132",
+        "MOTORISTA": "09799811902",
+        "AJUDANTE": "",
+        "NUMPLACA": "BEA3C49",
+        "TITULO": "Rota \u003d Joinville SC",
+        "DETALHE": "",
+        "INICIO": "01/03/2024",
+        "FIM": "30/06/2024",
+        "INTINARARIO": [
+            {
+                "DOCUMENTID": "1158132",
+                "IDINTINARARIO": "5b2b9c47-ed01-4cc7-a917-d9e0ea5bdb23",
+                "UF": "SC",
+                "CIDADE": "JOINVILLE",
+                "INICIO": "01/03/2024",
+                "FIM": "30/06/2024",
+                "EXPEDIENTE": ""
+            },
+            {
+                "DOCUMENTID": "1158132",
+                "IDINTINARARIO": "c7d1a2e6-6beb-4eab-a050-33bf0387d450",
+                "UF": "SC",
+                "CIDADE": "SAO FRANCISCO DO SUL",
+                "INICIO": "17/05/2024",
+                "FIM": "30/06/2024",
+                "EXPEDIENTE": ""
+            },
+            {
+                "DOCUMENTID": "1158132",
+                "IDINTINARARIO": "c1350171-cd35-4638-bb0d-b04aed69edcf",
+                "UF": "SC",
+                "CIDADE": "CAMPO ALEGRE",
+                "INICIO": "21/05/2024",
+                "FIM": "30/06/2024",
+                "EXPEDIENTE": ""
+            },
+            {
+                "DOCUMENTID": "1158132",
+                "IDINTINARARIO": "3dd8d9f5-e5b4-45b5-bc2b-11baf602ab67",
+                "UF": "SC",
+                "CIDADE": "ITAPOA",
+                "INICIO": "21/05/2024",
+                "FIM": "30/06/2024",
+                "EXPEDIENTE": ""
+            },
+            {
+                "DOCUMENTID": "1158132",
+                "IDINTINARARIO": "593d8e5e-d6b5-4165-ad4f-86b1bd977c58",
+                "UF": "SC",
+                "CIDADE": "BALNEARIO BARRA DO SUL",
+                "INICIO": "21/05/2024",
+                "FIM": "30/06/2024",
+                "EXPEDIENTE": ""
+            },
+            {
+                "DOCUMENTID": "1158132",
+                "IDINTINARARIO": "d3b334d8-c4f5-47dc-b83e-b38a6aa6a94e",
+                "UF": "SC",
+                "CIDADE": "BALNEARIO PICARRAS",
+                "INICIO": "21/05/2024",
+                "FIM": "30/06/2024",
+                "EXPEDIENTE": ""
+            },
+            {
+                "DOCUMENTID": "1158132",
+                "IDINTINARARIO": "226c0648-da35-4966-bd45-afc3a73017ba",
+                "UF": "SC",
+                "CIDADE": "SAO JOAO DO ITAPERIU",
+                "INICIO": "21/05/2024",
+                "FIM": "30/06/2024",
+                "EXPEDIENTE": ""
+            },
+            {
+                "DOCUMENTID": "1158132",
+                "IDINTINARARIO": "75f0cf09-c811-42fa-8f18-4f181ff14fd4",
+                "UF": "SC",
+                "CIDADE": "SCHROEDER",
+                "INICIO": "21/05/2024",
+                "FIM": "30/06/2024",
+                "EXPEDIENTE": ""
+            },
+            {
+                "DOCUMENTID": "1158132",
+                "IDINTINARARIO": "04941988-2816-4134-b354-5a3772013bd3",
+                "UF": "SC",
+                "CIDADE": "ARAQUARI",
+                "INICIO": "21/05/2024",
+                "FIM": "30/06/2024",
+                "EXPEDIENTE": ""
+            },
+            {
+                "DOCUMENTID": "1158132",
+                "IDINTINARARIO": "85788864-99cc-47d4-a2eb-0be7e576ddaa",
+                "UF": "SC",
+                "CIDADE": "BARRA VELHA",
+                "INICIO": "21/05/2024",
+                "FIM": "30/06/2024",
+                "EXPEDIENTE": ""
+            }
+        ],
+        "VISITAS": []
+    },
+    {
+        "DOCUMENTID": "1202541",
+        "MOTORISTA": "01174335602",
+        "AJUDANTE": "",
+        "NUMPLACA": "STQ-4F06",
+        "TITULO": "Rota \u003d Belo Horizonte MG",
+        "DETALHE": "",
+        "INICIO": "22/04/2024",
+        "FIM": "30/06/2024",
+        "INTINARARIO": [
+            {
+                "DOCUMENTID": "1202541",
+                "IDINTINARARIO": "58ae9a48-998f-4703-b463-102f5d9ccb08",
+                "UF": "MG",
+                "CIDADE": "BELO HORIZONTE",
+                "INICIO": "22/04/2024",
+                "FIM": "30/06/2024",
+                "EXPEDIENTE": ""
+            }
+        ],
+        "VISITAS": [
+            {
+                "IDFLUIG": "6905622",
+                "DOCUMENTID": "1202541",
+                "CIDADE": "BELO HORIZONTE",
+                "TIPOLOCAL": "10",
+                "LOCAL": "Visita condomínio Alfaville Vespasiano",
+                "CONTATO": "",
+                "DATA": "13/05/2024",
+                "TELEFONE": "",
+                "EXPEDIENTE": "",
+                "PARCEIROS": []
+            },
+            {
+                "IDFLUIG": "6905623",
+                "DOCUMENTID": "1202541",
+                "CIDADE": "BELO HORIZONTE",
+                "TIPOLOCAL": "24",
+                "LOCAL": "Visita com CRA",
+                "CONTATO": "",
+                "DATA": "15/05/2024",
+                "TELEFONE": "",
+                "EXPEDIENTE": "",
+                "PARCEIROS": []
+            },
+            {
+                "IDFLUIG": "6905624",
+                "DOCUMENTID": "1202541",
+                "CIDADE": "BELO HORIZONTE",
+                "TIPOLOCAL": "19",
+                "LOCAL": "Obra aberta cidade itabirito Walace consultor",
+                "CONTATO": "",
+                "DATA": "14/05/2024",
+                "TELEFONE": "",
+                "EXPEDIENTE": "",
+                "PARCEIROS": []
+            },
+            {
+                "IDFLUIG": "6905625",
+                "DOCUMENTID": "1202541",
+                "CIDADE": "BELO HORIZONTE",
+                "TIPOLOCAL": "11",
+                "LOCAL": "Visita com CRA Sara consumidor final",
+                "CONTATO": "",
+                "DATA": "24/05/2024",
+                "TELEFONE": "",
+                "EXPEDIENTE": "",
+                "PARCEIROS": []
+            },
+            {
+                "IDFLUIG": "6905626",
+                "DOCUMENTID": "1202541",
+                "CIDADE": "BELO HORIZONTE",
+                "TIPOLOCAL": "15",
+                "LOCAL": "Pré medicao",
+                "CONTATO": "",
+                "DATA": "24/05/2024",
+                "TELEFONE": "",
+                "EXPEDIENTE": "",
+                "PARCEIROS": []
+            },
+            {
+                "IDFLUIG": "6905627",
+                "DOCUMENTID": "1202541",
+                "CIDADE": "BELO HORIZONTE",
+                "TIPOLOCAL": "15",
+                "LOCAL": "Visita pré medição inicial consultora RAYANE SETE LAGOAS mg",
+                "CONTATO": "",
+                "DATA": "27/05/2024",
+                "TELEFONE": "",
+                "EXPEDIENTE": "",
+                "PARCEIROS": []
+            },
+            {
+                "IDFLUIG": "6905628",
+                "DOCUMENTID": "1202541",
+                "CIDADE": "BELO HORIZONTE",
+                "TIPOLOCAL": "19",
+                "LOCAL": "Visita obra orçamento 8 kits com Rayane sete lagoas",
+                "CONTATO": "",
+                "DATA": "27/05/2024",
+                "TELEFONE": "",
+                "EXPEDIENTE": "",
+                "PARCEIROS": []
+            },
+            {
+                "IDFLUIG": "6905629",
+                "DOCUMENTID": "1202541",
+                "CIDADE": "BELO HORIZONTE",
+                "TIPOLOCAL": "10",
+                "LOCAL": "Visita condomínio del laços medição inicial com Maristania",
+                "CONTATO": "",
+                "DATA": "27/05/2024",
+                "TELEFONE": "",
+                "EXPEDIENTE": "",
+                "PARCEIROS": []
+            }
+        ]
+    },
+    {
+        "DOCUMENTID": "1202494",
+        "MOTORISTA": "50986507806",
+        "AJUDANTE": "",
+        "NUMPLACA": "Voyage  RTF-6H61",
+        "TITULO": "Rota \u003d Balneário Camboriu SC",
+        "DETALHE": "",
+        "INICIO": "22/04/2024",
+        "FIM": "30/06/2024",
+        "INTINARARIO": [
+            {
+                "DOCUMENTID": "1202494",
+                "IDINTINARARIO": "01431bad-f17e-47bb-947c-a8a508ff408c",
+                "UF": "SC",
+                "CIDADE": "BALNEARIO CAMBORIU",
+                "INICIO": "22/04/2024",
+                "FIM": "30/06/2024",
+                "EXPEDIENTE": ""
+            }
+        ],
+        "VISITAS": []
+    },
+    {
+        "DOCUMENTID": "1202572",
+        "MOTORISTA": "01899842101",
+        "AJUDANTE": "",
+        "NUMPLACA": "QJH-6H69",
+        "TITULO": "Rota \u003d Cuiabá MT",
+        "DETALHE": "",
+        "INICIO": "22/04/2024",
+        "FIM": "30/06/2024",
+        "INTINARARIO": [
+            {
+                "DOCUMENTID": "1202572",
+                "IDINTINARARIO": "d5207552-da9b-4c57-a33a-ded7d3844c45",
+                "UF": "MT",
+                "CIDADE": "CUIABA",
+                "INICIO": "22/04/2024",
+                "FIM": "30/06/2024",
+                "EXPEDIENTE": ""
+            }
+        ],
+        "VISITAS": []
+    },
+    {
+        "DOCUMENTID": "1202489",
+        "MOTORISTA": "00241097118",
+        "AJUDANTE": "",
+        "NUMPLACA": "QQF7B42",
+        "TITULO": "Rota \u003d Campo Grande MS",
+        "DETALHE": "",
+        "INICIO": "22/04/2024",
+        "FIM": "30/06/2024",
+        "INTINARARIO": [
+            {
+                "DOCUMENTID": "1202489",
+                "IDINTINARARIO": "5817b320-080d-429e-8cb0-33ad0602b1f3",
+                "UF": "MS",
+                "CIDADE": "CAMPO GRANDE",
+                "INICIO": "22/04/2024",
+                "FIM": "30/06/2024",
+                "EXPEDIENTE": ""
+            }
+        ],
+        "VISITAS": []
+    },
+    {
+        "DOCUMENTID": "1202497",
+        "MOTORISTA": "38479599804",
+        "AJUDANTE": "",
+        "NUMPLACA": "BBI9B11",
+        "TITULO": "Rota \u003d Sorocaba SP",
+        "DETALHE": "",
+        "INICIO": "22/04/2024",
+        "FIM": "30/06/2024",
+        "INTINARARIO": [
+            {
+                "DOCUMENTID": "1202497",
+                "IDINTINARARIO": "874f04cb-860a-41d0-b62e-3f1fd72754fa",
+                "UF": "SP",
+                "CIDADE": "SOROCABA",
+                "INICIO": "22/04/2024",
+                "FIM": "30/06/2024",
+                "EXPEDIENTE": ""
+            }
+        ],
+        "VISITAS": [
+            {
+                "IDFLUIG": "6789668",
+                "DOCUMENTID": "1202497",
+                "CIDADE": "SOROCABA",
+                "TIPOLOCAL": "10",
+                "LOCAL": "Prospecção em Obras",
+                "CONTATO": "",
+                "DATA": "25/04/2024",
+                "TELEFONE": "",
+                "EXPEDIENTE": "",
+                "PARCEIROS": []
+            },
+            {
+                "IDFLUIG": "6789669",
+                "DOCUMENTID": "1202497",
+                "CIDADE": "SOROCABA",
+                "TIPOLOCAL": "21",
+                "LOCAL": "Cesar Brunetti",
+                "CONTATO": "",
+                "DATA": "26/04/2024",
+                "TELEFONE": "",
+                "EXPEDIENTE": "",
+                "PARCEIROS": []
+            },
+            {
+                "IDFLUIG": "6789670",
+                "DOCUMENTID": "1202497",
+                "CIDADE": "SOROCABA",
+                "TIPOLOCAL": "10",
+                "LOCAL": "Evento Condomínio Mont Blanc",
+                "CONTATO": "",
+                "DATA": "27/04/2024",
+                "TELEFONE": "",
+                "EXPEDIENTE": "",
+                "PARCEIROS": []
+            },
+            {
+                "IDFLUIG": "6789671",
+                "DOCUMENTID": "1202497",
+                "CIDADE": "SOROCABA",
+                "TIPOLOCAL": "16",
+                "LOCAL": "Blitz Condomínio Portal das Estrelas  Boituva SP",
+                "CONTATO": "",
+                "DATA": "29/04/2024",
+                "TELEFONE": "",
+                "EXPEDIENTE": "",
+                "PARCEIROS": [
+                    {
+                        "IDFLUIG": "34196379",
+                        "DOCUMENTID": "1202497",
+                        "CIDADE": "BOITUVA",
+                        "PARCEIRO": "Blitz Condomínio Portal das Estrelas  Boituva SP",
+                        "NOMEPARCEIRO": "Aparecido Construtor",
+                        "CONTATO": "Aparecido Construtor",
+                        "DATA": "29/04/2024",
+                        "TELEFONE": "(15) 99778-0762",
+                        "INTERESSE": "",
+                        "AREAINTERESSE": ""
+                    },
+                    {
+                        "IDFLUIG": "34196380",
+                        "DOCUMENTID": "1202497",
+                        "CIDADE": "BOITUVA",
+                        "PARCEIRO": "Blitz Condomínio Portal das Estrelas  Boituva SP",
+                        "NOMEPARCEIRO": "Júnior Pedreiro",
+                        "CONTATO": "Júnior Pedreiro",
+                        "DATA": "29/04/2024",
+                        "TELEFONE": "(11) 96350-5565",
+                        "INTERESSE": "",
+                        "AREAINTERESSE": ""
+                    }
+                ]
+            },
+            {
+                "IDFLUIG": "6789672",
+                "DOCUMENTID": "1202497",
+                "CIDADE": "SOROCABA",
+                "TIPOLOCAL": "10",
+                "LOCAL": "Josimar visita relacionada ao cadastro de parceiro advi",
+                "CONTATO": "",
+                "DATA": "29/04/2024",
+                "TELEFONE": "",
+                "EXPEDIENTE": "",
+                "PARCEIROS": []
+            },
+            {
+                "IDFLUIG": "6789673",
+                "DOCUMENTID": "1202497",
+                "CIDADE": "SOROCABA",
+                "TIPOLOCAL": "10",
+                "LOCAL": "Blitz Condomínio Portal das Estrelas Boituva-SP",
+                "CONTATO": "",
+                "DATA": "30/04/2024",
+                "TELEFONE": "",
+                "EXPEDIENTE": "",
+                "PARCEIROS": []
+            },
+            {
+                "IDFLUIG": "6789674",
+                "DOCUMENTID": "1202497",
+                "CIDADE": "SOROCABA",
+                "TIPOLOCAL": "10",
+                "LOCAL": "Remanejamento de carretinha Boituva-SP",
+                "CONTATO": "",
+                "DATA": "30/04/2024",
+                "TELEFONE": "",
+                "EXPEDIENTE": "",
+                "PARCEIROS": []
+            },
+            {
+                "IDFLUIG": "6789675",
+                "DOCUMENTID": "1202497",
+                "CIDADE": "SOROCABA",
+                "TIPOLOCAL": "19",
+                "LOCAL": "Jurandir S 24 - Boituva-SP",
+                "CONTATO": "",
+                "DATA": "30/04/2024",
+                "TELEFONE": "",
+                "EXPEDIENTE": "",
+                "PARCEIROS": []
+            },
+            {
+                "IDFLUIG": "6789676",
+                "DOCUMENTID": "1202497",
+                "CIDADE": "SOROCABA",
+                "TIPOLOCAL": "19",
+                "LOCAL": "Jonathan / Boituva-SP",
+                "CONTATO": "",
+                "DATA": "30/04/2024",
+                "TELEFONE": "",
+                "EXPEDIENTE": "",
+                "PARCEIROS": []
+            },
+            {
+                "IDFLUIG": "6789677",
+                "DOCUMENTID": "1202497",
+                "CIDADE": "SOROCABA",
+                "TIPOLOCAL": "19",
+                "LOCAL": "Lindevaldo / Boituva-SP",
+                "CONTATO": "",
+                "DATA": "30/04/2024",
+                "TELEFONE": "",
+                "EXPEDIENTE": "",
+                "PARCEIROS": []
+            },
+            {
+                "IDFLUIG": "6789678",
+                "DOCUMENTID": "1202497",
+                "CIDADE": "SOROCABA",
+                "TIPOLOCAL": "19",
+                "LOCAL": "Martini / Boituva-SP",
+                "CONTATO": "",
+                "DATA": "30/04/2024",
+                "TELEFONE": "",
+                "EXPEDIENTE": "",
+                "PARCEIROS": []
+            },
+            {
+                "IDFLUIG": "6789679",
+                "DOCUMENTID": "1202497",
+                "CIDADE": "SOROCABA",
+                "TIPOLOCAL": "19",
+                "LOCAL": "Chico / Boituva- SP",
+                "CONTATO": "",
+                "DATA": "30/04/2024",
+                "TELEFONE": "",
+                "EXPEDIENTE": "",
+                "PARCEIROS": []
+            },
+            {
+                "IDFLUIG": "6789680",
+                "DOCUMENTID": "1202497",
+                "CIDADE": "SOROCABA",
+                "TIPOLOCAL": "19",
+                "LOCAL": "Rafael Biscaro Boituva-SP",
+                "CONTATO": "",
+                "DATA": "30/04/2024",
+                "TELEFONE": "",
+                "EXPEDIENTE": "",
+                "PARCEIROS": []
+            },
+            {
+                "IDFLUIG": "6789681",
+                "DOCUMENTID": "1202497",
+                "CIDADE": "SOROCABA",
+                "TIPOLOCAL": "19",
+                "LOCAL": "André Carlos Barbosa Boituva-SP",
+                "CONTATO": "",
+                "DATA": "30/04/2024",
+                "TELEFONE": "",
+                "EXPEDIENTE": "",
+                "PARCEIROS": []
+            },
+            {
+                "IDFLUIG": "6789682",
+                "DOCUMENTID": "1202497",
+                "CIDADE": "SOROCABA",
+                "TIPOLOCAL": "19",
+                "LOCAL": "Alex Construtor Boituva-SP",
+                "CONTATO": "",
+                "DATA": "30/04/2024",
+                "TELEFONE": "",
+                "EXPEDIENTE": "",
+                "PARCEIROS": []
+            },
+            {
+                "IDFLUIG": "6789683",
+                "DOCUMENTID": "1202497",
+                "CIDADE": "SOROCABA",
+                "TIPOLOCAL": "19",
+                "LOCAL": "Antônio Venâncio Boituva-SP",
+                "CONTATO": "",
+                "DATA": "30/04/2024",
+                "TELEFONE": "",
+                "EXPEDIENTE": "",
+                "PARCEIROS": []
+            },
+            {
+                "IDFLUIG": "6789684",
+                "DOCUMENTID": "1202497",
+                "CIDADE": "SOROCABA",
+                "TIPOLOCAL": "19",
+                "LOCAL": "Júnior Construtor",
+                "CONTATO": "",
+                "DATA": "30/04/2024",
+                "TELEFONE": "",
+                "EXPEDIENTE": "",
+                "PARCEIROS": []
+            },
+            {
+                "IDFLUIG": "6789685",
+                "DOCUMENTID": "1202497",
+                "CIDADE": "SOROCABA",
+                "TIPOLOCAL": "19",
+                "LOCAL": "Raí Obras 354 Boituva-SP",
+                "CONTATO": "",
+                "DATA": "30/04/2024",
+                "TELEFONE": "",
+                "EXPEDIENTE": "",
+                "PARCEIROS": []
+            },
+            {
+                "IDFLUIG": "6789686",
+                "DOCUMENTID": "1202497",
+                "CIDADE": "SOROCABA",
+                "TIPOLOCAL": "19",
+                "LOCAL": "Tarcísio 315 Boituva-SP",
+                "CONTATO": "",
+                "DATA": "30/04/2024",
+                "TELEFONE": "",
+                "EXPEDIENTE": "",
+                "PARCEIROS": []
+            },
+            {
+                "IDFLUIG": "6789687",
+                "DOCUMENTID": "1202497",
+                "CIDADE": "SOROCABA",
+                "TIPOLOCAL": "10",
+                "LOCAL": "Blitz Sorocaba-SP",
+                "CONTATO": "",
+                "DATA": "02/05/2024",
+                "TELEFONE": "",
+                "EXPEDIENTE": "",
+                "PARCEIROS": []
+            },
+            {
+                "IDFLUIG": "6789688",
+                "DOCUMENTID": "1202497",
+                "CIDADE": "SOROCABA",
+                "TIPOLOCAL": "25",
+                "LOCAL": "Visita a Obra e Entrega de kit reparo para parceiro instalad",
+                "CONTATO": "",
+                "DATA": "06/05/2024",
+                "TELEFONE": "",
+                "EXPEDIENTE": "",
+                "PARCEIROS": []
+            },
+            {
+                "IDFLUIG": "6789689",
+                "DOCUMENTID": "1202497",
+                "CIDADE": "SOROCABA",
+                "TIPOLOCAL": "10",
+                "LOCAL": "Medição Proposta 342110 1",
+                "CONTATO": "",
+                "DATA": "06/05/2024",
+                "TELEFONE": "",
+                "EXPEDIENTE": "",
+                "PARCEIROS": []
+            },
+            {
+                "IDFLUIG": "6789690",
+                "DOCUMENTID": "1202497",
+                "CIDADE": "SOROCABA",
+                "TIPOLOCAL": "10",
+                "LOCAL": "Medição Proposta 296715 1",
+                "CONTATO": "",
+                "DATA": "06/05/2024",
+                "TELEFONE": "",
+                "EXPEDIENTE": "",
+                "PARCEIROS": []
+            },
+            {
+                "IDFLUIG": "6789691",
+                "DOCUMENTID": "1202497",
+                "CIDADE": "SOROCABA",
+                "TIPOLOCAL": "10",
+                "LOCAL": "Blitz Boituva SP",
+                "CONTATO": "",
+                "DATA": "14/05/2024",
+                "TELEFONE": "",
+                "EXPEDIENTE": "",
+                "PARCEIROS": [
+                    {
+                        "IDFLUIG": "34196376",
+                        "DOCUMENTID": "1202497",
+                        "CIDADE": "BOITUVA",
+                        "PARCEIRO": "Blitz Boituva SP",
+                        "NOMEPARCEIRO": "Felipe Tropicália",
+                        "CONTATO": "Felipe Tropicália",
+                        "DATA": "14/05/2024",
+                        "TELEFONE": "(15) 99755-3647",
+                        "INTERESSE": "",
+                        "AREAINTERESSE": ""
+                    },
+                    {
+                        "IDFLUIG": "34196377",
+                        "DOCUMENTID": "1202497",
+                        "CIDADE": "BOITUVA",
+                        "PARCEIRO": "Blitz Boituva SP",
+                        "NOMEPARCEIRO": "Marcos Antônio",
+                        "CONTATO": "Marcos Antônio",
+                        "DATA": "14/05/2024",
+                        "TELEFONE": "(15) 98825-2096",
+                        "INTERESSE": "",
+                        "AREAINTERESSE": ""
+                    },
+                    {
+                        "IDFLUIG": "34196378",
+                        "DOCUMENTID": "1202497",
+                        "CIDADE": "BOITUVA",
+                        "PARCEIRO": "Blitz Boituva SP",
+                        "NOMEPARCEIRO": "Damião Construtor",
+                        "CONTATO": "Damião Construtor",
+                        "DATA": "14/05/2024",
+                        "TELEFONE": "(15) 99167-4744",
+                        "INTERESSE": "",
+                        "AREAINTERESSE": ""
+                    }
+                ]
+            },
+            {
+                "IDFLUIG": "6789692",
+                "DOCUMENTID": "1202497",
+                "CIDADE": "SOROCABA",
+                "TIPOLOCAL": "10",
+                "LOCAL": "Blitz Porto Feliz SP",
+                "CONTATO": "",
+                "DATA": "15/05/2024",
+                "TELEFONE": "",
+                "EXPEDIENTE": "",
+                "PARCEIROS": [
+                    {
+                        "IDFLUIG": "34196373",
+                        "DOCUMENTID": "1202497",
+                        "CIDADE": "PORTO FELIZ",
+                        "PARCEIRO": "Blitz Porto Feliz SP",
+                        "NOMEPARCEIRO": "Marcos Consturmax",
+                        "CONTATO": "Marcos Consturmax",
+                        "DATA": "15/05/2024",
+                        "TELEFONE": "(15) 99107-5246",
+                        "INTERESSE": "",
+                        "AREAINTERESSE": ""
+                    },
+                    {
+                        "IDFLUIG": "34196374",
+                        "DOCUMENTID": "1202497",
+                        "CIDADE": "PORTO FELIZ",
+                        "PARCEIRO": "Blitz Porto Feliz SP",
+                        "NOMEPARCEIRO": "Edson Rodrigues",
+                        "CONTATO": "Edson Rodrigues",
+                        "DATA": "15/05/2024",
+                        "TELEFONE": "(19) 99296-0759",
+                        "INTERESSE": "",
+                        "AREAINTERESSE": ""
+                    },
+                    {
+                        "IDFLUIG": "34196375",
+                        "DOCUMENTID": "1202497",
+                        "CIDADE": "PORTO FELIZ",
+                        "PARCEIRO": "Blitz Porto Feliz SP",
+                        "NOMEPARCEIRO": "Mateus Nardone",
+                        "CONTATO": "Mateus Nardone",
+                        "DATA": "15/05/2024",
+                        "TELEFONE": "",
+                        "INTERESSE": "",
+                        "AREAINTERESSE": ""
+                    }
+                ]
+            },
+            {
+                "IDFLUIG": "6789693",
+                "DOCUMENTID": "1202497",
+                "CIDADE": "SOROCABA",
+                "TIPOLOCAL": "15",
+                "LOCAL": "Medição Obra Boituva-SP",
+                "CONTATO": "",
+                "DATA": "20/05/2024",
+                "TELEFONE": "",
+                "EXPEDIENTE": "",
+                "PARCEIROS": [
+                    {
+                        "IDFLUIG": "34196372",
+                        "DOCUMENTID": "1202497",
+                        "CIDADE": "BOITUVA",
+                        "PARCEIRO": "Medição Obra Boituva-SP",
+                        "NOMEPARCEIRO": "Jadson Lopes",
+                        "CONTATO": "Jadson Lopes",
+                        "DATA": "20/05/2024",
+                        "TELEFONE": "(15) 98132-7476",
+                        "INTERESSE": "",
+                        "AREAINTERESSE": ""
+                    }
+                ]
+            },
+            {
+                "IDFLUIG": "6789694",
+                "DOCUMENTID": "1202497",
+                "CIDADE": "SOROCABA",
+                "TIPOLOCAL": "15",
+                "LOCAL": "Visita e entrega de Amostra Boituva-SP",
+                "CONTATO": "",
+                "DATA": "20/05/2024",
+                "TELEFONE": "",
+                "EXPEDIENTE": "",
+                "PARCEIROS": []
+            },
+            {
+                "IDFLUIG": "6789695",
+                "DOCUMENTID": "1202497",
+                "CIDADE": "SOROCABA",
+                "TIPOLOCAL": "10",
+                "LOCAL": "Blitz e Moendo Condomínios",
+                "CONTATO": "",
+                "DATA": "21/05/2024",
+                "TELEFONE": "",
+                "EXPEDIENTE": "",
+                "PARCEIROS": []
+            },
+            {
+                "IDFLUIG": "6789696",
+                "DOCUMENTID": "1202497",
+                "CIDADE": "SOROCABA",
+                "TIPOLOCAL": "10",
+                "LOCAL": "Blitz",
+                "CONTATO": "",
+                "DATA": "23/05/2024",
+                "TELEFONE": "",
+                "EXPEDIENTE": "",
+                "PARCEIROS": []
+            }
+        ]
+    },
+    {
+        "DOCUMENTID": "1202527",
+        "MOTORISTA": "09628732927",
+        "AJUDANTE": "",
+        "NUMPLACA": "Gol BDT-3F40",
+        "TITULO": "Rota \u003d Curitiba PR",
+        "DETALHE": "",
+        "INICIO": "22/04/2024",
+        "FIM": "30/06/2024",
+        "INTINARARIO": [
+            {
+                "DOCUMENTID": "1202527",
+                "IDINTINARARIO": "e6210cec-9649-4799-a813-b6e2bf7420b0",
+                "UF": "PR",
+                "CIDADE": "CURITIBA",
+                "INICIO": "22/04/2024",
+                "FIM": "30/06/2024",
+                "EXPEDIENTE": ""
+            }
+        ],
+        "VISITAS": [
+            {
+                "IDFLUIG": "6789827",
+                "DOCUMENTID": "1202527",
+                "CIDADE": "CURITIBA",
+                "TIPOLOCAL": "10",
+                "LOCAL": "Blitz condomínio",
+                "CONTATO": "",
+                "DATA": "24/04/2024",
+                "TELEFONE": "",
+                "EXPEDIENTE": "",
+                "PARCEIROS": []
+            },
+            {
+                "IDFLUIG": "6789828",
+                "DOCUMENTID": "1202527",
+                "CIDADE": "CURITIBA",
+                "TIPOLOCAL": "10",
+                "LOCAL": "Obra medição Ruan",
+                "CONTATO": "",
+                "DATA": "24/04/2024",
+                "TELEFONE": "",
+                "EXPEDIENTE": "",
+                "PARCEIROS": []
+            },
+            {
+                "IDFLUIG": "6789829",
+                "DOCUMENTID": "1202527",
+                "CIDADE": "CURITIBA",
+                "TIPOLOCAL": "10",
+                "LOCAL": "Apresentação material e medição de obra",
+                "CONTATO": "",
+                "DATA": "24/04/2024",
+                "TELEFONE": "",
+                "EXPEDIENTE": "",
+                "PARCEIROS": []
+            },
+            {
+                "IDFLUIG": "6789830",
+                "DOCUMENTID": "1202527",
+                "CIDADE": "CURITIBA",
+                "TIPOLOCAL": "15",
+                "LOCAL": "Negociação e apresentação produtos",
+                "CONTATO": "",
+                "DATA": "24/04/2024",
+                "TELEFONE": "",
+                "EXPEDIENTE": "",
+                "PARCEIROS": []
+            },
+            {
+                "IDFLUIG": "6789831",
+                "DOCUMENTID": "1202527",
+                "CIDADE": "CURITIBA",
+                "TIPOLOCAL": "10",
+                "LOCAL": "Obra Diogo",
+                "CONTATO": "",
+                "DATA": "24/04/2024",
+                "TELEFONE": "",
+                "EXPEDIENTE": "",
+                "PARCEIROS": []
+            },
+            {
+                "IDFLUIG": "6789832",
+                "DOCUMENTID": "1202527",
+                "CIDADE": "CURITIBA",
+                "TIPOLOCAL": "10",
+                "LOCAL": "Obra Ratinho junior",
+                "CONTATO": "",
+                "DATA": "25/04/2024",
+                "TELEFONE": "",
+                "EXPEDIENTE": "",
+                "PARCEIROS": []
+            },
+            {
+                "IDFLUIG": "6789833",
+                "DOCUMENTID": "1202527",
+                "CIDADE": "CURITIBA",
+                "TIPOLOCAL": "10",
+                "LOCAL": "Obra Vanderlei",
+                "CONTATO": "",
+                "DATA": "25/04/2024",
+                "TELEFONE": "",
+                "EXPEDIENTE": "",
+                "PARCEIROS": []
+            },
+            {
+                "IDFLUIG": "6789834",
+                "DOCUMENTID": "1202527",
+                "CIDADE": "CURITIBA",
+                "TIPOLOCAL": "11",
+                "LOCAL": "Escritório de arquitetura",
+                "CONTATO": "",
+                "DATA": "25/04/2024",
+                "TELEFONE": "",
+                "EXPEDIENTE": "",
+                "PARCEIROS": []
+            },
+            {
+                "IDFLUIG": "6789835",
+                "DOCUMENTID": "1202527",
+                "CIDADE": "CURITIBA",
+                "TIPOLOCAL": "11",
+                "LOCAL": "Visita arquiteta Thalita Peron",
+                "CONTATO": "",
+                "DATA": "25/04/2024",
+                "TELEFONE": "",
+                "EXPEDIENTE": "",
+                "PARCEIROS": []
+            },
+            {
+                "IDFLUIG": "6789836",
+                "DOCUMENTID": "1202527",
+                "CIDADE": "CURITIBA",
+                "TIPOLOCAL": "16",
+                "LOCAL": "Prospecção de obra",
+                "CONTATO": "",
+                "DATA": "26/04/2024",
+                "TELEFONE": "",
+                "EXPEDIENTE": "",
+                "PARCEIROS": []
+            },
+            {
+                "IDFLUIG": "6789837",
+                "DOCUMENTID": "1202527",
+                "CIDADE": "CURITIBA",
+                "TIPOLOCAL": "19",
+                "LOCAL": "Cliente final Djeffer",
+                "CONTATO": "",
+                "DATA": "26/04/2024",
+                "TELEFONE": "",
+                "EXPEDIENTE": "",
+                "PARCEIROS": []
+            },
+            {
+                "IDFLUIG": "6789838",
+                "DOCUMENTID": "1202527",
+                "CIDADE": "CURITIBA",
+                "TIPOLOCAL": "19",
+                "LOCAL": "Prospecção obra aberta",
+                "CONTATO": "",
+                "DATA": "26/04/2024",
+                "TELEFONE": "",
+                "EXPEDIENTE": "",
+                "PARCEIROS": []
+            },
+            {
+                "IDFLUIG": "6789839",
+                "DOCUMENTID": "1202527",
+                "CIDADE": "CURITIBA",
+                "TIPOLOCAL": "15",
+                "LOCAL": "Medição e apresentação material cliente Bruna",
+                "CONTATO": "",
+                "DATA": "26/04/2024",
+                "TELEFONE": "",
+                "EXPEDIENTE": "",
+                "PARCEIROS": []
+            },
+            {
+                "IDFLUIG": "6789840",
+                "DOCUMENTID": "1202527",
+                "CIDADE": "CURITIBA",
+                "TIPOLOCAL": "21",
+                "LOCAL": "Medição obra ouro preto construtora",
+                "CONTATO": "",
+                "DATA": "26/04/2024",
+                "TELEFONE": "",
+                "EXPEDIENTE": "",
+                "PARCEIROS": []
+            },
+            {
+                "IDFLUIG": "6789841",
+                "DOCUMENTID": "1202527",
+                "CIDADE": "CURITIBA",
+                "TIPOLOCAL": "10",
+                "LOCAL": "Obra Flávio Santos",
+                "CONTATO": "",
+                "DATA": "29/04/2024",
+                "TELEFONE": "",
+                "EXPEDIENTE": "",
+                "PARCEIROS": []
+            },
+            {
+                "IDFLUIG": "6789842",
+                "DOCUMENTID": "1202527",
+                "CIDADE": "CURITIBA",
+                "TIPOLOCAL": "27",
+                "LOCAL": "Obra Clisman",
+                "CONTATO": "",
+                "DATA": "30/04/2024",
+                "TELEFONE": "",
+                "EXPEDIENTE": "",
+                "PARCEIROS": []
+            },
+            {
+                "IDFLUIG": "6789843",
+                "DOCUMENTID": "1202527",
+                "CIDADE": "CURITIBA",
+                "TIPOLOCAL": "19",
+                "LOCAL": "Obra Santa candida",
+                "CONTATO": "",
+                "DATA": "30/04/2024",
+                "TELEFONE": "",
+                "EXPEDIENTE": "",
+                "PARCEIROS": []
+            },
+            {
+                "IDFLUIG": "6789844",
+                "DOCUMENTID": "1202527",
+                "CIDADE": "CURITIBA",
+                "TIPOLOCAL": "19",
+                "LOCAL": "Obra aberta",
+                "CONTATO": "",
+                "DATA": "30/04/2024",
+                "TELEFONE": "",
+                "EXPEDIENTE": "",
+                "PARCEIROS": []
+            },
+            {
+                "IDFLUIG": "6789845",
+                "DOCUMENTID": "1202527",
+                "CIDADE": "CURITIBA",
+                "TIPOLOCAL": "19",
+                "LOCAL": "Obra prospecção",
+                "CONTATO": "",
+                "DATA": "30/04/2024",
+                "TELEFONE": "",
+                "EXPEDIENTE": "",
+                "PARCEIROS": []
+            },
+            {
+                "IDFLUIG": "6789846",
+                "DOCUMENTID": "1202527",
+                "CIDADE": "CURITIBA",
+                "TIPOLOCAL": "19",
+                "LOCAL": "Obra Paiva",
+                "CONTATO": "",
+                "DATA": "30/04/2024",
+                "TELEFONE": "",
+                "EXPEDIENTE": "",
+                "PARCEIROS": []
+            },
+            {
+                "IDFLUIG": "6789847",
+                "DOCUMENTID": "1202527",
+                "CIDADE": "CURITIBA",
+                "TIPOLOCAL": "19",
+                "LOCAL": "Prospecção obra aberta Marcos",
+                "CONTATO": "",
+                "DATA": "30/04/2024",
+                "TELEFONE": "",
+                "EXPEDIENTE": "",
+                "PARCEIROS": []
+            },
+            {
+                "IDFLUIG": "6789848",
+                "DOCUMENTID": "1202527",
+                "CIDADE": "CURITIBA",
+                "TIPOLOCAL": "15",
+                "LOCAL": "Obra Vinícius",
+                "CONTATO": "",
+                "DATA": "30/04/2024",
+                "TELEFONE": "",
+                "EXPEDIENTE": "",
+                "PARCEIROS": []
+            },
+            {
+                "IDFLUIG": "6789849",
+                "DOCUMENTID": "1202527",
+                "CIDADE": "CURITIBA",
+                "TIPOLOCAL": "28",
+                "LOCAL": "Visita obra Arq Rosana",
+                "CONTATO": "",
+                "DATA": "30/04/2024",
+                "TELEFONE": "",
+                "EXPEDIENTE": "",
+                "PARCEIROS": []
+            },
+            {
+                "IDFLUIG": "6789850",
+                "DOCUMENTID": "1202527",
+                "CIDADE": "CURITIBA",
+                "TIPOLOCAL": "20",
+                "LOCAL": "Visita parceiro Daniel",
+                "CONTATO": "",
+                "DATA": "02/05/2024",
+                "TELEFONE": "",
+                "EXPEDIENTE": "",
+                "PARCEIROS": []
+            },
+            {
+                "IDFLUIG": "6789851",
+                "DOCUMENTID": "1202527",
+                "CIDADE": "CURITIBA",
+                "TIPOLOCAL": "21",
+                "LOCAL": "Obra prospecção",
+                "CONTATO": "",
+                "DATA": "02/05/2024",
+                "TELEFONE": "",
+                "EXPEDIENTE": "",
+                "PARCEIROS": []
+            },
+            {
+                "IDFLUIG": "6789852",
+                "DOCUMENTID": "1202527",
+                "CIDADE": "CURITIBA",
+                "TIPOLOCAL": "19",
+                "LOCAL": "Obra aberta",
+                "CONTATO": "",
+                "DATA": "02/05/2024",
+                "TELEFONE": "",
+                "EXPEDIENTE": "",
+                "PARCEIROS": []
+            },
+            {
+                "IDFLUIG": "6789853",
+                "DOCUMENTID": "1202527",
+                "CIDADE": "CURITIBA",
+                "TIPOLOCAL": "19",
+                "LOCAL": "Obra Gaúcho",
+                "CONTATO": "",
+                "DATA": "02/05/2024",
+                "TELEFONE": "",
+                "EXPEDIENTE": "",
+                "PARCEIROS": []
+            },
+            {
+                "IDFLUIG": "6789854",
+                "DOCUMENTID": "1202527",
+                "CIDADE": "CURITIBA",
+                "TIPOLOCAL": "15",
+                "LOCAL": "Obra Karine",
+                "CONTATO": "",
+                "DATA": "03/05/2024",
+                "TELEFONE": "",
+                "EXPEDIENTE": "",
+                "PARCEIROS": []
+            },
+            {
+                "IDFLUIG": "6789855",
+                "DOCUMENTID": "1202527",
+                "CIDADE": "CURITIBA",
+                "TIPOLOCAL": "15",
+                "LOCAL": "Obra prospecção Deniz",
+                "CONTATO": "",
+                "DATA": "03/05/2024",
+                "TELEFONE": "",
+                "EXPEDIENTE": "",
+                "PARCEIROS": []
+            },
+            {
+                "IDFLUIG": "6789856",
+                "DOCUMENTID": "1202527",
+                "CIDADE": "CURITIBA",
+                "TIPOLOCAL": "27",
+                "LOCAL": "Indicação parceiro",
+                "CONTATO": "",
+                "DATA": "03/05/2024",
+                "TELEFONE": "",
+                "EXPEDIENTE": "",
+                "PARCEIROS": []
+            },
+            {
+                "IDFLUIG": "6789857",
+                "DOCUMENTID": "1202527",
+                "CIDADE": "CURITIBA",
+                "TIPOLOCAL": "15",
+                "LOCAL": "Atendimento Paim",
+                "CONTATO": "",
+                "DATA": "03/05/2024",
+                "TELEFONE": "",
+                "EXPEDIENTE": "",
+                "PARCEIROS": []
+            },
+            {
+                "IDFLUIG": "6789858",
+                "DOCUMENTID": "1202527",
+                "CIDADE": "CURITIBA",
+                "TIPOLOCAL": "19",
+                "LOCAL": "Obra willian",
+                "CONTATO": "",
+                "DATA": "03/05/2024",
+                "TELEFONE": "",
+                "EXPEDIENTE": "",
+                "PARCEIROS": []
+            },
+            {
+                "IDFLUIG": "6789859",
+                "DOCUMENTID": "1202527",
+                "CIDADE": "CURITIBA",
+                "TIPOLOCAL": "19",
+                "LOCAL": "Obra Klisman",
+                "CONTATO": "",
+                "DATA": "03/05/2024",
+                "TELEFONE": "",
+                "EXPEDIENTE": "",
+                "PARCEIROS": []
+            },
+            {
+                "IDFLUIG": "6789860",
+                "DOCUMENTID": "1202527",
+                "CIDADE": "CURITIBA",
+                "TIPOLOCAL": "15",
+                "LOCAL": "Obra Paim",
+                "CONTATO": "",
+                "DATA": "04/05/2024",
+                "TELEFONE": "",
+                "EXPEDIENTE": "",
+                "PARCEIROS": []
+            },
+            {
+                "IDFLUIG": "6789861",
+                "DOCUMENTID": "1202527",
+                "CIDADE": "CURITIBA",
+                "TIPOLOCAL": "16",
+                "LOCAL": "Divulgação visual",
+                "CONTATO": "",
+                "DATA": "05/05/2024",
+                "TELEFONE": "",
+                "EXPEDIENTE": "",
+                "PARCEIROS": []
+            },
+            {
+                "IDFLUIG": "6789862",
+                "DOCUMENTID": "1202527",
+                "CIDADE": "CURITIBA",
+                "TIPOLOCAL": "15",
+                "LOCAL": "Obra Luis",
+                "CONTATO": "",
+                "DATA": "06/05/2024",
+                "TELEFONE": "",
+                "EXPEDIENTE": "",
+                "PARCEIROS": []
+            },
+            {
+                "IDFLUIG": "6789863",
+                "DOCUMENTID": "1202527",
+                "CIDADE": "CURITIBA",
+                "TIPOLOCAL": "10",
+                "LOCAL": "Obra Alexandre",
+                "CONTATO": "",
+                "DATA": "06/05/2024",
+                "TELEFONE": "",
+                "EXPEDIENTE": "",
+                "PARCEIROS": []
+            },
+            {
+                "IDFLUIG": "6789864",
+                "DOCUMENTID": "1202527",
+                "CIDADE": "CURITIBA",
+                "TIPOLOCAL": "10",
+                "LOCAL": "Prospecção",
+                "CONTATO": "",
+                "DATA": "06/05/2024",
+                "TELEFONE": "",
+                "EXPEDIENTE": "",
+                "PARCEIROS": []
+            },
+            {
+                "IDFLUIG": "6789865",
+                "DOCUMENTID": "1202527",
+                "CIDADE": "CURITIBA",
+                "TIPOLOCAL": "10",
+                "LOCAL": "Obra Guilherme",
+                "CONTATO": "",
+                "DATA": "06/05/2024",
+                "TELEFONE": "",
+                "EXPEDIENTE": "",
+                "PARCEIROS": []
+            },
+            {
+                "IDFLUIG": "6789866",
+                "DOCUMENTID": "1202527",
+                "CIDADE": "CURITIBA",
+                "TIPOLOCAL": "10",
+                "LOCAL": "Obra Oliveira",
+                "CONTATO": "",
+                "DATA": "06/05/2024",
+                "TELEFONE": "",
+                "EXPEDIENTE": "",
+                "PARCEIROS": []
+            },
+            {
+                "IDFLUIG": "6789867",
+                "DOCUMENTID": "1202527",
+                "CIDADE": "CURITIBA",
+                "TIPOLOCAL": "10",
+                "LOCAL": "Obra Eng Lucas",
+                "CONTATO": "",
+                "DATA": "06/05/2024",
+                "TELEFONE": "",
+                "EXPEDIENTE": "",
+                "PARCEIROS": []
+            },
+            {
+                "IDFLUIG": "6789868",
+                "DOCUMENTID": "1202527",
+                "CIDADE": "CURITIBA",
+                "TIPOLOCAL": "15",
+                "LOCAL": "Obra Wesley",
+                "CONTATO": "",
+                "DATA": "06/05/2024",
+                "TELEFONE": "",
+                "EXPEDIENTE": "",
+                "PARCEIROS": []
+            },
+            {
+                "IDFLUIG": "6789869",
+                "DOCUMENTID": "1202527",
+                "CIDADE": "CURITIBA",
+                "TIPOLOCAL": "17",
+                "LOCAL": "Obra Osmar",
+                "CONTATO": "",
+                "DATA": "07/05/2024",
+                "TELEFONE": "",
+                "EXPEDIENTE": "",
+                "PARCEIROS": []
+            },
+            {
+                "IDFLUIG": "6789870",
+                "DOCUMENTID": "1202527",
+                "CIDADE": "CURITIBA",
+                "TIPOLOCAL": "10",
+                "LOCAL": "Obra Donizete",
+                "CONTATO": "",
+                "DATA": "07/05/2024",
+                "TELEFONE": "",
+                "EXPEDIENTE": "",
+                "PARCEIROS": []
+            },
+            {
+                "IDFLUIG": "6789871",
+                "DOCUMENTID": "1202527",
+                "CIDADE": "CURITIBA",
+                "TIPOLOCAL": "15",
+                "LOCAL": "Obra Reinaldo",
+                "CONTATO": "",
+                "DATA": "07/05/2024",
+                "TELEFONE": "",
+                "EXPEDIENTE": "",
+                "PARCEIROS": []
+            },
+            {
+                "IDFLUIG": "6789872",
+                "DOCUMENTID": "1202527",
+                "CIDADE": "CURITIBA",
+                "TIPOLOCAL": "15",
+                "LOCAL": "Obra Cardoso",
+                "CONTATO": "",
+                "DATA": "07/05/2024",
+                "TELEFONE": "",
+                "EXPEDIENTE": "",
+                "PARCEIROS": []
+            },
+            {
+                "IDFLUIG": "6789873",
+                "DOCUMENTID": "1202527",
+                "CIDADE": "CURITIBA",
+                "TIPOLOCAL": "19",
+                "LOCAL": "Obra João",
+                "CONTATO": "",
+                "DATA": "07/05/2024",
+                "TELEFONE": "",
+                "EXPEDIENTE": "",
+                "PARCEIROS": []
+            },
+            {
+                "IDFLUIG": "6789874",
+                "DOCUMENTID": "1202527",
+                "CIDADE": "CURITIBA",
+                "TIPOLOCAL": "19",
+                "LOCAL": "Obra Jorge",
+                "CONTATO": "",
+                "DATA": "07/05/2024",
+                "TELEFONE": "",
+                "EXPEDIENTE": "",
+                "PARCEIROS": []
+            },
+            {
+                "IDFLUIG": "6789875",
+                "DOCUMENTID": "1202527",
+                "CIDADE": "CURITIBA",
+                "TIPOLOCAL": "19",
+                "LOCAL": "Obra Gisele",
+                "CONTATO": "",
+                "DATA": "13/05/2024",
+                "TELEFONE": "",
+                "EXPEDIENTE": "",
+                "PARCEIROS": []
+            },
+            {
+                "IDFLUIG": "6789876",
+                "DOCUMENTID": "1202527",
+                "CIDADE": "CURITIBA",
+                "TIPOLOCAL": "15",
+                "LOCAL": "Obra Julia",
+                "CONTATO": "",
+                "DATA": "13/05/2024",
+                "TELEFONE": "",
+                "EXPEDIENTE": "",
+                "PARCEIROS": []
+            },
+            {
+                "IDFLUIG": "6789877",
+                "DOCUMENTID": "1202527",
+                "CIDADE": "CURITIBA",
+                "TIPOLOCAL": "15",
+                "LOCAL": "Obra José",
+                "CONTATO": "",
+                "DATA": "13/05/2024",
+                "TELEFONE": "",
+                "EXPEDIENTE": "",
+                "PARCEIROS": []
+            },
+            {
+                "IDFLUIG": "6789878",
+                "DOCUMENTID": "1202527",
+                "CIDADE": "CURITIBA",
+                "TIPOLOCAL": "19",
+                "LOCAL": "Obra Fagner",
+                "CONTATO": "",
+                "DATA": "13/05/2024",
+                "TELEFONE": "",
+                "EXPEDIENTE": "",
+                "PARCEIROS": []
+            },
+            {
+                "IDFLUIG": "6789879",
+                "DOCUMENTID": "1202527",
+                "CIDADE": "CURITIBA",
+                "TIPOLOCAL": "19",
+                "LOCAL": "Obra Marildo",
+                "CONTATO": "",
+                "DATA": "13/05/2024",
+                "TELEFONE": "",
+                "EXPEDIENTE": "",
+                "PARCEIROS": []
+            },
+            {
+                "IDFLUIG": "6789880",
+                "DOCUMENTID": "1202527",
+                "CIDADE": "CURITIBA",
+                "TIPOLOCAL": "19",
+                "LOCAL": "Obra Paulo",
+                "CONTATO": "",
+                "DATA": "13/05/2024",
+                "TELEFONE": "",
+                "EXPEDIENTE": "",
+                "PARCEIROS": []
+            },
+            {
+                "IDFLUIG": "6789881",
+                "DOCUMENTID": "1202527",
+                "CIDADE": "CURITIBA",
+                "TIPOLOCAL": "15",
+                "LOCAL": "Obra Kelly",
+                "CONTATO": "",
+                "DATA": "13/05/2024",
+                "TELEFONE": "",
+                "EXPEDIENTE": "",
+                "PARCEIROS": []
+            },
+            {
+                "IDFLUIG": "6789882",
+                "DOCUMENTID": "1202527",
+                "CIDADE": "CURITIBA",
+                "TIPOLOCAL": "15",
+                "LOCAL": "Obra Ana Paula",
+                "CONTATO": "",
+                "DATA": "14/05/2024",
+                "TELEFONE": "",
+                "EXPEDIENTE": "",
+                "PARCEIROS": []
+            },
+            {
+                "IDFLUIG": "6789883",
+                "DOCUMENTID": "1202527",
+                "CIDADE": "CURITIBA",
+                "TIPOLOCAL": "19",
+                "LOCAL": "Obra Rogerio",
+                "CONTATO": "",
+                "DATA": "14/05/2024",
+                "TELEFONE": "",
+                "EXPEDIENTE": "",
+                "PARCEIROS": []
+            },
+            {
+                "IDFLUIG": "6789884",
+                "DOCUMENTID": "1202527",
+                "CIDADE": "CURITIBA",
+                "TIPOLOCAL": "19",
+                "LOCAL": "Obra Rodrigo",
+                "CONTATO": "",
+                "DATA": "14/05/2024",
+                "TELEFONE": "",
+                "EXPEDIENTE": "",
+                "PARCEIROS": []
+            },
+            {
+                "IDFLUIG": "6789885",
+                "DOCUMENTID": "1202527",
+                "CIDADE": "CURITIBA",
+                "TIPOLOCAL": "19",
+                "LOCAL": "Obra Lidenor",
+                "CONTATO": "",
+                "DATA": "14/05/2024",
+                "TELEFONE": "",
+                "EXPEDIENTE": "",
+                "PARCEIROS": []
+            },
+            {
+                "IDFLUIG": "6789886",
+                "DOCUMENTID": "1202527",
+                "CIDADE": "CURITIBA",
+                "TIPOLOCAL": "19",
+                "LOCAL": "Obra Sidon",
+                "CONTATO": "",
+                "DATA": "14/05/2024",
+                "TELEFONE": "",
+                "EXPEDIENTE": "",
+                "PARCEIROS": []
+            },
+            {
+                "IDFLUIG": "6789887",
+                "DOCUMENTID": "1202527",
+                "CIDADE": "CURITIBA",
+                "TIPOLOCAL": "27",
+                "LOCAL": "Obra Élcio",
+                "CONTATO": "",
+                "DATA": "15/05/2024",
+                "TELEFONE": "",
+                "EXPEDIENTE": "",
+                "PARCEIROS": []
+            },
+            {
+                "IDFLUIG": "6789888",
+                "DOCUMENTID": "1202527",
+                "CIDADE": "CURITIBA",
+                "TIPOLOCAL": "19",
+                "LOCAL": "Obra Sendeski",
+                "CONTATO": "",
+                "DATA": "15/05/2024",
+                "TELEFONE": "",
+                "EXPEDIENTE": "",
+                "PARCEIROS": []
+            },
+            {
+                "IDFLUIG": "6789889",
+                "DOCUMENTID": "1202527",
+                "CIDADE": "CURITIBA",
+                "TIPOLOCAL": "19",
+                "LOCAL": "Obra aberta",
+                "CONTATO": "",
+                "DATA": "15/05/2024",
+                "TELEFONE": "",
+                "EXPEDIENTE": "",
+                "PARCEIROS": []
+            },
+            {
+                "IDFLUIG": "6789890",
+                "DOCUMENTID": "1202527",
+                "CIDADE": "CURITIBA",
+                "TIPOLOCAL": "19",
+                "LOCAL": "Obra Fraizer",
+                "CONTATO": "",
+                "DATA": "15/05/2024",
+                "TELEFONE": "",
+                "EXPEDIENTE": "",
+                "PARCEIROS": []
+            },
+            {
+                "IDFLUIG": "6789891",
+                "DOCUMENTID": "1202527",
+                "CIDADE": "CURITIBA",
+                "TIPOLOCAL": "19",
+                "LOCAL": "Obra Daives",
+                "CONTATO": "",
+                "DATA": "15/05/2024",
+                "TELEFONE": "",
+                "EXPEDIENTE": "",
+                "PARCEIROS": []
+            },
+            {
+                "IDFLUIG": "6789892",
+                "DOCUMENTID": "1202527",
+                "CIDADE": "CURITIBA",
+                "TIPOLOCAL": "19",
+                "LOCAL": "Obra Mandirituba",
+                "CONTATO": "",
+                "DATA": "15/05/2024",
+                "TELEFONE": "",
+                "EXPEDIENTE": "",
+                "PARCEIROS": []
+            },
+            {
+                "IDFLUIG": "6789893",
+                "DOCUMENTID": "1202527",
+                "CIDADE": "CURITIBA",
+                "TIPOLOCAL": "21",
+                "LOCAL": "Obra Lucas",
+                "CONTATO": "",
+                "DATA": "16/05/2024",
+                "TELEFONE": "",
+                "EXPEDIENTE": "",
+                "PARCEIROS": []
+            },
+            {
+                "IDFLUIG": "6789894",
+                "DOCUMENTID": "1202527",
+                "CIDADE": "CURITIBA",
+                "TIPOLOCAL": "19",
+                "LOCAL": "Obra Fazendo rio grande",
+                "CONTATO": "",
+                "DATA": "15/05/2024",
+                "TELEFONE": "",
+                "EXPEDIENTE": "",
+                "PARCEIROS": []
+            },
+            {
+                "IDFLUIG": "6789895",
+                "DOCUMENTID": "1202527",
+                "CIDADE": "CURITIBA",
+                "TIPOLOCAL": "15",
+                "LOCAL": "Cliente Fabio",
+                "CONTATO": "",
+                "DATA": "15/05/2024",
+                "TELEFONE": "",
+                "EXPEDIENTE": "",
+                "PARCEIROS": []
+            },
+            {
+                "IDFLUIG": "6789896",
+                "DOCUMENTID": "1202527",
+                "CIDADE": "CURITIBA",
+                "TIPOLOCAL": "21",
+                "LOCAL": "Obra Thailli",
+                "CONTATO": "",
+                "DATA": "16/05/2024",
+                "TELEFONE": "",
+                "EXPEDIENTE": "",
+                "PARCEIROS": []
+            },
+            {
+                "IDFLUIG": "6789897",
+                "DOCUMENTID": "1202527",
+                "CIDADE": "CURITIBA",
+                "TIPOLOCAL": "9",
+                "LOCAL": "Obra Rafael",
+                "CONTATO": "",
+                "DATA": "16/05/2024",
+                "TELEFONE": "",
+                "EXPEDIENTE": "",
+                "PARCEIROS": []
+            },
+            {
+                "IDFLUIG": "6789898",
+                "DOCUMENTID": "1202527",
+                "CIDADE": "CURITIBA",
+                "TIPOLOCAL": "15",
+                "LOCAL": "Obra Guilherme",
+                "CONTATO": "",
+                "DATA": "17/05/2024",
+                "TELEFONE": "",
+                "EXPEDIENTE": "",
+                "PARCEIROS": []
+            },
+            {
+                "IDFLUIG": "6789899",
+                "DOCUMENTID": "1202527",
+                "CIDADE": "CURITIBA",
+                "TIPOLOCAL": "27",
+                "LOCAL": "Obra Adriane",
+                "CONTATO": "",
+                "DATA": "17/05/2024",
+                "TELEFONE": "",
+                "EXPEDIENTE": "",
+                "PARCEIROS": []
+            },
+            {
+                "IDFLUIG": "6789900",
+                "DOCUMENTID": "1202527",
+                "CIDADE": "CURITIBA",
+                "TIPOLOCAL": "19",
+                "LOCAL": "Obra Hugo",
+                "CONTATO": "",
+                "DATA": "17/05/2024",
+                "TELEFONE": "",
+                "EXPEDIENTE": "",
+                "PARCEIROS": []
+            },
+            {
+                "IDFLUIG": "6789901",
+                "DOCUMENTID": "1202527",
+                "CIDADE": "CURITIBA",
+                "TIPOLOCAL": "19",
+                "LOCAL": "Obra Nelzi",
+                "CONTATO": "",
+                "DATA": "17/05/2024",
+                "TELEFONE": "",
+                "EXPEDIENTE": "",
+                "PARCEIROS": []
+            },
+            {
+                "IDFLUIG": "6789902",
+                "DOCUMENTID": "1202527",
+                "CIDADE": "CURITIBA",
+                "TIPOLOCAL": "19",
+                "LOCAL": "Obra Ademar",
+                "CONTATO": "",
+                "DATA": "17/05/2024",
+                "TELEFONE": "",
+                "EXPEDIENTE": "",
+                "PARCEIROS": []
+            },
+            {
+                "IDFLUIG": "6789903",
+                "DOCUMENTID": "1202527",
+                "CIDADE": "CURITIBA",
+                "TIPOLOCAL": "19",
+                "LOCAL": "Obra Marlon",
+                "CONTATO": "",
+                "DATA": "17/05/2024",
+                "TELEFONE": "",
+                "EXPEDIENTE": "",
+                "PARCEIROS": []
+            },
+            {
+                "IDFLUIG": "6789904",
+                "DOCUMENTID": "1202527",
+                "CIDADE": "CURITIBA",
+                "TIPOLOCAL": "15",
+                "LOCAL": "Obra Gerson",
+                "CONTATO": "",
+                "DATA": "20/05/2024",
+                "TELEFONE": "",
+                "EXPEDIENTE": "",
+                "PARCEIROS": []
+            },
+            {
+                "IDFLUIG": "6789905",
+                "DOCUMENTID": "1202527",
+                "CIDADE": "CURITIBA",
+                "TIPOLOCAL": "19",
+                "LOCAL": "Obra Arquitetare",
+                "CONTATO": "",
+                "DATA": "20/05/2024",
+                "TELEFONE": "",
+                "EXPEDIENTE": "",
+                "PARCEIROS": []
+            },
+            {
+                "IDFLUIG": "6789906",
+                "DOCUMENTID": "1202527",
+                "CIDADE": "CURITIBA",
+                "TIPOLOCAL": "21",
+                "LOCAL": "Obra Pedro",
+                "CONTATO": "",
+                "DATA": "21/05/2024",
+                "TELEFONE": "",
+                "EXPEDIENTE": "",
+                "PARCEIROS": []
+            },
+            {
+                "IDFLUIG": "6789907",
+                "DOCUMENTID": "1202527",
+                "CIDADE": "CURITIBA",
+                "TIPOLOCAL": "19",
+                "LOCAL": "Obra Daniel",
+                "CONTATO": "",
+                "DATA": "20/05/2024",
+                "TELEFONE": "",
+                "EXPEDIENTE": "",
+                "PARCEIROS": []
+            },
+            {
+                "IDFLUIG": "6789908",
+                "DOCUMENTID": "1202527",
+                "CIDADE": "CURITIBA",
+                "TIPOLOCAL": "19",
+                "LOCAL": "Obra Reinaldo",
+                "CONTATO": "",
+                "DATA": "21/05/2024",
+                "TELEFONE": "",
+                "EXPEDIENTE": "",
+                "PARCEIROS": []
+            },
+            {
+                "IDFLUIG": "6789909",
+                "DOCUMENTID": "1202527",
+                "CIDADE": "CURITIBA",
+                "TIPOLOCAL": "19",
+                "LOCAL": "Obra Lauro",
+                "CONTATO": "",
+                "DATA": "21/05/2024",
+                "TELEFONE": "",
+                "EXPEDIENTE": "",
+                "PARCEIROS": []
+            },
+            {
+                "IDFLUIG": "6789910",
+                "DOCUMENTID": "1202527",
+                "CIDADE": "CURITIBA",
+                "TIPOLOCAL": "19",
+                "LOCAL": "Obra Stadt",
+                "CONTATO": "",
+                "DATA": "21/05/2024",
+                "TELEFONE": "",
+                "EXPEDIENTE": "",
+                "PARCEIROS": []
+            },
+            {
+                "IDFLUIG": "6789911",
+                "DOCUMENTID": "1202527",
+                "CIDADE": "CURITIBA",
+                "TIPOLOCAL": "1",
+                "LOCAL": "Obra Luciene",
+                "CONTATO": "",
+                "DATA": "21/05/2024",
+                "TELEFONE": "",
+                "EXPEDIENTE": "",
+                "PARCEIROS": []
+            },
+            {
+                "IDFLUIG": "6789912",
+                "DOCUMENTID": "1202527",
+                "CIDADE": "CURITIBA",
+                "TIPOLOCAL": "19",
+                "LOCAL": "Obra Claudinei",
+                "CONTATO": "",
+                "DATA": "22/05/2024",
+                "TELEFONE": "",
+                "EXPEDIENTE": "",
+                "PARCEIROS": [
+                    {
+                        "IDFLUIG": "34196392",
+                        "DOCUMENTID": "1202527",
+                        "CIDADE": "CURITIBA",
+                        "PARCEIRO": "Obra Claudinei",
+                        "NOMEPARCEIRO": "Cesar Construtura Miranda",
+                        "CONTATO": "Cesar Construtura Miranda",
+                        "DATA": "22/05/2024",
+                        "TELEFONE": "(41) 99548-8534",
+                        "INTERESSE": "",
+                        "AREAINTERESSE": ""
+                    }
+                ]
+            },
+            {
+                "IDFLUIG": "6789913",
+                "DOCUMENTID": "1202527",
+                "CIDADE": "CURITIBA",
+                "TIPOLOCAL": "19",
+                "LOCAL": "Obra Airton",
+                "CONTATO": "",
+                "DATA": "22/05/2024",
+                "TELEFONE": "",
+                "EXPEDIENTE": "",
+                "PARCEIROS": []
+            },
+            {
+                "IDFLUIG": "6789914",
+                "DOCUMENTID": "1202527",
+                "CIDADE": "CURITIBA",
+                "TIPOLOCAL": "19",
+                "LOCAL": "Obra Helga arq",
+                "CONTATO": "",
+                "DATA": "22/05/2024",
+                "TELEFONE": "",
+                "EXPEDIENTE": "",
+                "PARCEIROS": []
+            },
+            {
+                "IDFLUIG": "6789915",
+                "DOCUMENTID": "1202527",
+                "CIDADE": "CURITIBA",
+                "TIPOLOCAL": "19",
+                "LOCAL": "Obra Laodi",
+                "CONTATO": "",
+                "DATA": "22/05/2024",
+                "TELEFONE": "",
+                "EXPEDIENTE": "",
+                "PARCEIROS": [
+                    {
+                        "IDFLUIG": "34196393",
+                        "DOCUMENTID": "1202527",
+                        "CIDADE": "MANDIRITUBA",
+                        "PARCEIRO": "Obra Laodi",
+                        "NOMEPARCEIRO": "Marciel Responsável obra",
+                        "CONTATO": "Marciel Responsável obra",
+                        "DATA": "22/05/2024",
+                        "TELEFONE": "(41) 99526-5237",
+                        "INTERESSE": "",
+                        "AREAINTERESSE": ""
+                    }
+                ]
+            },
+            {
+                "IDFLUIG": "6789916",
+                "DOCUMENTID": "1202527",
+                "CIDADE": "CURITIBA",
+                "TIPOLOCAL": "19",
+                "LOCAL": "Obra Rodrigo",
+                "CONTATO": "",
+                "DATA": "22/05/2024",
+                "TELEFONE": "",
+                "EXPEDIENTE": "",
+                "PARCEIROS": []
+            },
+            {
+                "IDFLUIG": "6789917",
+                "DOCUMENTID": "1202527",
+                "CIDADE": "CURITIBA",
+                "TIPOLOCAL": "10",
+                "LOCAL": "Obra Andre",
+                "CONTATO": "",
+                "DATA": "23/05/2024",
+                "TELEFONE": "",
+                "EXPEDIENTE": "",
+                "PARCEIROS": []
+            },
+            {
+                "IDFLUIG": "6789918",
+                "DOCUMENTID": "1202527",
+                "CIDADE": "CURITIBA",
+                "TIPOLOCAL": "10",
+                "LOCAL": "Obra Edwalter",
+                "CONTATO": "",
+                "DATA": "23/05/2024",
+                "TELEFONE": "",
+                "EXPEDIENTE": "",
+                "PARCEIROS": []
+            },
+            {
+                "IDFLUIG": "6789919",
+                "DOCUMENTID": "1202527",
+                "CIDADE": "CURITIBA",
+                "TIPOLOCAL": "10",
+                "LOCAL": "Obra Enelzi",
+                "CONTATO": "",
+                "DATA": "22/05/2024",
+                "TELEFONE": "",
+                "EXPEDIENTE": "",
+                "PARCEIROS": []
+            },
+            {
+                "IDFLUIG": "6789920",
+                "DOCUMENTID": "1202527",
+                "CIDADE": "CURITIBA",
+                "TIPOLOCAL": "10",
+                "LOCAL": "Obra Samuel",
+                "CONTATO": "",
+                "DATA": "23/05/2024",
+                "TELEFONE": "",
+                "EXPEDIENTE": "",
+                "PARCEIROS": []
+            },
+            {
+                "IDFLUIG": "6789921",
+                "DOCUMENTID": "1202527",
+                "CIDADE": "CURITIBA",
+                "TIPOLOCAL": "10",
+                "LOCAL": "Obra Carlos",
+                "CONTATO": "",
+                "DATA": "23/05/2024",
+                "TELEFONE": "",
+                "EXPEDIENTE": "",
+                "PARCEIROS": []
+            },
+            {
+                "IDFLUIG": "6789922",
+                "DOCUMENTID": "1202527",
+                "CIDADE": "CURITIBA",
+                "TIPOLOCAL": "10",
+                "LOCAL": "Obra Cleberson",
+                "CONTATO": "",
+                "DATA": "23/05/2024",
+                "TELEFONE": "",
+                "EXPEDIENTE": "",
+                "PARCEIROS": []
+            },
+            {
+                "IDFLUIG": "6789923",
+                "DOCUMENTID": "1202527",
+                "CIDADE": "CURITIBA",
+                "TIPOLOCAL": "19",
+                "LOCAL": "Obra Jean",
+                "CONTATO": "",
+                "DATA": "23/05/2024",
+                "TELEFONE": "",
+                "EXPEDIENTE": "",
+                "PARCEIROS": []
+            },
+            {
+                "IDFLUIG": "6789924",
+                "DOCUMENTID": "1202527",
+                "CIDADE": "CURITIBA",
+                "TIPOLOCAL": "10",
+                "LOCAL": "Obra Eliane",
+                "CONTATO": "",
+                "DATA": "23/05/2024",
+                "TELEFONE": "",
+                "EXPEDIENTE": "",
+                "PARCEIROS": []
+            },
+            {
+                "IDFLUIG": "6789925",
+                "DOCUMENTID": "1202527",
+                "CIDADE": "CURITIBA",
+                "TIPOLOCAL": "10",
+                "LOCAL": "Obra Leandro",
+                "CONTATO": "",
+                "DATA": "23/05/2024",
+                "TELEFONE": "",
+                "EXPEDIENTE": "",
+                "PARCEIROS": []
+            },
+            {
+                "IDFLUIG": "6789926",
+                "DOCUMENTID": "1202527",
+                "CIDADE": "CURITIBA",
+                "TIPOLOCAL": "19",
+                "LOCAL": "Obra Homero",
+                "CONTATO": "",
+                "DATA": "24/05/2024",
+                "TELEFONE": "",
+                "EXPEDIENTE": "",
+                "PARCEIROS": []
+            },
+            {
+                "IDFLUIG": "6789927",
+                "DOCUMENTID": "1202527",
+                "CIDADE": "CURITIBA",
+                "TIPOLOCAL": "19",
+                "LOCAL": "Obra Alexandre",
+                "CONTATO": "",
+                "DATA": "24/05/2024",
+                "TELEFONE": "",
+                "EXPEDIENTE": "",
+                "PARCEIROS": []
+            },
+            {
+                "IDFLUIG": "6789928",
+                "DOCUMENTID": "1202527",
+                "CIDADE": "CURITIBA",
+                "TIPOLOCAL": "19",
+                "LOCAL": "Obra Rafael",
+                "CONTATO": "",
+                "DATA": "24/05/2024",
+                "TELEFONE": "",
+                "EXPEDIENTE": "",
+                "PARCEIROS": []
+            },
+            {
+                "IDFLUIG": "6789929",
+                "DOCUMENTID": "1202527",
+                "CIDADE": "CURITIBA",
+                "TIPOLOCAL": "19",
+                "LOCAL": "Obra Andrezza",
+                "CONTATO": "",
+                "DATA": "27/05/2024",
+                "TELEFONE": "",
+                "EXPEDIENTE": "",
+                "PARCEIROS": []
+            }
+        ]
+    },
+    {
+        "DOCUMENTID": "1209144",
+        "MOTORISTA": "32611434875",
+        "AJUDANTE": "",
+        "NUMPLACA": "RFI2F48",
+        "TITULO": "Rota \u003d Presidente Prudente  SP",
+        "DETALHE": "",
+        "INICIO": "22/04/2024",
+        "FIM": "30/06/2024",
+        "INTINARARIO": [
+            {
+                "DOCUMENTID": "1209144",
+                "IDINTINARARIO": "4ef8dbde-376c-42e9-a7f5-68fdd857111c",
+                "UF": "SP",
+                "CIDADE": "PRESIDENTE PRUDENTE",
+                "INICIO": "22/04/2024",
+                "FIM": "30/06/2024",
+                "EXPEDIENTE": ""
+            }
+        ],
+        "VISITAS": []
+    },
+    {
+        "DOCUMENTID": "1204055",
+        "MOTORISTA": "32807129803",
+        "AJUDANTE": "",
+        "NUMPLACA": "BEA3F14",
+        "TITULO": "Rota \u003d São Paulo SP",
+        "DETALHE": "",
+        "INICIO": "23/04/2024",
+        "FIM": "30/06/2024",
+        "INTINARARIO": [
+            {
+                "DOCUMENTID": "1204055",
+                "IDINTINARARIO": "ef4bbcc9-f7f8-43aa-be01-bf3bcc6acacd",
+                "UF": "SP",
+                "CIDADE": "SAO PAULO",
+                "INICIO": "23/04/2024",
+                "FIM": "30/06/2024",
+                "EXPEDIENTE": ""
+            }
+        ],
+        "VISITAS": []
+    },
+    {
+        "DOCUMENTID": "1220548",
+        "MOTORISTA": "43153581851",
+        "AJUDANTE": "",
+        "NUMPLACA": "STE-3C49",
+        "TITULO": "Rota \u003d  Alphaville SP",
+        "DETALHE": "",
+        "INICIO": "01/05/2024",
+        "FIM": "30/06/2024",
+        "INTINARARIO": [
+            {
+                "DOCUMENTID": "1220548",
+                "IDINTINARARIO": "36968dbe-ec03-4de8-89ae-fe5dddba139f",
+                "UF": "SP",
+                "CIDADE": "SAO PAULO",
+                "INICIO": "01/05/2024",
+                "FIM": "30/06/2024",
+                "EXPEDIENTE": ""
+            }
+        ],
+        "VISITAS": []
+    },
+    {
+        "DOCUMENTID": "1220588",
+        "MOTORISTA": "41617625850",
+        "AJUDANTE": "",
+        "NUMPLACA": "Gol BCW-4E87",
+        "TITULO": "Rota \u003d São José do Rio Preto SP",
+        "DETALHE": "",
+        "INICIO": "13/05/2024",
+        "FIM": "30/06/2024",
+        "INTINARARIO": [
+            {
+                "DOCUMENTID": "1220588",
+                "IDINTINARARIO": "5df90e4d-0435-45cc-8bc1-783d31e5d806",
+                "UF": "SP",
+                "CIDADE": "SAO JOSE DO RIO PRETO",
+                "INICIO": "13/05/2024",
+                "FIM": "30/06/2024",
+                "EXPEDIENTE": ""
+            }
+        ],
+        "VISITAS": []
+    },
+    {
+        "DOCUMENTID": "1222707",
+        "MOTORISTA": "01912269040",
+        "AJUDANTE": "",
+        "NUMPLACA": "EWL5G92",
+        "TITULO": "Rota \u003d Jaraguá do Sul SC",
+        "DETALHE": "",
+        "INICIO": "14/05/2024",
+        "FIM": "30/06/2024",
+        "INTINARARIO": [
+            {
+                "DOCUMENTID": "1222707",
+                "IDINTINARARIO": "9ae79e57-c3db-4259-8d39-aa68681a66cb",
+                "UF": "RS",
+                "CIDADE": "CAPAO DA CANOA",
+                "INICIO": "01/06/2024",
+                "FIM": "30/06/2024",
+                "EXPEDIENTE": ""
+            },
+            {
+                "DOCUMENTID": "1222707",
+                "IDINTINARARIO": "39da1494-144f-46d2-ace1-137cb39c69f4",
+                "UF": "RS",
+                "CIDADE": "TORRES",
+                "INICIO": "01/06/2024",
+                "FIM": "30/06/2024",
+                "EXPEDIENTE": ""
+            },
+            {
+                "DOCUMENTID": "1222707",
+                "IDINTINARARIO": "244c7a97-a8c0-45e8-95b5-9a4625b465f1",
+                "UF": "RS",
+                "CIDADE": "OSORIO",
+                "INICIO": "01/06/2024",
+                "FIM": "30/06/2024",
+                "EXPEDIENTE": ""
+            },
+            {
+                "DOCUMENTID": "1222707",
+                "IDINTINARARIO": "9f6f1d10-4fc0-4631-9721-c0778b46f8ae",
+                "UF": "RS",
+                "CIDADE": "XANGRI-LA",
+                "INICIO": "01/06/2024",
+                "FIM": "30/06/2024",
+                "EXPEDIENTE": ""
+            },
+            {
+                "DOCUMENTID": "1222707",
+                "IDINTINARARIO": "39e9f7ba-7851-40ff-a2ea-4525fbc50694",
+                "UF": "RS",
+                "CIDADE": "ARROIO DO SAL",
+                "INICIO": "01/06/2024",
+                "FIM": "30/06/2024",
+                "EXPEDIENTE": ""
+            },
+            {
+                "DOCUMENTID": "1222707",
+                "IDINTINARARIO": "b2b81ea6-6510-4e6d-afea-87d9d24b868c",
+                "UF": "RS",
+                "CIDADE": "TRAMANDAI",
+                "INICIO": "01/06/2024",
+                "FIM": "30/06/2024",
+                "EXPEDIENTE": ""
+            },
+            {
+                "DOCUMENTID": "1222707",
+                "IDINTINARARIO": "65f3eed6-fe5b-471c-9df0-323b86af9b17",
+                "UF": "RS",
+                "CIDADE": "IMBE",
+                "INICIO": "01/06/2024",
+                "FIM": "30/06/2024",
+                "EXPEDIENTE": ""
+            },
+            {
+                "DOCUMENTID": "1222707",
+                "IDINTINARARIO": "aa01411d-a76e-416e-ae08-19f6b4521dcb",
+                "UF": "RS",
+                "CIDADE": "SANTO ANTONIO DA PATRULHA",
+                "INICIO": "01/06/2024",
+                "FIM": "30/06/2024",
+                "EXPEDIENTE": ""
+            }
+        ],
+        "VISITAS": [
+            {
+                "IDFLUIG": "6908226",
+                "DOCUMENTID": "1222707",
+                "CIDADE": "TORRES",
+                "TIPOLOCAL": "19",
+                "LOCAL": "Visita em obra aberta em torres RS 02",
+                "CONTATO": "",
+                "DATA": "20/06/2024",
+                "TELEFONE": "",
+                "EXPEDIENTE": "",
+                "PARCEIROS": []
+            },
+            {
+                "IDFLUIG": "6908227",
+                "DOCUMENTID": "1222707",
+                "CIDADE": "TORRES",
+                "TIPOLOCAL": "27",
+                "LOCAL": "Visita em obra aberta, em torres RS 03",
+                "CONTATO": "",
+                "DATA": "20/06/2024",
+                "TELEFONE": "",
+                "EXPEDIENTE": "",
+                "PARCEIROS": []
+            }
+        ]
+    },
+    {
+        "DOCUMENTID": "1227316",
+        "MOTORISTA": "85352772934",
+        "AJUDANTE": "",
+        "NUMPLACA": "Jkk - 1B08",
+        "TITULO": "Rota \u003d Primavera do Leste  MT",
+        "DETALHE": "",
+        "INICIO": "18/05/2024",
+        "FIM": "05/07/2024",
+        "INTINARARIO": [
+            {
+                "DOCUMENTID": "1227316",
+                "IDINTINARARIO": "73c5e6ed-8566-4934-bbc1-dcacb248bb39",
+                "UF": "MT",
+                "CIDADE": "PRIMAVERA DO LESTE",
+                "INICIO": "18/05/2024",
+                "FIM": "21/06/2024",
+                "EXPEDIENTE": ""
+            },
+            {
+                "DOCUMENTID": "1227316",
+                "IDINTINARARIO": "c55cbd3a-ccea-413f-918f-dc76ca4d4be1",
+                "UF": "MT",
+                "CIDADE": "CAMPO VERDE",
+                "INICIO": "18/05/2024",
+                "FIM": "12/06/2024",
+                "EXPEDIENTE": ""
+            },
+            {
+                "DOCUMENTID": "1227316",
+                "IDINTINARARIO": "6b02900a-e649-4a8e-80d6-e62c3461a865",
+                "UF": "MT",
+                "CIDADE": "SORRISO",
+                "INICIO": "17/06/2024",
+                "FIM": "04/07/2024",
+                "EXPEDIENTE": ""
+            }
+        ],
+        "VISITAS": []
+    },
+    {
+        "DOCUMENTID": "1263568",
+        "MOTORISTA": "04974939939",
+        "AJUDANTE": "",
+        "NUMPLACA": "MFS-4G53  ",
+        "TITULO": "Rota \u003d Jaraguá do Sul SC",
+        "DETALHE": "",
+        "INICIO": "27/05/2024",
+        "FIM": "28/06/2024",
+        "INTINARARIO": [
+            {
+                "DOCUMENTID": "1263568",
+                "IDINTINARARIO": "c7920436-460e-4cfa-a8f3-3f23250812e8",
+                "UF": "SC",
+                "CIDADE": "JARAGUA DO SUL",
+                "INICIO": "28/05/2024",
+                "FIM": "28/06/2024",
+                "EXPEDIENTE": ""
+            },
+            {
+                "DOCUMENTID": "1263568",
+                "IDINTINARARIO": "d4e9bdd7-0ccf-4b19-a4c9-918bbf9d00fa",
+                "UF": "SC",
+                "CIDADE": "JOINVILLE",
+                "INICIO": "28/05/2024",
+                "FIM": "28/06/2024",
+                "EXPEDIENTE": ""
+            },
+            {
+                "DOCUMENTID": "1263568",
+                "IDINTINARARIO": "4aee848f-8e33-4b03-ae00-e81b2b1e922e",
+                "UF": "SC",
+                "CIDADE": "POMERODE",
+                "INICIO": "28/05/2024",
+                "FIM": "28/06/2024",
+                "EXPEDIENTE": ""
+            },
+            {
+                "DOCUMENTID": "1263568",
+                "IDINTINARARIO": "4fb925a3-805b-4b78-b9a9-e0d48f58cc63",
+                "UF": "SC",
+                "CIDADE": "CORUPA",
+                "INICIO": "28/05/2024",
+                "FIM": "28/06/2024",
+                "EXPEDIENTE": ""
+            },
+            {
+                "DOCUMENTID": "1263568",
+                "IDINTINARARIO": "80003e70-1bf6-4789-b9ef-e18c203ec751",
+                "UF": "SC",
+                "CIDADE": "SCHROEDER",
+                "INICIO": "28/05/2024",
+                "FIM": "28/06/2024",
+                "EXPEDIENTE": ""
+            },
+            {
+                "DOCUMENTID": "1263568",
+                "IDINTINARARIO": "8462db53-1912-4c26-a222-672a86f7958d",
+                "UF": "SC",
+                "CIDADE": "GUARAMIRIM",
+                "INICIO": "28/05/2024",
+                "FIM": "28/06/2024",
+                "EXPEDIENTE": ""
+            }
+        ],
+        "VISITAS": []
+    },
+    {
+        "DOCUMENTID": "1240832",
+        "MOTORISTA": "36388663869",
+        "AJUDANTE": "",
+        "NUMPLACA": "STA-5A85",
+        "TITULO": "Rota \u003d São Paulo SP",
+        "DETALHE": "",
+        "INICIO": "01/06/2024",
+        "FIM": "30/06/2024",
+        "INTINARARIO": [
+            {
+                "DOCUMENTID": "1240832",
+                "IDINTINARARIO": "701994d3-338e-42dc-ba64-8dd1a7103fbb",
+                "UF": "SP",
+                "CIDADE": "SAO PAULO",
+                "INICIO": "01/06/2024",
+                "FIM": "30/06/2024",
+                "EXPEDIENTE": ""
+            }
+        ],
+        "VISITAS": []
+    },
+    {
+        "DOCUMENTID": "1239780",
+        "MOTORISTA": "06235299800",
+        "AJUDANTE": "",
+        "NUMPLACA": "JKK - 1B98",
+        "TITULO": "Rota \u003d São José do Rio Preto SP",
+        "DETALHE": "",
+        "INICIO": "01/06/2024",
+        "FIM": "30/06/2024",
+        "INTINARARIO": [
+            {
+                "DOCUMENTID": "1239780",
+                "IDINTINARARIO": "c141d1ce-c999-4af8-af81-ff3ce40daac1",
+                "UF": "SP",
+                "CIDADE": "SAO JOSE DO RIO PRETO",
+                "INICIO": "01/06/2024",
+                "FIM": "30/06/2024",
+                "EXPEDIENTE": ""
+            },
+            {
+                "DOCUMENTID": "1239780",
+                "IDINTINARARIO": "4d00ee76-518e-451c-b283-1d6fd5b305aa",
+                "UF": "SP",
+                "CIDADE": "BAURU",
+                "INICIO": "03/06/2024",
+                "FIM": "30/06/2024",
+                "EXPEDIENTE": ""
+            },
+            {
+                "DOCUMENTID": "1239780",
+                "IDINTINARARIO": "d3e571b8-5146-4942-8d43-93ddf576089e",
+                "UF": "SP",
+                "CIDADE": "MARILIA",
+                "INICIO": "03/06/2024",
+                "FIM": "30/06/2024",
+                "EXPEDIENTE": ""
+            },
+            {
+                "DOCUMENTID": "1239780",
+                "IDINTINARARIO": "10214fb5-41d1-4761-a1e5-758536ece7b7",
+                "UF": "SP",
+                "CIDADE": "ARACATUBA",
+                "INICIO": "03/06/2024",
+                "FIM": "30/06/2024",
+                "EXPEDIENTE": ""
+            }
+        ],
+        "VISITAS": []
+    },
+    {
+        "DOCUMENTID": "1239853",
+        "MOTORISTA": "12706533692",
+        "AJUDANTE": "",
+        "NUMPLACA": " JKK - 1B68",
+        "TITULO": "Rota \u003d Belo Horizonte MG",
+        "DETALHE": "",
+        "INICIO": "01/06/2024",
+        "FIM": "30/06/2024",
+        "INTINARARIO": [
+            {
+                "DOCUMENTID": "1239853",
+                "IDINTINARARIO": "a37e8f75-9190-48c6-8f1e-ca74bfbf506f",
+                "UF": "MG",
+                "CIDADE": "BELO HORIZONTE",
+                "INICIO": "01/06/2024",
+                "FIM": "30/06/2024",
+                "EXPEDIENTE": ""
+            },
+            {
+                "DOCUMENTID": "1239853",
+                "IDINTINARARIO": "9fa23210-2017-4ebd-b71d-9879242bdafa",
+                "UF": "MG",
+                "CIDADE": "IPATINGA",
+                "INICIO": "01/06/2024",
+                "FIM": "30/06/2024",
+                "EXPEDIENTE": ""
+            },
+            {
+                "DOCUMENTID": "1239853",
+                "IDINTINARARIO": "283e0548-4083-42e4-b701-4dc730075d68",
+                "UF": "MG",
+                "CIDADE": "JUIZ DE FORA",
+                "INICIO": "01/06/2024",
+                "FIM": "30/06/2024",
+                "EXPEDIENTE": ""
+            },
+            {
+                "DOCUMENTID": "1239853",
+                "IDINTINARARIO": "61bdfc74-152d-46b0-944a-836120f0c46b",
+                "UF": "MG",
+                "CIDADE": "LAGOA SANTA",
+                "INICIO": "03/06/2024",
+                "FIM": "30/06/2024",
+                "EXPEDIENTE": ""
+            },
+            {
+                "DOCUMENTID": "1239853",
+                "IDINTINARARIO": "bd7d17f5-2bda-4ecd-b056-0a6e7996393a",
+                "UF": "MG",
+                "CIDADE": "CONTAGEM",
+                "INICIO": "03/06/2024",
+                "FIM": "30/06/2024",
+                "EXPEDIENTE": ""
+            },
+            {
+                "DOCUMENTID": "1239853",
+                "IDINTINARARIO": "9008ccff-4dd5-4d73-9c3a-8427a80d2003",
+                "UF": "MG",
+                "CIDADE": "NOVA LIMA",
+                "INICIO": "03/06/2024",
+                "FIM": "30/06/2024",
+                "EXPEDIENTE": ""
+            },
+            {
+                "DOCUMENTID": "1239853",
+                "IDINTINARARIO": "c067d6ec-d90a-40e9-9d91-9b04daf64527",
+                "UF": "MG",
+                "CIDADE": "BETIM",
+                "INICIO": "03/06/2024",
+                "FIM": "30/06/2024",
+                "EXPEDIENTE": ""
+            },
+            {
+                "DOCUMENTID": "1239853",
+                "IDINTINARARIO": "9658ee81-83ac-4582-8482-061e8a385064",
+                "UF": "MG",
+                "CIDADE": "BRUMADINHO",
+                "INICIO": "03/06/2024",
+                "FIM": "30/06/2024",
+                "EXPEDIENTE": ""
+            },
+            {
+                "DOCUMENTID": "1239853",
+                "IDINTINARARIO": "e7957b0c-44f8-4587-b982-0fd6c5d62e69",
+                "UF": "MG",
+                "CIDADE": "VESPASIANO",
+                "INICIO": "03/06/2024",
+                "FIM": "30/06/2024",
+                "EXPEDIENTE": ""
+            }
+        ],
+        "VISITAS": []
+    },
+    {
+        "DOCUMENTID": "1239881",
+        "MOTORISTA": "00343208903",
+        "AJUDANTE": "",
+        "NUMPLACA": "AZV5F43",
+        "TITULO": "Rota \u003d Dourados MT",
+        "DETALHE": "",
+        "INICIO": "03/06/2024",
+        "FIM": "27/06/2024",
+        "INTINARARIO": [
+            {
+                "DOCUMENTID": "1239881",
+                "IDINTINARARIO": "97214904-4583-431b-82fb-4d7f785e273e",
+                "UF": "MS",
+                "CIDADE": "CAMPO GRANDE",
+                "INICIO": "03/06/2024",
+                "FIM": "27/06/2024",
+                "EXPEDIENTE": ""
+            },
+            {
+                "DOCUMENTID": "1239881",
+                "IDINTINARARIO": "a0d42dcd-514d-4b9b-9088-f759dde53e88",
+                "UF": "MS",
+                "CIDADE": "MARACAJU",
+                "INICIO": "03/06/2024",
+                "FIM": "27/06/2024",
+                "EXPEDIENTE": ""
+            },
+            {
+                "DOCUMENTID": "1239881",
+                "IDINTINARARIO": "b6c04fdd-0a7d-4dc7-bd3f-977d1020ee8e",
+                "UF": "MS",
+                "CIDADE": "DOURADOS",
+                "INICIO": "03/06/2024",
+                "FIM": "27/06/2024",
+                "EXPEDIENTE": ""
+            },
+            {
+                "DOCUMENTID": "1239881",
+                "IDINTINARARIO": "17b65841-9052-4236-9273-f4d63798d4fa",
+                "UF": "MS",
+                "CIDADE": "SIDROLANDIA",
+                "INICIO": "17/06/2024",
+                "FIM": "27/06/2024",
+                "EXPEDIENTE": ""
+            }
+        ],
+        "VISITAS": []
+    },
+    {
+        "DOCUMENTID": "1239878",
+        "MOTORISTA": "13715404892",
+        "AJUDANTE": "",
+        "NUMPLACA": " JKK1B58 (P)",
+        "TITULO": "Rota \u003d Goiânia GO",
+        "DETALHE": "",
+        "INICIO": "03/06/2024",
+        "FIM": "28/06/2024",
+        "INTINARARIO": [
+            {
+                "DOCUMENTID": "1239878",
+                "IDINTINARARIO": "77e35f1d-92d8-4742-917a-0f8dde1e6ffd",
+                "UF": "GO",
+                "CIDADE": "GOIANIA",
+                "INICIO": "03/06/2024",
+                "FIM": "07/06/2024",
+                "EXPEDIENTE": ""
+            },
+            {
+                "DOCUMENTID": "1239878",
+                "IDINTINARARIO": "55152a03-38a9-4a82-9156-718c00314955",
+                "UF": "GO",
+                "CIDADE": "GOIANESIA",
+                "INICIO": "10/06/2024",
+                "FIM": "13/06/2024",
+                "EXPEDIENTE": ""
+            },
+            {
+                "DOCUMENTID": "1239878",
+                "IDINTINARARIO": "8e9a5ecd-9a2b-487f-a790-af7f128a16ff",
+                "UF": "GO",
+                "CIDADE": "PIRENOPOLIS",
+                "INICIO": "14/06/2024",
+                "FIM": "14/06/2024",
+                "EXPEDIENTE": ""
+            },
+            {
+                "DOCUMENTID": "1239878",
+                "IDINTINARARIO": "36762b0c-78ea-4bea-81d4-953858bf0d7f",
+                "UF": "GO",
+                "CIDADE": "CALDAS NOVAS",
+                "INICIO": "17/06/2024",
+                "FIM": "21/06/2024",
+                "EXPEDIENTE": ""
+            },
+            {
+                "DOCUMENTID": "1239878",
+                "IDINTINARARIO": "c4d80c04-6413-40c2-b8e8-3dacc1a49d31",
+                "UF": "GO",
+                "CIDADE": "GOIANIA",
+                "INICIO": "24/06/2024",
+                "FIM": "28/06/2024",
+                "EXPEDIENTE": ""
+            }
+        ],
+        "VISITAS": []
+    },
+    {
+        "DOCUMENTID": "1239800",
+        "MOTORISTA": "05901822935",
+        "AJUDANTE": "",
+        "NUMPLACA": "MJM-0D56",
+        "TITULO": "Rota \u003d São José dos Campos SP",
+        "DETALHE": "",
+        "INICIO": "03/06/2024",
+        "FIM": "27/06/2024",
+        "INTINARARIO": [
+            {
+                "DOCUMENTID": "1239800",
+                "IDINTINARARIO": "392476a6-7def-4195-ad21-ed00680c278a",
+                "UF": "SP",
+                "CIDADE": "SAO JOSE DOS CAMPOS",
+                "INICIO": "03/06/2024",
+                "FIM": "20/06/2024",
+                "EXPEDIENTE": ""
+            },
+            {
+                "DOCUMENTID": "1239800",
+                "IDINTINARARIO": "1ad1de99-7cd2-4009-a219-a5c722e1d014",
+                "UF": "RJ",
+                "CIDADE": "RIO DE JANEIRO",
+                "INICIO": "03/06/2024",
+                "FIM": "20/06/2024",
+                "EXPEDIENTE": ""
+            },
+            {
+                "DOCUMENTID": "1239800",
+                "IDINTINARARIO": "42c46fbd-bd6b-4d76-9e4f-740af1ddbb70",
+                "UF": "SP",
+                "CIDADE": "SAO JOSE DOS CAMPOS",
+                "INICIO": "20/06/2024",
+                "FIM": "26/06/2024",
+                "EXPEDIENTE": ""
+            }
+        ],
+        "VISITAS": [
+            {
+                "IDFLUIG": "6908619",
+                "DOCUMENTID": "1239800",
+                "CIDADE": "SAO JOSE DOS CAMPOS",
+                "TIPOLOCAL": "21",
+                "LOCAL": "Visita Lorena Rodrigues proposta (332843-1)",
+                "CONTATO": "",
+                "DATA": "07/06/2024",
+                "TELEFONE": "",
+                "EXPEDIENTE": "",
+                "PARCEIROS": []
+            },
+            {
+                "IDFLUIG": "6908620",
+                "DOCUMENTID": "1239800",
+                "CIDADE": "SAO JOSE DOS CAMPOS",
+                "TIPOLOCAL": "1",
+                "LOCAL": "Visito a loja de revestimento brendelli",
+                "CONTATO": "",
+                "DATA": "07/06/2024",
+                "TELEFONE": "",
+                "EXPEDIENTE": "",
+                "PARCEIROS": []
+            },
+            {
+                "IDFLUIG": "6908621",
+                "DOCUMENTID": "1239800",
+                "CIDADE": "SAO JOSE DOS CAMPOS",
+                "TIPOLOCAL": "1",
+                "LOCAL": "Visita a loja de revestimento espaço revestir",
+                "CONTATO": "",
+                "DATA": "07/06/2024",
+                "TELEFONE": "",
+                "EXPEDIENTE": "",
+                "PARCEIROS": []
+            },
+            {
+                "IDFLUIG": "6908622",
+                "DOCUMENTID": "1239800",
+                "CIDADE": "SAO JOSE DOS CAMPOS",
+                "TIPOLOCAL": "21",
+                "LOCAL": "Visita Renata prado proposta (346179-1)",
+                "CONTATO": "",
+                "DATA": "17/06/2024",
+                "TELEFONE": "",
+                "EXPEDIENTE": "",
+                "PARCEIROS": []
+            },
+            {
+                "IDFLUIG": "6908623",
+                "DOCUMENTID": "1239800",
+                "CIDADE": "SAO JOSE DOS CAMPOS",
+                "TIPOLOCAL": "19",
+                "LOCAL": "Visita obra conferência Michael responsável",
+                "CONTATO": "",
+                "DATA": "06/06/2024",
+                "TELEFONE": "",
+                "EXPEDIENTE": "",
+                "PARCEIROS": []
+            },
+            {
+                "IDFLUIG": "6908624",
+                "DOCUMENTID": "1239800",
+                "CIDADE": "SAO JOSE DOS CAMPOS",
+                "TIPOLOCAL": "21",
+                "LOCAL": "Visita obra Gustavo",
+                "CONTATO": "",
+                "DATA": "06/06/2024",
+                "TELEFONE": "",
+                "EXPEDIENTE": "",
+                "PARCEIROS": []
+            },
+            {
+                "IDFLUIG": "6908625",
+                "DOCUMENTID": "1239800",
+                "CIDADE": "SAO JOSE DOS CAMPOS",
+                "TIPOLOCAL": "21",
+                "LOCAL": "Visita Lorena Rodrigues proposta (332843-1)",
+                "CONTATO": "",
+                "DATA": "07/06/2024",
+                "TELEFONE": "",
+                "EXPEDIENTE": "",
+                "PARCEIROS": []
+            },
+            {
+                "IDFLUIG": "6908626",
+                "DOCUMENTID": "1239800",
+                "CIDADE": "SAO JOSE DOS CAMPOS",
+                "TIPOLOCAL": "1",
+                "LOCAL": "Visito a loja de revestimento brendelli",
+                "CONTATO": "",
+                "DATA": "07/06/2024",
+                "TELEFONE": "",
+                "EXPEDIENTE": "",
+                "PARCEIROS": []
+            },
+            {
+                "IDFLUIG": "6908627",
+                "DOCUMENTID": "1239800",
+                "CIDADE": "SAO JOSE DOS CAMPOS",
+                "TIPOLOCAL": "1",
+                "LOCAL": "Visita a loja de revestimento espaço revestir",
+                "CONTATO": "",
+                "DATA": "07/06/2024",
+                "TELEFONE": "",
+                "EXPEDIENTE": "",
+                "PARCEIROS": []
+            },
+            {
+                "IDFLUIG": "6908628",
+                "DOCUMENTID": "1239800",
+                "CIDADE": "SAO JOSE DOS CAMPOS",
+                "TIPOLOCAL": "10",
+                "LOCAL": "Visita obra João mestre de obra",
+                "CONTATO": "",
+                "DATA": "19/06/2024",
+                "TELEFONE": "",
+                "EXPEDIENTE": "",
+                "PARCEIROS": []
+            },
+            {
+                "IDFLUIG": "6908629",
+                "DOCUMENTID": "1239800",
+                "CIDADE": "SAO JOSE DOS CAMPOS",
+                "TIPOLOCAL": "10",
+                "LOCAL": "Visita Leonardo",
+                "CONTATO": "",
+                "DATA": "19/06/2024",
+                "TELEFONE": "",
+                "EXPEDIENTE": "",
+                "PARCEIROS": []
+            },
+            {
+                "IDFLUIG": "6908630",
+                "DOCUMENTID": "1239800",
+                "CIDADE": "SAO JOSE DOS CAMPOS",
+                "TIPOLOCAL": "19",
+                "LOCAL": "Visita obra seu Antônio mestre de obra",
+                "CONTATO": "",
+                "DATA": "19/06/2024",
+                "TELEFONE": "",
+                "EXPEDIENTE": "",
+                "PARCEIROS": []
+            },
+            {
+                "IDFLUIG": "6908631",
+                "DOCUMENTID": "1239800",
+                "CIDADE": "SAO JOSE DOS CAMPOS",
+                "TIPOLOCAL": "10",
+                "LOCAL": "Visita João mestre de obra",
+                "CONTATO": "",
+                "DATA": "19/06/2024",
+                "TELEFONE": "",
+                "EXPEDIENTE": "",
+                "PARCEIROS": []
+            },
+            {
+                "IDFLUIG": "6908632",
+                "DOCUMENTID": "1239800",
+                "CIDADE": "SAO JOSE DOS CAMPOS",
+                "TIPOLOCAL": "10",
+                "LOCAL": "Visita obra Oscar cliente final",
+                "CONTATO": "",
+                "DATA": "19/06/2024",
+                "TELEFONE": "",
+                "EXPEDIENTE": "",
+                "PARCEIROS": []
+            },
+            {
+                "IDFLUIG": "6908633",
+                "DOCUMENTID": "1239800",
+                "CIDADE": "SAO JOSE DOS CAMPOS",
+                "TIPOLOCAL": "10",
+                "LOCAL": "Visita obra Walter",
+                "CONTATO": "",
+                "DATA": "20/06/2024",
+                "TELEFONE": "",
+                "EXPEDIENTE": "",
+                "PARCEIROS": []
+            },
+            {
+                "IDFLUIG": "6908602",
+                "DOCUMENTID": "1239800",
+                "CIDADE": "SAO JOSE DOS CAMPOS",
+                "TIPOLOCAL": "15",
+                "LOCAL": "Visita obra Roberto",
+                "CONTATO": "",
+                "DATA": "20/06/2024",
+                "TELEFONE": "",
+                "EXPEDIENTE": "",
+                "PARCEIROS": []
+            },
+            {
+                "IDFLUIG": "6908603",
+                "DOCUMENTID": "1239800",
+                "CIDADE": "SAO JOSE DOS CAMPOS",
+                "TIPOLOCAL": "15",
+                "LOCAL": "Visita casa cliente Carlos",
+                "CONTATO": "",
+                "DATA": "21/06/2024",
+                "TELEFONE": "",
+                "EXPEDIENTE": "",
+                "PARCEIROS": []
+            },
+            {
+                "IDFLUIG": "6908604",
+                "DOCUMENTID": "1239800",
+                "CIDADE": "SAO JOSE DOS CAMPOS",
+                "TIPOLOCAL": "15",
+                "LOCAL": "Visita casa cliente Ricardo",
+                "CONTATO": "",
+                "DATA": "21/06/2024",
+                "TELEFONE": "",
+                "EXPEDIENTE": "",
+                "PARCEIROS": []
+            },
+            {
+                "IDFLUIG": "6908605",
+                "DOCUMENTID": "1239800",
+                "CIDADE": "SAO JOSE DOS CAMPOS",
+                "TIPOLOCAL": "10",
+                "LOCAL": "Visita obra lucas",
+                "CONTATO": "",
+                "DATA": "21/06/2024",
+                "TELEFONE": "",
+                "EXPEDIENTE": "",
+                "PARCEIROS": []
+            },
+            {
+                "IDFLUIG": "6908606",
+                "DOCUMENTID": "1239800",
+                "CIDADE": "SAO JOSE DOS CAMPOS",
+                "TIPOLOCAL": "10",
+                "LOCAL": "Visita obra Marcelo viana",
+                "CONTATO": "",
+                "DATA": "21/06/2024",
+                "TELEFONE": "",
+                "EXPEDIENTE": "",
+                "PARCEIROS": []
+            },
+            {
+                "IDFLUIG": "6908607",
+                "DOCUMENTID": "1239800",
+                "CIDADE": "SAO JOSE DOS CAMPOS",
+                "TIPOLOCAL": "10",
+                "LOCAL": "Visita obra Maria Helena",
+                "CONTATO": "",
+                "DATA": "21/06/2024",
+                "TELEFONE": "",
+                "EXPEDIENTE": "",
+                "PARCEIROS": []
+            },
+            {
+                "IDFLUIG": "6908608",
+                "DOCUMENTID": "1239800",
+                "CIDADE": "SAO JOSE DOS CAMPOS",
+                "TIPOLOCAL": "11",
+                "LOCAL": "Visita para arquiteta loja gasômetro",
+                "CONTATO": "",
+                "DATA": "24/06/2024",
+                "TELEFONE": "",
+                "EXPEDIENTE": "",
+                "PARCEIROS": []
+            },
+            {
+                "IDFLUIG": "6908609",
+                "DOCUMENTID": "1239800",
+                "CIDADE": "SAO JOSE DOS CAMPOS",
+                "TIPOLOCAL": "19",
+                "LOCAL": "Visita obra aberta",
+                "CONTATO": "",
+                "DATA": "25/06/2024",
+                "TELEFONE": "",
+                "EXPEDIENTE": "",
+                "PARCEIROS": []
+            },
+            {
+                "IDFLUIG": "6908610",
+                "DOCUMENTID": "1239800",
+                "CIDADE": "SAO JOSE DOS CAMPOS",
+                "TIPOLOCAL": "21",
+                "LOCAL": "Visita obra Ricardo",
+                "CONTATO": "",
+                "DATA": "25/06/2024",
+                "TELEFONE": "",
+                "EXPEDIENTE": "",
+                "PARCEIROS": []
+            },
+            {
+                "IDFLUIG": "6908611",
+                "DOCUMENTID": "1239800",
+                "CIDADE": "SAO JOSE DOS CAMPOS",
+                "TIPOLOCAL": "19",
+                "LOCAL": "Visita obra aberta seu Antônio mestre de obra",
+                "CONTATO": "",
+                "DATA": "25/06/2024",
+                "TELEFONE": "",
+                "EXPEDIENTE": "",
+                "PARCEIROS": []
+            },
+            {
+                "IDFLUIG": "6908612",
+                "DOCUMENTID": "1239800",
+                "CIDADE": "SAO JOSE DOS CAMPOS",
+                "TIPOLOCAL": "19",
+                "LOCAL": "Visita academia para fechamento",
+                "CONTATO": "",
+                "DATA": "25/06/2024",
+                "TELEFONE": "",
+                "EXPEDIENTE": "",
+                "PARCEIROS": []
+            },
+            {
+                "IDFLUIG": "6908613",
+                "DOCUMENTID": "1239800",
+                "CIDADE": "SAO JOSE DOS CAMPOS",
+                "TIPOLOCAL": "21",
+                "LOCAL": "Visita seu Ari medição porta entrada",
+                "CONTATO": "",
+                "DATA": "25/06/2024",
+                "TELEFONE": "",
+                "EXPEDIENTE": "",
+                "PARCEIROS": []
+            },
+            {
+                "IDFLUIG": "6908614",
+                "DOCUMENTID": "1239800",
+                "CIDADE": "SAO JOSE DOS CAMPOS",
+                "TIPOLOCAL": "21",
+                "LOCAL": "Visita obra Adriano",
+                "CONTATO": "",
+                "DATA": "26/06/2024",
+                "TELEFONE": "",
+                "EXPEDIENTE": "",
+                "PARCEIROS": [
+                    {
+                        "IDFLUIG": "34394530",
+                        "DOCUMENTID": "1239800",
+                        "CIDADE": "CARAGUATATUBA",
+                        "PARCEIRO": "Visita obra Adriano",
+                        "NOMEPARCEIRO": "Daniel Hungerbuhler",
+                        "CONTATO": "Daniel Hungerbuhler",
+                        "DATA": "26/06/2024",
+                        "TELEFONE": "(24) 99221-4238",
+                        "INTERESSE": "",
+                        "AREAINTERESSE": ""
+                    },
+                    {
+                        "IDFLUIG": "34394531",
+                        "DOCUMENTID": "1239800",
+                        "CIDADE": "CARAGUATATUBA",
+                        "PARCEIRO": "Visita obra Adriano",
+                        "NOMEPARCEIRO": "Wesley Keller",
+                        "CONTATO": "Wesley Keller",
+                        "DATA": "26/06/2024",
+                        "TELEFONE": "(11) 94730-0708",
+                        "INTERESSE": "",
+                        "AREAINTERESSE": ""
+                    },
+                    {
+                        "IDFLUIG": "34394532",
+                        "DOCUMENTID": "1239800",
+                        "CIDADE": "CARAGUATATUBA",
+                        "PARCEIRO": "Visita obra Adriano",
+                        "NOMEPARCEIRO": "Rubens Junior",
+                        "CONTATO": "Rubens Junior",
+                        "DATA": "26/06/2024",
+                        "TELEFONE": "(12) 99769-4719",
+                        "INTERESSE": "",
+                        "AREAINTERESSE": ""
+                    },
+                    {
+                        "IDFLUIG": "34394533",
+                        "DOCUMENTID": "1239800",
+                        "CIDADE": "CARAGUATATUBA",
+                        "PARCEIRO": "Visita obra Adriano",
+                        "NOMEPARCEIRO": "Aguinaldo Piris",
+                        "CONTATO": "Aguinaldo Piris",
+                        "DATA": "26/06/2024",
+                        "TELEFONE": "(12) 99776-4187",
+                        "INTERESSE": "null",
+                        "AREAINTERESSE": "null"
+                    }
+                ]
+            },
+            {
+                "IDFLUIG": "6908615",
+                "DOCUMENTID": "1239800",
+                "CIDADE": "SAO JOSE DOS CAMPOS",
+                "TIPOLOCAL": "19",
+                "LOCAL": "Visita obra tamaro prospecção",
+                "CONTATO": "",
+                "DATA": "26/06/2024",
+                "TELEFONE": "",
+                "EXPEDIENTE": "",
+                "PARCEIROS": []
+            },
+            {
+                "IDFLUIG": "6908616",
+                "DOCUMENTID": "1239800",
+                "CIDADE": "SAO JOSE DOS CAMPOS",
+                "TIPOLOCAL": "21",
+                "LOCAL": "Obra josiano conferência dos vaos",
+                "CONTATO": "",
+                "DATA": "26/06/2024",
+                "TELEFONE": "",
+                "EXPEDIENTE": "",
+                "PARCEIROS": []
+            },
+            {
+                "IDFLUIG": "6908617",
+                "DOCUMENTID": "1239800",
+                "CIDADE": "SAO JOSE DOS CAMPOS",
+                "TIPOLOCAL": "19",
+                "LOCAL": "Visita obra aberta seu Jorge mestre de obra",
+                "CONTATO": "",
+                "DATA": "26/06/2024",
+                "TELEFONE": "",
+                "EXPEDIENTE": "",
+                "PARCEIROS": []
+            },
+            {
+                "IDFLUIG": "6908618",
+                "DOCUMENTID": "1239800",
+                "CIDADE": "SAO JOSE DOS CAMPOS",
+                "TIPOLOCAL": "27",
+                "LOCAL": "Visita obra aberta prospecção seu Antônio mestre de obra",
+                "CONTATO": "",
+                "DATA": "26/06/2024",
+                "TELEFONE": "",
+                "EXPEDIENTE": "",
+                "PARCEIROS": []
+            }
+        ]
+    },
+    {
+        "DOCUMENTID": "1245884",
+        "MOTORISTA": "41730586830",
+        "AJUDANTE": "",
+        "NUMPLACA": " ATA-03J4 ",
+        "TITULO": "Rota \u003d Presidente Prudente",
+        "DETALHE": "",
+        "INICIO": "09/06/2024",
+        "FIM": "30/06/2024",
+        "INTINARARIO": [
+            {
+                "DOCUMENTID": "1245884",
+                "IDINTINARARIO": "97e44efc-5be8-4a9f-866f-8d476d901eea",
+                "UF": "SP",
+                "CIDADE": "PRESIDENTE PRUDENTE",
+                "INICIO": "10/06/2024",
+                "FIM": "21/06/2024",
+                "EXPEDIENTE": ""
+            },
+            {
+                "DOCUMENTID": "1245884",
+                "IDINTINARARIO": "95a83bf7-3ea9-451c-adad-6495eedf33b9",
+                "UF": "SP",
+                "CIDADE": "ASSIS",
+                "INICIO": "25/06/2024",
+                "FIM": "30/06/2024",
+                "EXPEDIENTE": ""
+            }
+        ],
+        "VISITAS": []
+    },
+    {
+        "DOCUMENTID": "1245800",
+        "MOTORISTA": "09334946962",
+        "AJUDANTE": "",
+        "NUMPLACA": " MKM- 5D97",
+        "TITULO": "Rota \u003d Campinas",
+        "DETALHE": "",
+        "INICIO": "09/06/2024",
+        "FIM": "28/06/2024",
+        "INTINARARIO": [
+            {
+                "DOCUMENTID": "1245800",
+                "IDINTINARARIO": "61a5a472-bfef-4473-8a3a-1084ac19f536",
+                "UF": "SP",
+                "CIDADE": "CAMPINAS",
+                "INICIO": "10/06/2024",
+                "FIM": "28/06/2024",
+                "EXPEDIENTE": ""
+            }
+        ],
+        "VISITAS": []
+    },
+    {
+        "DOCUMENTID": "1251073",
+        "MOTORISTA": "72679263987",
+        "AJUDANTE": "",
+        "NUMPLACA": "QHG-9B37",
+        "TITULO": "Rota \u003d Maringá",
+        "DETALHE": "",
+        "INICIO": "13/06/2024",
+        "FIM": "27/06/2024",
+        "INTINARARIO": [
+            {
+                "DOCUMENTID": "1251073",
+                "IDINTINARARIO": "1b84c4aa-6467-4369-9f4c-13409baa00cb",
+                "UF": "PR",
+                "CIDADE": "FLORESTA",
+                "INICIO": "14/06/2024",
+                "FIM": "14/06/2024",
+                "EXPEDIENTE": ""
+            },
+            {
+                "DOCUMENTID": "1251073",
+                "IDINTINARARIO": "38e8dbf0-479e-4105-9d9d-298b20c4de9a",
+                "UF": "PR",
+                "CIDADE": "CAMPO MOURAO",
+                "INICIO": "14/06/2024",
+                "FIM": "27/06/2024",
+                "EXPEDIENTE": ""
+            },
+            {
+                "DOCUMENTID": "1251073",
+                "IDINTINARARIO": "a91a0d91-f55c-4dc1-8db1-3fb878204b5d",
+                "UF": "PR",
+                "CIDADE": "MARINGA",
+                "INICIO": "15/06/2024",
+                "FIM": "27/06/2024",
+                "EXPEDIENTE": ""
+            },
+            {
+                "DOCUMENTID": "1251073",
+                "IDINTINARARIO": "eb6c98ac-1221-4ec1-b3be-c38168052c95",
+                "UF": "PR",
+                "CIDADE": "CIANORTE",
+                "INICIO": "15/06/2024",
+                "FIM": "27/06/2024",
+                "EXPEDIENTE": ""
+            },
+            {
+                "DOCUMENTID": "1251073",
+                "IDINTINARARIO": "209fddc7-ca66-48dd-956f-b1983b5e0119",
+                "UF": "PR",
+                "CIDADE": "PARANAVAI",
+                "INICIO": "15/06/2024",
+                "FIM": "27/06/2024",
+                "EXPEDIENTE": ""
+            },
+            {
+                "DOCUMENTID": "1251073",
+                "IDINTINARARIO": "b4282640-1752-4e62-a77c-3781abd426bd",
+                "UF": "PR",
+                "CIDADE": "MARIALVA",
+                "INICIO": "15/06/2024",
+                "FIM": "27/06/2024",
+                "EXPEDIENTE": ""
+            }
+        ],
+        "VISITAS": []
+    },
+    {
+        "DOCUMENTID": "1249559",
+        "MOTORISTA": "05474895950",
+        "AJUDANTE": "",
+        "NUMPLACA": "OKG-8A90",
+        "TITULO": "Rota \u003d Rio Grande do Sul",
+        "DETALHE": "",
+        "INICIO": "13/06/2024",
+        "FIM": "28/06/2024",
+        "INTINARARIO": [
+            {
+                "DOCUMENTID": "1249559",
+                "IDINTINARARIO": "5ac8cc39-4a87-49c9-b042-19f944f06279",
+                "UF": "RS",
+                "CIDADE": "PORTO ALEGRE",
+                "INICIO": "13/06/2024",
+                "FIM": "19/06/2024",
+                "EXPEDIENTE": ""
+            },
+            {
+                "DOCUMENTID": "1249559",
+                "IDINTINARARIO": "fc4baa9b-f7c3-4335-a960-c9172867df60",
+                "UF": "RS",
+                "CIDADE": "XANGRI-LA",
+                "INICIO": "20/06/2024",
+                "FIM": "25/06/2024",
+                "EXPEDIENTE": ""
+            },
+            {
+                "DOCUMENTID": "1249559",
+                "IDINTINARARIO": "22ef99b8-4b8b-4d6b-b707-66d375b09a37",
+                "UF": "RS",
+                "CIDADE": "CAPAO DA CANOA",
+                "INICIO": "26/06/2024",
+                "FIM": "27/06/2024",
+                "EXPEDIENTE": ""
+            }
+        ],
+        "VISITAS": []
+    },
+    {
+        "DOCUMENTID": "1257632",
+        "MOTORISTA": "09436028903",
+        "AJUDANTE": "",
+        "NUMPLACA": "QHI-6A92",
+        "TITULO": "Rota \u003d Londrina",
+        "DETALHE": "",
+        "INICIO": "17/06/2024",
+        "FIM": "28/06/2024",
+        "INTINARARIO": [
+            {
+                "DOCUMENTID": "1257632",
+                "IDINTINARARIO": "115f2985-8115-4613-a3c9-15cc046ef36f",
+                "UF": "PR",
+                "CIDADE": "LONDRINA",
+                "INICIO": "17/06/2024",
+                "FIM": "28/06/2024",
+                "EXPEDIENTE": ""
+            }
+        ],
+        "VISITAS": []
+    },
+    {
+        "DOCUMENTID": "1259102",
+        "MOTORISTA": "43189425892",
+        "AJUDANTE": "",
+        "NUMPLACA": "DJF-1F21",
+        "TITULO": "Rota \u003d Teste",
+        "DETALHE": "",
+        "INICIO": "20/06/2024",
+        "FIM": "29/06/2024",
+        "INTINARARIO": [
+            {
+                "DOCUMENTID": "1259102",
+                "IDINTINARARIO": "a1a19477-2556-4a79-96ba-49d4e14ec12b",
+                "UF": "PR",
+                "CIDADE": "UNIAO DA VITORIA",
+                "INICIO": "21/06/2024",
+                "FIM": "25/06/2024",
+                "EXPEDIENTE": ""
+            },
+            {
+                "DOCUMENTID": "1259102",
+                "IDINTINARARIO": "ecaef753-8812-4376-b8a0-d73cfd310010",
+                "UF": "SC",
+                "CIDADE": "MAFRA",
+                "INICIO": "25/06/2024",
+                "FIM": "28/06/2024",
+                "EXPEDIENTE": ""
+            }
+        ],
+        "VISITAS": []
+    },
+    {
+        "DOCUMENTID": "1258995",
+        "MOTORISTA": "07546908906",
+        "AJUDANTE": "",
+        "NUMPLACA": "MJX5G30",
+        "TITULO": "Rota \u003d Belo Horizonte MG",
+        "DETALHE": "",
+        "INICIO": "21/06/2024",
+        "FIM": "04/07/2024",
+        "INTINARARIO": [
+            {
+                "DOCUMENTID": "1258995",
+                "IDINTINARARIO": "e0d03570-4c73-489f-b982-67f5dc566ccf",
+                "UF": "MG",
+                "CIDADE": "BELO HORIZONTE",
+                "INICIO": "21/06/2024",
+                "FIM": "04/07/2024",
+                "EXPEDIENTE": ""
+            }
+        ],
+        "VISITAS": []
+    },
+    {
+        "DOCUMENTID": "1260823",
+        "MOTORISTA": "04646954907",
+        "AJUDANTE": "",
+        "NUMPLACA": "QHN5G81",
+        "TITULO": "Rota \u003d Criciúma",
+        "DETALHE": "",
+        "INICIO": "23/06/2024",
+        "FIM": "12/07/2024",
+        "INTINARARIO": [
+            {
+                "DOCUMENTID": "1260823",
+                "IDINTINARARIO": "25bff998-f78f-40ce-a032-4f24d7bbe7a9",
+                "UF": "SC",
+                "CIDADE": "CRICIUMA",
+                "INICIO": "24/06/2024",
+                "FIM": "11/07/2024",
+                "EXPEDIENTE": ""
+            }
+        ],
+        "VISITAS": []
+    },
+    {
+        "DOCUMENTID": "1236711",
+        "MOTORISTA": "03319698907",
+        "AJUDANTE": "",
+        "NUMPLACA": "PYX-6A83       ",
+        "TITULO": "Rota \u003d Blumenau",
+        "DETALHE": "",
+        "INICIO": "24/06/2024",
+        "FIM": "06/07/2024",
+        "INTINARARIO": [
+            {
+                "DOCUMENTID": "1236711",
+                "IDINTINARARIO": "3a2b5e99-c7ad-45f1-bfe6-21419a19b395",
+                "UF": "SC",
+                "CIDADE": "BLUMENAU",
+                "INICIO": "25/06/2024",
+                "FIM": "06/07/2024",
+                "EXPEDIENTE": ""
+            }
+        ],
+        "VISITAS": []
+    },
+    {
+        "DOCUMENTID": "1263784",
+        "MOTORISTA": "08039187982",
+        "AJUDANTE": "",
+        "NUMPLACA": "MKW-2F52",
+        "TITULO": "Rota \u003d Uberlândia MG",
+        "DETALHE": "",
+        "INICIO": "24/06/2024",
+        "FIM": "12/07/2024",
+        "INTINARARIO": [
+            {
+                "DOCUMENTID": "1263784",
+                "IDINTINARARIO": "ee495215-ae42-4dd2-930c-cdab42194c4e",
+                "UF": "MG",
+                "CIDADE": "UBERLANDIA",
+                "INICIO": "25/06/2024",
+                "FIM": "11/07/2024",
+                "EXPEDIENTE": ""
+            }
+        ],
+        "VISITAS": []
+    },
+    {
+        "DOCUMENTID": "1262327",
+        "MOTORISTA": "41730586830",
+        "AJUDANTE": "10357930916",
+        "NUMPLACA": "QNI-5F53",
+        "TITULO": "Rota \u003d Presidente Prudente",
+        "DETALHE": "",
+        "INICIO": "24/06/2024",
+        "FIM": "12/07/2024",
+        "INTINARARIO": [
+            {
+                "DOCUMENTID": "1262327",
+                "IDINTINARARIO": "66b41a52-b5ab-4de9-bd14-6f18da091442",
+                "UF": "SP",
+                "CIDADE": "VOTUPORANGA",
+                "INICIO": "25/06/2024",
+                "FIM": "30/06/2024",
+                "EXPEDIENTE": ""
+            },
+            {
+                "DOCUMENTID": "1262327",
+                "IDINTINARARIO": "467b17b3-de8c-4b33-9ab3-67b2da09d89d",
+                "UF": "SP",
+                "CIDADE": "PRESIDENTE PRUDENTE",
+                "INICIO": "30/06/2024",
+                "FIM": "01/07/2024",
+                "EXPEDIENTE": ""
+            },
+            {
+                "DOCUMENTID": "1262327",
+                "IDINTINARARIO": "f2527d9a-76b3-4332-a1a3-e35fc93d0d91",
+                "UF": "SP",
+                "CIDADE": "ASSIS",
+                "INICIO": "02/07/2024",
+                "FIM": "08/07/2024",
+                "EXPEDIENTE": ""
+            },
+            {
+                "DOCUMENTID": "1262327",
+                "IDINTINARARIO": "f338502d-be03-4dd8-86b7-3d058311cace",
+                "UF": "SP",
+                "CIDADE": "PRESIDENTE PRUDENTE",
+                "INICIO": "09/07/2024",
+                "FIM": "11/07/2024",
+                "EXPEDIENTE": ""
+            }
+        ],
+        "VISITAS": [
+            {
+                "IDFLUIG": "6908229",
+                "DOCUMENTID": "1262327",
+                "CIDADE": "VOTUPORANGA",
+                "TIPOLOCAL": "16",
+                "LOCAL": "Evento Votuporanga",
+                "CONTATO": "",
+                "DATA": "26/06/2024",
+                "TELEFONE": "",
+                "EXPEDIENTE": "",
+                "PARCEIROS": []
+            }
+        ]
+    },
+    {
+        "DOCUMENTID": "1262453",
+        "MOTORISTA": "12447010923",
+        "AJUDANTE": "",
+        "NUMPLACA": "MLC-2F22",
+        "TITULO": "Rota \u003d Cascavel / Chapecó",
+        "DETALHE": "",
+        "INICIO": "25/06/2024",
+        "FIM": "12/07/2024",
+        "INTINARARIO": [
+            {
+                "DOCUMENTID": "1262453",
+                "IDINTINARARIO": "799a67f4-6e47-4c7b-99e9-6d5c7a6315ed",
+                "UF": "PR",
+                "CIDADE": "CASCAVEL",
+                "INICIO": "25/06/2024",
+                "FIM": "29/06/2024",
+                "EXPEDIENTE": ""
+            },
+            {
+                "DOCUMENTID": "1262453",
+                "IDINTINARARIO": "064bf860-7197-4ae8-8c2e-f27b364441f9",
+                "UF": "SC",
+                "CIDADE": "CHAPECO",
+                "INICIO": "30/06/2024",
+                "FIM": "12/07/2024",
+                "EXPEDIENTE": ""
+            }
+        ],
+        "VISITAS": []
+    },
+    {
+        "DOCUMENTID": "1262268",
+        "MOTORISTA": "07310970926",
+        "AJUDANTE": "",
+        "NUMPLACA": "QHB - 5I82",
+        "TITULO": "Rota \u003d Lages",
+        "DETALHE": "",
+        "INICIO": "25/06/2024",
+        "FIM": "28/06/2024",
+        "INTINARARIO": [
+            {
+                "DOCUMENTID": "1262268",
+                "IDINTINARARIO": "778cf513-6449-42d7-ad00-3b68e3557011",
+                "UF": "SC",
+                "CIDADE": "LAGES",
+                "INICIO": "25/06/2024",
+                "FIM": "28/06/2024",
+                "EXPEDIENTE": ""
+            }
+        ],
+        "VISITAS": []
+    },
+    {
+        "DOCUMENTID": "1262722",
+        "MOTORISTA": "06024861907",
+        "AJUDANTE": "",
+        "NUMPLACA": "MEO-6J05",
+        "TITULO": "Rota \u003d Guarapuava",
+        "DETALHE": "",
+        "INICIO": "25/06/2024",
+        "FIM": "12/07/2024",
+        "INTINARARIO": [
+            {
+                "DOCUMENTID": "1262722",
+                "IDINTINARARIO": "c8c799d8-2ed0-411d-bcc7-c71f11f6de9c",
+                "UF": "PR",
+                "CIDADE": "GUARAPUAVA",
+                "INICIO": "25/06/2024",
+                "FIM": "12/07/2024",
+                "EXPEDIENTE": ""
+            }
+        ],
+        "VISITAS": []
+    },
+    {
+        "DOCUMENTID": "1263446",
+        "MOTORISTA": "34180987899",
+        "AJUDANTE": "03694222952",
+        "NUMPLACA": "QHY-OD61",
+        "TITULO": "Rota \u003d São Paulo SP",
+        "DETALHE": "",
+        "INICIO": "26/06/2024",
+        "FIM": "12/07/2024",
+        "INTINARARIO": [
+            {
+                "DOCUMENTID": "1263446",
+                "IDINTINARARIO": "79d9fcaf-ac83-4ec7-92e1-bd91201ee285",
+                "UF": "SP",
+                "CIDADE": "SAO PAULO",
+                "INICIO": "27/06/2024",
+                "FIM": "11/07/2024",
+                "EXPEDIENTE": ""
+            }
+        ],
+        "VISITAS": []
+    },
+    {
+        "DOCUMENTID": "1265011",
+        "MOTORISTA": "04005829961",
+        "AJUDANTE": "12548899900",
+        "NUMPLACA": "AXZ-4I10",
+        "TITULO": "Rota \u003d Ourinhos SP",
+        "DETALHE": "",
+        "INICIO": "27/06/2024",
+        "FIM": "12/07/2024",
+        "INTINARARIO": [
+            {
+                "DOCUMENTID": "1265011",
+                "IDINTINARARIO": "37b3bd25-ba06-4197-bf74-d5881bc451f3",
+                "UF": "SP",
+                "CIDADE": "OURINHOS",
+                "INICIO": "27/06/2024",
+                "FIM": "29/06/2024",
+                "EXPEDIENTE": ""
+            },
+            {
+                "DOCUMENTID": "1265011",
+                "IDINTINARARIO": "3d601952-ff56-4093-adda-569d57366f47",
+                "UF": "SP",
+                "CIDADE": "BOTUCATU",
+                "INICIO": "01/07/2024",
+                "FIM": "06/07/2024",
+                "EXPEDIENTE": ""
+            },
+            {
+                "DOCUMENTID": "1265011",
+                "IDINTINARARIO": "5743ab07-e075-4b1e-8563-d0a1b84b554b",
+                "UF": "SP",
+                "CIDADE": "PARANAPANEMA",
+                "INICIO": "10/07/2024",
+                "FIM": "12/07/2024",
+                "EXPEDIENTE": ""
+            }
+        ],
+        "VISITAS": []
+    },
+    {
+        "DOCUMENTID": "1262484",
+        "MOTORISTA": "12447010923",
+        "AJUDANTE": "",
+        "NUMPLACA": "MLC-2F22",
+        "TITULO": "Rota \u003d Cascavel",
+        "DETALHE": "",
+        "INICIO": "17/07/2024",
+        "FIM": "02/08/2024",
+        "INTINARARIO": [
+            {
+                "DOCUMENTID": "1262484",
+                "IDINTINARARIO": "60db0fa6-3e22-4cab-ac57-83218ed9c5aa",
+                "UF": "PR",
+                "CIDADE": "CASCAVEL",
+                "INICIO": "17/07/2024",
+                "FIM": "02/08/2024",
+                "EXPEDIENTE": ""
+            }
+        ],
+        "VISITAS": []
+    }
+]

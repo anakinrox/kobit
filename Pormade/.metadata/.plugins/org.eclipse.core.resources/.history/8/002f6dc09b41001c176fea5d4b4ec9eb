@@ -1,0 +1,101 @@
+function defineStructure() {
+
+}
+
+function onSync(lastSyncDate) {
+
+}
+
+function createDataset(fields, constraints, sortFields) {
+    var newDataset = DatasetBuilder.newDataset();
+
+    var listaConstraits = {};
+    listaConstraits['nome'] = "";
+    listaConstraits['email'] = "";
+    listaConstraits['login'] = "";
+
+    var params = {};
+    if (constraints != null) {
+        for (var i = 0; i < constraints.length; i++) {
+            listaConstraits[constraints[i].fieldName.trim()] = constraints[i].initialValue;
+        }
+    }
+
+    //Define colunas de retorno.
+    newDataset.addColumn('codigo');
+    newDataset.addColumn('login');
+    newDataset.addColumn('senha');
+    newDataset.addColumn('nome');
+    newDataset.addColumn('mail');
+
+
+    try {
+        var connectionCRM = null;
+        var statementCRM = null;
+        var contextCRM = new javax.naming.InitialContext();
+        var dataSourceCRM = contextCRM.lookup("java:/jdbc/CRMDS");
+        connectionCRM = dataSourceCRM.getConnection();
+
+        var sql = "select usr_codigo, usr_login, usr_senha, usr_nome, usr_email from public.fr_usuario where usr_ativo = true";
+
+        if (listaConstraits['nome'].trim() != "") {
+            SQL += " and usr_nome like '%" + listaConstraits['nome'] + "%'";
+        }
+
+        if (listaConstraits['email'].trim() != "") {
+            SQL += " and usr_email like '%" + listaConstraits['email'] + "%'";
+        }
+
+        if (listaConstraits['login'].trim() != "") {
+            SQL += " and usr_login like '%" + listaConstraits['login'] + "%'";
+        }
+
+        statementCRM = connectionCRM.prepareStatement(sql);
+        var rsCRM = statementCRM.executeQuery();
+
+        while (rsCRM.next()) {
+            newDataset.addRow(
+                new Array(
+                    rsCRM.getString("usr_codigo") + "",
+                    rsCRM.getString("usr_login") + "",
+                    rsCRM.getString("usr_senha") + "",
+                    rsCRM.getString("usr_nome") + "",
+                    rsCRM.getString("usr_email") + ""
+                ));
+        }
+
+        if (rsCRM != null) rsCRM.close();
+        if (statementCRM != null) statementCRM.close();
+        if (connectionCRM != null) connectionCRM.close();
+
+    } catch (error) {
+        newDataset.addRow(
+            new Array(
+                "Error: " + error
+            ));
+        printLog("error", "Error: " + error);
+    }
+
+    return newDataset;
+}
+
+function onMobileSync(user) {
+
+}
+
+
+var debug = false;
+function printLog(tipo, msg) {
+    if (debug) {
+        var msgs = getValue("WKDef") + " - " + getValue("WKNumProces") + " - " + msg
+        if (tipo == 'info') {
+            log.info(msgs);
+        } else if (tipo == 'error') {
+            log.error(msgs);
+        } else if (tipo == 'fatal') {
+            log.fatal(msgs);
+        } else {
+            log.warn(msgs);
+        }
+    }
+}

@@ -1,0 +1,782 @@
+function createDataset(fields, constraints, sortFields) {
+    var controller = Manager("java:/jdbc/FluigDS", "DS_SolicitacaoParceiros");
+
+    controller.openConnection();
+
+    controller.createConstraint(constraints);
+
+    controller.logs("INICIO - " + controller.constraint.ACTION);
+
+    var statementWD = null;
+
+    if (controller.constraint.ACTION == 'LOGIN_VALIDATE') {
+        statementWD = getSQL_validLogin(controller.constraint, controller.connectionWD, controller.logs);
+        controller.executeSQL(statementWD);
+    }
+    if (controller.constraint.ACTION == 'GET_REQ') {
+        statementWD = getSQL_Reqs(controller.constraint, controller.connectionWD, controller.logs);
+        controller.executeSQL(statementWD);
+    }
+    if (controller.constraint.ACTION == 'LIST_CUPONS') {
+        statementWD = getSQL_listCupons(controller.constraint, controller.connectionWD, controller.logs);
+        controller.executeSQL(statementWD);
+    }
+    if (controller.constraint.ACTION == 'INSERT_TABLE') {
+        // statementWD = getSQL_CreateTablePartners(controller.constraint, controller.connectionWD, controller.logs);
+        // controller.executeSQL(statementWD, 'INSERT');
+    }
+    if (controller.constraint.ACTION == "INSERT_CUPOM") {
+        statementWD = getSQL_InsertCupon(controller.constraint, controller.connectionWD, controller.logs);
+        controller.executeSQL(statementWD, "INSERT");
+    }
+    if (controller.constraint.ACTION == "UPDATE_CUPOM") {
+        statementWD = getSQL_UpdateCupon(controller.constraint, controller.connectionWD, controller.logs, false);
+        controller.executeSQL(statementWD, "UPDATE");
+    }
+    if (controller.constraint.ACTION == "UPDATE_CUPOM_SAVED") {
+        statementWD = getSQL_UpdateCupon(controller.constraint, controller.connectionWD, controller.logs, true);
+        controller.executeSQL(statementWD, "UPDATE");
+    }
+    
+    if (controller.constraint.ACTION == "GEN_DEAL_VENDEDOR") {
+    	postDealVendedor(controller.constraint);
+    }
+    
+    if (controller.constraint.ACTION == "UPDATE_IDFLUIG") {
+    	attIdFluigPipedrive(controller.constraint);
+    }
+    
+
+    controller.closeConnection(statementWD);
+
+    controller.logs("FIM");
+
+    return controller.getDataset();
+}
+
+
+function getSQL_CreateTablePartners(constraint, connection, logs) {
+    var SQL = '   CREATE TABLE kbt_t_parceiros_cupons (  ' +
+        '   	ID INT AUTO_INCREMENT PRIMARY KEY,  ' +
+        '   	ID_PARCEIRO INT,  ' +
+        '   	ID_DESTINO INT,  ' +
+        '   	IDFLUIG INT,  ' +
+        '   	NOME VARCHAR(150) NOT NULL,  ' +
+        '   	EMAIL VARCHAR(150) NOT NULL,  ' +
+        '   	CIDADE VARCHAR(150) NOT NULL,  ' +
+        '   	TELEFONE VARCHAR(150) NOT NULL,  ' +
+        '   	DATA DATETIME,  ' +
+        '   	DATA_ULTIMO_CONTATO DATETIME,  ' +
+        '   	CUPOM VARCHAR(150) NOT NULL,  ' +
+        '   	STATUS VARCHAR(150) NOT NULL,  ' +
+        '       JSON MEDIUMTEXT ' +
+        '  )  ';
+    var statement = connection.prepareStatement(SQL);
+
+    logs(" getSQL_CreateTablePartners - SQL: " + SQL);
+
+    return statement;
+}
+
+function getSQL_Reqs(constraint, connection, logs) {
+	
+	log.info('#### getSQL_Reqs ####');
+    var SQL = "SELECT * FROM kbt_t_parceiros_cupons WHERE ID = ? ";
+    	
+    var statement = connection.prepareStatement(SQL);
+
+//    statement.setString(1, constraint.ID_PARCEIRO);
+    statement.setString(1, constraint.ID);
+
+    return statement;
+}
+
+function getSQL_UpdateCupon(constraint, connection, logs, saved) {
+    var seq = 1;
+    
+    log.info(constraint.IDFLUIG);
+    
+    var SQL = "UPDATE kbt_t_parceiros_cupons SET";
+    
+    if (constraint.IDFLUIG != "") {
+        SQL += " IDFLUIG = ?, ";
+    }
+    
+    SQL += " NOME = ?, EMAIL = ?, CIDADE = ?, TELEFONE = ?, JSON = ?, STATUS = ?, CUPOM = ? WHERE ID = ? ";
+    log.info(SQL);
+    var statement = connection.prepareStatement(SQL);
+    if (constraint.IDFLUIG != "" && constraint.IDFLUIG != "null") {
+        statement.setString(seq++, constraint.IDFLUIG);
+    }
+    
+    if (constraint.IDFLUIG == "null") {
+        statement.setNull(seq++, java.sql.Types.INTEGER);
+    }
+
+    statement.setString(seq++, constraint.NOME);
+    statement.setString(seq++, constraint.EMAIL);
+    statement.setString(seq++, constraint.CIDADE);
+    statement.setString(seq++, constraint.TELEFONE);
+    //statement.setString(7, constraint.DATA);
+    statement.setString(seq++, constraint.JSON);
+    statement.setString(seq++, constraint.STATUS);
+    statement.setString(seq++, constraint.CUPOM);
+    
+//    statement.setString(seq++, constraint.ID_PARCEIRO);
+    statement.setString(seq++, constraint.ID);
+    
+    log.info(statement);
+    return statement;
+}
+
+function getSQL_InsertCupon(constraint, connection, logs) {
+    var seq = 1;
+    var SQL = "	INSERT INTO kbt_t_parceiros_cupons ( " +
+        "	ID_PARCEIRO, ";
+    if (constraint.IDFLUIG != "") {
+        SQL += "	IDFLUIG,";
+    }
+    SQL += "NOME, " +
+        "	EMAIL, " +
+        "	CIDADE, " +
+        "	TELEFONE, " +
+        "	DATA, " +
+        "	DATA_ULTIMO_CONTATO, " +
+        "	CUPOM, " +
+        "	STATUS, " +
+        "   ID_DESTINO, "+
+        "	JSON) " +
+        " VALUES (?,";
+
+    if (constraint.IDFLUIG != "") {
+        SQL += "?,";
+    }
+
+    SQL += "?,?,?,?,CURRENT_TIMESTAMP(),CURRENT_TIMESTAMP(),?,?,?,?)";
+
+
+    var statement = connection.prepareStatement(SQL);
+    statement.setString(seq++, constraint.ID_PARCEIRO);
+
+    if (constraint.IDFLUIG != "") {
+        statement.setString(seq++, constraint.IDFLUIG);
+    }
+
+    statement.setString(seq++, constraint.NOME);
+    statement.setString(seq++, constraint.EMAIL);
+    statement.setString(seq++, constraint.CIDADE);
+    statement.setString(seq++, constraint.TELEFONE);
+    //statement.setString(7, constraint.DATA);
+    statement.setString(seq++, constraint.CUPOM);
+    statement.setString(seq++, constraint.STATUS);
+    if ( constraint.ID_DESTINO == "" ){
+    	statement.setNull(seq++, java.sql.Types.INTEGER);
+    } else {
+    	statement.setString(seq++, constraint.ID_DESTINO);
+    }    
+    statement.setString(seq++, constraint.JSON);
+
+    return statement;
+}
+
+function getSQL_listCupons(constraint, connection, logs) {
+	
+	log.info('#### getSQL_listCupons #### ' + constraint.STATUS);
+	
+    var SQL = "SELECT IFNULL(IDFLUIG, '') as IDFLUIG, ktpc.*, DATE_FORMAT(DATA,'%d/%m/%Y') AS DATA_FORMATED, DATE_FORMAT(DATA_ULTIMO_CONTATO,'%d/%m/%Y') AS DATA_ULTIMO_CONTATO_FORMATED, case when (STATUS = 'CADASTRADO' and CUPOM != '') then '<button class=\"btn btn-info btn-xs\" data-request-orcamento title=\"Solicitar Orçamento\" ><span class=\"flaticon flaticon-add-box icon-sm\"> </button>' else '' end AS TS FROM kbt_t_parceiros_cupons ktpc WHERE ( ID_PARCEIRO = ? or ID_DESTINO = ? ) ";
+
+    if ( constraint.STATUS == 'P' ){
+//    	SQL += " AND STATUS != 'ARQUIVADO' AND (STATUS IN ('NÃO ENVIADO','COMPLEMENTO') OR CUPOM = '') ";
+    	SQL += " AND STATUS NOT IN ('ARQUIVADO','CADASTRADO') ";
+    }
+    
+    if ( constraint.STATUS == 'N' ){
+    	SQL += " AND STATUS = 'NÃO ENVIADO' ";
+    }
+    
+    if ( constraint.STATUS == 'A' ){
+    	SQL += " AND STATUS = 'ARQUIVADO' ";
+    }
+    
+    if ( constraint.STATUS == 'E' ){
+    	SQL += " AND STATUS = 'ENVIADO' ";
+    }
+    
+    if ( constraint.STATUS == 'C' ){
+    	SQL += " AND STATUS = 'CADASTRADO' ";
+    }
+    
+    var statement = connection.prepareStatement(SQL);
+
+    statement.setString(1, constraint.ID_PARCEIRO);
+    statement.setString(2, constraint.ID_PARCEIRO);
+
+    return statement;
+}
+
+function getSQL_validLogin(constraint, connection, logs) {
+    var SQL = "SELECT * FROM kbt_t_parceiros WHERE EMAIL = ? AND SEGREDO = MD5(?) AND INATIVO = 0";
+
+    var statement = connection.prepareStatement(SQL);
+
+    statement.setString(1, constraint.EMAIL);
+    statement.setString(2, constraint.PASS);
+    return statement;
+}
+
+function attIdFluigPipedrive(constraint){
+	
+	newDataset = DatasetBuilder.newDataset();
+	
+	var constraints = new Array();
+	constraints.push( DatasetFactory.createConstraint( "f00de0b109d9c4ea0d3258f12f99837c8d164c72" , constraint.IDFLUIG, null, ConstraintType.MUST) );
+	constraints.push( DatasetFactory.createConstraint( "area" , constraint.AREA, null, ConstraintType.MUST) );
+	constraints.push( DatasetFactory.createConstraint( "deal" , constraint.DEAL, null, ConstraintType.MUST) );
+	var deals = DatasetFactory.getDataset("pipedriveDealsUPD", null, constraints, null);
+	
+	return deals;
+}
+
+function postDealVendedor(constraint){
+	
+	newDataset = DatasetBuilder.newDataset();
+	newDataset.addColumn('id_org');
+	newDataset.addColumn('id_person');
+	newDataset.addColumn('id_deals_vendedor');
+	
+	log.info(constraint.JSON);
+	
+	var jsonObj = JSON.parse(constraint.JSON);
+	
+	var area = jsonObj['area'];
+
+	var constraints = new Array();
+	constraints.push( DatasetFactory.createConstraint('area', area, area, ConstraintType.MUST) );
+	var pipe = DatasetFactory.getDataset("pipedrive", null, constraints, null);
+
+	if( pipe.rowsCount == 0 ){
+		throw "Não cadastrado parametro para esse tipo de integração.";
+	}
+
+	var tipoPessoa = jsonObj['fisico_juridico'];
+	var idPerson = jsonObj['id_person'];
+	var orgId = jsonObj['id_org'];
+	
+	if ( tipoPessoa == "J" ){
+		
+		if( orgId == "" ){
+			
+			var constraints = new Array();
+			constraints.push( DatasetFactory.createConstraint('area' , area, area, ConstraintType.MUST) );
+			constraints.push( DatasetFactory.createConstraint('name' , jsonObj['nome'], jsonObj['nome'], ConstraintType.MUST) );
+			var datasetOrg = DatasetFactory.getDataset('pipedriveOrganizations', null, constraints, null );
+
+			if ( datasetOrg.values.length == 0 ){
+				
+				var constraintsFilhos = new Array();
+				constraintsFilhos.push( DatasetFactory.createConstraint("tablename", "token_organization", "token_organization", ConstraintType.MUST) );
+				constraintsFilhos.push( DatasetFactory.createConstraint("metadata#id", pipe.getValue(0,"documentid"), pipe.getValue(0,"documentid"), ConstraintType.MUST) );
+				constraintsFilhos.push( DatasetFactory.createConstraint("metadata#version", pipe.getValue(0,"version"), pipe.getValue(0,"version"), ConstraintType.MUST) );
+				constraintsFilhos.push( DatasetFactory.createConstraint("metadata#active", "true", "true", ConstraintType.MUST) );
+				
+				var datasetFilhos = DatasetFactory.getDataset('pipedrive', null, constraintsFilhos, null );
+				if ( datasetFilhos != null ){
+					for(var i = 0; i < datasetFilhos.rowsCount; i++ ){
+						constraints.push( DatasetFactory.createConstraint( datasetFilhos.getValue(i,"token_org"), jsonObj[datasetFilhos.getValue(i,"campo_org")], null, ConstraintType.MUST) );		
+					}
+				}
+				var pipedriveOrganizationsDML = DatasetFactory.getDataset("pipedriveOrganizationsDML", null, constraints, null);
+				if( pipedriveOrganizationsDML.rowsCount == 0 ){
+					throw "Não foi possivel registrar nova organização.";
+				}else{
+					orgId = pipedriveOrganizationsDML.getValue(0,"id");
+				}
+				
+			}else {
+				orgId = datasetOrg.getValue(0,'id');
+			}
+			
+			var constraints = new Array();
+			constraints.push( DatasetFactory.createConstraint('area', area, area, ConstraintType.MUST) );
+			constraints.push( DatasetFactory.createConstraint('phone', jsonObj['telefone_pessoa'], jsonObj['telefone_pessoa'], ConstraintType.MUST) );
+			constraints.push( DatasetFactory.createConstraint('name', jsonObj['pessoa_contato'], jsonObj['pessoa_contato'], ConstraintType.MUST) );
+			var person = DatasetFactory.getDataset("pipedrivePerson", null, constraints, null);
+			
+			if( person.values.length == 0 ){
+				
+				var constraintsFilhos = new Array();
+				constraintsFilhos.push( DatasetFactory.createConstraint("tablename", "token_person", "token_person", ConstraintType.MUST) );
+				constraintsFilhos.push( DatasetFactory.createConstraint("metadata#id", pipe.getValue(0,"documentid"), pipe.getValue(0,"documentid"), ConstraintType.MUST) );
+				constraintsFilhos.push( DatasetFactory.createConstraint("metadata#version", pipe.getValue(0,"version"), pipe.getValue(0,"version"), ConstraintType.MUST) );
+				constraintsFilhos.push( DatasetFactory.createConstraint("metadata#active", "true", "true", ConstraintType.MUST) );
+				
+				var datasetFilhos = DatasetFactory.getDataset('pipedrive', null, constraintsFilhos, null );
+				if ( datasetFilhos != null ){
+					var constraints = new Array();
+					for(var i = 0; i < datasetFilhos.rowsCount; i++ ){
+						constraints.push( DatasetFactory.createConstraint( datasetFilhos.getValue(i,"token_pes"), jsonObj[ datasetFilhos.getValue(i,"campo_pes") ], null, ConstraintType.MUST) );		
+					}
+				}				
+				
+				constraints.push( DatasetFactory.createConstraint( "org_id", orgId , null, ConstraintType.MUST) );
+				
+				var pipedrivePersonDML = DatasetFactory.getDataset("pipedrivePersonDML", null, constraints, null);
+				if( pipedrivePersonDML.rowsCount == 0 ){
+					throw "Não foi possivel registrar novo contato.";
+				}else{
+					idPerson = pipedrivePersonDML.getValue(0,"id");
+				}
+			} else {
+				idPerson =  person.getValue(0,'id');
+			}
+			
+		}
+	}
+	
+	if ( tipoPessoa == "F" ){
+	
+		if ( idPerson == "" ){
+			var constraints = new Array();
+			constraints.push( DatasetFactory.createConstraint('area', area, area, ConstraintType.MUST) );
+			constraints.push( DatasetFactory.createConstraint('phone', jsonObj['telefone1'], jsonObj['telefone1'], ConstraintType.MUST) );
+			constraints.push( DatasetFactory.createConstraint('name', jsonObj['nome'], jsonObj['nome'], ConstraintType.MUST) );
+			var person = DatasetFactory.getDataset("pipedrivePerson", null, constraints, null);
+			
+			if( person.values.length == 0 ){
+				var constraintsFilhos = new Array();
+				constraintsFilhos.push( DatasetFactory.createConstraint("tablename", "token_person", "token_person", ConstraintType.MUST) );
+				constraintsFilhos.push( DatasetFactory.createConstraint("metadata#id", pipe.getValue(0,"documentid"), pipe.getValue(0,"documentid"), ConstraintType.MUST) );
+				constraintsFilhos.push( DatasetFactory.createConstraint("metadata#version", pipe.getValue(0,"version"), pipe.getValue(0,"version"), ConstraintType.MUST) );
+				constraintsFilhos.push( DatasetFactory.createConstraint("metadata#active", "true", "true", ConstraintType.MUST) );
+				
+				var datasetFilhos = DatasetFactory.getDataset('pipedrive', null, constraintsFilhos, null );
+				if ( datasetFilhos != null ){
+					var constraints = new Array();
+					constraints.push( DatasetFactory.createConstraint('area', area, area, ConstraintType.MUST) );
+					for(var i = 0; i < datasetFilhos.rowsCount; i++ ){
+						constraints.push( DatasetFactory.createConstraint( datasetFilhos.getValue(i,"token_pes"), jsonObj[ datasetFilhos.getValue(i,"campo_pes") ], null, ConstraintType.MUST) );		
+					}
+				}
+				
+				var pipedrivePersonDML = DatasetFactory.getDataset("pipedrivePersonDML", null, constraints, null);
+				if( pipedrivePersonDML.rowsCount == 0 ){
+					throw "Não foi possivel registrar novo contato.";	
+				}else{
+					idPerson = pipedrivePersonDML.getValue(0,"id");
+				}
+			} else {
+				idPerson =  person.getValue(0,'id');
+			}
+		}
+		
+	}
+
+//	var pipeDriveVendedor = jsonObj['id_user_vendedor'];
+//	
+//	if ( pipeDriveVendedor == "" ){
+		var pipedriveUser = jsonObj["id_user_pipedrive"];
+//	} else {
+//		var pipedriveUser = jsonObj["id_user_vendedor"];
+//	}
+	
+	if ( pipedriveUser == '' ){
+		throw "Usuário PipeDrive não carregado, não será possível incluir a Deal.";
+	}
+	
+//	log.info('Inclui DEAL......' );
+	var constraints = new Array();
+	constraints.push( DatasetFactory.createConstraint("title", jsonObj['nome'] + ' - URGENTE', null, ConstraintType.MUST) );
+	constraints.push( DatasetFactory.createConstraint("person_id", idPerson, null, ConstraintType.MUST) );
+	constraints.push( DatasetFactory.createConstraint("org_id", orgId, null, ConstraintType.MUST) );
+    constraints.push( DatasetFactory.createConstraint("pipeline_id", jsonObj['setor_destino'], null, ConstraintType.MUST) );
+	constraints.push( DatasetFactory.createConstraint("user_id", pipedriveUser, null, ConstraintType.MUST) );
+	constraints.push( DatasetFactory.createConstraint("area" , area, null, ConstraintType.MUST) );
+	constraints.push( DatasetFactory.createConstraint( pipe.getValue(0,"token_area"), area, null, ConstraintType.MUST) );
+	
+	var ctP = new Array();
+	ctP.push( DatasetFactory.createConstraint("___int___id", jsonObj['cod_origem'], jsonObj['cod_origem'], ConstraintType.MUST) );
+	ctP.push( DatasetFactory.createConstraint("table", "online.pon_origem_negocio", null, ConstraintType.MUST) );
+	var orig = DatasetFactory.getDataset('selectTablePostgreSQL', ['origem_negocio'], ctP, null );
+	if( orig.rowsCount > 0 ){
+		constraints.push( DatasetFactory.createConstraint( pipe.getValue(0,"token_origem"), orig.getValue(0,"origem_negocio") , null, ConstraintType.MUST) );
+	}
+	constraints.push( DatasetFactory.createConstraint( pipe.getValue(0,"token_proc_fluig"), jsonObj['processo'], null, ConstraintType.MUST) );
+	constraints.push( DatasetFactory.createConstraint( pipe.getValue(0,"token_showroom"), jsonObj['showroom'].replace('Pool:Role:',''), null, ConstraintType.MUST) );
+		
+	var constraintsFilhos = new Array();
+	constraintsFilhos.push( DatasetFactory.createConstraint("area" , area, null, ConstraintType.MUST) );
+	constraintsFilhos.push( DatasetFactory.createConstraint("tablename", "token_deal", "token_deal", ConstraintType.MUST) );
+	constraintsFilhos.push( DatasetFactory.createConstraint("metadata#id", pipe.getValue(0,"documentid"), pipe.getValue(0,"documentid"), ConstraintType.MUST) );
+	constraintsFilhos.push( DatasetFactory.createConstraint("metadata#version", pipe.getValue(0,"version"), pipe.getValue(0,"version"), ConstraintType.MUST) );
+	constraintsFilhos.push( DatasetFactory.createConstraint("metadata#active", "true", "true", ConstraintType.MUST) );
+	var datasetFilhos = DatasetFactory.getDataset('pipedrive', null, constraintsFilhos, null );
+	if ( datasetFilhos != null ){
+		for(var i = 0; i < datasetFilhos.rowsCount; i++ ){
+			constraints.push( DatasetFactory.createConstraint( datasetFilhos.getValue(i,"token_opor"), jsonObj[ datasetFilhos.getValue(i,"campo_opor") ], null, ConstraintType.MUST) );		
+		}
+	}
+	var deals = DatasetFactory.getDataset("pipedriveDealsDML", null, constraints, null);
+	
+	if( deals.rowsCount > 0 ){
+		
+		idDealVendedor = deals.getValue(0,"id");
+		
+		newDataset.addRow( new Array( orgId, idPerson, idDealVendedor ) );
+	}
+    
+//	try{
+//
+//	     var indexes = jsonObj['hist'];
+//	     
+//	     for (var i = 0; i < indexes.length; i++) {
+//	
+//	    	 if( hAPI.getCardValue("user_hist___"+indexes[i]) != undefined 
+//	    	  && hAPI.getCardValue("user_hist___"+indexes[i]) != null
+//	    	  && hAPI.getCardValue("desc_hist___"+indexes[i]) != undefined 
+//	    	  && hAPI.getCardValue("desc_hist___"+indexes[i]) != null ){
+//	    		 
+//		    	 var constraints = new Array();
+//			   	  constraints.push( DatasetFactory.createConstraint( "area" , area, null, ConstraintType.MUST) );
+//			   	
+//			   	  constraints.push( DatasetFactory.createConstraint( "content" , indexes[i]["user_hist"] +": "+indexes[i]["desc_hist"], null, ConstraintType.MUST) );
+//			   	  constraints.push( DatasetFactory.createConstraint( "user_id" , pipedriveUser, null, ConstraintType.MUST) );
+//			   	  constraints.push( DatasetFactory.createConstraint( "deal_id" , idDealVendedor, null, ConstraintType.MUST) );
+//			   	  var dh = indexes[i]['data_hist'];
+//			   	  dh = dh.split(' ')[0].split('/').reverse().join('-')+' '+dh.split(' ')[1]
+//			   	  constraints.push( DatasetFactory.createConstraint( "add_time" , dh, null, ConstraintType.MUST) );
+//			   	  constraints.push( DatasetFactory.createConstraint( "pinned_to_deal_flag" , "0", null, ConstraintType.MUST) );
+//			   	  
+//			   	  var pipedriveNote = DatasetFactory.getDataset("pipedriveNoteDML", null, constraints, null);
+//	    	 }
+//	     }
+//	     
+//	 }catch(e){
+//	 }
+     
+	 try{
+		 
+    	var obsGeral =  'Solicitação de cadastro realizado via fluig' + ' \n '+ ' \n '+
+				 		'Nome do Parceiro: ' + jsonObj['nome'] + ' \n '+
+						'Vendedor: ' + jsonObj["nome_user_vendedor"] + '\n '+
+						'Dados de Cadastro: ' + jsonObj["dados_orcamento"];
+//    				   "Proprietario: "+hAPI.getCardValue("proprietario")+" - "+hAPI.getCardValue("telefone_prop")+" - "+hAPI.getCardValue("email_prop")+"\n "+
+//    	  			   "Profissional: "+fProf+" - "+hAPI.getCardValue("profissional")+" - "+hAPI.getCardValue("telefone_prof");
+    	var constraints = new Array();
+	   	constraints.push( DatasetFactory.createConstraint( "area" , area, null, ConstraintType.MUST) );
+	   	constraints.push( DatasetFactory.createConstraint( "content" , obsGeral, null, ConstraintType.MUST) );
+	   	constraints.push( DatasetFactory.createConstraint( "user_id" , pipedriveUser, null, ConstraintType.MUST) );
+	   	constraints.push( DatasetFactory.createConstraint( "deal_id" , idDealVendedor, null, ConstraintType.MUST) );
+	   	constraints.push( DatasetFactory.createConstraint( "pinned_to_deal_flag" , "0", null, ConstraintType.MUST) );
+	   	var pipedriveNote = DatasetFactory.getDataset("pipedriveNoteDML", null, constraints, null); 
+	   	  
+	 }catch(e){
+		 
+	 }
+	 
+	 return newDataset;
+	
+}
+
+//Don't touch in this code below...  It's just a class that do anything
+var Manager = function (path, logName) {
+
+    path = path;
+    logName = logName;
+    this.connectionWD = null;
+    newDataset = DatasetBuilder.newDataset();
+    constraint = {};
+    columnsCreated = false;
+
+    gettedRows = {}; //U can get an array dataset row values of col calling getRowValues('NAME_OF_COL'), then just using  " gettedRows.NAME_OF_COL " -> this return an array[]
+
+    function openConnection() {
+        try {
+            var contextWD = new javax.naming.InitialContext();
+            var dataSourceWD = contextWD.lookup(path);
+            this.connectionWD = dataSourceWD.getConnection();
+        }
+        catch (e) {
+            logs("ERRO 1: " + e.message + "(#" + e.lineNumber + ")");
+        }
+    };
+
+    function closeConnection(statementWD) {
+        if (statementWD != null) {
+            statementWD.close();
+        }
+        if (this.connectionWD != null) {
+            this.connectionWD.close();
+        }
+    };
+
+    function addColumnDataset(colums) {
+        colums.map(function (name) {
+            newDataset.addColumn(name);
+        });
+
+        columnsCreated = true;
+    };
+
+    function executeSQL(statementWD, action) {
+        try {
+            if (action == "UPDATE" || action == "INSERT") {
+                statementWD.executeUpdate();
+                
+                newDataset.addColumn("SUCCESS");
+                newDataset.addRow(['Success to execute ' + action]);
+                return;
+            }
+            else {
+                var rsWD = statementWD.executeQuery();
+                var columsName = newDataset.getColumnsName();
+
+                while (rsWD.next()) {
+                    if (!columnsCreated) {
+                        var columnCount = rsWD.getMetaData().getColumnCount();
+
+                        for (var i = 1; i <= columnCount; i++) {
+                            newDataset.addColumn(rsWD.getMetaData().getColumnName(i));
+                        }
+                        columnsCreated = true;
+                        columsName = newDataset.getColumnsName();
+                    }
+
+                    var resultSQL = columsName.map(function (name) {
+                        return rsWD.getString(name)
+                    });
+
+                    newDataset.addRow(resultSQL);
+                }
+            }
+        }
+        catch (e) {
+            var message_error = "ERRO 2: " + e.message + "(#" + e.lineNumber + ")";
+            logs(message_error);
+            newDataset.addColumn("ERROR");
+            newDataset.addRow([message_error]);
+            return;
+        }
+        finally {
+            closeConnection(statementWD);
+        }
+    };
+
+
+    function getRowValues(colName) {
+        var tmp = []
+
+        for (var i = 0; i < newDataset.getRowsCount(); i++) {
+            tmp.push(newDataset.getValue(i, constraint[colName]))
+        }
+
+        gettedRows[colName] = tmp;
+    }
+
+    function createConstraint(constraints) {
+        for (var ctrs in constraints) {
+            typeName = constraints[ctrs].getFieldName().toString();
+            constraint[typeName] = constraints[ctrs].initialValue;
+
+            if (constraints[ctrs].initialValue != constraints[ctrs].finalValue && constraints[ctrs].finalValue != null && constraints[ctrs].finalValue != "") {
+                constraint["FINAL_" + typeName] = constraints[ctrs].finalValue;
+            }
+        }
+    };
+
+    function logs(message) {
+        log.info(logName + " - " + message)
+    };
+
+    function getDataset() {
+        return newDataset;
+    };
+
+    return {
+        openConnection: openConnection,
+        closeConnection: closeConnection,
+        addColumnDataset: addColumnDataset,
+        executeSQL: executeSQL,
+        logs: logs,
+        createConstraint: createConstraint,
+        getDataset: getDataset,
+        getRowValues: getRowValues,
+
+        constraint: constraint,
+    }
+}
+
+function getUserSetor(cod_funil){
+
+    if ( cod_funil == '14' ){
+
+        var sql =   "select  "+
+                "    ktp.id, "+
+                "    ktp.NOME, "+
+                "    ktp.EMAIL, "+
+                "    ktp.DOCUMENTO, "+
+                "    (select count(*) as qtd "+
+                "    from kbt_t_parceiros_cupons ktpc "+
+                "    where ktpc.id_destino = ktp.id)  as qtd  "+
+                "from kbt_t_parceiros ktp "+
+                "where tipo_cadastro = 'D' "+
+                " and inativo = 0 "+
+                "group by "+
+                "    ktp.id, "+
+                "    ktp.NOME, "+
+                "    ktp.EMAIL, "+
+                "    ktp.DOCUMENTO "+
+                "order by qtd "+
+                "    limit 1 ";
+    
+        const constraint = [
+            publicDataset.createConstraint('dataBase', 'java:/jdbc/FluigDS', null, ConstraintType.MUST),
+            publicDataset.createConstraint('sql', 	 sql, null, ConstraintType.MUST),
+        ];
+
+        $that.load.show();
+        publicDataset.getDataset("select", null, constraint, null, {
+            success: data => {
+                if (data.hasOwnProperty("values") && data.values.length > 0 && data.columns[0] != 'ERROR') {
+                    var dsUser = data.values;
+                    
+                    $('#cod_usuario_respon').val( dsUser[0]['documento'].replaceAll('.','').replaceAll('-','').replaceAll('/','') );
+                    $('#usuario_respon').val( dsUser[0]['nome'] );
+                    $('#id_destino').val( dsUser[0]["id"] );
+
+                    const constraint = [
+                        publicDataset.createConstraint('area', $('#area').val(), null, ConstraintType.MUST),
+                        publicDataset.createConstraint('email', dsUser[0]['email'], null, ConstraintType.MUST),
+                    ];
+            
+                    publicDataset.getDataset("pipedriveUser", null, constraint, null, {
+                        success: data => {
+                            if (data.hasOwnProperty("values") && data.values.length > 0 && data.columns[0] != 'ERROR') {
+                                var pipedriveUser = data.values;
+                                $('#id_user_pipedrive').val( pipedriveUser[0]["id"] );
+						        $('#nome_user_pipedrive').val( pipedriveUser[0]["name"] );
+                            } else {
+                                alert("Email não cadastrado no pipeDrive.");
+                                return false;
+                            }
+                            $that.load.hide();
+                        }
+                    });
+
+                } else {
+                    // alert("Usuário não encontrado na kbt_t_vendedor_estatisica.");
+                }
+            }
+        });
+
+    }
+    
+    if ( cod_funil == '7' ) {
+
+        var sql =   "select ps.cnpj_cpf, ps.nome_razao, pe.email "+
+                    "from online.pon_pessoa ps  "+
+                    "join online.pon_pessoa_patrocinador pt on (ps.id = pt.id_pessoa)  "+
+                    "join online.pon_pessoa_email pe ON (pe.id_pessoa = ps.id and pe.principal = 'true') "+
+                    "where "+
+                    "    pt.id_grupo = 22 "+
+                    "    and equipe = 'JUNIOR' ";
+    
+        const constraint = [
+            publicDataset.createConstraint('dataBase', 'java:/jdbc/CRMDS', null, ConstraintType.MUST),
+            publicDataset.createConstraint('sql', sql, null, ConstraintType.MUST),
+        ];
+        $that.load.show();
+
+        publicDataset.getDataset("select", null, constraint, null, {
+            success: data => {
+                if (data.hasOwnProperty("values") && data.values.length > 0 && data.columns[0] != 'ERROR') {
+                    var dsUser = data;
+                    var row = Math.floor(Math.random() * dsUser.values.length ); 
+
+                    $('#cod_usuario_respon').val( dsUser.values[ row ]['cnpj_cpf'] );
+                    $('#usuario_respon').val( dsUser.values[ row ]['nome_razao'] );
+
+                    const constraint = [
+                        publicDataset.createConstraint('area', $('#area').val(), null, ConstraintType.MUST),
+                        publicDataset.createConstraint('email', dsUser.values[ row ]['email'], null, ConstraintType.MUST),
+                    ];
+            
+                    publicDataset.getDataset("pipedriveUser", null, constraint, null, {
+                        success: data => {
+                            if (data.hasOwnProperty("values") && data.values.length > 0 && data.columns[0] != 'ERROR') {
+                                var pipedriveUser = data.values;
+                                $('#id_user_pipedrive').val( pipedriveUser[0]["id"] );
+						        $('#nome_user_pipedrive').val( pipedriveUser[0]["name"] );
+                                // $('#id_user_vendedor').val( pipedriveUser[0]["id"] );
+						        // $('#nome_user_vendedor').val( pipedriveUser[0]["name"] );
+                            } else {
+                                alert("Email não cadastrado no pipeDrive.");
+                                return false;
+                            }
+                            $that.load.hide();
+                        }
+                    });
+
+                } else {
+                    // alert("Usuário não encontrado na kbt_t_vendedor_estatisica.");
+                }
+            }
+        });
+
+    } 
+    
+    if( cod_funil == '1' ) {
+
+        var sql =   "select ps.cnpj_cpf, ps.nome_razao, pe.email "+
+                    "from online.pon_pessoa ps  "+
+                    "join online.pon_pessoa_patrocinador pt on (ps.id = pt.id_pessoa)  "+
+                    "join online.pon_pessoa_email pe ON (pe.id_pessoa = ps.id and pe.principal = 'true') "+
+                    "where "+
+                    "    pt.id_grupo = 13 "+
+                    "    and equipe = 'JUNIOR' ";
+    
+        const constraint = [
+            publicDataset.createConstraint('dataBase', 'java:/jdbc/CRMDS', null, ConstraintType.MUST),
+            publicDataset.createConstraint('sql', sql, null, ConstraintType.MUST),
+        ];
+        $that.load.show();
+
+        publicDataset.getDataset("select", null, constraint, null, {
+            success: data => {
+                if (data.hasOwnProperty("values") && data.values.length > 0 && data.columns[0] != 'ERROR') {
+                    var dsUser = data;
+                    var row = Math.floor(Math.random() * dsUser.values.length ); 
+
+                    $('#cod_usuario_respon').val( dsUser.values[ row ]['cnpj_cpf'] );
+                    $('#usuario_respon').val( dsUser.values[ row ]['nome_razao'] );
+
+                    const constraint = [
+                        publicDataset.createConstraint('area', $('#area').val(), null, ConstraintType.MUST),
+                        publicDataset.createConstraint('email', dsUser.values[ row ]['email'], null, ConstraintType.MUST),
+                    ];
+            
+                    publicDataset.getDataset("pipedriveUser", null, constraint, null, {
+                        success: data => {
+                            if (data.hasOwnProperty("values") && data.values.length > 0 && data.columns[0] != 'ERROR') {
+                                var pipedriveUser = data.values;
+                                $('#id_user_pipedrive').val( pipedriveUser[0]["id"] );
+						        $('#nome_user_pipedrive').val( pipedriveUser[0]["name"] );
+                                // $('#id_user_vendedor').val( pipedriveUser[0]["id"] );
+						        // $('#nome_user_vendedor').val( pipedriveUser[0]["name"] );
+                            } else {
+                                alert("Email não cadastrado no pipeDrive.");
+                                return false;
+                            }
+                            $that.load.hide();
+                        }
+                    });
+
+                } else {
+                    // alert("Usuário não encontrado na kbt_t_vendedor_estatisica.");
+                }
+            }
+        });
+
+    }
+
+
+}

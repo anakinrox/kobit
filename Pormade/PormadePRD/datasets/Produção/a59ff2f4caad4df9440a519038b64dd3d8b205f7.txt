@@ -1,0 +1,46 @@
+a59ff2f4caad4df9440a519038b64dd3d8b205f7 - CEP da Obra
+d7d2be2f932240b3d2c5f773f0cbf12cb8345860 - CNPJ Empreendimento
+77f2d4604803b2166f25ab36d0535f0ecb3a0a85 - CNPJ Incorporadora
+f41edbb59ada8768ebb86009861359683d8279b9 - Desconto Final
+f8f3ce002f633ce348f70d03f29f3d7ba3862fce - Email para envio da nota fiscal
+80ed4423b1ece1cf81bbe37087a8092efd1ffa6a - endereco da Obra
+aaee9df42f2305d1ade2a9fb0d223c89ca100f79 - Entrega das portas Data Estimada
+24ab0cbc6b7ec8c8d37f5aba40d183caceaf7800 - Gatilho de atividades vencidas
+f4a1cefb53c568d2004762fc1ebb0fef37f1d3f7 - Gatilho e-mail vencidos
+514826f403987aeae248f15f01fb9120b09643bf - ID WS Obra
+294383f75a14f8f911c5f556efe215fe9defa857 - Nome da Obra
+cb741a6f045ab748b2561c3f92cd1ca32cb83776 - Nome do Empreendimento
+
+b3682c84c83f1f4569326bed4c57c7157b7be1f7 - Nome da Incorporadora
+94c6481730f0bb80dc1afd8ff5929c88cb7efba4 - Num. Proposta APT Modelo
+
+ffbd12532f81d3ff30031438aa8f85d93ac12217 - Num. Proposta Licitação
+40331fcfd443f28b0fd610f1f14d096cda39c19c - Num. Proposta Total
+eed2c121a224b9b70f5228f9d6d7aa38776880a9 - Num. Proposta complementar.
+6be8abfa06949351119d00d3fb3ad27bce8fc963 - Num. proposta Parcial.
+
+d014a279a535d682114527067d34413d44d1b60d - Origem Prospecção
+8cd40472309eaff88b366530c6a99bfb2cbc886a - Padrao da Obra
+
+1c207033de6244723272ec05f0dd54107800ccd1 - Processo no Fluig.
+35496edfe62ef748c95c19fca7ae36c592a203ee - ShowRoom -- OK
+d92746bba725cbcba37172f7120379b6369d5af9 - Temperatudo do Megócio
+f7663c14693bf4f3722cc9056a9c16ecb0404c9b - Unidades de Portas total.
+20db38b06275aa3b60055976a0bdadf8238bd62d - Área.
+
+expected_close_date - Data Fechamento Esperada
+stage_id - Etapa -- OK
+label - Etiqueta
+pipeline_id - Funil
+org_id - Organização
+person_id - Pessoa de contato -- OK
+probability - Probalidade
+user_id - Proprietário -- OK
+title - Titulo
+value - Valor
+visible_to - Visivel Para
+
+
+done_activities_count
+
+942dc73009123511236ba96b0854f9d1ea229685

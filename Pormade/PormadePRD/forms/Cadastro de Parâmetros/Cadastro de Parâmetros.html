@@ -1,0 +1,65 @@
+<html>
+<head>
+	<link type="text/css" rel="stylesheet" href="/style-guide/css/fluig-style-guide.min.css"/>
+	<script type="text/javascript" src="/portal/resources/js/jquery/jquery.js"></script>
+	<script type="text/javascript" src="/portal/resources/js/jquery/jquery-ui.min.js"></script>
+	<script type="text/javascript" src="/portal/resources/js/mustache/mustache-min.js"></script>
+	<script type="text/javascript" src="/style-guide/js/fluig-style-guide.min.js" charset="utf-8"></script>
+	<script type="text/javascript" src="./utils.js" charset="utf-8"></script>
+</head>
+<body>
+	<div class="fluig-style-guide">
+		<form name="form" role="form">
+			<div class="container-fluid" style="padding-left: 0px; padding-right: 0px; ">
+				<div class="panel panel-info">
+
+					<div class="panel-heading fs-txt-center">
+						<table width="100%">
+							<tr>
+								<td width="5%" align=left></td>
+								<td width="90%" align=center><b>Cadastro de Parâmetros</b></td>
+								<td width="5%" align=right></td>
+							</tr>
+						</table>
+					</div>
+
+					<div class="panel-body">
+
+						<div class="row">
+
+							<div class="col-md-2 col-lg-2">
+								<label class="control-label" for="txtNome">Parâmetro</label>
+								<input type="text" class="form-control grp_user valida" name="nome_parametro" id="nome_parametro" >
+							</div>
+
+							<div class="col-md-2 col-lg-2">
+								<label class="control-label" for="txtNome">Tipo Cadastro</label>
+								<select name="tipo_cadastro" id="tipo_cadastro" class="form-control" dataset="kbt_t_tipo_cadastro" datasetkey="documentid" datasetvalue="tipo_cadastro"></select>
+							</div>
+
+							<div class="col-md-2 col-lg-2">
+								<label class="control-label" for="txtNome">Tipo de Dados</label>
+									<select name="tipo_dados" id="tipo_dados" class="form-control">
+										<option value="S">String</option>
+										<option value="D">Date</option>
+										<option value="N">Number</option>
+										<option value="F">FLoat</option>
+										<option value="T">Time</option>
+									</select>
+							</div>
+
+							<div class="col-md-2 col-lg-2">
+								<label class="control-label" for="txtNome">Valor Padrão</label>
+								<input type="text" class="form-control grp_user valida" name="valor_padrao" id="valor_padrao" >
+							</div>
+
+						</div>
+
+					</div>
+
+				</div>			
+			</div>
+		</form>
+	</div>
+</body>
+</html>

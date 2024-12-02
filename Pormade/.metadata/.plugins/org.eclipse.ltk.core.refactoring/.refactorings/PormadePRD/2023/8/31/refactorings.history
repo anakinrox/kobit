@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy element &apos;events&apos; to &apos;Cadastro Tipo de Visitas&apos;&#x0D;&#x0A;- Original project: &apos;PormadePRD&apos;&#x0D;&#x0A;- Destination element: &apos;Cadastro Tipo de Visitas&apos;&#x0D;&#x0A;- Original element: &apos;events&apos;" description="Copy folder" element1="forms/335437 - Cadastro de Tipo de Local de Visita/events" files="0" flags="589830" folders="1" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyResources" stamp="1691062049369" target="/PormadePRD/forms/Cadastro Tipo de Visitas" units="0" version="1.0"/>
+</session>

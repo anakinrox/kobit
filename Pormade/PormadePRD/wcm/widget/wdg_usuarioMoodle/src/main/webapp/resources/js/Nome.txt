@@ -1,0 +1,8 @@
+Nome
+SobreNome
+Solicitacao
+status
+idMoodle
+percentualMoodle
+usuarioMoodle
+createadAt

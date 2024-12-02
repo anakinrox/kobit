@@ -1,0 +1,346 @@
+<html>
+<head>
+
+	<link type="text/css" rel="stylesheet" href="controle.css"/>
+	<link type="text/css" rel="stylesheet" href="/portal/resources/style-guide/css/fluig-style-guide.min.css"/>
+	<script type="text/javascript" src="/portal/resources/js/jquery/jquery.js"></script>
+	<script type="text/javascript" src="/portal/resources/js/jquery/jquery-ui.min.js"></script>
+	<script type="text/javascript" src="/portal/resources/js/mustache/mustache-min.js"></script>
+	<script type="text/javascript" src="/portal/resources/style-guide/js/fluig-style-guide.min.js" charset="utf-8"></script>
+	<script type="text/javascript" language="javascript" src="validafunctions.js"></script>
+	<script type="text/javascript" src="/portal/resources/js/jquery.mask.min.js"></script>
+	<script type="text/javascript" src="jquery.maskMoney.min.js"></script>
+	<script type="text/javascript" src="./controle.js"></script>
+	<script type="text/javascript" src="/webdesk/vcXMLRPC.js"></script>
+	
+</head>
+<body class="fluig-style-guide" onload="loadBody()"> 
+<form name="form" role="form" >
+	<div class="container-fluid" id="divPrincipal">
+		<div class="fluig-style-guide" id="divPrincipal">
+			<div class="panel panel-info" id="aba_1"  >
+				<div class="panel-heading fs-txt-center">
+	            	Despesas - Pormade
+	        	</div>
+	    		<div class="panel-body">
+	    			<div class="row">
+		    			<div class="col-sm-6">
+							<div class="row">
+							    <div class="col-sm-8">
+				                	<label for="txtNome">Solicitante</label>
+									<input type="text" class="form-control" name="solicitante" id="solicitante" readonly />
+									<input type="hidden" class="form-control" name="codsolicitante" id="codsolicitante" />
+						        </div>	
+						        <div class="col-sm-4">
+					            	<label for="txtNome">Data </label>
+									<input name="datadespesa" id="datadespesa" type="text" class="form-control" readonly >
+						    	</div>
+							</div>
+						
+							<div class="row">
+						        <div class="col-md-8">
+				                	<label for="txtNome">Gestor</label>
+									<input type="text" class="form-control" name="gestor" id="gestor" readonly />
+									<input type="hidden" class="form-control" name="codgestor" id="codgestor" />
+			        		    </div>
+			        		</div>
+			        	</div>
+			        	<div class="col-sm-6" id="total_depesas">
+			        		<div class="row">
+							    <div class="col-sm-6">
+			                		<label for="txtNome">Total Relatorio R$ </label>
+									<input name="valordespesa" id="valordespesa" type="text" class="form-control totais" readonly style="text-align:center" >
+						    	</div>
+						    	<div class="col-sm-6">
+			                		<label for="txtNome">Acumulado M&ecirc;s R$ </label>
+									<input name="valormes" id="valormes" type="text" class="form-control totais" readonly style="text-align:center" >
+						    	</div>
+			        		</div>
+			        	</div>
+			        	<div class="col-sm-6" id="total_adiantamento">
+			        		<div class="row">
+						    	<div class="col-sm-4">
+			                		<label for="txtNome">Adiantamento R$ </label>
+									<input name="valoradiant" id="valoradiant" type="tel" class="form-control totaisAdt" style="text-align:center" onblur="calculatotal();" >
+						    	</div>
+						    	
+						    	<div class="col-sm-4">
+		                			<label for="txtNome">Saldo Anterior R$</label>
+		                			<input name="saldoAcum" id="saldoAcum" type="tel" class="form-control totaisAdt" readonly style="text-align:center" >			        			
+			        			</div>
+						    	
+							    <div class="col-sm-4">
+		                			<label for="txtNome">Novo Saldo R$ </label>
+		                			<input name="novosaldo" id="novosaldo" type="text" class="form-control totaisAdt" readonly style="text-align:center" >
+								</div>
+								
+			        		</div>
+			        		
+			        		<div class="row">
+				        		<div class="col-sm-6">
+			                		<label for="txtNome">Total Relatorio R$ </label>
+									<input name="totaldespesa" id="totaldespesa" type="text" class="form-control totaisAdt" readonly style="text-align:center" >
+						    	</div>
+				        				        			
+			        			<div class="col-sm-6">
+		                			<label for="txtNome">Saldo Total R$</label>
+									<input name="saldoTotal" id="saldoTotal" type="tel" class="form-control totaisAdt" readonly style="text-align:center"  >
+			        			</div>
+			        			
+			        		</div>
+			        	</div>
+			        </div>
+			        
+			        <ul class="nav nav-tabs" role="tablist" onclick="autoSize();">
+						<li class="active"><a href="#aba_despesa" id="id_aba_desp"role="tab" data-toggle="tab">Despesas</a></li>
+						<li><a href="#aba_km" id="id_aba_km" role="tab" data-toggle="tab">KM</a></li>
+					    <li><a href="#aba_folowup" id="id_aba_fup" role="tab" data-toggle="tab">FolowUP</a></li>
+					</ul>
+
+					<div class="tab-content">
+						<div class="tab-pane active" id="aba_despesa" >
+							<div class="row">								
+						     	<div class="col-sm-12">
+								    <table class="table table-striped" id="tbItens" tablename="tbItens" nodeletebutton="true" noaddbutton="true" customFnDelete="itemremove(this)" >
+										<thead>
+											<tr>
+												<th width="50%" class="resumo" style="display: none;" >Descri&ccedil;&atilde;o</th>
+												<th width="11%" class="detalhe" >Data</th>
+												<th width="20%" class="detalhe" >Tipo Despesa</th>		
+												<th width="20%" class="detalhe unidade" ><div class="unidade">Unidade</div></th>
+												<th width="15%" class="detalhe" >Valor despesa</th>
+												<th width="50%" class="detalhe" >Obs</th>
+												<th width="2%" class="detalhe" ></th>
+											</tr>
+										</thead>
+										<tbody>
+											<tr detail="true" detailname="tbItens" >
+												<td class="resumo" style="display: none;" >
+													<input type="text" name="resumo" id="resumo" class="form-control" readonly />
+												</td>
+												<td class="detalhe" >
+													<input id="datadespesanf" name="datadespesanf" class="form-control dataFluig" type="text" onblur="trataCampo()" />
+												</td> 
+												<td class="detalhe" >
+													<select name="tipodespesa" id="tipodespesa" class="form-control" onchange="selectTipoDesp( this.id )"  >
+													</select> 
+													<input id="codTipoDespesa" name="codTipoDespesa" type="hidden" />
+													<input id="valor_padrao" name="valor_padrao" type="hidden" />
+													<input id="valor_maximo" name="valor_maximo" type="hidden" />
+													<input id="grupo_despesa" name="grupo_despesa" type="hidden" />
+													
+													<input id="verificar_desp" name="verificar_desp" type="hidden" />
+													
+												</td> 
+												<td class="detalhe unidade" >
+													<div class="unidade">
+														<select class="form-control" name="unidade" id="unidade" dataset="unidade" datasetkey="cod_unidade" datasetvalue="den_unidade" addBlankLine=true >
+														</select>
+													</div>
+												</td>
+												<td class="detalhe" >
+													<input id="valordespesaitem" name="valordespesaitem" type="tel" class="form-control valitem decimal_2" style="text-align:right" onblur="calculatotal();" />
+												</td> 
+												<td class="detalhe" >
+													<!-- <textarea rows="1" name="obsitem" id="obsitem" class="form-control" ></textarea> -->													
+													<input id="obsitem" name="obsitem" type="text" class="form-control" />
+												</td>
+												<td class="detalhe" >
+													<div class="input-group">
+														<div>
+															<div class="input-group">
+																<span name="insere_foto" id="insere_foto" class="btn btn-default btn-sm fluigicon fluigicon-camera fluigicon-xs showCamera" onclick="getNomeFile( this.children[0].name ); showCamera( fileName ); trataCampo();" tabindex="-1" >
+																	<input type="hidden" id="bt_foto" name="bt_foto" />
+																</span>
+																<span name="open_foto" id="open_foto" class="input-group-addon btn btn-default btn-sm fluigicon fluigicon-picture fluigicon-xs openFile" onclick="openFile( this.children[0].name );" tabindex="-1" >
+																	<input type="hidden" id="bt_open" name="bt_open" />
+																</span>
+															</div>
+														</div>
+														<input type="hidden" name="seqImagem" id="seqImagem" />
+														<input type="hidden" name="seqLinha" id="seqLinha" />
+														<input type="hidden" name="docum" id="docum" />
+														<input type="hidden" name="versao" id="versao" />
+														<input type="hidden" name="desc_docum" id="desc_docum" />
+														<span name="btDelItem" id="btDelItem" class="input-group-addon btn btn-default btn-sm fluigicon fluigicon-trash fluigicon-xs btDel" type="button" onclick="itemremove(this);" tabindex="-1" ></span>
+													</div>
+												</td>
+											</tr>
+										</tbody>
+									</table>
+								    <button type="button" class="btn btn-primary btMobile" id="addActivityButton" data-toggle="button" onclick="addTask()">Adicionar Item</button>
+								</div>
+							</div>
+						</div>
+						
+						<div class="tab-pane" id="aba_km" >
+							<div class="row">								
+						     	<div class="col-sm-12">
+								    <table class="table table-condensed table-nonfluid table-striped" id="tbKM" tablename="tbKM" nodeletebutton="true" noaddbutton="true" customFnDelete="itemremove(this)" >
+										<thead>
+											<tr>
+												<th width="50%" class="resumo" style="display: none;" >Desc.</th>
+												<th width="10%" class="detalhe" >Data</th>
+												<th width="20%" class="detalhe" >KM Inicial</th>		
+												<th width="20%" class="detalhe" >KM Final</th>
+												<th width="10%" class="detalhe" >KM Dia</th>
+												<th width="10%" class="detalhe" >Valor Dia</th>
+												<th width="30%" class="detalhe" >Obs</th>
+											</tr>
+										</thead>
+										<tbody>
+											<tr detail="true" detailname="tbKM" >
+												<td class="resumo" style="display: none;" >
+													<input type="text" name="resumo_km" id="resumo_km" class="form-control" readonly >
+												</td>
+												<td class="detalhe" >
+													<input id="datadespesa_km" name="datadespesa_km" class="form-control dataFluig" type="text" onblur="trataCampo()" />
+												</td> 
+												<td class="detalhe" >
+													<div class="input-group">
+														<input id="km_inicial" name="km_inicial" type="tel" class="form-control valitem decimal_0" style="text-align:right" onblur="calculatotal( );" />
+														<span name="insere_foto_km_ini" id="insere_foto_km_ini" class="input-group-addon btn btn-default btn-sm fluigicon fluigicon-camera fluigicon-xs showCamera" onclick="getNomeFile( this.children[0].name ); showCamera( fileName ); trataCampo();" tabindex="-1" >
+															<input type="hidden" id="bt_fotoKM_ini" name="bt_fotoKM_ini" />
+														</span>
+														<span name="open_foto_km_ini" id="open_foto_km_ini" class="input-group-addon btn btn-default btn-sm fluigicon fluigicon-picture fluigicon-xs openFile" onclick="openFile( this.children[0].name );" tabindex="-1" >
+															<input type="hidden" id="bt_openKM_ini" name="bt_openKM_ini" />
+														</span>
+													</div>													
+												</td>
+												<td class="detalhe" >
+													<div class="input-group">
+														<input id="km_final" name="km_final" type="tel" class="form-control valitem decimal_0" style="text-align:right" onblur="calculatotal(  );" />
+														<span name="insere_foto_km_fim" id="insere_foto_km_fim" class="input-group-addon btn btn-default btn-sm fluigicon fluigicon-camera fluigicon-xs showCamera" onclick="getNomeFile( this.children[0].name ); showCamera( fileName ); trataCampo();" tabindex="-1" >
+															<input type="hidden" id="bt_fotoKM_fim" name="bt_fotoKM_fim" />
+														</span>
+														<span name="open_foto_km_fim" id="open_foto_km_fim" class="input-group-addon btn btn-default btn-sm fluigicon fluigicon-picture fluigicon-xs openFile" onclick="openFile( this.children[0].name );" tabindex="-1" >
+															<input type="hidden" id="bt_openKM_fim" name="bt_openKM_fim" />
+														</span>
+													</div>
+												</td>
+												<td class="detalhe" >
+													<input id="km_dia" name="km_dia" type="text" class="form-control valitem" style="text-align:right" readonly/>
+												</td> 
+												<td class="detalhe" >
+													<input id="km_valor_dia" name="km_valor_dia" type="text" class="form-control valitem" style="text-align:right" readonly/>
+												</td> 
+												<td class="detalhe" >
+													<div class="input-group">
+														<!-- <textarea rows="1" name="obs_km" id="obs_km" class="form-control" ></textarea> -->
+														<input id="obs_km" name="obs_km" type="text" class="form-control" />
+														<span name="btDelKM" id="btDelKM" class="input-group-addon btn btn-default btn-sm fluigicon fluigicon-trash fluigicon-xs btDel" type="button" onclick="itemremove(this);" tabindex="-1" ></span>
+													</div>
+													<input type="hidden" name="seqImagemKM" id="seqImagemKM" />
+													<input type="hidden" name="seqLinhaKM" id="seqLinhaKM" />
+													<input type="hidden" name="documKM_ini" id="documKM_ini" />
+													<input type="hidden" name="versaoKM_ini" id="versaoKM_ini" />
+													<input type="hidden" name="documKM_fim" id="documKM_fim" />
+													<input type="hidden" name="versaoKM_fim" id="versaoKM_fim" />													
+													<input type="hidden" name="seqImagemKM_ini" id="seqImagemKM_ini" />
+													<input type="hidden" name="seqImagemKM_fim" id="seqImagemKM_fim" />
+													
+													<input id="verificar_km" name="verificar_km" type="hidden" />
+													
+													<input type="hidden" name="desc_documKM_ini" id="desc_documKM_ini" />
+													<input type="hidden" name="desc_documKM_fim" id="desc_documKM_fim" />
+													
+												</td>
+											</tr>
+										</tbody>
+									</table>
+	    				    		<button type="button" class="btn btn-primary btMobile" id="addKMButton" data-toggle="button" onclick="addKM()">Adicionar KM</button>
+								</div>
+							</div>			
+						</div>
+						
+						<div class="tab-pane" id="aba_folowup">
+							<div class="row">
+								<div class="col-sm-2">
+									<label for="exampleTag">Data</label>
+									<input type="text" class="form-control" name="data_fup" id="data_fup" readonly >
+								</div>
+								<div class="col-sm-4">
+									<label for="exampleTag">Usuario</label>
+									<input type="text" class="form-control" name="user_fup" id="user_fup" readonly >
+									<input type="hidden" class="form-control" name="cod_user_fup" id="cod_user_fup" readonly >
+								</div>								
+							</div>
+							<div class="row">
+								<div class="col-sm-12">
+									<label for="exampleTag">Interacao</label>
+									<textarea rows="4" name="descricao" id="descricao" class="form-control" ></textarea>
+								</div>				
+							</div>
+	
+							<div class="row" id="hist" name="hist" >	
+								<div class="col-sm-12">	
+									<table class="table table-condensed table-bordered" border="1" tablename="folowup"  noaddbutton=true nodeletebutton=true addbuttonclass="wdkbuttonClass" >
+										<thead>
+											<tr>
+												<td width='100%' class="cell-ellipsis"><b>Historico</b></td>
+											</tr>
+										</thead>
+											<tr>
+												<td>
+													<div class="row">
+														<div class="col-sm-3">
+															<label for="exampleTag">Data Hist.</label>
+															<input type="text" class="form-control" name="data_hist" id="data_hist" readonly >
+														</div>
+														<div class="col-sm-4">
+															<label for="exampleTag">Usuario</label>
+															<input type="text" class="form-control" name="user_hist" id="user_hist" readonly >
+															<input type="hidden" class="form-control" name="cod_user_hist" id="cod_user_hist" readonly >
+														</div>
+													</div>
+													<div class="row">
+														<div class="col-sm-12">
+															<textarea rows="3" name="desc_hist" id="desc_hist" class="form-control"  readonly ></textarea>
+														</div>
+													</div>
+												</td>
+											</tr>
+									</table>
+								</div>			
+							</div>
+						</div>
+						
+					</div>
+				</div>					
+			</div>
+    	</div>
+	</div>
+	<div id="divBloqueio" style="display: none;" >
+		<font color="red"><b>Você tem muitos processos de adiantamento em aberto, favor entrar em contaro com seu supervisor!<b></font>
+	</div>
+<input type="hidden" name="ultSeqLinha" id="ultSeqLinha" />
+<input type="hidden" name="ultSeqLinhaKM" id="ultSeqLinhaKM" />
+<input type="hidden" name="isMobile" id="isMobile" />
+<input type="hidden" name="valKM" id="valKM" />
+<input type="hidden" name="task" id="task" />
+<input type="hidden" name="processo" id="processo" />
+<input type="hidden" name="cod_processo" id="cod_processo" />
+<input type="hidden" name="tipo_usuario" id="tipo_usuario" />
+<input type="hidden" name="descricao_desp" id="descricao_desp" />
+
+<input type="hidden" name="tem_adiantamento" id="tem_adiantamento" />
+
+<!-- The Modal -->
+<!-- 
+<div id="myModal" class="modal">
+  <img class="modal-content" id="img01">
+  <div id="caption">
+  	<table width="100%" >
+  		<tr >
+  			<td width="10%" ><span class="legenda"><<</span></td>
+  			<td width="70%" ><span class="legenda">titulo</span></td>
+  			<td width="10%" ><span class="legenda"><span class="close">X</span></span></td>
+  			<td width="10%" align="right" ><span class="legenda">>></span></td>
+  		</tr>
+  	</table>
+  </div> 
+</div>
+-->
+</form>	
+</body>
+</html>

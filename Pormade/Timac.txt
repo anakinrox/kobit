@@ -1,0 +1,15 @@
+  - Itens que não retornaram são propostas anterior a data set corte 01/03/2024.
+
+
+
+Verificar busca de viagem finalizadas, não está filtrando e add um botão para filtra.
+
+Carrager cliente em NF de saida. == OK
+
+Alterar label de Fornecedor para ser Fornec / Cliente. == OK
+
+Tela já está ocultando campos de NF.
+
+Relatório não lista de não tem freteiro e produto. == OK
+
+Limpar tela ao cria uma nova.

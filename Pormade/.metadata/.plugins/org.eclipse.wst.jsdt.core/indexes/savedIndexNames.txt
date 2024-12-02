@@ -1,0 +1,19 @@
+INDEX VERSION 1.3+C:\Trabalho\Kobit\Pormade\.metadata\.plugins\org.eclipse.wst.jsdt.core\indexes
+103841199.index
+994043810.index
+3861006270.index
+4219173842.index
+1198038339.index
+416077665.index
+3516513875.index
+355319887.index
+55868840.index
+231159870.index
+3308712034.index
+322019631.index
+306092719.index
+295375702.index
+1879709318.index
+4183429575.index
+880958842.index
+235360201.index

@@ -1,0 +1,153 @@
+<html>
+  <head>
+    <link type="text/css" rel="stylesheet" href="/style-guide/css/fluig-style-guide.min.css" />
+    <script type="text/javascript" src="/portal/resources/js/jquery/jquery.js"></script>
+    <script type="text/javascript" src="/portal/resources/js/jquery/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="/portal/resources/js/mustache/mustache-min.js"></script>
+    <script type="text/javascript" src="/style-guide/js/fluig-style-guide.min.js" charset="utf-8"></script>
+    <script src="js/main.js"></script>
+    <script src="js/modalZoom.js"></script>
+  </head>
+  <body onload="init()">
+    <div class="fluig-style-guide">
+      <form name="form" role="form">
+        <input type="hidden" name="atividade" id="atividade" />
+        <input type="hidden" name="origem" id="origem" />
+
+        <input type="hidden" name="reservaId" id="reservaId" />
+
+        <input type="hidden" name="cod_cidade" id="cod_cidade" />
+        <input type="hidden" name="cidade" id="cidade" />
+        <input type="hidden" name="cod_uf" id="cod_uf" />
+        <input type="hidden" name="uf" id="uf" />
+        <input type="hidden" name="cod_pais" id="cod_pais" />
+
+        <div class="row">
+          <div class="col-md-2 col-xs-12">
+            <div class="form-group">
+              <label for="num_solic">N° Solicitação</label>
+              <input type="text" name="num_solic" id="num_solic" class="form-control" readonly />
+            </div>
+          </div>
+          <div class="col-md-6 col-xs-12">
+            <div class="form-group">
+              <label for="reserva">Rota</label>
+              <span class="required text-danger"><strong>*</strong></span>
+              <div class="input-group">
+                <input type="text" name="reserva" id="reserva" class="form-control" readonly />
+                <div id="btnReserva" class="input-group-addon group-zoom no-view zoom-click btn-primary" style="cursor: pointer">
+                  <span class="fluigicon fluigicon-zoom-in"></span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-4 col-xs-12">
+            <div class="form-group">
+              <label for="contato">Pessoa de contato</label>
+              <span class="required text-danger"><strong>*</strong></span>
+              <input type="text" name="contato" id="contato" class="form-control" />
+            </div>
+          </div>
+
+          <div class="col-md-4 col-xs-12">
+            <div class="form-group">
+              <label for="local_parceiro">Local</label>
+              <span class="required text-danger"><strong>*</strong></span>
+              <input type="text" name="local_parceiro" id="local_parceiro" class="form-control" />
+            </div>
+          </div>
+          <!-- <div class="col-md-4 col-xs-12">
+            <div class="form-group">
+              <label for="local_parceiro">Local</label>
+              <span class="required text-danger"><strong>*</strong></span>
+              <div class="input-group">
+                <input type="text" name="local_parceiro" id="local_parceiro" class="form-control" readonly />
+                <div id="btnLocal" class="input-group-addon group-zoom no-view zoom-click btn-primary" style="cursor: pointer">
+                  <span class="fluigicon fluigicon-zoom-in"></span>
+                </div>
+              </div>
+            </div>
+          </div> -->
+
+          <div class="col-md-4 col-xs-12">
+            <div class="form-group">
+              <label for="codigo_cupom">Código Cupom</label>
+              <input type="text" name="codigo_cupom" id="codigo_cupom" class="form-control" readonly />
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-4 col-xs-12">
+            <div class="form-group">
+              <label for="nome">Nome da Empresa</label>
+              <input type="text" name="nome" id="nome" class="form-control" />
+            </div>
+          </div>
+
+          <div class="col-md-4 col-xs-12">
+            <div class="form-group">
+              <label for="telefone">Telefone</label>
+              <span class="required text-danger"><strong>*</strong></span>
+              <input type="text" name="telefone" id="telefone" class="form-control" mask="(99) 99999-9999" />
+            </div>
+          </div>
+
+          <div class="col-md-4 col-xs-12">
+            <div class="form-group">
+              <label for="cidade_uf">Cidade</label>
+              <span class="required text-danger"><strong>*</strong></span>
+              <div class="input-group">
+                <input type="text" name="cidade_uf" id="cidade_uf" class="form-control" readonly />
+                <div id="btnCidade" class="input-group-addon group-zoom no-view zoom-click btn-primary" style="cursor: pointer">
+                  <span class="fluigicon fluigicon-zoom-in"></span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-4 col-xs-12">
+            <div class="form-group">
+              <label for="data_parceiro">Data</label>
+              <span class="required text-danger"><strong>*</strong></span>
+              <input type="text" name="data_parceiro" id="data_parceiro" class="form-control" />
+            </div>
+          </div>
+
+          <div class="col-md-4 col-xs-12">
+            <div class="form-group">
+              <label for="interesse">Interesse</label>
+              <select class="form-control" name="interesse" id="interesse">
+                <option value="">Selecione</option>
+                <option value="parceria">Parceria</option>
+                <option value="compras">Compras</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="col-md-4 col-xs-12">
+            <div class="form-group">
+              <label for="area_interesse">Área de Interesse</label>
+              <select class="form-control" name="area_interesse" id="area_interesse">
+                <option value="">Selecione</option>
+                <optgroup label="Parceiria">
+                  <option value="ADVI">ADVI</option>
+                  <option value="ADVA">ADVA</option>
+                  <option value="Store in Store">Store in Store</option>
+                </optgroup>
+                <optgroup label="Compras">
+                  <option value="Vendedores">Vendedores</option>
+                  <option value="Showroom">Showroom</option>
+                  <option value="Televendas">Televendas</option>
+                </optgroup>
+              </select>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </body>
+</html>

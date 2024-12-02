@@ -1,0 +1,150 @@
+<html>
+<head>
+	<link type="text/css" rel="stylesheet" href="/portal/resources/style-guide/css/fluig-style-guide.min.css"/>
+	<script type="text/javascript" src="/portal/resources/js/jquery/jquery.js"></script>
+	<script type="text/javascript" src="/portal/resources/js/jquery/jquery-ui.min.js"></script>
+	<script type="text/javascript" src="/portal/resources/js/mustache/mustache-min.js"></script>
+	<script type="text/javascript" src="/portal/resources/style-guide/js/fluig-style-guide.min.js" charset="utf-8"></script>
+	
+	<script type="text/javascript" src="/portal/resources/js/jquery.mask.min.js"></script>
+	<script type="text/javascript" src="jquery.maskMoney.min.js"></script>
+	<script type="text/javascript" src="./controle.js"></script>
+	<script type="text/javascript" src="/webdesk/vcXMLRPC.js"></script>
+	<script type="text/javascript" src="./utils.js"></script>
+	<script type="text/javascript" src="./zoom.js"></script>
+	<script type="text/javascript" src="./modalZoom.js"></script>
+	<script type="text/javascript" src="./fileUpload.js"></script>
+	
+</head>
+<body class="fluig-style-guide" onload="loadBody()"> 
+	<form name="form" role="form" >
+		<div class="container-fluid">
+			
+			<div class="panel panel-info">
+				<div class="panel-heading fs-txt-center">
+					Cadastro de veículos
+				</div>
+				<div class="panel-body">
+
+					<!-- Dados Pessoais -->
+					<div class="row">
+						<div class="col-sm-2">
+							<label for="txtNome">Empresa</label>
+							<select name="empresa" id="empresa" class="form-control"></select>
+						</div>
+						<div class="col-sm-2">
+							<label for="txtNome">Placa</label>
+							<div class="input-group">
+								<input type="text" class="form-control grp_placa" name="placa" id="placa" readonly/>
+								<span id="bt_placa" class="input-group-addon fluigicon fluigicon-zoom-in fluigicon-sm" onclick="zoom(this.id)"></span>
+								<span class="input-group-addon fluigicon fluigicon-eye-open fluigicon-lg" id="bt_ich_open" onclick="openFolder($('#num_pasta_veiculo').val());"  > </span>
+								<input type="hidden" name="num_pasta_veiculo" id="num_pasta_veiculo"/>
+								<input type="hidden" name="num_pasta_veiculos" id="num_pasta_veiculos" value="173946"/>
+						  	</div>
+						</div>
+
+						<div class="col-sm-2">
+							<label for="txtNome">Capacidade Carga</label>
+							<input type="text" class="form-control" name="capac_carga" id="capac_carga"/>
+						</div>
+
+						<div class="col-sm-2">
+							<label for="txtNome">Tipo</label>
+							<input type="text" class="form-control" name="tipo" id="tipo"/>
+						</div>
+
+						<div class="col-sm-2">
+							<label for="txtNome">Tamanho</label>
+							<input type="text" class="form-control" name="tamanho" id="tamanho"/>
+						</div>
+
+						<div class="col-sm-2">
+							<label for="txtNome">Cubagem</label>
+							<input type="text" class="form-control decimal-6" name="cubagem" id="cubagem"/>
+						</div>
+						
+
+					</div>
+					
+					<div class="row">
+					
+						<div class="col-sm-2">
+							<label for="txtNome">ANTT</label>
+							<input type="text" class="form-control integer-0" name="antt" id="antt"/>
+						</div>
+					
+						<div class="col-sm-2">
+							<label for="txtNome">Venc Antt</label>
+							<input type="text" class="form-control data-fluig" name="venc_antt" id="venc_antt"/>
+						</div>
+
+						<div class="col-sm-2">
+							<label for="txtNome">Tacografo</label>
+							<input type="text" class="form-control integer-0" name="tacografo" id="tacografo"/>
+						</div>
+						
+						<div class="col-sm-2">
+							<label for="txtNome">Venc Tacografo</label>
+							<input type="text" class="form-control data-fluig" name="venc_tacografo" id="venc_tacografo"/>
+						</div>
+
+						<div class="col-sm-2">
+							<label for="txtNome">Premio por KM</label>
+							<select name="premio_km" id="premio_km" class="form-control">
+								<option value="S">Sim</option>
+								<option value="N">Não</option>
+							</select>
+						</div>
+					</div>
+					
+					<div class="row">
+						<div class="col-sm-2">
+							<label for="txtNome">Renavam</label>
+							<input type="text" class="form-control integer-0" name="renavam" id="renavam"/>
+						</div>
+						
+						<div class="col-sm-2">
+							<label for="txtNome">Foto CRLV</label>
+							<div class="input-group">
+								<input type="text" class="form-control" name="doc_crlv" id="doc_crlv" readonly/>
+								<span class="input-group-addon fluigicon fluigicon-file-doc fluigicon-lg" id="bt_crlv" onclick="loadFile( this.id )" ></span>
+								<span class="input-group-addon fluigicon fluigicon-eye-open fluigicon-lg" id="bt_crlv_open" onclick="openFile( this );"  > </span>
+							</div>
+						</div>
+						
+						<div class="col-sm-2">
+							<label for="txtNome">Venc CRLV</label>
+							<input type="text" class="form-control data-fluig" name="venc_crlv" id="venc_crlv"/>
+						</div>
+
+						<div class="col-sm-2">
+							<label for="txtNome">Foto DUT</label>
+							<div class="input-group">
+								<input type="text" class="form-control" name="doc_dut" id="doc_dut" readonly/>
+								<span class="input-group-addon fluigicon fluigicon-file-doc fluigicon-lg" id="bt_dut" onclick="loadFile( this.id )" ></span>
+								<span class="input-group-addon fluigicon fluigicon-eye-open fluigicon-lg" id="bt_dut_open" onclick="openFile( this );"  > </span>
+							</div>
+						</div>
+					</div>
+					
+					<div class="row" style="display: none;">
+					
+						<div class="col-sm-4">
+							<label for="txtNome">Motorista</label>
+							<div class="input-group">
+								<input type="text" class="form-control grp_motorista" name="nome_motorista" id="nome_motorista" readonly/>
+								<input type="hidden" class="grp_motorista" name="cod_motorista" id="cod_motorista"/>
+								<span class="input-group-addon fluigicon fluigicon-eraser fluigicon-sm" onclick="$('.grp_motorista').val('')"></span>
+								<span id="bt_motorista" class="input-group-addon fluigicon fluigicon-zoom-in fluigicon-sm" onclick="zoom(this.id)"></span>
+						  	</div>
+						</div>
+					</div>
+					
+				</div>
+			</div>
+		</div>
+		<input type="hidden" name="descritor" id="descritor">
+		<input type="file" name="load_file" id="load_file" title="" style="display: none;" onchange="selectFile(this.files)" />
+	</form>	
+</body>
+</html>

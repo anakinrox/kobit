@@ -1,0 +1,685 @@
+
+function defineStructure() { }
+function onSync(lastSyncDate) { }
+
+function createDataset(fields, constraints, sortFields) {
+    printLog("info", "## Moodle START ##");
+    var newDataset = DatasetBuilder.newDataset();
+
+    var listaConstraits = {};
+    listaConstraits['indacao'] = '';
+
+    if (constraints != null) {
+        for (var i = 0; i < constraints.length; i++) {
+            listaConstraits[constraints[i].fieldName.trim()] = constraints[i].initialValue;
+        }
+    }
+
+
+
+    if (listaConstraits['indacao'] == '') {
+        listaConstraits['indacao'] = 'EQUIPE';
+        listaConstraits['uf'] = '';
+        listaConstraits['cidade'] = '';
+
+        listaConstraits['idproposta'] = '213449';
+        listaConstraits['idinstalador'] = '20152';
+        listaConstraits['datinicio'] = '2023-09-19';
+        listaConstraits['datfim'] = '2023-09-19';
+        listaConstraits['responsavel'] = 'Carlos';
+        listaConstraits['indtermo'] = 'N';
+        listaConstraits['whats'] = '(47) 98837-4358';
+
+        listaConstraits['idregistro'] = 'undefined'
+
+
+        // listaConstraits['proposta'] = '258609-1';
+        listaConstraits['token'] = '213449';
+        listaConstraits['wtoken'] = '7465';
+        listaConstraits['aprovar'] = 'S';
+        listaConstraits['visitouobra'] = 'N';
+        listaConstraits['numnota'] = '6';
+        listaConstraits['obsobra'] = '';
+
+        listaConstraits['indfoto'] = 'N';
+        // listaConstraits['codservico'] = '';
+
+        listaConstraits['json'] = '[{"idproposta":"213449","seq":"1304034","descricao":"PORTA LISA 70X210 SOLIDO BRANCO","local":"LAVABO TERRAÇO"},{"idproposta":"213449","seq":"1304032","descricao":"PORTA LISA 70X210 SOLIDO BRANCO","local":"LAVANDERIA SUPERIOR"},{"idproposta":"213449","seq":"1303687","descricao":"PORTA LISA 60X210 SOLIDO BRANCO","local":"BANHEIRO 04"},{"idproposta":"213449","seq":"1303686","descricao":"PORTA LISA 80X210 SOLIDO BRANCO","local":"SUITE 04"},{"idproposta":"213449","seq":"1303679","descricao":"PORTA LISA 60X210 SOLIDO BRANCO","local":"BANHEIRO 03"},{"idproposta":"213449","seq":"1303677","descricao":"PORTA LISA 80X210 SOLIDO BRANCO","local":"SUITE 03"},{"idproposta":"213449","seq":"1303672","descricao":"PORTA LISA 60X210 SOLIDO BRANCO","local":"BANHEIRO 02"},{"idproposta":"213449","seq":"1303670","descricao":"PORTA LISA 80X210 SOLIDO BRANCO","local":"SUITE 02"},{"idproposta":"213449","seq":"1303654","descricao":"PORTA LISA 80X210 SOLIDO BRANCO","local":"SUITE 01"},{"idproposta":"213449","seq":"1303649","descricao":"PORTA LISA 60X210 SOLIDO BRANCO","local":"BANHEIRO B"},{"idproposta":"213449","seq":"1303648","descricao":"PORTA LISA 60X210 SOLIDO BRANCO","local":"BANHEIRO A"},{"idproposta":"213449","seq":"1303605","descricao":"PORTA LISA 80X210 SOLIDO BRANCO","local":"ENTRADA SUITE MASTER"},{"idproposta":"213449","seq":"1303558","descricao":"PORTA LISA 60X210 SOLIDO BRANCO","local":"BANHEIRO SERVIÇO"},{"idproposta":"213449","seq":"1303549","descricao":"PORTA LISA 80X210 SOLIDO BRANCO","local":"DEPÓSITO"},{"idproposta":"213449","seq":"1303542","descricao":"PORTA LISA 70X210 SOLIDO BRANCO","local":"QUARTO SERVIÇO"},{"idproposta":"213449","seq":"1303534","descricao":"PORTA LISA 80X210 SOLIDO BRANCO","local":"BANHEIRO PISCINA"},{"idproposta":"213449","seq":"1303526","descricao":"PORTA LISA 80X210 SOLIDO BRANCO","local":"COZINHA"},{"idproposta":"213449","seq":"1303524","descricao":"PORTA LISA 80X210 SOLIDO BRANCO","local":"LAVABO TÉRREO"},{"idproposta":"213449","seq":"1303626","descricao":"PORTA LISA 82X210 SOLIDO BRANCO","local":"BANHEIRA/CORREDOR"},{"idproposta":"213449","seq":"1303662","descricao":"PORTA LISA 72X210 SOLIDO PRETO","local":"BANHEIRO 01"}]';
+    }
+
+    try {
+        if (listaConstraits['indacao'] == 'PROPOSTA') {
+            newDataset.addColumn('id');
+            newDataset.addColumn('data');
+            newDataset.addColumn('proposta');
+            newDataset.addColumn('idPessoa');
+            newDataset.addColumn('cliente');
+            newDataset.addColumn('idInstalador');
+            newDataset.addColumn('Instalador');
+
+            var connectionWD = null;
+            var statementWD = null;
+            var rsWD = null;
+            var contextWD = new javax.naming.InitialContext();
+            var dataSourceWD = contextWD.lookup('java:/jdbc/CRMDS');
+            connectionWD = dataSourceWD.getConnection();
+
+            var SQL = "select pr.id, TO_CHAR( pr.dh_emissao::date, 'yyyy-MM-dd') AS dh_emissao, pc.id_pessoa, p.nome_razao, pr.nr_proposta, pr.nr_versao, pr.id_instalador_instal, pInstador.nome_razao as instalador, pr.instalacao_inclusa ";
+            SQL += "from pon_proposta pr ";
+            SQL += "    inner join pon_pessoa_cliente pc on(pc.id = pr.id_cliente)  ";
+            SQL += "    inner join pon_pessoa p on(p.id = pc.id_pessoa)  ";
+            SQL += "    inner join fluig_v_cidade city on(city.uf = '" + listaConstraits['uf'] + "') "
+            SQL += "            and(city.cidade = '" + listaConstraits['cidade'] + "')  ";
+            SQL += "    inner join pon_pessoa_endereco pEnd on(pEnd.id_pessoa = pc.id_pessoa) ";
+            SQL += "            and(pEnd.cod_uf = city.cod_uf) ";
+            SQL += "            and(pEnd.cod_cidade = city.cod_cidade_ibge) ";
+            SQL += "            and(pEnd.principal = true) ";
+            SQL += "    left join pon_pessoa_arquiteto pIns on(pIns.id = pr.id_instalador_instal) ";
+            SQL += "    left join pon_pessoa pInstador on(pInstador.id = pIns.id_pessoa)  ";
+            SQL += "WHERE instalacao_inclusa = true ";
+            SQL += "and pr.id_status not in ('1', '2', '3', '4', '14', '21', '22', '25', '26') ";
+            SQL += "and not exists(select 1 from kbt_t_instalacoes where idproposta = pr.id) ";
+
+
+            statementWD = connectionWD.prepareStatement(SQL);
+            rsWD = statementWD.executeQuery();
+
+            while (rsWD.next()) {
+                newDataset.addRow(new Array(
+                    rsWD.getString('id') + "",
+                    rsWD.getString('dh_emissao') + "",
+                    rsWD.getString('nr_proposta') + "-" + rsWD.getString('nr_versao'),
+                    rsWD.getString('id_pessoa') + "",
+                    rsWD.getString('nome_razao') + "",
+                    rsWD.getString('id_instalador_instal') + "",
+                    rsWD.getString('instalador') + ""
+                ));
+            }
+
+            if (rsWD != null) rsWD.close();
+            if (statementWD != null) statementWD.close();
+            if (connectionWD != null) connectionWD.close();
+
+        }
+
+        if (listaConstraits['indacao'] == 'ITEMMODAL') {
+            newDataset.addColumn('idproposta');
+            newDataset.addColumn('seq');
+            newDataset.addColumn('produto');
+            newDataset.addColumn('local');
+
+
+            var connectionWD = null;
+            var statementWD = null;
+            var rsWD = null;
+            var contextWD = new javax.naming.InitialContext();
+            var dataSourceWD = contextWD.lookup('java:/jdbc/CRMDS');
+            connectionWD = dataSourceWD.getConnection();
+
+            var SQL = "select  pi.id as seq, pp.descricao, pi.local  ";
+            SQL += "from pon_proposta_itens pI  ";
+            SQL += "    inner join pon_proposta_componentes d on(pI.id = d.id_proposta_item) ";
+            SQL += "    inner join pon_produtos pp on(pp.id = d.id_produto) ";
+            SQL += "            and(pp.id_produto_tipo not in (1,7,12,24,25,26,4,22)) ";
+            SQL += "where pi.id_proposta = " + listaConstraits['proposta'];
+
+
+            statementWD = connectionWD.prepareStatement(SQL);
+            rsWD = statementWD.executeQuery();
+
+            while (rsWD.next()) {
+                newDataset.addRow(new Array(
+                    listaConstraits['proposta'] + "",
+                    rsWD.getString('seq') + "",
+                    rsWD.getString('descricao') + "",
+                    rsWD.getString('local') + ""
+                ));
+            }
+
+            if (rsWD != null) rsWD.close();
+            if (statementWD != null) statementWD.close();
+            if (connectionWD != null) connectionWD.close();
+
+        }
+
+        if (listaConstraits['indacao'] == 'ITEMPROPOSTA') {
+            newDataset.addColumn('idproposta');
+            newDataset.addColumn('seq');
+            newDataset.addColumn('produto');
+            newDataset.addColumn('local');
+
+
+            var connectionWD = null;
+            var statementWD = null;
+            var rsWD = null;
+            var contextWD = new javax.naming.InitialContext();
+            var dataSourceWD = contextWD.lookup('java:/jdbc/CRMDS');
+            connectionWD = dataSourceWD.getConnection();
+
+            var SQL = "select  pi.id as seq, pp.descricao, pi.local  ";
+            SQL += "from pon_proposta_itens pI  ";
+            SQL += "    inner join pon_proposta_componentes d on(pI.id = d.id_proposta_item) ";
+            SQL += "    inner join pon_produtos pp on(pp.id = d.id_produto) ";
+            SQL += "            and(pp.id_produto_tipo in (1,7,12,24,25,26,4,22)) ";
+            SQL += "where pi.id_proposta = " + listaConstraits['proposta'];
+
+
+            statementWD = connectionWD.prepareStatement(SQL);
+            rsWD = statementWD.executeQuery();
+
+            while (rsWD.next()) {
+                newDataset.addRow(new Array(
+                    listaConstraits['proposta'] + "",
+                    rsWD.getString('seq') + "",
+                    rsWD.getString('descricao') + "",
+                    rsWD.getString('local') + ""
+                ));
+            }
+
+            if (rsWD != null) rsWD.close();
+            if (statementWD != null) statementWD.close();
+            if (connectionWD != null) connectionWD.close();
+
+        }
+
+        if (listaConstraits['indacao'] == 'INSTALACAO') {
+            newDataset.addColumn('id');
+            newDataset.addColumn('datainicio');
+            newDataset.addColumn('datafim');
+            newDataset.addColumn('proposta');
+            newDataset.addColumn('cliente');
+            newDataset.addColumn('idinstalador');
+            newDataset.addColumn('instalador');
+            newDataset.addColumn('situacao');
+            newDataset.addColumn('responsavel');
+            newDataset.addColumn('telefone');
+            newDataset.addColumn('sincronizado');
+            newDataset.addColumn('idproposta');
+            newDataset.addColumn('token');
+            newDataset.addColumn('termo');
+            newDataset.addColumn('itens');
+
+            var connectionWD = null;
+            var statementWD = null;
+            var rsWD = null;
+            var contextWD = new javax.naming.InitialContext();
+            var dataSourceWD = contextWD.lookup('java:/jdbc/CRMDS');
+            connectionWD = dataSourceWD.getConnection();
+            var gson = new com.google.gson.Gson();
+
+            var SQL = "select kbt.id, kbt.idproposta, kbt.datagendaini, kbt.datagendaini, p.nome_razao, pr.nr_proposta, pr.nr_versao, kbt.ind_termo, ";
+            SQL += " kbt.idinstalador as id_instalador, pInstador.nome_razao as instalador, kbt.indsituacao, kbt.ind_sync, kbt.token, kbt.nom_responsavel, kbt.num_telefone ";
+            SQL += " from kbt_t_instalacoes kbt ";
+            SQL += " inner join pon_proposta pr on(pr.id = kbt.idproposta)  ";
+            SQL += " inner join pon_pessoa_cliente pc on(pc.id = pr.id_cliente)  ";
+            SQL += " inner join pon_pessoa p on(p.id = pc.id_pessoa)   ";
+            SQL += " inner join pon_pessoa_arquiteto pIns on(pIns.id = kbt.idinstalador) ";
+            SQL += " inner join pon_pessoa pInstador on(pInstador.id = pIns.id_pessoa) ";
+            if (listaConstraits['uf'] != '' && listaConstraits['cidade'] != '') {
+                SQL += "    inner join fluig_v_cidade city on(city.uf = '" + listaConstraits['uf'] + "') "
+                SQL += "            and(city.cidade = '" + listaConstraits['cidade'] + "')  ";
+                SQL += "    inner join pon_pessoa_endereco pEnd on(pEnd.id_pessoa = pc.id_pessoa) ";
+                SQL += "            and(pEnd.cod_uf = city.cod_uf) ";
+                SQL += "            and(pEnd.cod_cidade = city.cod_cidade_ibge) ";
+                SQL += "            and(pEnd.principal = true) ";
+            }
+
+            if (listaConstraits['idregistro'] != '' && listaConstraits['idregistro'] != undefined) {
+                SQL += " where kbt.id = " + listaConstraits['idregistro'];
+            }
+
+
+            statementWD = connectionWD.prepareStatement(SQL);
+            rsWD = statementWD.executeQuery();
+
+            while (rsWD.next()) {
+                var arrItens = [];
+                if (listaConstraits['idregistro'] != '' && listaConstraits['idregistro'] != undefined) {
+                    var SQL = "select "
+                    SQL += "     kbti.idseq as seq, COALESCE(pp.descricao,kbti.descricao) as descricao, kbti.local, kbt.idproposta    ";
+                    SQL += "from kbt_t_instalacoes kbt";
+                    SQL += "    inner join kbt_t_instalacoes_itens kbtI on(kbtI.idproposta = kbt.idproposta)";
+                    SQL += "    left join pon_proposta_itens pI on(pI.id = kbt.idproposta) ";
+                    SQL += "                                    and (pI.id = kbti.idseq) ";
+                    SQL += "    left join pon_proposta_componentes d on(pI.id = d.id_proposta_item) ";
+                    SQL += "    left join pon_produtos pp on(pp.id = d.id_produto)";
+                    SQL += "                and(pp.id_produto_tipo in (1, 7, 12, 24, 25, 26, 4, 22)) ";
+                    SQL += "where kbt.id = " + listaConstraits['idregistro']
+                    statementWD = connectionWD.prepareStatement(SQL);
+                    var rsWD2 = statementWD.executeQuery();
+                    while (rsWD2.next()) {
+                        var data = {
+                            proposta: rsWD2.getString('idproposta') + "",
+                            seq: rsWD2.getString('seq') + "",
+                            descricao: rsWD2.getString('descricao') + "",
+                            local: rsWD2.getString('local') + ""
+                        }
+                        arrItens.push(data)
+                    }
+                    if (rsWD2 != null) rsWD2.close();
+                }
+
+                newDataset.addRow(new Array(
+                    rsWD.getString('id') + "",
+                    rsWD.getString('datagendaini') + "",
+                    rsWD.getString('datagendaini') + "",
+                    rsWD.getString('nr_proposta') + "-" + rsWD.getString('nr_versao'),
+                    rsWD.getString('nome_razao') + "",
+                    rsWD.getString('id_instalador') + "",
+                    rsWD.getString('instalador') + "",
+                    rsWD.getString('indsituacao') + "",
+                    rsWD.getString('nom_responsavel') + "",
+                    rsWD.getString('num_telefone') + "",
+                    rsWD.getString('ind_sync') + "",
+                    rsWD.getString('idproposta') + "",
+                    rsWD.getString('token') + "",
+                    rsWD.getString('ind_termo') + "",
+                    gson.toJson(arrItens) + ""
+
+                ));
+            }
+
+            if (rsWD != null) rsWD.close();
+            if (statementWD != null) statementWD.close();
+            if (connectionWD != null) connectionWD.close();
+
+        }
+
+        if (listaConstraits['indacao'] == 'INSTALADOR') {
+            newDataset.addColumn('id');
+            newDataset.addColumn('nome');
+
+            var connectionWD = null;
+            var statementWD = null;
+            var rsWD = null;
+            var contextWD = new javax.naming.InitialContext();
+            var dataSourceWD = contextWD.lookup('java:/jdbc/CRMDS');
+            connectionWD = dataSourceWD.getConnection();
+
+            var SQL = "select pIns.id, pInstador.nome_razao ";
+            SQL += "from pon_pessoa_arquiteto pIns ";
+            SQL += "    inner join pon_pessoa pInstador on(pInstador.id = pIns.id_pessoa)  ";
+            SQL += "     and (pInstador.ativo = true)  ";
+            SQL += "where pIns.id_classificacao = 5  ";
+
+            statementWD = connectionWD.prepareStatement(SQL);
+            rsWD = statementWD.executeQuery();
+
+            while (rsWD.next()) {
+                newDataset.addRow(new Array(
+                    rsWD.getString('id') + "",
+                    rsWD.getString('nome_razao') + ""
+                ));
+            }
+
+
+        }
+
+        if (listaConstraits['indacao'] == 'EQUIPE') {
+            newDataset.addColumn('nome');
+
+            var connectionWD = null;
+            var statementWD = null;
+            var rsWD = null;
+            var contextWD = new javax.naming.InitialContext();
+            var dataSourceWD = contextWD.lookup('java:/jdbc/CRMDS');
+            connectionWD = dataSourceWD.getConnection();
+
+            var SQL = "select distinct equipe from pon_pessoa_vendedor where equipe is not null  and ativo = true order by equipe";
+
+            statementWD = connectionWD.prepareStatement(SQL);
+            rsWD = statementWD.executeQuery();
+
+            while (rsWD.next()) {
+                newDataset.addRow(new Array(
+                    rsWD.getString('equipe') + ""
+                ));
+            }
+
+
+        }
+
+        if (listaConstraits['indacao'] == 'INC') {
+            newDataset.addColumn('STATUS');
+            newDataset.addColumn('MENSAGEM');
+
+            var connectionWD = null;
+            var statementWD = null;
+            var rsWD = null;
+            var contextWD = new javax.naming.InitialContext();
+            var dataSourceWD = contextWD.lookup('java:/jdbc/CRMDS');
+            connectionWD = dataSourceWD.getConnection();
+
+            if (listaConstraits['idregistro'] == undefined || listaConstraits['idregistro'] == 'undefined' || listaConstraits['idregistro'] == '') {
+
+                var SQLINS = "insert into kbt_t_instalacoes (id, idProposta, idInstalador, datRegistro, datAgendaIni, datAgendaFim, nom_responsavel, num_telefone, ind_termo, indSituacao,  ind_sync) values ";
+                SQLINS += "((select COALESCE(max(id) +1 ,1) from kbt_t_instalacoes), " + listaConstraits['idproposta'] + "," + listaConstraits['idinstalador'] + ",CURRENT_DATE,'" + listaConstraits['datinicio'] + "','" + listaConstraits['datfim'] + "','" + listaConstraits['responsavel'] + "','" + listaConstraits['whats'] + "','" + listaConstraits['indtermo'] + "','P','S') ";
+                var statementWD = connectionWD.prepareStatement(SQLINS);
+
+                try {
+                    statementWD.executeUpdate();
+
+                    var jsonObj = JSON.parse(listaConstraits['json']);
+                    var length = Object.keys(jsonObj).length;
+                    for (var i = 0; i < length; i++) {
+                        var SQLINS = "insert into kbt_t_instalacoes_itens (idseq, inditem, idproposta, descricao, local) values ";
+                        SQLINS += "(" + jsonObj[i]['seq'] + ", 'P', " + jsonObj[i]['idproposta'] + ",'" + jsonObj[i]['descricao'] + "','" + jsonObj[i]['local'] + "') ";
+                        var statementWD = connectionWD.prepareStatement(SQLINS);
+                        statementWD.executeUpdate();
+                    }
+
+                    if (listaConstraits['indtermo'] == 'S') {
+                        var SQLINS = "insert into kbt_t_instalacoes_itens (idseq, inditem, idproposta, descricao, local) values ";
+                        SQLINS += "(-99, 'T', " + listaConstraits['idproposta'] + ",'TERMO','TERMO') ";
+                        var statementWD = connectionWD.prepareStatement(SQLINS);
+                        statementWD.executeUpdate();
+                    }
+
+
+                    var status = 'OK';
+                    var menagem = '';
+                } catch (error) {
+                    var status = 'NOK';
+                    var menagem = error + " linha: " + error.lineNumber;
+                }
+            } else {
+                var SQLUPD = "update kbt_t_instalacoes set idInstalador = " + listaConstraits['idinstalador'] + ", datRegistro = CURRENT_DATE, ";
+                SQLUPD += "datAgendaIni = '" + listaConstraits['datinicio'] + "', datAgendaFim = '" + listaConstraits['datfim'] + "', nom_responsavel = '" + listaConstraits['responsavel'] + "', ";
+                SQLUPD += "num_telefone = '" + listaConstraits['whats'] + "', ind_termo = '" + listaConstraits['indtermo'] + "', ind_sync = 'S' ";
+                SQLUPD += "where id = " + listaConstraits['idregistro'];
+
+                var SQLDEL = "delete from kbt_t_instalacoes_itens where idproposta = " + listaConstraits['idproposta'];
+
+
+                try {
+                    var statementWD = connectionWD.prepareStatement(SQLUPD); // Faz o Update na instalacao
+                    statementWD.executeUpdate();
+
+                    var statementWD = connectionWD.prepareStatement(SQLDEL); // Renove os itens da Instalacao
+                    statementWD.executeUpdate();
+
+                    var jsonObj = JSON.parse(listaConstraits['json']);
+                    var length = Object.keys(jsonObj).length;
+                    for (var i = 0; i < length; i++) {
+                        var SQLINS = "insert into kbt_t_instalacoes_itens (idseq, inditem, idproposta, descricao, local) values ";
+                        SQLINS += "(" + jsonObj[i]['seq'] + ", 'P', " + jsonObj[i]['idproposta'] + ",'" + jsonObj[i]['descricao'] + "','" + jsonObj[i]['local'] + "') ";
+                        var statementWD = connectionWD.prepareStatement(SQLINS);
+                        statementWD.executeUpdate();
+                    }
+
+                    if (listaConstraits['indtermo'] == 'S') {
+                        var SQLINS = "insert into kbt_t_instalacoes_itens (idseq, inditem, idproposta, descricao, local) values ";
+                        SQLINS += "(-99, 'T', " + listaConstraits['idproposta'] + ",'TERMO','TERMO') ";
+                        var statementWD = connectionWD.prepareStatement(SQLINS);
+                        statementWD.executeUpdate();
+                    }
+
+
+                    var status = 'OK';
+                    var menagem = '';
+                } catch (error) {
+                    var status = 'NOK';
+                    var menagem = error + '' + " linha: " + error.lineNumber;
+                }
+            }
+
+            newDataset.addRow(new Array(status, menagem));
+
+        }
+
+        if (listaConstraits['indacao'] == 'UPD') {
+            newDataset.addColumn('STATUS');
+            newDataset.addColumn('MENSAGEM');
+
+            var wValidaSenha = false;
+            var connectionWD = null;
+            var statementWD = null;
+            var rsWD = null;
+            var contextWD = new javax.naming.InitialContext();
+            var dataSourceWD = contextWD.lookup('java:/jdbc/CRMDS');
+            connectionWD = dataSourceWD.getConnection();
+
+
+            var SQL = "select 1 ";
+            SQL += "from kbt_t_instalacoes kbt ";
+            SQL += "where kbt.idproposta = " + listaConstraits['idproposta'];
+            SQL += "  and kbt.token = '" + listaConstraits['wtoken'] + "'";
+
+            statementWD = connectionWD.prepareStatement(SQL);
+            rsWD = statementWD.executeQuery();
+
+            while (rsWD.next()) {
+                wValidaSenha = true;
+            }
+
+            if (wValidaSenha) {
+                var SQLUPD = "update kbt_t_instalacoes set aprova_instalacao = '" + listaConstraits['aprovar'] + "', visitou_obra = '" + listaConstraits['visitouobra'] + "', obs_obra = '" + listaConstraits['obsobra'] + "', indsituacao = 'A', data_aprovado = current_date, num_nota = " + listaConstraits['numnota']
+                SQLUPD += " where idproposta = " + listaConstraits['idproposta'];
+                statementWD = connectionWD.prepareStatement(SQLUPD);
+                // newDataset.addRow(new Array(SQLUPD, ''));
+                try {
+                    statementWD.executeUpdate();
+
+                    var status = 'OK';
+                    var menagem = '';
+                } catch (error) {
+                    var status = 'NOK';
+                    var menagem = error + '';
+                }
+            } else {
+                var status = 'NOK';
+                var menagem = 'Token informado está incorreto.';
+            }
+
+
+
+            newDataset.addRow(new Array(status, menagem));
+
+        }
+
+        if (listaConstraits['indacao'] == 'DEL') {
+            newDataset.addColumn('STATUS');
+            newDataset.addColumn('MENSAGEM');
+
+            var wValidaSenha = false;
+            var connectionWD = null;
+            var statementWD = null;
+            var rsWD = null;
+            var contextWD = new javax.naming.InitialContext();
+            var dataSourceWD = contextWD.lookup('java:/jdbc/CRMDS');
+            connectionWD = dataSourceWD.getConnection();
+
+
+            var SQLUPD = "update kbt_t_instalacoes set indsituacao = 'D', ind_sync = 'S' ";
+            SQLUPD += " where id = " + listaConstraits['idproposta'];
+            statementWD = connectionWD.prepareStatement(SQLUPD);
+            // newDataset.addRow(new Array(SQLUPD, ''));
+            try {
+                statementWD.executeUpdate();
+
+                var status = 'OK';
+                var menagem = '';
+            } catch (error) {
+                var status = 'NOK';
+                var menagem = error + '';
+            }
+
+
+
+
+            newDataset.addRow(new Array(status, menagem));
+
+        }
+
+        if (listaConstraits['indacao'] == 'FOTOS') {
+            // log.info('Instaladores ID: ' + listaConstraits['idproposta']);
+            // newDataset.addColumn('ID');
+            // newDataset.addColumn('FOTO');
+
+            var connectionWD = null;
+            var statementWD = null;
+            var rsWD = null;
+            var contextWD = new javax.naming.InitialContext();
+            var dataSourceWD = contextWD.lookup('java:/jdbc/CRMDS');
+            connectionWD = dataSourceWD.getConnection();
+            var gson = new com.google.gson.Gson();
+
+            var SQL = "select kbt.id, CONCAT(pr.nr_proposta, '-', pr.nr_versao) as proposta, kbt.nom_responsavel ";
+            SQL += "from kbt_t_instalacoes kbt ";
+            SQL += "    inner join pon_proposta pr on(pr.id = kbt.idproposta)  ";
+            SQL += "where kbt.idproposta = '" + listaConstraits['idproposta'] + "' "
+            // SQL += " and kbt.ind_sync is null ";
+            // SQL += " and kbt.indsituacao = 'V'";
+
+            statementWD = connectionWD.prepareStatement(SQL);
+            var rsWD = statementWD.executeQuery();
+            var wRetorno = [];
+
+            while (rsWD.next()) {
+
+                var endpoint = '/listainstalacao?proposta=' + rsWD.getString('proposta');
+                if (listaConstraits['indfoto'] == 'S') {
+                    newDataset.addColumn('ID');
+                    newDataset.addColumn('FOTO');
+
+                    endpoint += "&fotos=S";
+                    if (listaConstraits['codservico'] != '' && listaConstraits['codservico'] != undefined) {
+                        endpoint += "&servico=" + listaConstraits['codservico'];
+                    }
+                } else {
+                    newDataset.addColumn('ID');
+                    newDataset.addColumn('CLIENTE');
+                    newDataset.addColumn('DESCRICAO');
+                    newDataset.addColumn('SITUACAO');
+                }
+                // newDataset.addRow(new Array('AQUI'));
+                var wObj = f_atualizarRegistro(endpoint.replace(/'/g, ''), '', '');
+                if (wObj != null) {
+                    for (var x = 0; x < wObj.length; x++) {
+                        if (listaConstraits['codservico'] == '' || listaConstraits['codservico'] == undefined) {
+                            for (var i = 0; i < wObj[x].SERVICOS.length; i++) {
+                                if (listaConstraits['indfoto'] == 'N') {
+                                    // if (wObj[x].SERVICOS[i].INDITEM  != undefined && wObj[x].SERVICOS[i].INDITEM == 'P')
+                                    var data = {
+                                        id: wObj[x].SERVICOS[i].ID + "",
+                                        cliente: rsWD.getString('nom_responsavel') + "",
+                                        descricao: wObj[x].SERVICOS[i].DESCRICAO + "",
+                                        situacao: wObj[x].SERVICOS[i].SITUACAO + ""
+                                    }
+                                    wRetorno.push(data);
+                                    newDataset.addRow(new Array(
+                                        wObj[x].SERVICOS[i].ID + "",
+                                        rsWD.getString('nom_responsavel') + "",
+                                        wObj[x].SERVICOS[i].DESCRICAO + "",
+                                        wObj[x].SERVICOS[i].SITUACAO + ""
+                                    ));
+                                } else {
+                                    for (var y = 0; y < wObj[x].SERVICOS[i].FOTOS.length; y++) {
+                                        newDataset.addRow(new Array(
+                                            wObj[x].SERVICOS[i].FOTOS[y].ID,
+                                            wObj[x].SERVICOS[i].FOTOS[y].FOTO
+                                        ));
+                                    }
+                                }
+                            }
+                        } else {
+
+                            newDataset.addRow(new Array(
+                                wObj[x].ID,
+                                wObj[x].FOTO
+                            ));
+                        }
+                    }
+                }
+            }
+
+            // log.info('Instalador Retorno: ' + gson.toJson(wRetorno));
+            if (rsWD != null) rsWD.close();
+            if (statementWD != null) statementWD.close();
+            if (connectionWD != null) connectionWD.close();
+        }
+
+    } catch (error) {
+        newDataset.addRow(new Array("Erro: " + error + " linha: " + error.lineNumber));
+    } finally {
+        return newDataset;
+    }
+}
+
+function onMobileSync(user) { }
+
+var debug = false;
+function printLog(tipo, msg) {
+    if (debug) {
+        var msgs = getValue('WKDef') + ' - ' + getValue('WKNumProces') + ' - ' + msg;
+        if (tipo == 'info') {
+            //log.info(msgs);
+        } else if (tipo == 'error') {
+            log.error(msgs);
+        } else if (tipo == 'fatal') {
+            log.fatal(msgs);
+        } else {
+            log.warn(msgs);
+        }
+    }
+}
+
+
+function makeid(length) {
+    var result = '';
+    var characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+    var charactersLength = characters.length;
+    for (var i = 0; i < length; i++) {
+        result += characters.charAt(Math.floor(Math.random() * charactersLength));
+    }
+    return result;
+}
+
+
+function f_atualizarRegistro(PendPoint, Ptoken, jsonFile, pIndServico) {
+
+    var retorno = null;
+    var metodo = "GET";
+    var wServiceCode = "tracking";
+    var gson = new com.google.gson.Gson();
+
+    if (pIndServico != undefined) {
+        wServiceCode = "trackingTESTE"
+    }
+
+    if (jsonFile != "") {
+        metodo = "POST";
+        var params = {
+            json: gson.toJson(jsonFile)
+        };
+    }
+
+    var clientService = fluigAPI.getAuthorizeClientService();
+    var data = {
+        companyId: getValue("WKCompany") + "",
+        serviceCode: wServiceCode,
+        endpoint: PendPoint,
+        timeoutService: "240",
+        method: metodo,
+    };
+
+    // var params;
+    var headers = {};
+    headers["x-access-token"] = Ptoken;
+    headers["Content-Type"] = "application/json";
+    data["headers"] = headers;
+    data["params"] = params;
+
+    var jj = gson.toJson(data);
+    var vo = clientService.invoke(jj);
+    if (vo.getResult() == "" || vo.getResult().isEmpty()) {
+        throw "Retorno esta vazio";
+    } else {
+        var jr = JSON.parse(vo.getResult());
+        retorno = jr;
+    }
+
+    return retorno;
+
+
+}
