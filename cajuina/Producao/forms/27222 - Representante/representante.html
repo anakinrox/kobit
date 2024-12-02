@@ -1,0 +1,221 @@
+<html>
+
+
+<head>
+
+	<link type="text/css" rel="stylesheet" href="/portal/resources/style-guide/css/fluig-style-guide.min.css"/>
+
+	<style>
+
+
+		
+	</style>
+	
+	<script type="text/javascript" src="/portal/resources/js/jquery/jquery.js"></script>
+	
+	<script type="text/javascript" src="/portal/resources/js/jquery/jquery-ui.min.js"></script>
+	<script type="text/javascript" src="/portal/resources/js/mustache/mustache-min.js"></script>
+	
+	<script type="text/javascript" src="/portal/resources/style-guide/js/fluig-style-guide.min.js" charset="utf-8"></script>
+	
+	<script type="text/javascript" src="zoom.js"></script>
+	<script type="text/javascript" src="controle.js"></script>
+	<script type="text/javascript" src="modalZoom.js"></script>
+	<script type="text/javascript" src="jquery.maskMoney.min.js"></script>
+	<script type="text/javascript" src="jquery.mask.min.js"></script>
+	
+	<script type="text/javascript">
+			
+	</script>
+
+</head>
+
+<body name="corpo" onload="loadBody(this.name)" > 
+        
+	<form id="form" name="form" role="form" >
+
+	    <input type="hidden" name="descricao" id="descricao" />
+	
+		<div class="fluig-style-guide">
+
+		
+			<div class="row">
+				<div class="col-md-2">
+					<div class="input-group">
+						<label for="exampleTag">Codigo</label>
+						<div class="input-group">
+							<input type="text" name="cod_repres" id="cod_repres" class="form-control" readonly />
+							<input type="hidden" name="matricula" id="matricula" />
+							<input type="hidden" name="matricula_principal" id="matricula_principal" class="principal" />
+							<span class="input-group-btn">
+								<button class="btn btn-default fluigicon fluigicon-user-search fluigicon-xs" type="button" name='bt_repres' onclick="zoom(this.name)" ></button>
+							</span>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-10">
+					<div class="form-group">
+						<label for="exampleTag">Razão Social</label>
+						<input type="text" name="raz_social" id="raz_social" class="form-control" readonly />
+					</div>
+				</div>
+			</div>
+			
+			
+			<div class="row">
+				<div class="col-md-6">
+					<div class="form-group">
+						<label for="exampleTag">Nome Repres.</label>
+						<input type="text" name="nom_repres" id="nom_repres" class="form-control" readonly />
+					</div>
+				</div>
+				<div class="col-md-3">
+					<div class="form-group">
+						<label for="exampleTag">Apelido</label>
+						<input type="text" name="nom_guerra" id="nom_guerra" class="form-control" readonly />
+					</div>
+				</div>
+				<div class="col-md-3">
+					<label for="exampleTag">Tipo de Cadastro</label>
+					<select name="tipo_cadastro" id="tipo_cadastro" class="form-control" onchange="fnGerente(this.name)" > 
+						<option value='R' selected > Representante </option>
+						<option value='A' > Adm. Vendas </option>
+						<option value='G' > Gerente Regional </option>
+					</select>
+					<input type="hidden" name="tipo_cadastro_select" id="tipo_cadastro_select" >
+				</div>
+			</div>
+					
+			<div class="row">
+				<div class="col-md-2">
+					<div class="input-group">
+						<label for="exampleTag">Login</label>
+						<div class="input-group">
+							<input type="text" name="login" id="login" class="form-control" readonly />
+							<span class="input-group-btn">
+								<button class="btn btn-default fluigicon fluigicon-user-search fluigicon-xs" type="button"  name='bt_user' onclick="zoom(this.name)" ></button>
+							</span>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-5">
+					<div class="form-group">
+						<label for="exampleTag">Nome Usuário</label>
+						<input type="text" name="nome_usuario" id="nome_usuario" class="form-control" readonly />
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-2 ">
+					<label for="num_celular" class="control-label">Celular</label>
+					<input id="num_celular" name="num_celular" placeholder="(DD) XXXXX-XXXX" class="form-control" type="text"  onkeypress="$(this).mask('(00) 00000-0009');" />
+				</div>
+
+				<div class="col-md-3 ">
+					<label for="den_rota" class="control-label">Rota</label>
+					<div class="input-group">
+						<input id="den_rota" name="den_rota" class="form-control grp_rota" type="text" readonly />
+						<span class="input-group-addon fluigicon fluigicon-eraser fluigicon-sm"
+							onclick="$('.grp_rota').val('');$('.grp_localidade').val('');"></span>
+						<span id="btnRota" class="input-group-addon fluigicon fluigicon-zoom-in fluigicon-sm"
+							onclick="zoom(this.id)"></span>
+						<input id="cod_rota" name="cod_rota" class="grp_rota" type="hidden" />
+					</div>
+				</div>
+				
+				<div class="col-md-3 ">
+					<label for="den_praca" class="control-label">Dia Visita</label>
+					<div class="input-group">
+						<input id="den_praca" name="den_praca" class="form-control grp_praca" type="text" readonly />
+						<span class="input-group-addon fluigicon fluigicon-eraser fluigicon-sm"
+							onclick="$('.grp_praca').val('');$('.grp_localidade').val('');"></span>
+						<span id="btnPraca" class="input-group-addon fluigicon fluigicon-zoom-in fluigicon-sm"
+							onclick="zoom(this.id)"></span>
+						<input id="cod_praca" name="cod_praca" class="grp_praca" type="hidden" />
+					</div>
+				</div>
+				
+				<div class="col-md-3 ">
+					<label for="den_local" class="control-label">Localidade</label>
+					<div class="input-group">
+						<input id="den_local" name="den_local" class="form-control grp_localidade" type="text" readonly />
+						<span class="input-group-addon fluigicon fluigicon-eraser fluigicon-sm"
+							onclick="$('.grp_localidade').val('')"></span>
+						<span id="btnLocal" class="input-group-addon fluigicon fluigicon-zoom-in fluigicon-sm"
+							onclick="zoom(this.id)"></span>
+						<input id="cod_local" name="cod_local" class="grp_localidade" type="hidden" />
+					</div>
+				</div>
+			</div>
+
+			<div class="row">
+				&nbsp;				
+			</div>
+
+			<div class="row">
+				<!--  ######  EMPRESA ##### -->
+				<div class="col-md-4">			
+					<label for="exampleTag" >
+						<button class="fluigicon fluigicon-plus-sign fluigicon-sm" name='bt_empresa' onclick="zoom(this.name)" ></button> 	Empresa
+					</label>
+					<table class="table table-condensed table-bordered" border="1" tablename="empresa"  noaddbutton=true nodeletebutton=true addbuttonclass="wdkbuttonClass" >
+						<thead>
+							<tr>
+								<td width='40%' class="cell-ellipsis"><b>Cod.</b></td>
+								<td width='60%' class="cell-ellipsis"><b>Empresa</b></td>
+								<td></td>
+							</tr>
+						</thead>
+						<tr>
+							<td>
+								<div class="input-group">
+									<span class="input-group-addon" >
+										<input type="checkbox" name="ies_empresa_default" onchange="fnSelectDefault(this.name)">
+									</span>
+									<input type="text" class="form-control" name="cod_empresa" id="cod_empresa" readonly >
+								</div>
+							</td>
+							<td><input type="text" class="form-control" name="emp_reduz" id="emp_reduz" readonly ></td>
+							<td><button name="btDelEmpresa" id="btDelEmpresa" class="btn btn-default btn-sm fluigicon fluigicon-trash fluigicon-xs" type="button" onclick="fnCustomDelete(this); fnFirstDefault('ies_empresa_default___1');"  ></button></td>
+						</tr>
+					</table>					
+				</div>
+					
+						
+				<!--  ######  LISTA PRECO ##### -->			
+				<div class="col-md-8">
+					<label for="exampleTag" >
+							<button class="fluigicon fluigicon-plus-sign fluigicon-sm" name='bt_lst_preco' onclick="zoom(this.name)" ></button> 	Lista de Preço
+					</label>
+					<table class="table table-condensed table-bordered" border="1" tablename="lista" nodeletebutton=true noaddbutton=true addbuttonclass="wdkbuttonClass" >
+						<thead>
+							<tr>
+								<td width='20%' class="cell-ellipsis"><b>Emp.</b></td>
+								<td width='20%' class="cell-ellipsis"><b>Cod.</b></td>									
+								<td width='60%' class="cell-ellipsis"><b>Lista</b></td>
+								<td></td>
+							</tr>
+						</thead>
+						<tr>
+							<td>
+								<div class="input-group">
+									<span class="input-group-addon" >
+										<input type="checkbox" name="ies_lista_default" onchange="fnSelectDefault(this.name)">
+									</span>
+									<input type="text" class="form-control" name="cod_empresa_lista" id="cod_empresa_lista" readonly >
+								</div>
+							</td>
+							<td><input type="text" class="form-control" name="cod_lista" id="cod_lista" readonly >
+								<input type="hidden" name="chave_lista" id="chave_lista" /></td>
+							<td><input type="text" class="form-control" name="den_lista" id="den_lista" readonly ></td>
+							<td><button name="btDelLstPreco" id="btDelLstPreco" class="btn btn-default btn-sm fluigicon fluigicon-trash fluigicon-xs" type="button" onclick="fnCustomDelete(this); fnFirstDefault('ies_lista_default___1');"></button></td>
+						</tr>
+					</table>					
+				</div>
+			</div>
+		</div>
+	</form>
+	
+</body>
+
+</html>

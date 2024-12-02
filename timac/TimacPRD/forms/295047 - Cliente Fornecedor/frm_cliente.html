@@ -1,0 +1,1258 @@
+	<html>
+	<head>
+		<link type="text/css" rel="stylesheet" href="/portal/resources/style-guide/css/fluig-style-guide.min.css"/>
+		<script type="text/javascript" src="/portal/resources/js/jquery/jquery.js"></script>
+		<script type="text/javascript" src="/portal/resources/js/jquery/jquery-ui.min.js"></script>
+		<script type="text/javascript" src="/portal/resources/js/mustache/mustache-min.js"></script>
+		<script type="text/javascript" src="/portal/resources/style-guide/js/fluig-style-guide.min.js" charset="utf-8"></script>
+		<script type="text/javascript" src="/portal/resources/js/jquery.mask.min.js"></script>	
+
+		<script type="text/javascript" src="/webdesk/vcXMLRPC.js"></script>
+		<script type="text/javascript" src="./jquery.maskMoney.min.js"></script>
+		<script type="text/javascript" src="./controle.js"></script>
+		<script type="text/javascript" src="./utils.js"></script>
+		<script type="text/javascript" src="./zoom.js"></script>
+		<script type="text/javascript" src="./print.js"></script>
+		<script type="text/javascript" src="./fileUpload.js"></script>
+		<script type="text/javascript" src="./valida.js"></script>
+
+	</head>
+<body onload="loadBody()">
+<div class="fluig-style-guide">
+	<form name="form" role="form" autocomplete="off">
+		<div class="panel panel-info"  style="margin-bottom: 0px;">
+			<div class="panel-heading fs-txt-center">
+				<table width='100%' >
+					<tr>
+						<td align=center ><b id="title"></b></td>
+					</tr>
+				</table>
+			</div>
+			<div class="panel-body header">
+				<div class="row">
+					<div class="col-md-2">
+						<label for="ies_tipo_operacao" class="control-label">Tipo de Opera&ccedil;&atilde;o</label>
+						<select name="ies_tipo_operacao" id="ies_tipo_operacao" class="form-control valida cabecalho" onchange="controleTipoCadastro();atualizaFlags();"></select>
+						<input type="hidden" name="ies_tipo_cadastro" id="ies_tipo_cadastro" />
+					</div>
+					<div class="col-md-2 nacional_internacional" style="display: none;">
+						<label for="ies_nacional_internacional" class="control-label">Nacional / Internacional</label>
+						<select name="ies_nacional_internacional" id="ies_nacional_internacional" class="form-control valida cabecalho" onchange="controleOrigem();atualizaFlags();">
+							<option value=''></option>
+							<option value='N'>Nacional</option>
+							<option value='I'>Internacional</option>
+						</select>
+					</div>
+					<div class="col-md-2 nacional divIesCpfCnpj">
+						<label for="ies_cpf_cnpj" class="control-label">CPF / CNPJ</label>
+						<input type="hidden" name="cod_cliente_fornecedor" id="cod_cliente_fornecedor" />
+						<select name="ies_cpf_cnpj" id="ies_cpf_cnpj" class="form-control cabecalho " onchange="controleCpfCnpj();atualizaFlags();">
+							<option value=''></option>
+							<option value='CNPJ'>CNPJ</option>
+							<option value='CPF'>CPF</option>
+						</select>
+					</div>
+					<div class="col-md-4 divCpfCnpj">
+						<label for="num_cgc_cpf" class="control-label lb_cpf_cnpj">CPF/CNPJ</label>
+						<div class="input-group">
+							<input type="text" name="num_cgc_cpf" id="num_cgc_cpf" class="form-control cabecalho" onchange="consultaCpfCnpj()" readonly/>
+							<!-- <span class="input-group-addon fluigicon fluigicon-eraser fluigicon-sm" onclick="limpaCgcCpf();"></span> -->
+							<span id="zoom_cgc_cpf" class="input-group-addon fluigicon fluigicon-zoom-in fluigicon-sm" onclick="zoom(this.id)"></span>
+						</div>						
+					</div>
+					<div class="col-md-2 divIesOperacao" style="display: none;">
+						<label for="ies_operacao" class="control-label">Opera&ccedil;&atilde;o</label>
+						<select name="ies_operacao" id="ies_operacao" class="form-control cabecalho" onchange="setTipoOperacao();" >
+							<option value=''></option>
+							<option value='N' id="novo" >Novo</option>
+							<option value='A'>Altera&ccedil;&atilde;o</option>
+							<option value='I'>Inativa&ccedil;&atilde;o</option>
+						</select>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-4" style="display: none;">
+						<label for="ies_operacao" class="control-label">Op&ccedil;&otilde;es Inativa&ccedil;&atilde;o</label>
+						<select name="ies_inativacao" id="ies_inativacao" class="form-control cabecalho">
+							<option value=''></option>
+						</select>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-6" style="display: none;">
+						<label for="ies_operacao" class="control-label">Justificativa Inativa&ccedil;&atilde;o</label>
+						<select name="justifica_inativacao" id="justifica_inativacao" class="form-control cabecalho">
+							<option value=''></option>
+						</select>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="panel panel-info menu"  style="margin-bottom: 0px;">
+			<div class="panel-heading fs-txt-center">
+				<table width='100%' >
+					<tr>
+						<td align=center ><b>Conflito de Interesses</b></td>
+					</tr>
+				</table>
+			</div>
+			<div class="panel-body">
+				<div class="row">
+					<div class="col-md-12">
+						<label for="conflito_interesse" class="control-label">Voc&ecirc; possui algum relacionamento familiar e/ou pessoal com o fornecedor/cliente que est&eacute; sendo cadastrado (ou com algum colaborador do fornecedor/cliente) ou sabe de algu&eacute;m na empresa que tenha?</label>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-2">
+						<select name="conflito_interesse" id="conflito_interesse" class="form-control valida" onchange="setConflito()">
+							<option value='N'>N&atilde;o</option>
+							<option value='S'>Sim</option>
+						</select>
+					</div>
+					<div class="col-md-10 conflito_interesse">
+						<input type="text" name="conflito_interesse_texto" id="conflito_interesse_texto" class="form-control" />
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row menu">
+			<div class="col-md-12">
+				<ul class="nav nav-tabs nav-justified" role="tablist" >
+					<li class="active"><a href="#aba_dados_principais" id="id_aba_dados_principais" role="tab" data-toggle="tab">Dados Principais</a></li>
+					<li><a href="#aba_endereco" id="id_aba_endereco" role="tab" data-toggle="tab">Endere&ccedil;o</a></li>
+					<li style="display: none;"><a href="#aba_socios" id="id_aba_socios" role="tab" data-toggle="tab" >S&oacute;cios</a></li>
+					<li class="fornecedor cliente"><a href="#aba_contato_comercial" id="id_aba_contato_comercial" role="tab" data-toggle="tab">Contato Comercial</a></li>
+					<li class="cliente"><a href="#aba_endereco_cobranca" id="id_aba_endereco_cobranca" role="tab" data-toggle="tab">End. Cobran&ccedil;a</a></li>
+					<li class="cliente" id="li_aba_endereco_entrega"><a href="#aba_endereco_entrega" id="id_aba_endereco_entrega" role="tab" data-toggle="tab">End. Entrega</a></li>
+					<li class="cliente"><a href="#aba_identificacao_cliente" id="id_aba_identificacao_cliente" role="tab" data-toggle="tab">Ident. Cliente</a></li>
+					<!-- <li class="cliente"><a href="#aba_identificacao_cliente_pf" id="id_aba_identificacao_cliente" role="tab" data-toggle="tab">Ident. Cliente PF</a></li> -->
+					<li id="id_aba_dados_bancarios" ><a href="#aba_dados_bancarios" role="tab" data-toggle="tab">Dados Banc&aacute;rios</a></li>
+					<li id="li_aba_demais_informacoes" ><a href="#aba_demais_informacoes" id="id_aba_demais_informacoes" role="tab" data-toggle="tab">Demais Informa&ccedil;&otilde;es</a></li>
+					<li><a href="#aba_anexos" id="id_aba_anexos" role="tab" data-toggle="tab">Anexos</a></li>
+					<li><a href="#aba_observacoes" id="id_aba_observacoes" role="tab" data-toggle="tab">Observa&ccedil;&otilde;es</a></li>
+				</ul>
+			</div>
+			<div class="col-md-12">
+				<div class="panel panel-default fs-no-border-top">
+					<div class="panel-body">
+						<div class="tab-content" style="padding-left: 0px; padding-top: 0px; padding-bottom: 0px; padding-right: 0px;">
+							<div class="tab-pane active" id="aba_dados_principais">
+								<div class="row">	
+									<div class="col-md-2">
+										<label for="ies_zona" class="control-label">Zona</label>
+										<select name="ies_zona" id="ies_zona" class="form-control valida notClean" onchange="setZona();atualizaFlags();displayFields();">
+											<option value=''></option>
+										</select>
+									</div>
+									<div class="col-md-2">
+										<label for="area_solicitante" class="control-label">&Aacute;rea Solicitante</label>
+										<select name="area_solicitante" id="area_solicitante" class="form-control valida notClean">
+											<option value=''></option>
+										</select>
+									</div>
+									<div class="col-md-4 divPais">
+										<label for="den_pais" class="control-label">Nome Pais <div id="div_nao_sancionado" style="color: red;"><b>Monitorado</b></div></label>
+										<div class="input-group">
+											<input id="den_pais" name="den_pais" class="form-control valida pais_endereco" type="text" readonly/>
+											<span class="input-group-addon fluigicon fluigicon-eraser fluigicon-sm" onclick="eraser( '.pais_endereco' )"></span>
+											<span id="zoom_pais" class="input-group-addon fluigicon fluigicon-zoom-in fluigicon-sm" onclick="zoom(this.id)"></span>
+										</div>
+										<input type="hidden" name="ies_sancionado" id="ies_sancionado" class="pais_endereco" />
+									</div>
+									
+									
+									<div class="col-md-2">
+										<label for="cod_pais" class="control-label">Pais</label>
+										<input type="text" name="cod_pais" id="cod_pais" class="form-control" readonly />
+									</div>
+									
+									
+									<div class="col-md-2" style="display: none;">
+										<label for="integra_k2" class="control-label">Integra K2</label>
+										<input type="text" name="den_integra_k2" id="den_integra_k2" class="form-control" readonly />
+										<input type="hidden" name="integra_k2" id="integra_k2" class="form-control" />
+										<input type="hidden" name="status_k2" id="status_k2" />
+									</div>
+								</div>
+								<div class="row">	
+									<div class="col-md-4">
+										<label for="raz_social" class="control-label">Nome Completo / Raz&atilde;o Social</label>
+										<input type="text" name="raz_social" id="raz_social" class="form-control valida" />
+									</div>
+									<div class="col-md-3 raz_social_reduz">
+										<label for="raz_social_reduz" class="control-label">Nome Fantasia / Nome Guerra</label>
+										<input type="text" name="raz_social_reduz" id="raz_social_reduz" class="form-control valida" />
+									</div>
+									<div class="col-md-3 clear-fornec-inter">
+										<label for="ins_estadual" id="lb_ins_estadual" class="control-label">Inscri&ccedil;&atilde;o Estadual</label>
+										<!--<div class="input-group">
+											<span class="input-group-addon">
+												<input type="checkbox" name="isento_ie" id="isento_ie"  onchange="setIsento( this.id, 'ins_estadual', 'uf' )">
+											</span>-->											
+											<input type="text" name="ins_estadual" id="ins_estadual" class="form-control inicio-fiscal-total" onkeypress="return onlynumber();" />
+										<!--</div>-->
+									</div>
+									
+									
+									<div class="col-md-2 div-rg">
+										<label for="num_rg" class="control-label">RG</label>
+										<input type="text" name="num_rg" id="num_rg" class="form-control" onkeypress="return onlynumber();" />
+									</div>
+									
+									<div class="col-md-2 autonomo">
+										<label for="org_emissor_uf" class="control-label">Org&atilde;o Emissor / UF</label>
+										<input type="text" name="org_emissor_uf" id="org_emissor_uf" class="form-control autonomo" />
+									</div>
+									<!-- <div class="col-md-2 cliente fornecedor_cpf autonomo">
+										<label for="data_nascimento" class="control-label">Data Nascimento</label>
+										<input type="date" name="data_nascimento" id="data_nascimento" class="form-control" />
+									</div> -->
+									<input type="hidden" name="data_nascimento" id="data_nascimento" />
+									<div class="col-md-2 fornecedor autonomo clear-fornec-inter clear-cliente clear-fornec-cpf rec-judicial">
+										<label for="ies_recup_judicial" class="control-label">Recupera&ccedil;&atilde;o Judicial</label>
+										<select name="ies_recup_judicial" id="ies_recup_judicial" class="form-control " onchange="controleRecupJudicial()">
+											<option value='N'>N&atilde;o</option>
+											<option value='S'>Sim</option>
+										</select>
+									</div>
+								</div>
+								<div class="row divJudicial rec-judicial clear-fornec-inter clear-cliente clear-fornec-cpf" style="display: none;">	
+									<div class="col-md-12">
+										<label for="obs_recup_judicial" class="control-label">Obs Recupera&ccedil;&atilde;o Judicial</label>
+										<input type="text" name="obs_recup_judicial" id="obs_recup_judicial" class="form-control" />
+									</div>
+								</div>
+								<div class="row">	
+								
+									<div class="col-md-2 fornecedor">
+										<label for="ies_tip_fornec" class="control-label">Tipo de Fornecedor</label>
+										<select name="ies_tip_fornec" id="ies_tip_fornec" class="form-control" onchange="setTipoFornecedor()" ></select>
+									</div>
+									<div class="col-md-2 fornecedor">
+										<label for="sup_subtipo_fornec" class="control-label">Sub. Tipo de Fornecedor</label>
+										<select name="sup_subtipo_fornec" id="sup_subtipo_fornec" class="form-control"></select>
+									</div>
+									
+									
+								</div>
+								<div class="row">
+									<div class="col-md-2 clear-fornec-inter">
+										<label for="dat_abert" class="control-label lb_data_abertura">Data Abertura Empresa</label>
+										<input type="date" name="dat_abert" id="dat_abert" class="form-control" />
+									</div>
+									<div class="col-md-2">
+										<label for="dat_cadastro" class="control-label">Data Cadastro</label>
+										<input type="text" name="dat_cadastro" id="dat_cadastro" class="form-control notClean" readonly />
+									</div>
+									<div class="col-md-2">
+										<label for="dat_atualiz" class="control-label">Data Atualiza&ccedil;&atilde;o</label>
+										<input type="text" name="dat_atualiz" id="dat_atualiz" class="form-control notClean" readonly />
+									</div>
+									
+									<div class="col-md-2 rh">
+										<label for="grau_risco" class="control-label">Grau de Risco</label>
+										<select name="grau_risco" id="grau_risco" class="form-control rh">
+											<option value='0'>Sem exposi&ccedil;&atilde;o</option>
+											<option value='1'>Exposi&ccedil;&atilde;o M&iacute;nima</option>
+											<option value='2'>Exposi&ccedil;&atilde;o M&eacute;dia</option>
+											<option value='3'>Exposi&ccedil;&atilde;o M&aacute;xima</option>
+										</select>
+									</div>
+									<div class="col-md-2 rh">
+										<label for="servico_odontologico" class="control-label">Servi&ccedil;o Odontol&oacute;gico</label>
+										<select name="servico_odontologico" id="servico_odontologico" class="form-control rh">
+											<option value='S'>Sim</option>
+											<option value='N'>N&atilde;o</option>
+										</select>
+									</div>
+									
+								</div>
+								
+								<div class="row">
+									<div class="col-md-2" style="display: none;">
+										<label for="rg" class="control-label">RG</label>
+										<input type="tel" name="rg" id="rg" class="form-control rg" />
+									</div>
+									<div class="col-md-2 rh">
+										<label for="num_ident_fiscal" class="control-label">N&uacute;mero Identifica&ccedil;&atilde;o Fiscal</label>
+										<input type="tel" name="num_ident_fiscal" id="num_ident_fiscal" class="form-control rh" oninput="this.value = this.value.replace(/\D/g,'')" />
+									</div>
+									<div class="col-md-2 rh">
+										<label for="cnh" class="control-label">CNH</label>
+										<input type="tel" name="cnh" id="cnh" class="form-control rh" oninput="this.value = this.value.replace(/\D/g,'')"/>
+									</div>
+									<div class="col-md-2 rh">
+										<label for="categoria_cnh" class="control-label">Categoria</label>
+										<select name="categoria_cnh" id="categoria_cnh" class="form-control rh">
+											<option value=''></option>
+										</select>
+									</div>
+
+									<div class="col-md-2 autonomo rh" >
+										<label for="pis" class="control-label">N&uacute;mero do PIS</label>
+										<input type="tel" name="pis" id="pis" class="form-control autonomo rh" oninput="this.value = this.value.replace(/\D/g,'')"/>
+									</div>
+									
+									<div class="col-md-2 autonomo rh">
+										<label for="formacao_academica" class="control-label">Forma&ccedil;&atilde;o Acad&ecirc;mica</label>
+										<input type="text" name="formacao_academica" id="formacao_academica" class="form-control autonomo rh" />
+									</div>
+									
+									<div class="col-md-2 autonomo rh">
+										<label for="cargo" class="control-label">Cargo</label>
+										<input type="text" name="cargo" id="cargo" class="form-control autonomo rh" />
+									</div>
+									
+									<div class="col-md-2 show-fornec-inter">
+										<label for="dispensa_nif" class="control-label">Dispensado do NIF</label>
+										<select name="dispensa_nif" id="dispensa_nif" class="form-control ctrFiscal ctrFiscalInter" >
+											<option value=""></option>
+											<option value="S">Sim</option>
+											<option value="N">N&atilde;o</option>
+										</select>
+									</div> 
+									<div class="col-md-2 show-fornec-inter">
+										<label for="pais_dispensa_nif" class="control-label">Pa&iacute;s Dispensa NIF</label>
+										<select name="pais_dispensa_nif" id="pais_dispensa_nif" class="form-control ctrFiscal ctrFiscalInter" >
+											<option value=""></option>
+											<option value="S">Sim</option>
+											<option value="N">N&atilde;o</option>
+										</select>
+									</div>
+									<div class="col-md-2 show-fornec-inter">
+										<label for="numero_nif" class="control-label">N&uacute;mero Identifica&ccedil;&atilde;o Fiscal (NIF)</label>
+										<input type="text" name="numero_nif" id="numero_nif" class="form-control ctrFiscal ctrFiscalInter"/>
+									</div>
+									
+									<div class="col-md-2 transportador">
+										<label for="forma_pagamento" class="control-label">Forma Pagamento</label>
+										<select name="forma_pagamento" id="forma_pagamento" class="form-control" onchange="setGeraAP();" >
+											<option value=''></option>
+											<option value='N'>Fatura</option>
+											<option value='S'>CTE/Dacte</option>
+										</select>
+									</div>
+									<div class="col-md-4 rh">
+										<label for="den_cbo" class="control-label">Servi&ccedil;o Prestado (CBO)</label>
+										<div class="input-group">
+											<input type="text" name="den_cbo" id="den_cbo" class="form-control rh" readonly/>
+											<input type="hidden" name="cod_cbo" id="cod_cbo"/>
+											<span id="zoom_cbo" class="input-group-addon fluigicon fluigicon-zoom-in fluigicon-sm" onclick="zoom(this.id)"></span>
+										</div>
+									</div>
+									<!-- <div class="col-md-2 autonomo">
+										<label for="optante_simples_nacional" class="control-label">Optante Simples Nacional</label>
+										<select name="optante_simples_nacional" id="optante_simples_nacional" class="form-control ">
+											<option value=''></option>
+											<option value='S'>Sim</option>
+											<option value='N'>N&atilde;o</option>
+										</select>
+									</div> -->
+									<input type="hidden" name="optante_simples_nacional" id="optante_simples_nacional"  />
+									<input type="hidden" name="segmento_familia" id="segmento_familia"  />
+									
+									<div class="col-md-2 produtor-rural">
+										<label for="cnpj_produtor_rural" class="control-label">Possui CNPJ Produtor Rural</label>
+										<select name="cnpj_produtor_rural" id="cnpj_produtor_rural" class="form-control produtor-rural">
+											<option value=''></option>
+											<option value='S'>Sim</option>
+											<option value='N'>N&atilde;o</option>
+										</select>
+									</div>
+									<div class="col-md-2 produtor-rural">
+										<label for="obs_produtor_rural" class="control-label">N&ordm; do CNPJ Produtor Rural</label>
+										<input type="tel" name="obs_produtor_rural" id="obs_produtor_rural" class="form-control produtor-rural" oninput="this.value = this.value.replace(/\D/g,'')"/>
+									</div>
+									
+									<div class="col-md-3 credito">
+										<label for="nom_portador" class="control-label">Portador</label>
+										<div class="input-group">
+											<input id="nom_portador" name="v" class="form-control grp_portador credito" type="text" readonly/>
+											<span class="input-group-addon fluigicon fluigicon-eraser fluigicon-sm" onclick="$('.grp_portador').val('')"></span>
+											<span id="zoom_portador" class="input-group-addon fluigicon fluigicon-zoom-in fluigicon-sm" onclick="zoom(this.id)">
+												<input id="cod_portador" name="cod_portador" type="hidden" class="grp_portador"/>
+											</span>
+										</div>
+									</div>
+									<div class="col-md-1 credito">
+										<label for="ies_tip_portador" class="control-label">Tipo</label>
+										<input id="ies_tip_portador" name="ies_tip_portador" class="form-control grp_portador credito" type="text" readonly/>
+									</div>
+									
+									<div class="col-md-2 cliente nacional ">
+										<label for="zona_franca" class="control-label">Zona Franca</label>
+										<select name="zona_franca" id="zona_franca" class="form-control">
+											<option value="N">Nenhum</option>
+											<option value="S">Zona Franca</option>
+											<option value="A">Livre Com&eacute;rcio</option>
+										</select>
+									</div>
+									<div class="col-md-2 cliente nacional ">
+										<label for="num_suframa" class="control-label">Suframa</label>
+										<input type="text" name="num_suframa" id="num_suframa" class="form-control"  onkeypress="return onlynumber();" oninput="this.value = this.value.replace(/\D/g,'')" />
+									</div>
+									<div class="col-md-2 cliente nacional ">
+										<label for="dat_validade_suframa" class="control-label">Validade Suframa</label>
+										<input type="date" name="dat_validade_suframa" id="dat_validade_suframa" class="form-control" />
+									</div>
+									
+									<div class="col-md-1 cli-pj cli-pf" style="display: none;">
+										<label for="xpednitemped" class="control-label">xPed</label>
+										<select name="xpednitemped" id="xpednitemped" class="form-control">
+											<option value=''></option>
+											<option value='N'>N&atilde;o</option>
+											<option value='S'>Sim</option>
+										</select>
+									</div>
+									
+								</div>
+								
+								<div class="row cli-pf fonenc-pf fiscal " style="display: none;">
+								
+									<div class="col-md-2">
+										<label for="utiliza_nfe" class="control-label ">Utiliza NFE</label>
+										<select name="utiliza_nfe" id="utiliza_nfe" class="form-control cli-pf fonenc-pf fiscal ctrFiscal" >
+											<option value=""></option>
+											<option value="S">Sim</option>
+											<option value="N">N&atilde;o</option>
+										</select>
+									</div>									
+									<div class="col-md-2">
+										<label for="data_nfe" class="control-label ">Data inicio NFE</label>
+										<input type="date" name="data_nfe" id="data_nfe" class="form-control cli-pf fonenc-pf  fiscal ctrFiscal" />
+									</div>
+									<div class="col-md-2">
+										<label for="modelo_nf_fr" class="control-label ">Modelo NF/FR</label>
+										<input type="text" name="modelo_nf_fr" id="modelo_nf_fr" class="form-control cli-pf fonenc-pf  fiscal ctrFiscal" oninput="this.value = this.value.replace(/\D/g,'')" />
+									</div>
+									
+								</div>
+								
+								
+							</div>
+							<div class="tab-pane" id="aba_endereco">
+								<div class="row">
+									<div class="col-md-2 div-cep">
+										<label for="cep" class="control-label">CEP</label>
+										<input type="tel" name="cep" id="cep" class="form-control valida cep" onchange="dadosCEP(this.id)"/>
+									</div>
+									<div class="col-md-2">
+										<label for="des_logradouro" class="control-label">Tipo Endere&ccedil;o</label>
+										<input type="hidden" id="tip_logradouro" name="tip_logradouro" class="tip_logradouro" />
+										<div class="input-group">
+											<input class="form-control valida tip_logradouro" type="text" id="desc_logradouro" name="desc_logradouro" readonly />
+											<span class="input-group-addon fluigicon fluigicon-eraser fluigicon-sm" onclick="eraser( '.tip_logradouro' )"></span>
+											<span id="zoom_logradouro" class="input-group-addon group-zoom no-view zoom-click btn-primary" onclick="zoom(this.id); ">
+												<span class="fluigicon fluigicon-zoom-in "></span>
+											</span>
+										</div>
+									</div>
+									<div class="col-md-3">
+										<label for="endereco" class="control-label">Endere&ccedil;o</label>
+										<input type="text" name="endereco" id="endereco" class="form-control valida" maxlength="20" />
+									</div>
+									<div class="col-md-2">
+										<label for="numero" class="control-label">Num</label>
+										<div class="input-group">
+											<span class="input-group-addon">
+												<input type="checkbox" id="sem_numero" name="sem_numero" onchange="setSemNumero( this.id, 'numero' )">
+											</span>
+											<input type="text" name="numero" id="numero" class="form-control valida integer-0" />
+										</div>
+									</div>
+									<div class="col-md-3">
+										<label for="bairro" class="control-label">Bairro</label>
+										<input type="text" name="bairro" id="bairro" class="form-control valida" />
+									</div>
+								</div>
+								<div class="row">									
+									<div class="col-md-4">
+										<label for="complemento" class="control-label">Complemento</label>
+										<input type="text" name="complemento" id="complemento" class="form-control" maxlength="20" />
+									</div>
+									<div class="col-md-2">
+										<label for="cod_cidade" class="control-label">Cod Cidade</label>
+										<input type="text" name="cod_cidade" id="cod_cidade" class="form-control valida pais_endereco" readonly  />
+										<input type="hidden" name="cod_cidade_ibge" id="cod_cidade_ibge" class="pais_endereco" />
+									</div>					
+									<div class="col-md-4">
+										<label for="den_cidade" class="control-label">Cidade</label>
+										<div class="input-group">
+											<input type="text" name="den_cidade" id="den_cidade" class="form-control valida pais_endereco" readonly  />
+										<span id="zoom_cidade" class="input-group-addon fluigicon fluigicon-zoom-in fluigicon-sm" onclick="zoom(this.id)"></span>
+										</div>
+									</div>
+									<div class="col-md-2">
+										<label for="uf" class="control-label">UF</label>								
+										<input id="uf" name="uf" class="form-control valida pais_endereco" type="text" readonly/>									
+									</div>
+								</div>
+							</div>
+							<div class="tab-pane" id="aba_socios" >
+								<div class="row">
+									<div class="col-sm-12">
+										<button class="btn btn-primary bt_tbl" onclick="addFilho('socios')" title="Adicionar SÃÂ³cio">
+											<span class="fluigicon fluigicon-plus-sign fluigicon-sm"></span>&nbsp;Adicionar S&oacute;cio
+										</button>
+										<table class="table table-striped table-bordered" id="socios" tablename="socios" nodeletebutton="true" noaddbutton="true" customFnDelete="itemremove(this)" >
+											<thead>
+												<tr>
+													<th width="30%" class="detalhe" >Nome S&oacute;cio</th>
+													<th width="60%" class="detalhe" >CPF do S&oacute;cio</th>
+													<th width="10%" class="detalhe" ></th>
+												</tr>
+											</thead>
+											<tbody>
+												<tr>
+													<td class="fs-no-padding" >
+														<input type="text" name="nom_socio" id="nom_socio" class="form-control"/>
+													</td>
+													<td class="fs-no-padding" >
+														<input id="cpf_socio" name="cpf_socio" class="form-control" type="text" onchange="CPF(this.value)"/>
+													</td>
+													<td class="fs-no-padding">
+														<button class="btn btn-default btn-sm fluigicon fluigicon-trash fluigicon-xs bt_tbl" type="button" onclick="fnCustomDelete(this);"></button>
+													</td>
+												</tr>
+											</tbody>
+										</table>
+									</div>
+								</div>
+							</div>
+							<div class="tab-pane" id="aba_contato_comercial">
+								<div class="row">
+									<div class="col-md-4">
+										<label for="nom_contao_comercial" class="control-label">Nome</label>
+										<input type="text" name="nom_contao_comercial" id="nom_contao_comercial" class="form-control comercial" />
+									</div>
+									<div class="col-md-2">
+										<label for="telefone_contato_comercial" class="control-label">Telefone Fixo</label>
+										<input type="tel" name="telefone_contato_comercial" id="telefone_contato_comercial" class="form-control telefone comercial" />
+									</div>
+									<div class="col-md-2">
+										<label for="celular_contato_comercial" class="control-label">Celular</label>
+										<input type="tel" name="celular_contato_comercial" id="celular_contato_comercial" class="form-control telefone comercial" />
+									</div>
+								</div>
+								<div class="row">	
+									<div class="col-md-6">
+										<label for="email_contato_comercial" class="control-label">Email</label>
+										<input type="text" name="email_contato_comercial" id="email_contato_comercial" class="form-control mail comercial" />
+									</div>
+									<div class="col-md-6">
+										<label for="email2_contato_comercial" class="control-label">Email Secund&aacute;rio</label>
+										<input type="text" name="email2_contato_comercial" id="email2_contato_comercial" class="form-control mail" />
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-md-6">
+										<label for="email3_contato_comercial" class="control-label">Email Comercial</label>
+										<input type="text" name="email3_contato_comercial" id="email3_contato_comercial" class="form-control mail" />
+									</div>
+<!--  									<div class="col-md-6">
+										<label for="endereco_contato_comercial" class="control-label">Endere&ccedil;o</label>
+										<input type="text" name="endereco_contato_comercial" id="endereco_contato_comercial" class="form-control" />
+									</div> -->
+								</div>
+								
+								
+								
+								<div class="row">								
+									<div class="col-sm-12">
+										<button class="btn btn-primary bt_tbl" onclick="addMail('emails_nfe')" title="Novo Email">
+											<span class="fluigicon fluigicon-plus-sign fluigicon-sm"></span>&nbsp;Novo Email
+										</button>
+										<table class="table table-striped table-bordered" id="emails_nfe" tablename="emails_nfe" nodeletebutton="true" noaddbutton="true" customFnDelete="itemremove(this)" >
+											<thead>
+												<tr>
+													<th width="0%" class="detalhe" >Grupo</th>
+													<th width="85%" class="detalhe" >Email</th>
+													<th width="2%" class="detalhe" ></th>
+												</tr>
+											</thead>
+											<tbody>
+												<tr>  
+													<td class="fs-no-padding"  >
+														<select name="grupo_email" id="grupo_email" class="form-control" dataset="grupo_email" datasetkey="grupo_email" datasetvalue="des_grupo_email"  >
+														</select>
+														<input id="id_email" name="id_email" class="form-control" type="hidden" readonly/>
+														<input id="ies_excluido" name="ies_excluido" class="form-control" type="hidden" readonly/>
+													</td>	 
+													<td class="fs-no-padding" >
+														<input type="text" name="email_nfe" id="email_nfe" class="form-control"   />
+													</td>
+													<td class="fs-no-padding">
+														<button class="btn btn-default btn-sm fluigicon fluigicon-trash fluigicon-xs bt_tbl" type="button" onclick="fnRemoveMail( this );"  >
+															<input type="hidden" id="bt_del_mail" name="bt_del_mail" />
+														</button>
+													</td>
+												</tr>
+											</tbody>
+										</table>
+									</div>
+								</div>
+								
+							</div>
+							<div class="tab-pane" id="aba_endereco_cobranca">
+								<input type="hidden" name="ies_cpf_cnpj_cobranca" id="ies_cpf_cnpj_cobranca"/>
+								<input type="hidden" name="sequencia_end_cobranca" id="sequencia_end_cobranca"/>
+								<!-- <input type="hidden" name="cnpj_cobranca" id="cnpj_cobranca"/>
+								<input type="hidden" name="isento_ie_cobranca" id="isento_ie_cobranca"/>
+								<input type="hidden" name="ie_cobranca" id="ie_cobranca"/>-->
+								<div class="row">
+									<div class="col-md-2 div-cep">
+										<label for="cep_cobranca" class="control-label">CEP</label>
+										<input type="tel" name="cep_cobranca" id="cep_cobranca" class="form-control cep " onchange="dadosCEP(this.id)"/>
+									</div>
+									<div class="col-md-2">
+										<label for="des_logradouro_cobranca" class="control-label">Tipo Endere&ccedil;o</label>
+										<input type="hidden" id="tip_logradouro_cobranca" name="tip_logradouro_cobranca" class="tipo_end_cobranca" />
+										<div class="input-group">
+											<input class="form-control valida tipo_end_cobranca" type="text" id="desc_logradouro_cobranca" name="desc_logradouro_cobranca" readonly />
+											<span class="input-group-addon fluigicon fluigicon-eraser fluigicon-sm" onclick="eraser( '.tipo_end_cobranca' )"></span>
+											<span id="zoom_logradouro_cobranca" class="input-group-addon group-zoom no-view zoom-click btn-primary" onclick="zoom(this.id); ">
+												<span class="fluigicon fluigicon-zoom-in "></span>
+											</span>
+										</div>
+									</div>
+									<div class="col-md-3">
+										<label for="endereco_cobranca" class="control-label">Endere&ccedil;o</label>
+										<input type="text" name="endereco_cobranca" id="endereco_cobranca" class="form-control end-cobranca " maxlength="20" />
+									</div>
+									<div class="col-md-2">										
+										<label for="numero_cobranca" class="control-label">Num</label>
+										<div class="input-group">
+											<span class="input-group-addon">
+												<input type="checkbox" id="sem_numero_cobranca" name="sem_numero_cobranca" onchange="setSemNumero( this.id, 'numero_cobranca' )" class="">
+											</span>
+											<input type="text" name="numero_cobranca" id="numero_cobranca" class="form-control integer-0  end-cobranca" />
+										</div>
+									</div>
+									<div class="col-md-3">
+										<label for="bairro_cobranca" class="control-label">Bairro</label>
+										<input type="text" name="bairro_cobranca" id="bairro_cobranca" class="form-control  end-cobranca " />
+									</div>
+								</div>
+								<div class="row">									
+									<div class="col-md-4">
+										<label for="complemento_cobranca" class="control-label">Complemento</label>
+										<input type="text" name="complemento_cobranca" id="complemento_cobranca" class="form-control" maxlength="20" />
+									</div>
+									<div class="col-md-2">
+										<label for="cod_cidade_cobranca" class="control-label">Cod Cidade</label>
+										<input type="text" name="cod_cidade_cobranca" id="cod_cidade_cobranca" class="form-control cidade-cobranca" readonly  />
+										<input type="hidden" name="cod_cidade_ibge_cobranca" id="cod_cidade_ibge_cobranca" class="cidade-cobranca" />
+									</div>					
+									<div class="col-md-4">
+										<label for="den_cidade" class="control-label">Cidade</label>
+										<div class="input-group">
+											<input type="text" name="den_cidade_cobranca" id="den_cidade_cobranca" class="form-control end-cobranca cidade-cobranca" readonly  />
+											<span class="input-group-addon fluigicon fluigicon-eraser fluigicon-sm" onclick="eraser( '.cidade-cobranca' )"></span>
+										<span id="zoom_cidade_cobranca" class="input-group-addon fluigicon fluigicon-zoom-in fluigicon-sm" onclick="zoom(this.id)"></span>
+										</div>
+									</div>
+									<div class="col-md-2">
+										<label for="uf_cobranca" class="control-label">UF</label>								
+										<input id="uf_cobranca" name="uf_cobranca" class="form-control end-cobranca cidade-cobranca" type="text" readonly/>									
+									</div>									
+								</div>
+							</div>
+							<div class="tab-pane" id="aba_endereco_entrega">
+								<div class="row">
+									<div class="col-sm-12">
+										<button class="btn btn-primary bt_tbl" onclick="addFilho('end_entrega');required();" title="Adicionar">
+											<span class="fluigicon fluigicon-plus-sign fluigicon-sm"></span>&nbsp;Adicionar
+										</button>
+										<table class="table table-striped table-bordered" id="socios" tablename="end_entrega" noaddbutton="true" customFnDelete="itemremove(this)" >
+											<thead>
+												<tr>
+													<th width="100%" class="detalhe" >Endere&ccedil;o de entrega</th>
+												</tr>
+											</thead>
+											<tbody>
+												<tr>
+													<td>
+														<div class="row">
+															<!--  <div class="col-md-2">
+																<label for="ies_cpf_cnpj_entrega" class="control-label">CPF / CNPJ</label>
+																<select name="ies_cpf_cnpj_entrega" id="ies_cpf_cnpj_entrega" class="form-control" onchange="controleCpfCnpjEndereco(this.id)">
+																	<option value="CNPJ" selected>CNPJ</option>
+																	<option value="CPF">CPF</option>
+																</select>
+																<input type="hidden" name="sequencia_end_entrega" id="sequencia_end_entrega"/>
+															</div>
+															<div class="col-md-2">
+																<label for="cnpj_entrega" class="control-label lb_cnpj_entrega">CNPJ</label>
+																<input type="tel" name="cnpj_entrega" id="cnpj_entrega" class="form-control cnpj" />
+															</div>
+															
+														</div>-->
+														<div class="row">
+															<div class="col-md-2 div-cep">
+																<label for="cep_entrega" class="control-label">CEP</label>
+																<input type="tel" name="cep_entrega" id="cep_entrega" class="form-control cep" onchange="dadosCEP(this.id); setIEendereco(this.id);"/>
+															</div>
+															<div class="col-md-2">
+																<label for="des_logradouro_entrega" class="control-label">Tipo Endere&ccedil;o</label>
+																<input type="hidden" id="tip_logradouro_entrega" name="tip_logradouro_entrega" />
+																<div class="input-group">
+																	<input class="form-control valida" type="text" id="desc_logradouro_entrega" name="desc_logradouro_entrega" readonly />
+																	<span class="input-group-addon " onclick="eraser( this.children[0].id )">
+																		<input type="hidden" id="eraser_logradouro_entrega" name="eraser_logradouro_entrega" />
+																		<span class="fluigicon fluigicon-eraser fluigicon-sm"></span>
+																	</span>
+																	<span class="input-group-addon group-zoom no-view zoom-click btn-primary" onclick="zoom( this.children[0].id ); ">
+																		<input type="hidden" id="zoom_logradouro_entrega" name="zoom_logradouro_entrega" />
+																		<span class="fluigicon fluigicon-zoom-in "></span>
+																	</span>
+																</div>
+															</div>
+															<div class="col-md-3">
+																<label for="endereco_entrega" class="control-label">Endere&ccedil;o</label>
+																<input type="text" name="endereco_entrega" id="endereco_entrega" class="form-control" onchange="setIEendereco(this.id);" maxlength="20" />
+															</div>
+															<div class="col-md-2">
+																<label for="numero_entrega" class="control-label">Num</label>
+																<div class="input-group">
+																	<span class="input-group-addon">
+																		<input type="checkbox" id="sem_numero_entrega" name="sem_numero_entrega" onchange="setSemNumero( this.id, 'numero_entrega' ); setIEendereco(this.id); ">
+																	</span>
+																	<input type="text" name="numero_entrega" id="numero_entrega" class="form-control integer-0" onchange=" setIEendereco(this.id);" />
+																</div>										
+															</div>
+															<div class="col-md-3">
+																<label for="bairro_entrega" class="control-label">Bairro</label>
+																<input type="text" name="bairro_entrega" id="bairro_entrega" class="form-control " onchange="setIEendereco(this.id);" />
+															</div>
+														</div>
+														<div class="row">
+															<div class="col-md-4">
+																<label for="complemento_entrega" class="control-label">Complemento</label>
+																<input type="text" name="complemento_entrega" id="complemento_entrega" class="form-control" maxlength="20" />
+															</div>
+															<div class="col-md-2">
+																<label for="cod_cidade_entrega" class="control-label">Cod Cidade</label>
+																<input type="text" name="cod_cidade_entrega" id="cod_cidade_entrega" class="form-control " readonly  />
+																<input type="hidden" name="cod_cidade_ibge_entrega" id="cod_cidade_ibge_entrega" />
+															</div>					
+															<div class="col-md-4">
+																<label for="den_cidade" class="control-label">Cidade</label>
+																<div class="input-group">
+																	<input type="text" name="den_cidade_entrega" id="den_cidade_entrega" class="form-control " readonly  />
+																	<span id="zoom_cidade_entrega" class="input-group-addon fluigicon fluigicon-zoom-in fluigicon-sm" onclick="zoom( this.children[0].id )">
+																		<input type="hidden" id="zoom_cidade_entrega" name="zoom_cidade_entrega" />
+																	</span>
+																</div>
+															</div>
+															<div class="col-md-2">
+																<label for="uf_entrega" class="control-label">UF</label>								
+																<input id="uf_entrega" name="uf_entrega" class="form-control " type="text" readonly/>									
+															</div>
+														</div>
+														<div class="row">
+															<div class="col-md-2 ins_estadual_entrega">
+																<label for="ie_entrega" class="control-label lb_ie_entrega">Inscri&ccedil;&atilde;o Estadual</label>
+																<input type="tel" name="ie_entrega" id="ie_entrega" class="form-control inicio-fiscal-total" onkeypress="return onlynumber();" />
+															</div>
+														</div>
+													</td>
+												</tr>
+											</tbody>
+										</table>
+									</div>
+								</div>
+							</div>
+							<div class="tab-pane" id="aba_identificacao_cliente">
+								
+								<div class="row">
+									
+									<div class="col-md-6 cliente" style="display: none;" >
+										<label for="nom_repres" class="control-label">Representante</label>
+										<div class="input-group">
+											<input type="text" name="nom_repres" id="nom_repres" class="form-control valida clear_repres" readonly />
+											<input type="hidden" name="cod_repres" id="cod_repres" class="clear_repres" />
+											<span class="input-group-addon fluigicon fluigicon-eraser fluigicon-sm" onclick="eraser( '.clear_repres' );"></span>
+											<span class="input-group-addon fluigicon fluigicon-zoom-in fluigicon-sm" onclick="zoom('bt_representante')"></span>
+										</div>
+									</div>
+									
+									<div class="col-md-3 cliente" style="display: none;">
+										<label for="cod_tip_carteira" class="control-label">Carteira</label>
+										<select name="cod_tip_carteira" id="cod_tip_carteira" class="form-control">
+											<option value=''></option>
+										</select>
+									</div>
+									
+								</div>
+								
+								<!--<input type="hidden" name="nom_repres" id="nom_repres" />
+								<input type="hidden" name="cod_repres" id="cod_repres" />
+								<input type="hidden" name="cod_tip_carteira" id="cod_tip_carteira" />-->
+								
+								<div class="row">	
+									<div class="col-md-3 cliente">
+										<label for="cod_mercado" class="control-label">Mercado</label>
+										<select name="cod_mercado" id="cod_mercado" class="form-control">
+											<option value=''></option>
+										</select>
+									</div>	
+									<div class="col-md-3 cliente">
+										<label for="cod_continente" class="control-label">Continente</label>
+										<select name="cod_continente" id="cod_continente" class="form-control">
+											<option value=''></option>
+										</select>
+									</div>	
+									<div class="col-md-3 cliente">
+										<label for="cod_regiao" class="control-label">Regiao</label>
+										<select name="cod_regiao" id="cod_regiao" class="form-control">
+											<option value=''></option>
+										</select>
+									</div>
+								</div>
+							
+								<div class="row">
+									<!--  
+									<div class="col-md-6 cliente">
+										<label for="cadastro_ambiental_rural" class="control-label">Cadastro Ambiental Rural (CAR)</label>
+										<input type="text" name="cadastro_ambiental_rural" id="cadastro_ambiental_rural" class="form-control" />
+									</div>
+									-->
+									<input type="hidden" name="cadastro_ambiental_rural" id="cadastro_ambiental_rural" />
+									<div class="col-md-3 cliente">
+										<label for="tipo_cliente" class="control-label">Tipo Cliente</label>
+										<div class="input-group">
+											<input id="tipo_cliente" name="tipo_cliente" class="form-control" type="text" readonly/>
+											<input id="cod_tip_cliente" name="cod_tip_cliente" type="hidden" />
+											<span id="zoom_tipo_cliente" class="input-group-addon fluigicon fluigicon-zoom-in fluigicon-sm" onclick="zoom(this.id)"></span>
+										</div>
+									</div>
+									
+									
+								</div>
+							</div>
+							<div class="tab-pane" id="aba_identificacao_cliente_pf">
+								<div class="row">
+									
+									<!-- <div class="col-md-2">
+										<label for="nome_fantasia" class="control-label">Nome Fantasia</label>
+										<input id="nome_fantasia" name="nome_fantasia" class="form-control " type="text"/>
+									</div> -->
+								</div>
+							</div>
+							<div class="tab-pane" id="aba_dados_bancarios">
+								<div class="row">
+									<div class="col-md-2">
+										<label for="ies_tip_conta" class="control-label">Tipo de Conta</label>
+										<select name="ies_tip_conta" id="ies_tip_conta" class="form-control grp_banco clear_banco menu">
+											<option value=''></option>
+										</select>
+									</div>
+									<div class="col-md-2">
+										<label for="num_banco" class="control-label">Num Banco</label>
+										<input type="text" name="num_banco" id="num_banco" class="form-control grp_banco clear_banco menu" readonly  />
+									</div>
+									<div class="col-md-4">
+										<label for="nom_banco" class="control-label">Banco</label>
+										<div class="input-group">
+											<input id="nom_banco" name="nom_banco" class="form-control grp_banco clear_banco menu" type="text" readonly/>
+											<span class="input-group-addon fluigicon fluigicon-eraser fluigicon-sm" onclick="eraser( '.clear_banco' ); $('#pagto_deposito_credito').val('N'); "></span>
+											<span id="zoom_banco" class="input-group-addon fluigicon fluigicon-zoom-in fluigicon-sm" onclick="zoom(this.id)"></span>
+										</div>
+									</div>	
+									
+									<div class="col-md-2">
+										<label for="pagto_deposito_credito" class="control-label">Pgto Deposito / Cr&eacute;dito</label>
+										<select name="pagto_deposito_credito" id="pagto_deposito_credito" class="form-control">
+											<option value='N'>N&atilde;o</option>
+											<option value='S'>Sim</option>
+										</select>
+									</div> 
+									
+								</div>
+								<div class="row">
+									<div class="col-md-2">
+										<label for="agencia" class="control-label">Ag&eacute;ncia</label>
+										<input type="text" name="agencia" id="agencia" maxlength="4" class="form-control grp_banco clear_banco menu" />
+									</div>
+									<div class="col-md-2">
+										<label for="dig_agencia" class="control-label">Dig. Ag&eacute;ncia</label>
+										<input type="text" name="dig_agencia" id="dig_agencia" maxlength="1" class="form-control clear_banco menu" />
+									</div>
+									<div class="col-md-2">
+										<label for="conta_corrente" class="control-label">Conta Corrente</label>
+										<input type="text" name="conta_corrente" id="conta_corrente" maxlength="15" class="form-control grp_banco clear_banco" />
+									</div>
+									<div class="col-md-2">
+										<label for="dig_conta" class="control-label">Dig. Conta</label>
+										<input type="text" name="dig_conta" id="dig_conta" maxlength="1" class="form-control grp_banco clear_banco menu" />
+									</div>
+									<div class="col-md-4">
+										<label for="ies_ligacao_dados_bancarios" class="control-label">Liga&ccedil;&atilde;o para confirmar dados banc&aacute;rios?</label>
+										<select name="ies_ligacao_dados_bancarios" id="ies_ligacao_dados_bancarios" class="form-control clear_banco menu">
+											<option value='N'>N&atilde;o</option>
+											<option value='S'>Sim</option>
+										</select>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-md-2">
+										<label for="ies_pix" class="control-label">Tipo Chave</label>
+										<select name="ies_pix" id="ies_pix" class="form-control" onchange="controlePix()">
+											<option value=""></option>
+											<option value="00">N&atilde;o informado</option>
+											<option value="01">Telefone</option>
+											<option value="02">E-mail</option>
+											<option value="03">CPF</option>
+											<option value="06">CNPJ</option>
+											<option value="04">Chave aleat&oacute;ria</option>
+										</select>
+										<!-- <select name="ies_pix" id="ies_pix" class="form-control" onchange="controlePix()">
+											<option value=''></option>
+										</select> -->
+									</div>
+									<div class="col-md-10">
+										<label for="chave_pix" class="control-label">Chave Pix</label>
+										<input id="chave_pix" name="chave_pix" class="form-control" type="text" onchange="validaPix()"/>
+									</div>
+								</div>
+								<div class="row">
+ 
+									<div class="col-md-2 compras gera_ap">
+										<label for="gera_ap" class="control-label">Gera AP?</label>
+										<select name="gera_ap" id="gera_ap" class="form-control compras gera_ap">
+											<option value='' class='gera-ap-branco' ></option>
+											<option value='N'>N&atilde;o</option>
+											<option value='S'>Sim</option>
+										</select>
+									</div>
+									
+									<div class="col-md-4 compras">
+										<label for="nom_lote" class="control-label">Lote Pagamento</label>
+										<div class="input-group">
+											<input id="nom_lote" name="nom_lote" class="form-control grp_lote" type="text" readonly/>
+											<span class="input-group-addon fluigicon fluigicon-eraser fluigicon-sm" onclick="eraser( '.grp_lote' )"></span>
+											<span id="zoom_lote_pgto" class="input-group-addon fluigicon fluigicon-zoom-in fluigicon-sm" onclick="zoom(this.id)">
+												<input id="cod_lote_pgto" name="cod_lote_pgto" type="hidden" class="grp_lote"/>
+											</span>
+										</div>
+									</div>
+									<!--
+									<input type="hidden" name="nom_lote" id="nom_lote" />
+									<input type="hidden" name="cod_lote_pgto" id="cod_lote_pgto" />
+									-->
+										
+								</div>
+							</div>
+							<div class="tab-pane " id="aba_demais_informacoes">
+								<div class="row">
+									<!--<div class="col-md-2 simples">
+										<label for="simples_nacional" class="control-label">Simples Nacional</label>
+										<select name="simples_nacional" id="simples_nacional" class="form-control">										
+										</select>
+									</div>-->
+									<input type="hidden" name="simples_nacional" id="simples_nacional" />
+									
+									<div class="col-md-2 fiscal">
+										<label for="ins_municipal" class="control-label">Inscri&ccedil;&atilde;o Municipal</label>
+										<input type="text" name="ins_municipal" id="ins_municipal" class="form-control fiscal" onkeypress="return onlynumber();" />
+									</div>
+									
+									<div class="col-md-2 fiscal">
+										<label for="contibuinte_cprb" class="control-label">Contribuinte CPRB</label>
+										<select name="contibuinte_cprb" id="contibuinte_cprb" class="form-control fiscal" >
+											<option value="N">N&atilde;o</option>
+											<option value="S">Sim</option>
+										</select>
+									</div>
+									<div class="col-md-2 fiscal">
+										<label for="contibuinte_ipi" class="control-label">Contribuinte IPI</label>
+										<select name="contibuinte_ipi" id="contibuinte_ipi" class="form-control fiscal ctrFiscal" >
+											<option value="N">N&atilde;o</option>
+											<option value="S">Sim</option>
+											<option value="E">Optante Simples</option>
+										</select>
+									</div>
+									<div class="col-md-2 fiscal">
+										<label for="isento_ir" class="control-label">Isento IR</label>
+										<select name="isento_ir" id="isento_ir" class="form-control fiscal ctrFiscal" >
+											<option value="N">N&atilde;o</option>
+											<option value="S">Sim</option>
+										</select>
+									</div>
+									<div class="col-md-2 fiscal">
+										<label for="credito_presumido" class="control-label">Cr&eacute;dito Presumido</label>
+										<select name="credito_presumido" id="credito_presumido" class="form-control fiscal ctrFiscal" >
+											<option value="N">N&atilde;o</option>
+											<option value="S">Sim</option>
+										</select>
+									</div>
+									<div class="col-md-2 fiscal">
+										<label for="retencao_pis" class="control-label">Reten&ccedil;&atilde;o Pis</label>
+										<select name="retencao_pis" id="retencao_pis" class="form-control fiscal ctrFiscal" >
+											<option value="N">N&atilde;o</option>
+											<option value="S">Sim</option>
+										</select>
+									</div>
+									<div class="col-md-2 fiscal">
+										<label for="retencao_cofins" class="control-label">Reten&ccedil;&atilde;o Cofins</label>
+										<select name="retencao_cofins" id="retencao_cofins" class="form-control fiscal ctrFiscal" >
+											<option value="N">N&atilde;o</option>
+											<option value="S">Sim</option>
+										</select>
+									</div>
+									<div class="col-md-2 fiscal">
+										<label for="retencao_csl" class="control-label">Reten&ccedil;&atilde;o CSL</label>
+										<select name="retencao_csl" id="retencao_csl" class="form-control fiscal ctrFiscal" >
+											<option value="N">N&atilde;o</option>
+											<option value="S">Sim</option>
+										</select>
+									</div>
+									<div class="col-md-2 fiscal">
+										<label for="tipo_retencao" class="control-label">Tipo Reten&ccedil;&atilde;o</label>
+										<select name="tipo_retencao" id="tipo_retencao" class="form-control fiscal ctrFiscal" >
+											<option value="1">Por documento</option>
+											<option value="0">Acumulado</option>
+										</select>
+									</div>
+									<div class="col-md-2 fiscal">
+										<label for="retem_iss" class="control-label">Retem ISS no Pagto</label>
+										<select name="retem_iss" id="retem_iss" class="form-control fiscal ctrFiscal" >
+											<option value="S">Sim</option>
+											<option value="N">N&atilde;o</option>
+										</select>
+									</div>									
+									<div class="col-md-2 fiscal">
+										<label for="reside_exterior" class="control-label">Residente no exterior</label>
+										<select name="reside_exterior" id="reside_exterior" class="form-control fiscal ctrFiscal" >
+											<option value="N">N&atilde;o</option>
+											<option value="S">Sim</option>
+										</select>
+									</div>
+
+								</div>
+								
+								<div class="row" >	
+									<div class="col-md-12 fiscal">
+										<label for="observacao_fiscal" class="control-label">Observa&ccedil;&atilde;o</label>
+										<input type="text" name="observacao_fiscal" id="observacao_fiscal" class="form-control fiscal ctrFiscal"/>
+									</div>
+									
+								</div>
+								
+							</div>
+							<div class="tab-pane" id="aba_anexos">
+							
+								<div class="row F-I ctr-dinamico ">
+									<div class="col-md-6">
+										<label for="anexo_comprovante_conta" class="control-label">Anexo Comprovante Conta</label>
+										<div class="input-group">
+											<input id="anexo_comprovante_conta" name="anexo_comprovante_conta" class="form-control anexos" type="text" readonly/>
+											<span class="input-group-addon fluigicon fluigicon-zoom-in fluigicon-sm" onclick=""></span>
+											<span class="input-group-addon fluigicon fluigicon-folder-open fluigicon-sm" onclick="showCamera('anexo_comprovante_conta')"></span>
+										</div>
+									</div>
+								</div>
+								
+								<div class="row C-N C-I ctr-dinamico ">
+									<div class="col-md-6">
+										<label for="anexo_ficha_cadastral" class="control-label">Ficha cadastral</label>
+										<div class="input-group">
+											<input id="anexo_ficha_cadastral" name="anexo_ficha_cadastral" class="form-control anexos" type="text" readonly/>
+											<span class="input-group-addon fluigicon fluigicon-zoom-in fluigicon-sm" onclick=""></span>
+											<span class="input-group-addon fluigicon fluigicon-folder-open fluigicon-sm" onclick="showCamera('anexo_ficha_cadastral')"></span>
+										</div>
+									</div>
+								</div>
+
+								<div class="row C-N-66 ctr-dinamico AGRISK" >
+									<div class="col-md-6">
+										<label for="consulta_AGRISK" class="control-label">Consulta AGRISK</label>
+										<div class="input-group">
+											<input id="consulta_AGRISK" name="consulta_AGRISK" class="form-control anexos" type="text" readonly/>
+											<span class="input-group-addon fluigicon fluigicon-zoom-in fluigicon-sm" onclick=""></span>
+											<span class="input-group-addon fluigicon fluigicon-folder-open fluigicon-sm" onclick="showCamera('consulta_AGRISK')"></span>
+										</div>
+									</div>
+									
+									<div class="col-md-6">
+										<label for="obs_AGRISK" class="control-label">Observação AGRISK</label>
+										<input id="obs_AGRISK" name="obs_AGRISK" class="form-control" type="text" />
+									</div>
+									
+								</div>
+								
+								<div class="row F-N F-I T-N T-I ctr-dinamico ">
+									<div class="col-md-6">
+										<label for="anexo_ficha_cadastral_assinada" class="control-label">Ficha cadastral assinada</label>
+										<div class="input-group">
+											<input id="anexo_ficha_cadastral_assinada" name="anexo_ficha_cadastral_assinada" class="form-control anexos" type="text" readonly/>
+											<span class="input-group-addon fluigicon fluigicon-zoom-in fluigicon-sm" onclick=""></span>
+											<span class="input-group-addon fluigicon fluigicon-folder-open fluigicon-sm" onclick="showCamera('anexo_ficha_cadastral_assinada')"></span>
+										</div>
+									</div>
+								</div>
+								
+								<div class="row F-N F-I T-N T-I ctr-dinamico ">
+									<div class="col-md-6">
+										<label for="anexo_contrato_social" class="control-label">Contrato Social / Certid&atilde;o Simplificada</label>
+										<div class="input-group">
+											<input id="anexo_contrato_social" name="anexo_contrato_social" class="form-control anexos" type="text" readonly/>
+											<span class="input-group-addon fluigicon fluigicon-zoom-in fluigicon-sm" onclick=""></span>
+											<span class="input-group-addon fluigicon fluigicon-folder-open fluigicon-sm" onclick="showCamera('anexo_contrato_social')"></span>
+										</div>
+									</div>
+								</div>
+								<div class="row F-N A-N A-I T-N T-I ctr-dinamico ">
+									<div class="col-md-6">
+										<label for="anexo_dados_bancarios" id="lb_anexo_dados_bancarios" class="control-label">Comprovante de Dados Banc&aacute;rios</label>
+										<div class="input-group">
+											<input id="anexo_dados_bancarios" name="anexo_dados_bancarios" class="form-control anexos" type="text" readonly/>
+											<span class="input-group-addon fluigicon fluigicon-zoom-in fluigicon-sm" onclick=""></span>
+											<span class="input-group-addon fluigicon fluigicon-folder-open fluigicon-sm" onclick="showCamera('anexo_dados_bancarios')"></span>
+										</div>
+									</div>
+								</div>
+								
+								<div class="row ctr-dinamico TF-CLI ">
+									<div class="col-md-6">
+										<label for="anexo_aut_valor_depositado" class="control-label">Autoriza&ccedil;&atilde;o de devolu&ccedil;&atilde;o de valores depositados</label>
+										<div class="input-group">
+											<input id="anexo_aut_valor_depositado" name="anexo_aut_valor_depositado" class="form-control anexos" type="text" readonly/>
+											<span class="input-group-addon fluigicon fluigicon-zoom-in fluigicon-sm" onclick=""></span>
+											<span class="input-group-addon fluigicon fluigicon-folder-open fluigicon-sm" onclick="showCamera('anexo_aut_valor_depositado')"></span>
+										</div>
+									</div>
+								</div>
+
+								<div class="row T-N T-I ctr-dinamico ">
+									<div class="col-md-6">
+										<label for="anexo_apolice_seguro" class="control-label">Ap&oacute;lice de Seguro</label>
+										<div class="input-group">
+											<input id="anexo_apolice_seguro" name="anexo_apolice_seguro" class="form-control anexos" type="text" readonly/>
+											<span class="input-group-addon fluigicon fluigicon-zoom-in fluigicon-sm" onclick=""></span>
+											<span class="input-group-addon fluigicon fluigicon-folder-open fluigicon-sm" onclick="showCamera('anexo_apolice_seguro')"></span>
+										</div>
+									</div>
+								</div>								
+								
+								<div class="row M-N M-I ctr-dinamico ">
+									<div class="col-md-2">
+										<label for="tipo_proprietario" class="control-label">Tipo de propriet&aacute;rio</label>
+										<select name="tipo_proprietario" id="tipo_proprietario" class="form-control">
+											<option value=''></option>
+											<option value='0'>TAC Agregado</option>
+											<option value='1'>TAC Independente</option>
+											<option value='2'>Outros</option>
+										</select>
+									</div>
+								</div>
+							</div>
+							<div class="tab-pane" id="aba_observacoes" >
+								<div class="row divRowLgpd">
+									<div class="col-md-2 ">
+										<label for="termo_lgpd" class="control-label">Termo LGPD</label>
+										<select name="termo_lgpd" id="termo_lgpd" class="form-control lgpd" onchange="controleLGPD()">
+											<option value=''></option>
+											<option value='N'>N&atilde;o</option>
+											<option value='S'>Sim</option>
+										</select>
+									</div>
+									<div class="col-md-6 fornecedor motorista autonomo divLGPD" style="display: none;">
+										<label for="anexo_termo_lgpd" class="control-label">Anexo Termo LGPD</label>
+										<div class="input-group">
+											<input id="anexo_termo_lgpd" name="anexo_termo_lgpd" class="form-control" type="text" readonly/>
+											<span class="input-group-addon fluigicon fluigicon-zoom-in fluigicon-sm" onclick=""></span>
+											<span class="input-group-addon fluigicon fluigicon-folder-open fluigicon-sm" onclick="showCamera('anexo_termo_lgpd')"></span>
+										</div>
+									</div>
+									
+									<div class="col-md-10  fornecedor motorista autonomo jusLGPD">
+										<label for="justificativa_lgpd" class="control-label">Justificativa LGPD</label>
+										<select name="justificativa_lgpd" id="justificativa_lgpd" class="form-control lgpd">
+											<option value=''></option>
+											<option value='R'>Rela&ccedil;&atilde;o comercial n&atilde;o envolve dados pessoais</option>
+											<option value='O'>&Oacute;rg&atilde;o P&uacute;blico</option>
+											<option value='T'>Tabeli&atilde;o</option>
+											<option value='V' class="cliente">Venda &agrave; Vista/Pagto. Antecipado</option>
+										</select>
+										<!--<input type="text" name="justificativa_lgpd" id="justificativa_lgpd" class="form-control " />-->
+									</div>
+									
+								</div>
+								<div class="row">
+									<div class="col-md-2 classe">
+										<label for="classe" class="control-label">Classe</label>
+										<input type="text" name="classe" id="classe" class="form-control upper" maxlength="1" />
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-sm-12">
+										<label for="exampleTag">Observa&ccedil;&atilde;o</label>
+										<textarea rows="2" name="obs_hist" id="obs_hist" class="form-control" ></textarea>
+									</div>				
+								</div>
+								<div class="row" id="hist" name="hist" >
+									<div class="col-sm-12">	
+										<table class="table table-condensed table-bordered" border="1" tablename="historico"  noaddbutton=true nodeletebutton=true addbuttonclass="wdkbuttonClass" >
+											<thead>
+												<tr >
+													<td width='100%' class="cell-ellipsis"><b>Historico</b></td>
+												</tr>
+											</thead>
+												<tr>
+													<td>
+														<input type="hidden" name="tipo_hist" id="tipo_hist" />
+														<div class="row">
+															<div class="col-sm-2">
+																<label for="exampleTag">Data Hist.</label>
+																<input type="text" class="form-control" name="data_hist" id="data_hist" readonly >
+															</div>
+															<div class="col-sm-4">
+																<label for="exampleTag">Usuario</label>
+																<input type="text" class="form-control" name="user_hist" id="user_hist" readonly >
+																<input type="hidden" name="cod_user_hist" id="cod_user_hist" readonly >
+															</div>
+														</div>
+														<div class="row">
+															<div class="col-sm-12">
+																<textarea rows="3" name="desc_hist" id="desc_hist" class="form-control"  readonly ></textarea>
+															</div>
+														</div>
+													</td>
+												</tr>
+										</table>
+									</div>			
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>		
+		</div>
+		
+		<input type="hidden" name="descritor" id="descritor">
+		<input type="hidden" name="isManager" id="isManager">
+		<input type="hidden" name="task" id="task">
+		<input type="hidden" name="user_abertura" id="user_abertura">
+		<input type="hidden" name="oldData" id="oldData">
+		<input type="hidden" name="camposAlterados" id="camposAlterados">
+		
+		<input type="hidden" name="documentidOperacao" id="documentidOperacao">
+		<input type="hidden" name="versionOperacao" id="versionOperacao">
+		<input type="hidden" name="integraPadraoK2" id="integraPadraoK2">
+		
+		<input type="hidden" name="iesCredito" id="iesCredito">
+		<input type="hidden" name="iesRevisao" id="iesRevisao">
+		<input type="hidden" name="iesFiscal" id="iesFiscal">
+		<input type="hidden" name="iesAprovacao" id="iesAprovacao">
+		<input type="hidden" name="iesRH" id="iesRH">
+		
+		<input type="hidden" name="iesAGRISK" id="iesAGRISK">
+		
+		<input type="hidden" name="ies_sit_fornecedor" id="ies_sit_fornecedor">
+		<input type="hidden" name="ies_sit_cliente" id="ies_sit_cliente">
+		
+	</form>
+</div>
+</body>
+</html>

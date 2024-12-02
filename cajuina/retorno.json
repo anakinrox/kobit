@@ -1,0 +1,61 @@
+{
+    "razao_social": "PATRICIA SABINO TEIXEIRA 02925364969",
+    "atualizado_em": "2023-12-09T03:00:00.000Z",
+    "simples": {
+        "mei": "Sim",
+        "atualizado_em": "2023-12-09T03:00:00.000Z",
+        "data_opcao_simples": "2021-05-18",
+        "data_opcao_mei": "2021-05-18",
+        "simples": "Sim"
+    },
+    "estabelecimento": {
+        "tipo_logradouro": "ENTRADA",
+        "atividade_principal": {
+            "classe": "58.19-1",
+            "subclasse": "5819-1/00",
+            "divisao": "58",
+            "grupo": "58.1",
+            "id": "5819100",
+            "secao": "J",
+            "descricao": "Edição de cadastros, listas e outros produtos gráficos"
+        },
+        "tipo": "Matriz",
+        "estado": {
+            "sigla": "SC",
+            "ibge_id": 42,
+            "nome": "Santa Catarina",
+            "id": 24
+        },
+        "cidade": {
+            "siafi_id": "8127",
+            "ibge_id": 4206504,
+            "nome": "Guaramirim",
+            "id": 4415
+        },
+        "numero": "1439",
+        "situacao_cadastral": "Ativa",
+        "inscricoes_estaduais": [],
+        "data_situacao_cadastral": "2021-05-18",
+        "cnpj": "41993467000167",
+        "cep": "89270000",
+        "atividades_secundarias": [],
+        "complemento": "CASA 81",
+        "email": "marciosilvarox@gmail.com",
+        "ddd1": "47",
+        "telefone1": "88112917",
+        "bairro": "BANANAL DO SUL",
+        "pais": {
+            "comex_id": "105",
+            "nome": "Brasil",
+            "id": "1058",
+            "iso2": "BR",
+            "iso3": "BRA"
+        },
+        "data_inicio_atividade": "2021-05-18",
+        "atualizado_em": "2023-12-09T03:00:00.000Z",
+        "logradouro": "BANANAL DO SUL",
+        "cnpj_raiz": "41993467",
+        "cnpj_ordem": "0001",
+        "cnpj_digito_verificador": "67"
+    }
+}

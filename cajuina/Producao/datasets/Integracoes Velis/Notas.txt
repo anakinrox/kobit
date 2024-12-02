@@ -1,0 +1,2 @@
+- Ao incluir um pedido atualizar o limit usado em TODAS as EMPRESAS. = OK
+- Duplicatas enviar TUDO para TODAS empresas. = OK

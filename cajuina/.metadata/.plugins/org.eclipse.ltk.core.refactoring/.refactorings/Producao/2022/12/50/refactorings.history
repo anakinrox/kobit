@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring accessors="true" comment="Delete 5 elements from project &apos;Producao&apos;&#x0D;&#x0A;- Original project: &apos;Producao&apos;&#x0D;&#x0A;- Original elements:&#x0D;&#x0A;     wf_clientes.beforeTaskSave.js&#x0D;&#x0A;     wf_clientes.servicetask16.js&#x0D;&#x0A;     wf_clientes.servicetask18.js&#x0D;&#x0A;     wf_clientes.servicetask19.js&#x0D;&#x0A;     wf_clientes.servicetask31.js" description="Delete elements" element1="workflow/scripts/wf_clientes.servicetask16.js" element2="workflow/scripts/wf_clientes.servicetask18.js" element3="workflow/scripts/wf_clientes.servicetask31.js" element4="workflow/scripts/wf_clientes.servicetask19.js" element5="workflow/scripts/wf_clientes.beforeTaskSave.js" elements="0" flags="589830" id="org.eclipse.jdt.ui.delete" resources="5" stamp="1670361124495" subPackages="false" version="1.0"/>
+</session>

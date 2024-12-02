@@ -1,0 +1,29 @@
+/* Coloque aqui seu codigo CSS */
+.legend {
+    padding: 5px 10px;
+}
+
+.bar-legend li {
+    position:relative; 
+    display: inline;
+    float:unset; 
+    width:120px; 
+    padding-left: 20px
+}
+
+.bar-legend span {
+    display: inline-block;
+    height: 1em;
+    width: 1em;
+    margin-right: .8em;
+}
+
+.pie-legend {
+    list-style: none;
+}
+.pie-legend span {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    margin-right: 10px;
+}

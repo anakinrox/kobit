@@ -1,0 +1,45 @@
+{
+    "numero": "150917",
+    "serie": "3",
+    "emitente": {
+        "cnpj": "91359711000102",
+        "cep": 95780000
+    },
+    "destinatario": {
+        "cnpj": "08673273000613",
+        "cep": 99490000
+    },
+    "enderecoRetirada": {
+        "logradouro": "GUIDO MOMBELLI ",
+        "numero": "280 ",
+        "complemento": "null",
+        "bairro": "CENTRO ",
+        "uf": "RS",
+        "cep": "99490000",
+        "latitude": "",
+        "longitude": "",
+        "ibge": "4321006"
+    },
+    "enderecoEntrega": {
+        "logradouro": "SILVIO CORBETTA ",
+        "numero": "158 ",
+        "complemento": "null",
+        "bairro": "CENTRO ",
+        "uf": "RS",
+        "cep": "95970000",
+        "latitude": "",
+        "longitude": "",
+        "ibge": "4312609"
+    },
+    "modalidadeFrete": "0",
+    "tipoOperacao": "1",
+    "dataEmissao": "2021-12-16 13:40:51",
+    "peso": 630,
+    "pesoLiquido": 630,
+    "cubagem": 19.778,
+    "volumes": 20,
+    "quantidadeItens": 500,
+    "valor": 5155,
+    "valorProdutos": 5155,
+    "prazoCliente": "2021-12-16 13:40:51"
+}

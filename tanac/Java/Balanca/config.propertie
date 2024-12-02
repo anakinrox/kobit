@@ -1,0 +1,13 @@
+#Tue Mar 12 08:34:45 BRT 2024
+rep.path=C\:/Trabalho/Kobit/tanac/Java/Balanca/reports/balanca.jasper
+db.banco=0
+db.password=MTJxd2FzenghQA\=\=
+db.database=logix
+bal.path=c\:/temp/peso22.txt
+db.user=aWZ4X2Ric3R1ZGlv
+param.empresa=01
+param.percentMaior=5
+param.percentMenor=1
+db.server=ol_informix9
+db.url=10.1.1.9\:9088
+param.index=1

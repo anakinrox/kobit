@@ -1,0 +1,19 @@
+INDEX VERSION 1.3+C:\Trabalho\Kobit\timac\.metadata\.plugins\org.eclipse.wst.jsdt.core\indexes
+3956619026.index
+3980705300.index
+285662397.index
+1392009319.index
+1050646302.index
+2159926077.index
+4252038533.index
+1613244968.index
+446420240.index
+2563094577.index
+3057976481.index
+3297901425.index
+3572770806.index
+140467517.index
+4240202377.index
+1512493135.index
+2336923308.index
+263445880.index

@@ -1,0 +1,1187 @@
+<html>
+	<head>
+		<link type="text/css" rel="stylesheet" href="/portal/resources/style-guide/css/fluig-style-guide.min.css"/>
+		<script type="text/javascript" src="/portal/resources/js/jquery/jquery.js"></script>
+		<script type="text/javascript" src="/portal/resources/js/jquery/jquery-ui.min.js"></script>
+		<script type="text/javascript" src="/portal/resources/js/mustache/mustache-min.js"></script>
+		<script type="text/javascript" src="/portal/resources/style-guide/js/fluig-style-guide.min.js" charset="utf-8"></script>
+		<script type="text/javascript" src="/portal/resources/js/jquery.mask.min.js"></script>	
+
+		<link type="text/css" rel="stylesheet" href="controle.css" />
+
+		<script type="text/javascript" src="/webdesk/vcXMLRPC.js"></script>
+		<script type="text/javascript" src="./jquery.maskMoney.min.js"></script>
+		<script type="text/javascript" src="./controle.js"></script>
+		<script type="text/javascript" src="./utils.js"></script>
+		<script type="text/javascript" src="./zoom.js"></script>
+		<script type="text/javascript" src="./print.js"></script>
+		<script type="text/javascript" src="./fileUpload.js"></script>
+		<script type="text/javascript" src="./valida.js"></script>
+		
+		<script type="text/javascript" src="./modalZoom.js"></script>
+		<script type="text/javascript" src="./modalZoom2.js"></script>
+
+	</head>
+<body onload="loadBody()">
+<div class="fluig-style-guide">
+	<form name="form" role="form" autocomplete="off">
+		<div class="panel panel-info"  style="margin-bottom: 0px;">
+			<div class="panel-heading fs-txt-center">
+				<table width='100%' >
+					<tr>
+						<td align=center ><b>Cliente</b></td>
+					</tr>
+				</table>
+			</div>
+			<div class="panel-body">
+				<div class="row">
+					<div class="col-md-2 not-mobile">
+						<label for="cod_cliente" class="control-label">Cod Cliente</label>
+						<input type="text" name="cod_cliente" id="cod_cliente" class="form-control" readonly  />
+					</div>
+					<div class="col-md-2">
+						<label for="num_cgc_cpf" class="control-label" >CPNJ/CPF</label>
+						<input type="hidden" id="dat_nascimento" name="dat_nascimento" />
+						<input type="text" name="num_cgc_cpf" id="num_cgc_cpf" class="form-control cnpj_cpf valida" oldvalue="" onfocus="removerMask()" onblur="dadosReceita()"  />
+					</div>					
+					<div class="col-md-5">
+						<label for="nom_cliente" class="control-label">Nome</label>
+						<input type="text" name="nom_cliente" id="nom_cliente" class="form-control valida" autocomplete="off" maxlength="60" />
+					</div>
+					<div class="col-md-3">
+						<label for="nom_reduzido" class="control-label">Reduzido</label>
+						<input type="text" name="nom_reduzido" id="nom_reduzido" class="form-control valida"  maxlength="20"  />
+					</div>
+					
+					
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-12">
+				<ul class="nav nav-pills clearfix" role="tablist" >
+					<li class="active"><a href="#aba_dados" id="id_aba_dados" role="tab" data-toggle="tab">Dados Gerais</a></li>
+					<li class="not-mobile" ><a href="#aba_contatos" id="id_aba_contato" role="tab" data-toggle="tab">Contatos</a></li>
+					<!-- <li><a href="#aba_documentos" id="id_aba_documentos" role="tab" data-toggle="tab" >Documentos</a></li>-->
+					<li><a href="#aba_emails_nfe" id="id_aba_emails_nfe" role="tab" data-toggle="tab">E-Mail NFE</a></li>
+					<li class="not-mobile not-inicio"><a href="#aba_fiscal" role="tab" data-toggle="tab">Fiscal</a></li>
+					<li><a href="#aba_credito" role="tab" data-toggle="tab">Credito</a></li>
+					<!-- <li><a href="#aba_financeiro" id="id_aba_financeiro" role="tab" onclick="loadFinanceiroAba( $('#cod_cliente').val(), 'S' )" data-toggle="tab">Financeiro</a></li>
+					<li><a href="#aba_grp_economico" id="id_aba_grp_economico" role="tab" data-toggle="tab">Grupo Econ&ocirc;mico</a></li> -->
+					<li><a href="#aba_followup" id="followup" role="tab" data-toggle="tab">Followup</a></li>
+				</ul>
+			</div>
+		</div>
+		<div class="tab-content" style="padding-left: 0px; padding-top: 0px; padding-bottom: 0px; padding-right: 0px;">
+			<div class="tab-pane active" id="aba_dados">
+				<div class="panel panel-info"  style="margin-bottom: 0px;">
+					<div class="panel-heading fs-txt-center">
+						<table width='100%' >
+							<tr>
+								<td align=center ><b>Dados Gerais</b></td>
+							</tr>
+						</table>
+					</div>
+					<div class="panel-body">
+						<div class="row">	
+							<div class="col-md-2">
+								<label for="cod_empresa" class="control-label">Empresa</label>
+								<select name="cod_empresa" id="cod_empresa" class="form-control" onchange="setEmpresa(true)" ></select>
+							</div>
+							<div class="col-md-2">
+								<label for="cod_cep" class="control-label">CEP</label>
+								<input type="text" name="cod_cep" id="cod_cep" class="form-control valida cep"  onblur="dadosCEP()"  />
+							</div>
+							<div class="col-md-2">
+								<label for="des_logradouro" class="control-label">Tipo Endere&ccedil;o</label>
+								<input type="hidden" id="tip_logradouro" name="tip_logradouro" />
+								<div class="input-group">
+									<input class="form-control cliente valida" type="text" id="desc_logradouro" name="desc_logradouro" readonly/>
+									<span id="btnLogradouro"	class="input-group-addon group-zoom no-view zoom-click btn-primary"	onclick="zoom(this.id); ">
+										<span class="fluigicon fluigicon-zoom-in "></span>
+									</span>
+								</div>
+							</div>
+							<div class="col-md-4">
+								<label for="logradouro" class="control-label">Endere&ccedil;o</label>
+								<input type="text" name="logradouro" id="logradouro" class="form-control valida"  maxlength="36"  />						
+							</div>
+							<div class="col-md-2">
+								<label for="num_iden_lograd" class="control-label">Numero</label>
+								<div class="input-group">
+									<span class="input-group-addon">
+										<input type="checkbox" name="sem_numero" id="sem_numero" onchange="setSemNumero( this.id, 'num_iden_lograd' )" >
+									</span>
+									<input type="text" name="num_iden_lograd" id="num_iden_lograd" class="form-control foco valida decimal-0" onblur="setSemNumero( 'sem_numero', 'num_iden_lograd' );" />
+								</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-md-12">
+								<label for="compl_endereco" class="control-label">Complemento</label>
+								<input type="text" name="compl_endereco" id="compl_endereco" class="form-control" maxlength="30" />
+							</div>
+						</div>
+						<div class="row">
+							
+							<div class="col-md-4">
+								<label for="bairro" class="control-label">Bairro</label>
+								<input type="text" name="bairro" id="bairro" class="form-control foco valida" maxlength="50" />
+							</div>
+						
+							<div class="col-md-4">
+								<label for="den_cidade" class="control-label">Cidade</label>
+								<div class="input-group">
+									<input type="text" name="den_cidade" id="den_cidade" class="form-control valida" readonly  />
+									<input type="hidden" name="cod_cidade" id="cod_cidade"  />
+									<input type="hidden" name="cod_cidade_ibge" id="cod_cidade_ibge"  />
+									<span class="input-group-addon fluigicon fluigicon-zoom-in fluigicon-sm" onclick="zoom('bt_cidade')"></span>
+								</div>										
+							</div>
+							<div class="col-md-2 not-mobile">
+								<label for="den_uni_feder" class="control-label">Estado</label>
+								<input type="text" name="den_uni_feder" id="den_uni_feder" class="form-control" readonly/>
+								<input type="hidden" name="cod_uni_feder" id="cod_uni_feder"/>
+							</div>
+							<div class="col-md-2 not-mobile">
+								<label for="den_pais" class="control-label">Pa&iacute;s</label>
+								<input type="text" name="den_pais" id="den_pais" class="form-control" readonly/>
+								<input type="hidden" name="cod_pais" id="cod_pais"/>
+							</div>
+							
+						</div>
+						
+						<div class="row">
+							<div class="col-md-3">
+								<label for="cod_cliente" class="control-label">Inscri&ccedil;&atilde;o Estadual</label>
+								<div class="form-group">
+									<div class="input-group">
+										<span class="input-group-addon">
+											<input type="checkbox" name="isento_ie" id="isento_ie" onchange="setIsento( this.id, 'ins_estadual', 'cod_uni_feder' )"  >
+										</span>
+										<input type="text" name="ins_estadual" id="ins_estadual" class="form-control valida" />
+									</div>
+								</div>
+							</div>
+						
+							<div class="col-md-5">
+								<label for="contato" class="control-label">Contato</label>
+								<input type="text" name="contato" id="contato" class="form-control"/>
+							</div>
+							
+							<div class="col-md-2">
+								<label for="telefone_1" class="control-label">Telefone</label>
+								<input type="text" name="telefone_1" id="telefone_1" class="form-control valida telefone"  />
+							</div>
+							
+							<div class="col-md-2">
+								<label for="telefone_2" class="control-label">Celular</label>
+								<input type="text" name="telefone_2" id="telefone_2" class="form-control telefone" />
+							</div>
+						</div>
+						
+						<div class="row">
+							<div class="col-md-6">
+								<label for="correio_eletronico" class="control-label">Email Principal</label>
+								<input type="text" name="correio_eletronico" id="correio_eletronico" class="form-control valida"  maxlength="100"  />
+							</div>
+							<div class="col-md-3 not-mobile">
+								<label for="nom_repres" class="control-label">Representante</label>
+								<div class="input-group">
+									<input type="text" name="nom_repres" id="nom_repres" class="form-control valida" readonly />
+									<input type="hidden" name="cod_repres" id="cod_repres" />
+									<span class="input-group-addon fluigicon fluigicon-zoom-in fluigicon-sm" onclick="zoom('bt_representante')"></span>
+								</div>
+							</div>
+							
+							
+							<div class="col-md-3">
+								<label for="den_tip_cli" class="control-label">Tipo Cliente</label>					
+								<div class="input-group">	
+									<input type="text" name="den_tip_cli" id="den_tip_cli" class="form-control valida grp_tipo_cliente" readonly/>
+									<span class="input-group-addon fluigicon fluigicon-eraser fluigicon-sm" onclick="$('.grp_tipo_cliente').val('');"></span>
+									<span class="input-group-addon fluigicon fluigicon-zoom-in fluigicon-sm" onclick="zoom('bt_tip_cli')"></span>
+									<input type="hidden" name="cod_tip_cli" id="cod_tip_cli" class="grp_tipo_cliente" />
+								</div>
+							</div>
+							
+						</div>	
+							
+						<div class="row">
+							<div class="col-md-2">
+								<label for="dat_fundacao" class="control-label">Data Nasc/Fund</label>
+								<input type="text" name="dat_fundacao" id="dat_fundacao" class="form-control data-fluig"/>
+							</div>
+
+							<div class="col-md-3 not-mobile ">
+								<label for="den_rota" class="control-label">Rota</label>
+								<div class="input-group">
+									<input id="den_rota" name="den_rota" class="form-control grp_rota" type="text" readonly/>
+									<span class="input-group-addon fluigicon fluigicon-eraser fluigicon-sm" onclick="$('.grp_rota').val('');$('.grp_localidade').val('');"></span>
+									<span id="btnRota" class="input-group-addon fluigicon fluigicon-zoom-in fluigicon-sm" onclick="zoom(this.id)"></span>
+									<input id="cod_rota" name="cod_rota" class="grp_rota" type="hidden" />
+								</div>
+							</div>
+							<div class="col-md-3 ">
+								<label for="den_praca" class="control-label">Dia Visita</label>
+								<div class="input-group">
+									<input id="den_praca" name="den_praca" class="form-control grp_praca" type="text" readonly/>	
+									<span class="input-group-addon fluigicon fluigicon-eraser fluigicon-sm" onclick="$('.grp_praca').val('');$('.grp_localidade').val('');"></span>
+									<span id="btnPraca" class="input-group-addon fluigicon fluigicon-zoom-in fluigicon-sm" onclick="zoom(this.id)"></span>
+									<input id="cod_praca" name="cod_praca" class="grp_praca" type="hidden" />
+								</div>
+							</div>
+						
+							<div class="col-md-3 not-mobile ">
+								<label for="den_local" class="control-label">Localidade</label>
+								<div class="input-group">
+									<input id="den_local" name="den_local" class="form-control grp_localidade" type="text" readonly/>
+									<span class="input-group-addon fluigicon fluigicon-eraser fluigicon-sm" onclick="$('.grp_localidade').val('')"></span>
+									<span id="btnLocal" class="input-group-addon fluigicon fluigicon-zoom-in fluigicon-sm" onclick="zoom(this.id)"></span>
+									<input id="cod_local" name="cod_local" class="grp_localidade" type="hidden" />
+								</div>
+							</div>		
+							
+							<div class="col-md-1 not-mobile ">
+								<label for="classe" class="control-label">Classe</label>
+								<input id="classe" name="classe" class="form-control grp_portador credito" type="text" />
+							</div>
+												
+						</div>
+						
+						<div class="row">
+						
+						
+							<div class="col-md-4 ">
+								<label for="den_list_preco" class="control-label">Lista de Preço</label>
+								<div class="input-group">
+									<input id="den_list_preco" name="den_list_preco" class="form-control grp_Lista" type="text" readonly />
+									<span class="input-group-addon fluigicon fluigicon-eraser fluigicon-sm"
+										onclick="$('.grp_Lista').val('')"></span>
+									<span id="btnLista" class="input-group-addon fluigicon fluigicon-zoom-in fluigicon-sm"
+										onclick="zoom(this.id)"></span>
+									<input id="num_list_preco" name="num_list_preco" class="grp_Lista" type="hidden" />
+								</div>
+							</div>
+
+							<div class="col-md-4 ">
+								<label for="" class="control-label">Consulta na Receita</label>
+								<div class="input-group">
+									<button type='button' class='btn btn-success btn-xl not-mobile' title='Consultar Receita' onclick="dadosReceita('C');"><i
+											class='flaticon flaticon-refresh icon-xs' aria-hidden='true'></i></button>
+									<input id="dataHoraReceita" name="dataHoraReceita" class="form-control " style="max-width:170px;"  type="text" readonly />
+									<input id="situacaiReceita" name="situacaiReceita" class="form-control" style="max-width:150px;" type="text" readonly/>
+								</div>
+							</div>
+
+							<div class="col-md-4 ">
+								<label for="" class="control-label">Consulta no Sintegra</label>
+								<div class="input-group">
+									<button type='button' class='btn btn-success btn-xl not-mobile' title='Consultar Sintegra' onclick="f_revalidaAPI('S');"><i
+											class='flaticon flaticon-refresh icon-xs' aria-hidden='true'></i></button>
+									<input id="dataHoraSinegra" name="dataHoraSinegra" class="form-control" style="max-width:170px;" type="text" readonly />
+									<input id="situacaoSintegra" name="situacaoSintegra" class="form-control" style="max-width:150px;" type="text" readonly/>
+								</div>
+							</div>
+						<!--  
+							<div class="col-sm-12">
+						
+								<button class="btn btn-primary bt_tbl" id="btnLista" onclick="zoom(this.id)" title="Empresa Comercial">
+									<span class="fluigicon fluigicon-plus-sign fluigicon-sm"></span>&nbsp;Empresa x Lista
+								</button>
+								<table class="table table-striped table-bordered" id="lista_preco" tablename="lista_preco" nodeletebutton="true" noaddbutton="true" customFnDelete="itemremove(this)" >
+									<thead>
+										<tr>
+											<th width="15%" >Emp.</th>
+											<th width="15%" >Cod.</th>
+											<th width="30%" >Lista</th>
+											<th width="1%" ></th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<td class="fs-no-padding"  >
+												<input id="cod_empresa_list_preco" name="cod_empresa_list_preco" class="form-control" type="text" readonly/>
+											</td>	 
+											<td class="fs-no-padding" >
+												<input type="text" name="num_list_preco" id="num_list_preco" class="form-control" readonly />
+											</td>	 
+											<td class="fs-no-padding" >
+												<input type="text" name="den_list_preco" id="den_list_preco" class="form-control" readonly />
+											</td>
+											<td class="fs-no-padding">
+												<button class="btn btn-default btn-sm fluigicon fluigicon-trash fluigicon-xs bt_tbl" type="button" onclick="fnRemovelista( this );" ></button>
+											</td>
+										</tr>
+									</tbody>
+								</table>
+							</div> -->
+						
+						</div>
+					</div>
+				</div>
+			</div>	
+			<div class="tab-pane" id="aba_contatos" >
+				<div class="panel panel-info"  style="margin-bottom: 0px;">
+					<div class="panel-heading fs-txt-center">
+						<table width='100%' >
+							<tr>
+								<td align=center ><b>Contatos</b></td>
+							</tr>
+						</table>
+					</div>
+					<div class="panel-body">
+						<div class="row">								
+							<div class="col-sm-12">
+								<button class="btn btn-primary bt_tbl" onclick="addContato('contatos')" title="Novo Contato">
+									<span class="fluigicon fluigicon-plus-sign fluigicon-sm"></span>&nbsp;Novo Contato
+								</button>
+								<table class="table table-striped table-bordered" id="contatos" tablename="contatos" nodeletebutton="true" noaddbutton="true" customFnDelete="itemremove(this)" >
+									<thead>
+										<tr>
+											<th width="13%" class="detalhe" style="display:none" >ID</th>
+											<th width="35%" class="detalhe" >Nome Contato</th>
+											<th width="25%" class="detalhe" >Telefone</th>
+											<th width="25%" class="detalhe" >Email</th>
+											<th width="2%" class="detalhe" ></th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<td style="display:none" >
+												<input id="num_contato" name="num_contato" class="form-control" type="text" readonly/>
+											</td> 
+											<td class="fs-no-padding" >
+												<input type="text" name="nom_contato" id="nom_contato" class="form-control contato"  maxlength="40"  />
+												<input id="ies_contato_excluido" name="ies_contato_excluido" type="hidden"/>
+											</td>
+											<td class="fs-no-padding" >
+												<input id="telefone_contato" name="telefone_contato" class="form-control contato" type="text" onkeyup="maskFone(this.id)" />
+											</td>
+											<td class="fs-no-padding" >
+												<input id="email_contato" name="email_contato" class="form-control contato" type="text"  maxlength="40"  />
+											</td>
+											<td class="fs-no-padding">
+												<button class="btn btn-default btn-sm fluigicon fluigicon-trash fluigicon-xs bt_tbl" type="button" onclick="fnRemoveContato(this);"  >
+													<input type="hidden" id="bt_del_contato" name="bt_del_contato" />
+												</button>
+											</td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="tab-pane" id="aba_documentos" >
+				<div class="panel panel-info"  style="margin-bottom: 0px;">
+					<div class="panel-heading fs-txt-center">
+						<table width='100%' >
+							<tr>
+								<td align=center ><b>Documentos</b></td>
+							</tr>
+						</table>
+					</div>
+					<div class="panel-body">
+						<div class="row">								
+							<div class="col-sm-12" id="novos_documentos">
+							</div>
+						</div>
+						<div class="row">								
+							<div class="col-sm-12">
+								<button class="btn btn-primary bt_tbl" onclick="zoom('bt_documentos')/*loadFile()*/" title="Novo documento">
+									<span class="fluigicon fluigicon-plus-sign fluigicon-sm"></span>&nbsp;Novo Documento
+								</button>
+								<input type="file" name="load_file" id="load_file" title="" style="display: none;" onchange="selectFile(this.files)" />
+								<table class="table table-striped table-bordered" id="documentos" tablename="documentos" nodeletebutton="true" noaddbutton="true" customFnDelete="itemremove(this)" >
+									<thead>
+										<tr>
+											<!-- <th width="13%" class="detalhe" >Data</th> -->
+											<th width="10%" class="detalhe" style="display: none;">ID</th>
+											<th width="90%" class="detalhe" >Tipo</th>
+											<th width="50%" class="detalhe" style="display: none;">Documento</th>
+											<th width="7%" class="detalhe" ></th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<!-- <td class="detalhe" >
+												<input id="data_documento" name="data_documento" class="form-control" type="text" readonly/>
+											</td> -->
+											<td style="display: none;">
+												<input type="text" name="id_documento" id="id_documento" class="form-control" readonly/>
+											</td>
+											<td class="fs-no-padding" >
+												<input type="hidden" name="cod_tipo_documento" id="cod_tipo_documento" />
+												<input type="hidden" name="ies_inform_data" id="ies_inform_data" />
+												<input type="text" name="tipo_documento" id="tipo_documento" class="form-control" readonly/>
+											</td>
+											<td class="fs-no-padding" style="display: none;">
+												<input type="text" name="documento" id="documento" class="form-control" readonly/>
+											</td>
+											<td class="fs-no-padding">
+												<button class="btn btn-default btn-sm fluigicon fluigicon-eye-open fluigicon-xs" type="button" onclick="openDocuments(this.children[0].id)" >
+													<input type="hidden" name="seq_doc" id="seq_doc"/>
+												</button>
+												<button class="btn btn-default btn-sm fluigicon fluigicon-paperclip fluigicon-xs" type="button" onclick="showCamera(this.children[0].id)">
+													<input type="hidden" name="seq_doc2" id="seq_doc2"/>
+												</button>
+											</td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+			<div class="tab-pane" id="aba_emails_nfe" >
+				<div class="panel panel-info"  style="margin-bottom: 0px;">
+					<div class="panel-heading fs-txt-center">
+						<table width='100%' >
+							<tr>
+								<td align=center ><b>E-Mail NFE</b></td>
+							</tr>
+						</table>
+					</div>
+					<div class="panel-body">
+						<div class="row">								
+							<div class="col-sm-12">
+								<button class="btn btn-primary bt_tbl" onclick="addMail('emails_nfe')" title="Novo Email">
+									<span class="fluigicon fluigicon-plus-sign fluigicon-sm"></span>&nbsp;Novo Email
+								</button>
+								<table class="table table-striped table-bordered" id="emails_nfe" tablename="emails_nfe" nodeletebutton="true" noaddbutton="true" customFnDelete="itemremove(this)" >
+									<thead>
+										<tr>
+											<th width="85%" class="detalhe" >Email</th>
+											<th width="2%" class="detalhe" ></th>
+											<th width="0%" class="detalhe not-mobile" style="display:none" >ID</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr> 
+											<td class="fs-no-padding" >
+												<input type="text" name="email_nfe" id="email_nfe" class="form-control"   />
+											</td>
+											<td class="fs-no-padding">
+												<button class="btn btn-default btn-sm fluigicon fluigicon-trash fluigicon-xs bt_tbl" type="button" onclick="fnRemoveMail( this );"  >
+													<input type="hidden" id="bt_del_mail" name="bt_del_mail" />
+												</button>
+											</td>
+											<td class="fs-no-padding not-mobile" style="display:none" >
+												<input id="id_email" name="id_email" class="form-control" type="text" readonly/>
+												<input id="ies_excluido" name="ies_excluido" class="form-control" type="text" readonly/>
+											</td>	
+										</tr>
+									</tbody>
+								</table>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+			<!-- TAB FISCAL -->
+			<div class="tab-pane" id="aba_fiscal" >
+				<div class="panel panel-info"  style="margin-bottom: 0px;">
+					<div class="panel-heading fs-txt-center">
+						<table width='100%' >
+							<tr>
+								<td align=center ><b>Fiscal</b></td>
+							</tr>
+						</table>
+					</div>
+					<div class="panel-body">
+						<div class="tab-pane" >
+							<div class="row">
+							
+						
+								<div class="col-md-3 fornecedor">
+									<label for="ies_tip_fornec" class="control-label">Tipo de Fornecedor</label>
+									<select name="ies_tip_fornec" id="ies_tip_fornec" class="form-control"></select>
+								</div>
+										
+								<div class="col-md-3">
+									<label for="simples_nacional" class="control-label">Simples Nacional</label>
+									<select name="simples_nacional" id="simples_nacional" class="form-control ctrFiscal">										
+									</select>
+								</div>
+										
+								<div class="col-md-3">
+									<label for="ind_ret_pis_cof" class="control-label">Tipo Retenção</label>
+									<select name="ind_ret_pis_cof" id="ind_ret_pis_cof" class="form-control ctrFiscal">		
+										<option value='0'>PIS/COFINS/CSL Acumulado</option>
+										<option value='1'>PIS/COFINS/CSL por Documento</option>								
+									</select>
+								</div>
+							
+								<div class="col-md-3">
+									<label for="considera_contribuinte" class="control-label">Considera como contribuinte</label>
+									<select name="considera_contribuinte" id="considera_contribuinte" class="form-control">
+										<option value='S'>Sim</option>
+										<option value='N'>N&atilde;o</option>
+									</select>
+								</div>
+								
+							</div>
+							
+							<div class="row">
+							
+								<div class="col-md-3">
+									<label  for="finalidade">Finalidade</label>
+									<select name="finalidade" id="finalidade" class="form-control" > 
+										<option value='' >  </option>
+										<option value='1' > Contrib. (Industr/Comerc) </option>
+										<option value='2' > N&atilde;o Contrib. </option>
+										<option value='3' > Contrib. Uso/Consumo </option>
+									</select>
+								</div>
+							
+								<div class="col-md-3 ">
+									<label for="des_grp_fisc_cli_pis" class="control-label">Grupo PIS</label>
+									<div class="input-group">
+										<input id="des_grp_fisc_cli_pis" name="des_grp_fisc_cli_pis" class="form-control grp_pis" type="text" readonly/>
+										<span class="input-group-addon fluigicon fluigicon-eraser fluigicon-sm" onclick="$('.grp_pis').val('')"></span>
+										<span id="btnLista" class="input-group-addon fluigicon fluigicon-zoom-in fluigicon-sm" onclick="zoom( $(this).parent().children()[3].id )"></span>
+										<input id="grp_fiscal_cliente_pis" name="grp_fiscal_cliente_pis" class="grp_pis" type="hidden" />
+									</div>
+								</div>	
+								
+								<div class="col-md-3 ">
+									<label for="des_grp_fisc_cli_cofins" class="control-label">Grupo COFINS</label>
+									<div class="input-group">
+										<input id="des_grp_fisc_cli_cofins" name="des_grp_fisc_cli_cofins" class="form-control grp_cofins" type="text" readonly/>
+										<span class="input-group-addon fluigicon fluigicon-eraser fluigicon-sm" onclick="$('.grp_cofins').val('')"></span>
+										<span id="btnLista" class="input-group-addon fluigicon fluigicon-zoom-in fluigicon-sm" onclick="zoom( $(this).parent().children()[3].id )"></span>
+										<input id="grp_fiscal_cliente_cofins" name="grp_fiscal_cliente_cofins" class="grp_cofins" type="hidden" />
+									</div>
+								</div>	
+
+								<div class="col-md-3">
+									<label for="contribuinte_ipi" class="control-label">Contribuinte IPI</label>
+									<select name="contribuinte_ipi" id="contribuinte_ipi" class="form-control">
+										<option value='S'>Sim</option>
+										<option value='N'>N&atilde;o</option>
+									</select>
+								</div>
+							
+								<!-- <div class="col-sm-12">
+							
+									<button class="btn btn-primary bt_tbl" id="btnEmpresaFiscal" onclick="zoom(this.id)" title="Emprea Fiscal">
+										<span class="fluigicon fluigicon-plus-sign fluigicon-sm"></span>&nbsp;Empresa x Fiscal
+									</button>
+									<table class="table table-striped table-bordered" id="empresa_fiscal" tablename="empresa_fiscal" nodeletebutton="true" noaddbutton="true" customFnDelete="itemremove(this)" >
+										<thead>
+											<tr>
+												<th width="15%" >Emp.</th>
+												<td width='17%' class="cell-ellipsis"><b>Grupo ICMS</b></td>
+												<td width='17%' class="cell-ellipsis"><b>Grupo ST</b></td>
+												<td width='17%' class="cell-ellipsis"><b>Grupo IPI</b></td>
+												<td width='17%' class="cell-ellipsis"><b>Grupo PIS</b></td>
+												<td width='17%' class="cell-ellipsis"><b>Grupo COFINS</b></td>
+												<th width="1%" ></th>
+											</tr>
+										</thead>
+										<tbody>
+											<tr>
+												<td class="fs-no-padding"  >
+													<input id="cod_empresa_fiscal" name="cod_empresa_fiscal" class="form-control" type="text" readonly/>
+												</td>
+												<td>
+													<div class="input-group">
+														<input type="text" class="form-control" name="des_grp_fisc_cli_icms" id="des_grp_fisc_cli_icms" readonly />
+														<span class="input-group-addon fluigicon fluigicon-eraser fluigicon-sm" onclick="eraser( $(this).parent().children()[2].children[0].id )" ></span>
+														<span class="input-group-addon fluigicon fluigicon-search fluigicon-sm" onclick="zoom( $(this).children()[0].id )" >
+															<input type="hidden" name="grp_fiscal_cliente_icms" id="grp_fiscal_cliente_icms" />
+														</span>
+													</div>
+												</td>
+												<td>
+													<div class="input-group">
+														<input type="text" class="form-control" name="des_grp_fisc_cli_st" id="des_grp_fisc_cli_st" readonly />
+														<span class="input-group-addon fluigicon fluigicon-eraser fluigicon-sm" onclick="eraser( $(this).parent().children()[2].children[0].id )" ></span>
+														<span class="input-group-addon fluigicon fluigicon-search fluigicon-sm" onclick="zoom( $(this).children()[0].id )" >
+															<input type="hidden" name="grp_fiscal_cliente_st" id="grp_fiscal_cliente_st" />
+														</span>
+													</div>
+												</td>
+												<td>
+													<div class="input-group">
+														<input type="text" class="form-control" name="des_grp_fisc_cli_ipi" id="des_grp_fisc_cli_ipi" readonly />
+														<span class="input-group-addon fluigicon fluigicon-eraser fluigicon-sm" onclick="eraser( $(this).parent().children()[2].children[0].id )" ></span>
+														<span class="input-group-addon fluigicon fluigicon-search fluigicon-sm" onclick="zoom( $(this).children()[0].id )" >
+															<input type="hidden" name="grp_fiscal_cliente_ipi" id="grp_fiscal_cliente_ipi" />
+														</span>
+													</div>
+												</td>
+												<td>
+													<div class="input-group">
+														<input type="text" class="form-control" name="des_grp_fisc_cli_pis" id="des_grp_fisc_cli_pis" readonly />
+														<span class="input-group-addon fluigicon fluigicon-eraser fluigicon-sm" onclick="eraser( $(this).parent().children()[2].children[0].id )" ></span>
+														<span class="input-group-addon fluigicon fluigicon-search fluigicon-sm" onclick="zoom( $(this).children()[0].id )" >
+															<input type="hidden" name="grp_fiscal_cliente_pis" id="grp_fiscal_cliente_pis" />
+														</span>
+													</div>
+												</td>
+												<td>
+													<div class="input-group">
+														<input type="text" class="form-control" name="des_grp_fisc_cli_cofins" id="des_grp_fisc_cli_cofins" readonly />
+														<span class="input-group-addon fluigicon fluigicon-eraser fluigicon-sm" onclick="eraser( $(this).parent().children()[2].children[0].id )" ></span>
+														<span class="input-group-addon fluigicon fluigicon-search fluigicon-sm" onclick="zoom( $(this).children()[0].id )" >
+															<input type="hidden" name="grp_fiscal_cliente_cofins" id="grp_fiscal_cliente_cofins" />
+														</span>
+													</div>
+												</td>
+												<td class="fs-no-padding">
+													<button class="btn btn-default btn-sm fluigicon fluigicon-trash fluigicon-xs bt_tbl" type="button" onclick="fnRemoveEmpresaFiscal( this );" ></button>
+												</td>
+											</tr>
+										</tbody>
+									</table>
+								</div> -->
+							</div>
+							
+							<div class="row">
+								<div class="col-md-12">
+									<label for="">CNAE</label>
+									<table class="table table-condensed table-bordered table-striped" border="1" tablename="cnae" nodeletebutton=true noaddbutton=true addbuttonclass="wdkbuttonClass" deleteicon="trash.png" >
+										<thead>
+											<tr>								
+												<td width='30%' class="cell-ellipsis"><b>CANE</b></td>
+												<td width='10%' class="cell-ellipsis"><b>Tipo</b></td>
+												<td width='60%' class="cell-ellipsis"><b>Descrição</b></td>
+											</tr>
+										</thead>	
+										<tr>  
+											<td>
+												<input type="text" class="form-control" name="cod_cnae" id="cod_cnae" readonly />
+											</td>
+											<td>
+												<input type="text" class="form-control" name="tip_cnae" id="tip_cnae" readonly />
+											</td>
+											<td>
+												<input type="text" class="form-control" name="den_cnae" id="den_cnae" readonly />
+											</td>													
+										</tr>
+									</table>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+			<!-- TAB FINANCEIRO -->
+			<div class="tab-pane" id="aba_credito" >
+				<div class="panel panel-info"  style="margin-bottom: 0px;">
+					<div class="panel-heading fs-txt-center">
+						<table width='100%' >
+							<tr>
+								<td align=center ><b>Credito</b></td>
+							</tr>
+						</table>
+					</div>
+					<div class="panel-body">
+						<div class="tab-pane" >
+							<div class="row">
+							
+								<div class="col-md-2">	
+									<label  for="solicita_credito">Solicita Crédito</label>
+									<select name="solicita_credito" id="solicita_credito" class="form-control" onchange="setSolicitaCredito()" > 
+										<option value="N">Não</option>
+										<option value="S">Sim</option>
+									</select>
+							 	</div>
+							
+								<div class="col-md-2">
+									<label for="compra_prevista">Compra Prevista </label>
+									<input class="form-control decimal-2" type="text" id="compra_prevista" name="compra_prevista"/>
+								</div>
+								<div class="col-md-2 solicCredito">
+									<label for="credito_sugerido">Cr&eacute;dito Sugerido </label>
+									<input class="form-control decimal-2 credito" type="text" id="credito_sugerido" name="credito_sugerido"/>
+								</div> 
+						
+								<!-- <div class="col-md-3 solicCredito">	
+									<label  for="cod_cnd_pgto_sug">Cond. Pagamento Sugerido</label>
+									<select name="cod_cnd_pgto_sug" id="cod_cnd_pgto_sug" class="form-control pedido credito financeiro" onchange="$( '#den_cnd_pgto_sug' ).val(  $('#cod_cnd_pgto_sug option:selected').text() );" > </select>
+									<input type="hidden" name="den_cnd_pgto_sug" id="den_cnd_pgto_sug" >
+							 	</div> -->
+
+								<div class="col-md-3 solicCredito">
+									<label for="den_tip_cli" class="control-label">Cond. Pagamento Sugerido</label>
+									<div class="input-group">
+										<input type="text" name="den_cnd_pgto_sug" id="den_cnd_pgto_sug" class="form-control grupo_pagamento_sugerido pedido credito" readonly />
+										<span class="input-group-addon fluigicon fluigicon-eraser fluigicon-sm"
+											onclick="$('.grupo_pagamento_sugerido').val('');"></span>
+										<span class="input-group-addon fluigicon fluigicon-zoom-in fluigicon-sm" onclick="zoom('bt_pgto_sug')"></span>
+										<input type="hidden" name="cod_cnd_pgto_sug" id="cod_cnd_pgto_sug" class="grupo_pagamento_sugerido pedido credito financeiro" />
+									</div>
+								</div>
+
+							 	
+							</div>
+							
+							
+							
+							<div class="row not-mobile">
+								<div class="col-sm-12">
+									<button class="btn btn-primary bt_tbl" id="btnEmpresaFiscal" onclick="addFilho('lista_Bancos')" title="Emprea Fiscal">
+										<span class="fluigicon fluigicon-plus-sign fluigicon-sm"></span>&nbsp;Bancos
+									</button>
+									<table class="table table-striped table-bordered" id="lista_Bancos" tablename="lista_Bancos" nodeletebutton="true" noaddbutton="true" customFnDelete="itemremove(this)" >
+										<thead>
+											<tr>								
+												<td width='15%' class="cell-ellipsis"><b>Banco</b></td>
+												<td width='15%' class="cell-ellipsis"><b>Agencia</b></td>
+												<td width='70%' class="cell-ellipsis"><b>Contato</b></td>
+												<th width="1%" ></th>
+											</tr>
+										</thead>	
+										<tr>  
+											<td>
+												<input type="text" class="form-control" name="banco" id="banco">
+											</td>
+											<td>
+												<input type="text" class="form-control" name="agencia" id="agencia">
+											</td>
+											<td>
+												<input type="text" class="form-control" name="contato_banco" id="contato_banco">
+											</td>
+											<td class="fs-no-padding">
+												<button class="btn btn-default btn-sm fluigicon fluigicon-trash fluigicon-xs bt_tbl" type="button" onclick="fnRemoveBancos( this );" ></button>
+											</td>													
+										</tr>
+									</table>
+								</div>
+							</div>
+							<div class="row not-mobile">
+								<div class="col-sm-12">
+									<button class="btn btn-primary bt_tbl" id="btnEmpresaFiscal" onclick="addFilho('lista_ReferenciaComercial')" title="Referencia Comercial">
+										<span class="fluigicon fluigicon-plus-sign fluigicon-sm"></span>&nbsp;Referencias Comerciais
+									</button>
+									<table class="table table-striped table-bordered" id="lista_ReferenciaComercial" tablename="lista_ReferenciaComercial" nodeletebutton="true" noaddbutton="true" customFnDelete="itemremove(this)" >
+										<thead>
+											<tr>								
+												<td width='25%' class="cell-ellipsis"><b>Empresa</b></td>
+												<td width='30%' class="cell-ellipsis"><b>Contato</b></td>
+												<td width='15%' class="cell-ellipsis"><b>Telefone</b></td>
+												<td width='30%' class="cell-ellipsis"><b>E-Mail</b></td>
+												<th width="1%" ></th>
+											</tr>
+										</thead>	
+										<tr>  
+											<td>
+												<input type="text" class="form-control" name="empresa" id="empresa">
+											</td>
+											<td>
+												<input type="text" class="form-control" name="contato_comercial" id="contato_comercial">
+											</td>
+											<td>
+												<input type="text" class="form-control telefone" name="telefone_comercial" id="telefone_comercial">
+											</td>
+											<td>
+												<input type="text" class="form-control" name="email_comercial" id="email_comercial" onchage="validaEmail(this.id)">
+											</td>
+											<td class="fs-no-padding">
+												<button class="btn btn-default btn-sm fluigicon fluigicon-trash fluigicon-xs bt_tbl" type="button" onclick="fnRemoveReferencia( this );" ></button>
+											</td>
+										</tr>
+									</table>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				
+				<div class="panel panel-info not-mobile aprov-financeiro"  style="margin-bottom: 0px;">
+					<div class="panel-heading fs-txt-center">
+						<table width='100%' >
+							<tr>
+								<td align=center ><b>Analise financeira</b></td>
+							</tr>
+						</table>
+					</div>
+					<div class="panel-body">
+						<div class="tab-pane" >
+							
+							<div class="row">						
+								<div class="col-md-3 financeiro">
+									<label for="parecer_financeiro" class="financeiro">Parecer Financeiro</label>
+									<select name="parecer_financeiro" id="parecer_financeiro" class="form-control parecer_financeiro financeiro" onchange="setAprovFinanc()"; >
+										<option value=""></option>
+										<option value="A">Aprovado</option>
+										<option value="R">Reprovado</option>
+									</select>
+								</div>
+								
+								<div class="col-md-3 financeiro">
+									<label for="nom_portador_emp" class="control-label">Portador Empresa</label>
+									<div class="input-group">
+										<input id="nom_portador_emp" name="nom_portador_emp" class="form-control grp_portador_emp credito" type="text" readonly/>
+										<span class="input-group-addon fluigicon fluigicon-eraser fluigicon-sm financeiro" onclick="$('.grp_portador_emp').val('')"></span>
+										<span id="zoom_portador_emp" class="input-group-addon fluigicon fluigicon-zoom-in fluigicon-sm financeiro" onclick="zoom(this.id)">
+											<input id="cod_portador_emp" name="cod_portador_emp" type="hidden" class="grp_portador_emp"/>
+										</span>
+									</div>
+								</div>
+								<div class="col-md-1 financeiro">
+									<label for="ies_tip_portador_emp" class="control-label">Tipo</label>
+									<input id="ies_tip_portador_emp" name="ies_tip_portador_emp" class="form-control grp_portador_emp credito" type="text" readonly/>
+								</div>
+								<input id="cod_portador" name="cod_portador" type="hidden" class="grp_portador"/>
+								<input id="nom_portador" name="nom_portador" type="hidden" class="grp_portador"/>
+								<input id="ies_tip_portador" name="ies_tip_portador" type="hidden" class="grp_portador"/>
+								
+								<!-- <div class="col-md-3 ">
+									<label for="nom_portador" class="control-label">Portador Carteira</label>
+									<div class="input-group">
+										<input id="nom_portador" name="nom_portador" class="form-control grp_portador credito" type="text" readonly/>
+										<span class="input-group-addon fluigicon fluigicon-eraser fluigicon-sm" onclick="$('.grp_portador').val('')"></span>
+										<span id="zoom_portador" class="input-group-addon fluigicon fluigicon-zoom-in fluigicon-sm" onclick="zoom(this.id)">
+											
+										</span>
+									</div>
+								</div>
+								<div class="col-md-1 ">
+									<label for="ies_tip_portador" class="control-label">Tipo</label>
+									<input id="ies_tip_portador" name="ies_tip_portador" class="form-control grp_portador credito" type="text" readonly/>
+								</div> -->
+								
+							</div>
+							<div class="row">
+								<div class="col-md-2 financeiro">
+									<label for="credito" class="financeiro">Cr&eacute;dito: </label>
+									<input class="form-control decimal-2 credito financeiro" type="text" id="credito" name="credito"/>
+								</div>
+								
+								<div class="col-md-2 financeiro">
+									<label for="validade_credito" class="financeiro">Validade Cr&eacute;dito: </label>
+									<input class="form-control data-fluig credito financeiro" type="text" id="validade_credito" name="validade_credito"/>
+								</div>
+								
+								<div class="col-md-2 financeiro">	
+									<label  for="ies_forma_aprov" class="financeiro">Forma Aprovação</label>
+									<select name="ies_forma_aprov" id="ies_forma_aprov" class="form-control pedido credito financeiro" onchange="$( '#des_forma' ).val(  $('#ies_forma_aprov option:selected').text() );" > </select>
+									<input type="hidden" name="des_forma" id="des_forma" >
+							 	</div>
+								
+								<div class="col-md-3 financeiro">	
+									<label  for="cod_situa" class="financeiro">Situação Credito</label>
+									<select name="cod_situa" id="cod_situa" class="form-control pedido credito financeiro" onchange="$( '#des_situa' ).val(  $('#cod_situa option:selected').text() );" > </select>
+									<input type="hidden" name="des_situa" id="des_situa" >
+							 	</div>
+								
+								<!-- <div class="col-md-3">	
+									<label  for="cod_cnd_pgto">Cond. Pagamento</label>
+									<select name="cod_cnd_pgto" id="cod_cnd_pgto" class="form-control pedido credito financeiro parecer_financeiro" onchange="$( '#den_cnd_pgto' ).val(  $('#cod_cnd_pgto option:selected').text() );" > </select>
+									<input type="hidden" name="den_cnd_pgto" id="den_cnd_pgto" >
+							 	</div> -->
+
+								<div class="col-md-3">
+									<label for="den_tip_cli" class="control-label">Cond. Pagamento</label>
+									<div class="input-group credito">
+										<input type="text" name="den_cnd_pgto" id="den_cnd_pgto"
+											class="form-control grupo_pagamento  credito parecer_financeiro" readonly />
+										<span class="input-group-addon fluigicon fluigicon-eraser fluigicon-sm financeiro"
+											onclick="$('.grupo_pagamento').val('');"></span>
+										<span class="input-group-addon fluigicon fluigicon-zoom-in fluigicon-sm financeiro" onclick="zoom('bt_pgto')"></span>
+										<input type="hidden" name="cod_cnd_pgto" id="cod_cnd_pgto" class="grupo_pagamento" />
+									</div>
+								</div>
+
+
+							</div>
+								
+							<div class="row">
+								<div class="col-md-12 financeiro">
+									<div class="form-group">
+										<label for="obs_financeiro" class="financeiro">Observação Financeiro</label>												
+										<textarea class="form-control financeiro" id="obs_financeiro" name="obs_financeiro" rows="1" ></textarea>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>	
+			</div>
+				
+<!--  				
+			<div class="tab-pane" id="aba_financeiro" >
+				<div class="panel panel-info"  style="margin-bottom: 0px;">
+					<div class="panel-heading fs-txt-center">
+						<table width='100%' >
+							<tr>
+								<td align=center ><b>Financeiro</b></td>
+							</tr>
+						</table>
+					</div>
+					<div class="panel-body">
+						<div class="row">
+							<div class="col-md-2">
+								<label for="num_cgc_cpf" class="control-label" >CGC CPF Matriz</label>
+								<input type="text" name="num_cgc_cpf_matriz" id="num_cgc_cpf_matriz" class="form-control" readonly  />
+							</div>
+							<div class="col-md-2">
+								<label for="" class="control-label" >&nbsp;</label>
+								<button class="form-control btn btn-primary" type="button" onclick="loadHist('md_tit_pago','cod_cliente')">T&iacute;tulos Pagos</button>
+							</div>
+							<div class="col-md-1">
+								<label for="" class="control-label" >&nbsp;</label>
+								<button class="form-control btn btn-primary fluigicon fluigicon-print" type="button" onclick="printGrupo()"></button>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-md-3">
+								<label for="implant" class="control-label">Implant</label>
+								<input type="text" name="implant" id="implant" class="form-control data-view" readonly/>
+							</div>
+							<div class="col-md-3">
+								<label for="val_credito_conced" class="control-label">Limite</label>
+								<input type="text" name="val_credito_conced" id="val_credito_conced" class="form-control fs-text-right decimal-2"/>
+							</div>
+							<div class="col-md-3">
+								<label for="dat_credito_conced" class="control-label">Data Limite</label>
+								<input type="text" name="dat_credito_conced" id="dat_credito_conced" class="form-control data-view data-fluig"/>
+							</div>
+							<div class="col-md-3">
+								<label for="total_debito" class="control-label">Total Debito</label>
+								<div class="input-group notHide">
+									<span class="input-group-addon btn-primary fluigicon fluigicon-search fluigicon-sm" onclick="loadHist('md_tit_saldo','cod_cliente')"></span>
+									<input type="text" name="total_debito" id="total_debito" class="form-control fs-text-right decimal-2" readonly/>
+								</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-md-3">
+								<label for="val_pedidos" class="control-label">Pedidos</label>
+								<div class="input-group notHide">
+									<span class="input-group-addon btn-primary fluigicon fluigicon-search fluigicon-sm" onclick="loadHist('md_pedidos','cod_cliente')"></span>
+									<input type="text" name="val_pedidos" id="val_pedidos" class="form-control fs-text-right decimal-2" readonly/>
+								</div>
+							</div>					
+							<div class="col-md-3">
+								<label for="val_cheques" class="control-label">Cheques</label>
+								<div class="input-group notHide">
+									<span class="input-group-addon btn-primary fluigicon fluigicon-search fluigicon-sm" onclick="loadHist('md_cheques','cod_cliente')"></span>
+									<input type="text" name="val_cheques" id="val_cheques" class="form-control fs-text-right decimal-2" readonly/>
+								</div>
+							</div>
+							<div class="col-md-3">
+								<label for="saldo" class="control-label">Saldo</label>
+								<input type="text" name="saldo" id="saldo" class="form-control fs-text-right decimal-2" readonly/>
+							</div>
+							<div class="col-md-3">
+								<label for="val_debito_vencido" class="control-label">Total T&iacute;tulos Vencidos</label>
+								<div class="input-group notHide">
+									<span class="input-group-addon btn-primary fluigicon fluigicon-search fluigicon-sm" onclick="loadHist('md_tit_venc','cod_cliente')"></span>
+									<input type="text" name="val_debito_vencido" id="val_debito_vencido" class="form-control fs-text-right decimal-2" readonly/>
+								</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-md-3">
+								<label for="val_debito_a_venc" class="control-label">Total T&iacute;tulos a Vencer</label>
+								<div class="input-group notHide">
+									<span class="input-group-addon btn-primary fluigicon fluigicon-search fluigicon-sm" onclick="loadHist('md_tit_a_venc','cod_cliente')"></span>
+									<input type="text" name="val_debito_a_venc" id="val_debito_a_venc" class="form-control fs-text-right decimal-2" readonly/>
+								</div>
+							</div>
+							<div class="col-md-3">
+								<label for="saldo_adiantamento" class="control-label">Saldo Adiantamento</label>
+								<input type="text" name="saldo_adiantamento" id="saldo_adiantamento" class="form-control fs-text-right decimal-2" readonly/>
+							</div>
+							<div class="col-md-3">
+								<label for="val_maior_acumulo" class="control-label">Valor do maior acumulo</label>
+								<input type="text" name="val_maior_acumulo" id="val_maior_acumulo" class="form-control fs-text-right decimal-2" readonly/>
+							</div>
+							<div class="col-md-3">
+								<label for="dat_ult_analise" class="control-label">Data ultima analise</label>
+								<input type="text" name="dat_ult_analise" id="dat_ult_analise" class="form-control data-view" readonly/>
+							</div>
+														
+						</div>
+						<div class="row">
+							<div class="col-md-3">
+								<label for="dat_maior_acumulo" class="control-label">Data do maior acumulo</label>
+								<input type="text" name="dat_maior_acumulo" id="dat_maior_acumulo" class="form-control data-view" readonly/>
+							</div>
+							<div class="col-md-3">
+								<label for="val_ult_fat" class="control-label">Valor da ultima fatura</label>
+								<input type="text" name="val_ult_fat" id="val_ult_fat" class="form-control fs-text-right decimal-2" readonly/>
+							</div>
+							<div class="col-md-3">
+								<label for="dat_ult_fat" class="control-label">Data da ultima fatura</label>
+								<input type="text" name="dat_ult_fat" id="dat_ult_fat" class="form-control data-view" readonly/>
+							</div>
+							<div class="col-md-3">
+								<label for="val_ult_pedido" class="control-label">Valor ultimo Pedido</label>
+								<input type="text" name="val_ult_pedido" id="val_ult_pedido" class="form-control fs-text-right decimal-2" readonly/>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-md-3">
+								<label for="dat_ult_pedido" class="control-label">Data ultimo Pedido</label>
+								<input type="text" name="dat_ult_pedido" id="dat_ult_pedido" class="form-control data-view" readonly/>
+							</div>
+							<div class="col-md-3">
+								<label for="val_maior_fat" class="control-label">Valor da maior fatura</label>
+								<input type="text" name="val_maior_fat" id="val_maior_fat" class="form-control fs-text-right decimal-2" readonly/>
+							</div>
+							<div class="col-md-3">
+								<label for="dat_maior_fat" class="control-label">Data da maior fatura</label>
+								<input type="text" name="dat_maior_fat" id="dat_maior_fat" class="form-control data-view" readonly/>
+							</div>
+						</div>
+						
+						<div class="row obsfinanceiro">
+							<div class="col-md-12">
+								<label for="obs_financ" class="control-label">Observa&ccedil;&atilde;o Financeiro</label>
+								<input type="text" name="obs_financ" id="obs_financ" class="form-control" readonly/>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="tab-pane" id="aba_grp_economico" >
+				<div class="panel panel-info"  style="margin-bottom: 0px;">
+					<div class="panel-heading fs-txt-center">
+						<table width='100%' >
+							<tr>
+								<td align=center ><b>Grupo Econ&ocirc;mico</b></td>
+							</tr>
+						</table>
+					</div>
+					<div class="panel-body">
+						<div class="row">
+							<div class="col-sm-12">
+								<button class="btn btn-primary bt_tbl" onclick="addFilho('grp_economico')" title="Adicionar Cliente">
+									<span class="fluigicon fluigicon-plus-sign fluigicon-sm"></span>&nbsp;Adicionar Cliente
+								</button>
+								<table class="table table-striped table-bordered" id="grp_economico" tablename="grp_economico" nodeletebutton="true" noaddbutton="true" customFnDelete="itemremove(this)" >
+									<thead>
+										<tr>
+											<th width="30%" class="detalhe" >CGC / CPF</th>
+											<th width="60%" class="detalhe" >Raz Social</th>
+											<th width="10%" class="detalhe" ></th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<td class="fs-no-padding" >
+												<div class="input-group">
+													<input id="cgc_cpf_grp_econ" name="cgc_cpf_grp_econ" class="form-control" type="text" readonly/>
+													<span class="input-group-addon fluigicon fluigicon-zoom-in fluigicon-sm" onclick="zoom(this.children[0].id)">
+														<input id="cod_cliente_grp_econ" name="cod_cliente_grp_econ" type="hidden"/>
+													</span>
+												</div>
+											</td> 
+											<td class="fs-no-padding" >
+												<input type="text" name="nom_cliente_grp_econ" id="nom_cliente_grp_econ" class="form-control" readonly/>
+											</td>
+											<td class="fs-no-padding">
+												<button class="btn btn-info btn-sm fluigicon fluigicon-ellipsis fluigicon-xs" type="button" onclick="loadFinanceiro(this.children[0].id)">
+													<input id="seq_grp_econ" name="seq_grp_econ" type="hidden"/>
+												</button>
+												<button class="btn btn-default btn-sm fluigicon fluigicon-trash fluigicon-xs bt_tbl" type="button" onclick="fnCustomDelete(this);"  ></button>
+											</td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		-->
+			<div class="tab-pane" id="aba_followup" >
+				<div class="panel panel-info"  style="margin-bottom: 0px;">
+					<div class="panel-heading fs-txt-center">
+						<table width='100%' >
+							<tr>
+								<td align=center ><b>Followup</b></td>
+							</tr>
+						</table>
+					</div>
+					<div class="panel-body">
+						<div class="row coment-externo">
+							<div class="col-sm-12">
+								<label for="exampleTag">Coment&aacute;rio</label>
+								<textarea rows="2" name="descricao_externo" id="descricao_externo" class="form-control" ></textarea>
+							</div>				
+						</div>
+					</div>
+				</div>
+				<div class="panel panel-info"  style="margin-bottom: 0px;">
+					<div class="panel-heading fs-txt-center">
+						<table width='100%' >
+							<tr>
+								<td align=center ><b>Historico</b></td>
+							</tr>
+						</table>
+					</div>
+					<div class="panel-body">
+						<div class="row" id="hist" name="hist" >	
+							<div class="col-sm-12">	
+								<table class="table table-condensed table-bordered" border="1" tablename="folowup"  noaddbutton=true nodeletebutton=true addbuttonclass="wdkbuttonClass" >
+									<thead style="display:none">
+										<tr >
+											<td width='100%' class="cell-ellipsis"><b>Historico</b></td>
+										</tr>
+									</thead>
+										<tr>
+											<td>
+												<input type="hidden" name="tipo_hist" id="tipo_hist" />
+												<div class="row">
+													<div class="col-sm-2">
+														<label for="exampleTag">Data Hist.</label>
+														<input type="text" class="form-control" name="data_hist" id="data_hist" readonly >
+													</div>
+													<div class="col-sm-4">
+														<label for="exampleTag">Usuario</label>
+														<input type="text" class="form-control" name="user_hist" id="user_hist" readonly >
+														<input type="hidden" name="cod_user_hist" id="cod_user_hist" readonly >
+													</div>
+												</div>
+												<div class="row">
+													<div class="col-sm-12">
+														<textarea rows="3" name="desc_hist" id="desc_hist" class="form-control"  readonly ></textarea>
+													</div>
+												</div>
+											</td>
+										</tr>
+								</table>
+							</div>			
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<input type="hidden" name="descritor" id="descritor">
+		<input type="hidden" name="isManager" id="isManager">
+		<input type="hidden" name="isMobile" id="isMobile">
+		<input type="hidden" name="tipo_cadastro" id="tipo_cadastro">
+		<input type="hidden" name="user_abertura" id="user_abertura">
+		<input type="hidden" name="tipo_cadastro_user" id="tipo_cadastro_user">
+		<input type="hidden" name="isFinanceiro" id="isFinanceiro">
+		<input type="hidden" name="isAprovador" id="isAprovador">
+		<input type="hidden" name="dat_cadastro" id="dat_cadastro">
+		<input type="hidden" name="task" id="task">
+		<input type="hidden" name="oldData" id="oldData">
+		<input type="hidden" name="camposAlterados" id="camposAlterados">
+		
+		<input type="hidden" name="cod_cnd_pgto_vista" id="cod_cnd_pgto_vista">
+		<input type="hidden" name="cod_cnd_pgto_prazo" id="cod_cnd_pgto_prazo">
+		<input type="hidden" name="dias_validade_credito" id="dias_validade_credito">
+		
+		<input type="hidden" name="nom_portador_emp_pad" id="nom_portador_emp_pad">
+		<input type="hidden" name="cod_portador_emp_pad" id="cod_portador_emp_pad">
+		<input type="hidden" name="ies_tip_portador_emp_pad" id="ies_tip_portador_emp_pad">
+		
+	</form>
+</div>
+</body>
+</html>

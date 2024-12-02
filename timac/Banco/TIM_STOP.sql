@@ -1,0 +1,22 @@
+CREATE TABLE fluig.dbo.TIM_STOP_METAS (
+	CARGO varchar(60) COLLATE Latin1_General_CI_AS NULL,
+	AREA varchar(5) COLLATE Latin1_General_CI_AS NULL,
+	LOGIN varchar(20) COLLATE Latin1_General_CI_AS NULL,
+    META_MES int NULL,
+	META_01 int NULL,
+    META_02 int NULL,
+    META_03 int NULL,
+    META_04 int NULL,
+    META_05 int NULL,
+    META_06 int NULL,
+    META_07 int NULL,
+    META_08 int NULL,
+    META_09 int NULL,
+    META_10 int NULL,
+    META_11 int NULL,
+    META_12 int NULL,
+    DAT_ATUALIZACAO datetime NULL,
+    ANO_VIGENCIA int NULL,
+    MATRICULA varchar(20) NULL,
+    IND_ATIVO varchar(1) COLLATE Latin1_General_CI_AS NULL
+);

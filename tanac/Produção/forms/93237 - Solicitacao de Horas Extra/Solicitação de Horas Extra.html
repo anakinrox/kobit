@@ -1,0 +1,232 @@
+<html>
+<head>
+	<link type="text/css" rel="stylesheet" href="/style-guide/css/fluig-style-guide.min.css"/>
+	<script type="text/javascript" src="/portal/resources/js/jquery/jquery.js"></script>
+	<script type="text/javascript" src="/portal/resources/js/jquery/jquery-ui.min.js"></script>
+	<script type="text/javascript" src="/portal/resources/js/mustache/mustache-min.js"></script>
+	<script type="text/javascript" src="/style-guide/js/fluig-style-guide.min.js" charset="utf-8"></script>
+	
+	<link type="text/css" rel="stylesheet" href="controle.css" />
+	
+	<script type="text/javascript" src="jquery.maskMoney.min.js" charset="utf-8"></script>
+	<script type="text/javascript" src="modalZoom.js" charset="utf-8"></script>
+	<script type="text/javascript" src="modalTable.js" charset="utf-8"></script>
+	<script type="text/javascript" src="controle.js" charset="utf-8"></script>
+	<script type="text/javascript" src="zoom.js" charset="utf-8"></script>
+	<script type="text/javascript" src="util.js" charset="utf-8"></script>
+	<script type="text/javascript" src="/webdesk/vcXMLRPC.js"></script>
+	
+</head>
+<body onload="loadBody();">
+<div class="fluig-style-guide">
+<form name="form" role="form">
+	<div class="panel panel-success tipo_solicitacao">
+		<div class="panel-heading fs-txt-center" style="padding-top: 5px; padding-bottom: 5px;">
+			<b>Solicitante</b>
+		</div>
+		<div class="panel-body">
+			<div class="row">
+			
+				<div class="col-sm-6">
+					<label for="exampleTag">Criador</label>
+					<input type="text" name="nome_criador" id="nome_criador" class="form-control abertura" readonly />
+					<input type="hidden" name="user_criador" id="user_criador" />
+				</div>
+				<div class="col-sm-6">
+					<label for="exampleTag">Solicitante</label>
+					<div class="input-group">
+						<input type="text" name="nome_solicitante" id="nome_solicitante" class="form-control abertura" readonly />
+						<input type="hidden" name="login_solicitante" id="login_solicitante" />
+						<input type="hidden" name="matricula_solicitante" id="matricula_solicitante" />
+						<input type="hidden" name="user_solicitante" id="user_solicitante" />
+						<span class="input-group-btn">
+							<button class="btn btn-default fluigicon fluigicon-user-search fluigicon-xs" type="button"  name='bt_solicitante' onclick="zoom(this.name)" ></button>
+						</span>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-sm-6">
+					<label for="exampleTag">Gerente</label>
+					<input type="text" name="nome_gerente" id="nome_gerente" class="form-control abertura" readonly />
+					<input type="hidden" name="matricula_gerente" id="matricula_gerente" />
+					<input type="hidden" name="login_gerente" id="login_gerente" />
+					<input type="hidden" name="user_gerente" id="user_gerente" />
+				</div>
+
+				<div class="col-sm-6">
+					<label for="exampleTag">Diretor</label>
+					<input type="text" name="nome_diretor" id="nome_diretor" class="form-control abertura" readonly />
+					<input type="hidden" name="matricula_diretor" id="matricula_diretor" />
+					<input type="hidden" name="login_diretor" id="login_diretor" />
+					<input type="hidden" name="user_diretor" id="user_diretor" />
+					<input type="hidden" name="nome_presidente" id="nome_presidente" />
+					<input type="hidden" name="user_presidente" id="user_presidente" />
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-sm-12">
+					<label for="titulo">Titulo</label>
+					<span class="required text-danger"><strong>*</strong></span>
+					<input type="text" name="titulo" id="titulo" class="form-control abertura" />
+				</div>
+			</div>
+			
+			<div class="row">
+				<div class="col-sm-12">
+					<label for="descricao">Descrição da Solicitação</label>
+					<span class="required text-danger"><strong>*</strong></span>
+					<textarea name="descricao" id="descricao" class="form-control abertura" rows="3" ></textarea>
+				</div>
+			</div>
+			
+			<div class="row">
+
+				<div class="col-sm-3">
+					<label for="tipo_solicitacao">Tipo Solicitação</label>
+					<span class="required text-danger"><strong>*</strong></span>
+					<select name="tipo_solicitacao" id="tipo_solicitacao" class="form-control abertura" >
+						<option value='' > </option>
+						<option value='R' > Horas Realizadas </option>
+						<option value='A' > Horas a Realizar </option>
+					</select>
+				</div>
+				<div class="col-sm-3">
+					<label for="creditar_banco">Creditar no Banco</label>
+					<span class="required text-danger"><strong>*</strong></span>
+					<select name="creditar_banco" id="creditar_banco" class="form-control abertura" >
+						<!--<option value='' > </option>
+						<option value='S' > Sim </option>-->
+						<option value='N' > Não </option>
+					</select>
+				</div>
+				<div class="col-sm-6">
+					<label for="periodo_aquisitivo">Periodo Aquisitivo</label>
+					<span class="required text-danger"><strong>*</strong></span>
+					<select name="periodo_aquisitivo" id="periodo_aquisitivo" class="form-control abertura" >
+						<option value='' > </option>
+						<option value='0116-0215' > 16 de Janeiro até 15 de Fevereiro </option>
+						<option value='0216-0315' > 16 de Fevereiro até 15 de Março </option>
+						<option value='0316-0415' > 16 de Março até 15 de Abril </option>
+						<option value='0416-0515' > 16 de Abril até 15 de Maio </option>
+						<option value='0516-0615' > 16 de Maio até 15 de Junho </option>
+						<option value='0616-0715' > 16 de Junho até 15 de Julho </option>
+						<option value='0716-0815' > 16 de Julho até 15 de Agosto </option>
+						<option value='0816-0915' > 16 de Agosto até 15 de Setembro </option>
+						<option value='0916-1015' > 16 de Setembro até 15 de Outubro </option>
+						<option value='1016-1115' > 16 de Outubro até 15 de Novembro </option>
+						<option value='1116-1215' > 16 de Novembro até 15 de Dezembro </option>
+						<option value='1216-0115' > 16 de Dezembro até 15 de Janeiro </option>
+					</select>			
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-sm-8">
+					<div class="custom-checkbox custom-checkbox-success custom-checkbox-lg">
+						<input type="checkbox" name="ciente" id="ciente" value="ciente" class="abertura" >
+						<label for="ciente" style="padding-top: 12px;"><span class="required text-danger"><strong>*</strong></span>Não devo incluir anexos, nem informações da solicitação em campos que não sejam os da tabela de informações descrita abaixo 
+(Matricula,Nome,Horas).</label>
+					</div>
+				</div>
+				 
+				<div class="col-sm-2 col-sm-offset-2">
+					<label for="horas_total">Total de Horas</label>
+					<span class="required text-danger"><strong>*</strong></span>
+					<input type="text" name="horas_total" id="horas_total" class="form-control" style="text-align:right" readonly />
+				</div>
+				<!-- <div class="col-sm-2">
+					<label for="saldo_total">Total de Banco</label>
+					<span class="required text-danger"><strong>*</strong></span>
+					<input type="text" name="saldo_total" id="saldo_total" class="form-control" style="text-align:right" readonly />
+				</div>
+				-->
+			</div>
+		</div>
+	</div>
+	<div class="panel panel-success tipo_solicitacao">
+		<div class="panel-heading fs-txt-center" style="padding-top: 5px; padding-bottom: 5px;">
+			<b>Colaboradores</b>
+		</div>
+		<div class="panel-body" style="padding-top: 0px;">
+		
+
+			<div class="row" id="filtro">
+			
+			
+				<div class="col-sm-2 col-md-offset-2">
+					<label for="empresa">Empresa</label>
+					<div class="input-group">
+						<input type="text" name="NOME" id="NOME" class="form-control empresa_filtro" readonly />
+						<input type="hidden" name="CODCOLIGADA" id="CODCOLIGADA" class="empresa_filtro" />
+						<span class="input-group-addon fluigicon fluigicon-eraser fluigicon-sm" onclick="$('.empresa_filtro').val('');"></span>
+						<span class="input-group-addon fluigicon fluigicon-zoom-in fluigicon-sm" id="bt_empresa" onclick="zoom(this.id)"></span>
+					</div>
+				</div>
+				
+				<div class="col-sm-4">
+					<label for="NOMEFANTASIA">Filial</label>
+					<div class="input-group">
+						<input type="text" name="NOMEFANTASIA" id="NOMEFANTASIA" class="form-control empresa_filtro filial_filtro" readonly />
+						<input type="hidden" name="CODFILIAL" id="CODFILIAL" class="empresa_filtro filial_filtro" />
+						<input type="hidden" name="CODCOLIGADAFILIAL" id="CODCOLIGADAFILIAL" class="empresa_filtro filial_filtro" />
+						<span class="input-group-addon fluigicon fluigicon-eraser fluigicon-sm" onclick="$('.filial_filtro').val('');"></span>
+						<span class="input-group-addon fluigicon fluigicon-zoom-in fluigicon-sm" id="bt_filial" onclick="zoom(this.id)"></span>
+					</div>
+				</div>
+				
+				<div class="col-sm-2" >
+					<label for="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+					<button type="button" class="btn btn-default" id="bt_colaborador" onclick="zoom(this.id);" >
+						<i class="flaticon flaticon-person-add icon-sm" ></i>
+						Adicionar Individual
+					</button>
+				</div>
+				
+				<div class="col-sm-2" >
+					<label for="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+					<button type="button" class="btn btn-default" id="bt_grupo" onclick="openColabMassa();" >
+						<i class="flaticon flaticon-group-add icon-sm" ></i>
+						Adicionar Multiplo
+					</button>
+				</div>
+				
+			</div>
+			<div class="row">
+			
+				<table class="table table-condensed table-bordered table-striped" style="margin-bottom: 0px;" border="0" tablename="colaboradores" noaddbutton=true nodeletebutton=false deleteicon="trash.png" customFnDelete="fnCustomDelete(this)" >
+					<thead>
+						<tr>
+							<td width='20%'>Empresa/Filial</td>
+							<td width='12%'>Matricula</td>
+							<td width='36%'>Colaborador</td>
+							<td width='8%'>Data De</td>
+							<td width='8%'>Data Até</td>
+							<td width='8%'>Horas</td>
+							<!-- <td width='8%'>Saldo Atual</td> -->
+						</tr>
+					</thead>
+					<tr>
+						<td>
+							<input type="text" class="form-control" name="den_empresa" id="den_empresa" readonly />
+							<input type="hidden" name="cod_empresa" id="cod_empresa" />
+							<input type="hidden" name="cod_coligada" id="cod_coligada" />
+						</td>
+						<td><input type="text" class="form-control" name="matricula_colaborador" id="matricula_colaborador" readonly /></td>
+						<td><input type="text" class="form-control" name="nome_colaborador" id="nome_colaborador" readonly /></td>
+						<td><input type="text" class="form-control data-fluig abertura pf" name="data_de" id="data_de" /></td>
+						<td><input type="text" class="form-control data-fluig abertura pf" name="data_ate" id="data_ate" /></td>
+						<td><input type="text" class="form-control decimal-2 abertura pf" name="horas" id="horas" onchange="totalizar()" />
+							<input type="hidden" class="form-control" style="text-align:right" name="saldo" id="saldo" readonly /> </td>
+						<!-- <td></td> -->
+					</tr>
+				</table>
+			
+			</div>
+		</div>
+	</div>
+	<input type="hidden" name="task" id="task" />
+	<input type="hidden" name="processo" id="processo" />
+</form>
+</div>
+</body>
+</html>

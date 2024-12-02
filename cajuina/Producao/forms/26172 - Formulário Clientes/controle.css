@@ -1,0 +1,13 @@
+table {
+  border-collapse: collapse;
+}
+th,
+td {
+  padding: 0 !important;
+}
+
+
+.table-striped > tbody > tr:nth-child(odd) > td,
+.table-striped > tbody > tr:nth-child(odd) > th {
+  background-color: #f5f5dc;
+}

@@ -1,0 +1,474 @@
+function defineStructure() {
+	addColumn('status');
+}
+
+function onSync(lastSyncDate) {
+	log.info(" Start createDataset...... ");
+
+	var newDataset = DatasetBuilder.newDataset();
+	newDataset.addColumn('description3');
+	/*newDataset.addColumn( 'name' );
+	newDataset.addColumn( 'email' );
+	newDataset.addColumn( 'phone' );*/
+	// http://10.1.1.129:48080/
+	// var params = {};
+	// // var listaConstraits = {};
+	// // if (constraints != null) {
+	// // 	for (var i = 0; i < constraints.length; i++) {
+	// // 		listaConstraits[constraints[i].fieldName.trim()] = constraints[i].initialValue;
+	// // 		params[constraints[i].fieldName.trim()] = constraints[i].initialValue + "";
+	// // 		log.info('fieldName.....' + constraints[i].fieldName + '...value....' + constraints[i].initialValue);
+	// // 	}
+	// // }
+
+	var endpoint = encodeURI("/v0/getItemsToIntegration?SourceId=UniqueID&MaxResults=1");
+
+	try {
+		var clientService = fluigAPI.getAuthorizeClientService();
+
+		var headers = {};
+		headers["Content-Type"] = "application/json;charset=UTF-8";
+		headers["Accept"] = "application/json";
+
+		var data = {
+			companyId: getValue("WKCompany") + "",
+			serviceCode: "klassmatt",
+			endpoint: endpoint,
+			timeoutService: "240",
+			method: "get"
+		};
+		printLog('info', "## DADOS CABECALHO ##");
+
+		data["headers"] = headers;
+
+		printLog('info', "## antes do stringify ## " + data.toString());
+		var jj = JSON.stringify(data);
+
+		printLog('info', "## RESULT POST jj ## " + jj);
+
+		var vo = clientService.invoke(jj);
+
+		var idKlassmatt;
+		var itemCode;
+
+		if (vo.getResult() == "" || vo.getResult().isEmpty()) {
+			throw "Retorno esta vazio";
+		} else {
+			var retJson = JSON.parse(vo.getResult());
+			// printLog('info', "## success ## " + retJson[0]["Description3"]);
+
+
+
+			for (var x = 0; x < retJson.length; x++) {
+
+
+				idKlassmatt = retJson[x]["KlassmattId"];
+				codeItem = retJson[x]["ItemCode"];
+				var values;
+
+				for (var i = 0; i < retJson[x]["BusinessUnits"].length; i++) {
+					newDataset.addRow(new Array("Empresa: " + retJson[x].BusinessUnits[i]["Code"] + " Codigo: " + retJson[x]["ItemCode"] + " - Descricao: " + retJson[x]["Description3"]));
+
+					var wIndControleEstoque = "N";
+
+					if ((retJson[x]["FlexFields"]["CODIGO_TIPO_ITEM"]["Code"] != '7') && (retJson[x]["FlexFields"]["CODIGO_TIPO_ITEM"]["Code"] != '8')) {
+						wIndControleEstoque = "S";
+					}
+
+
+					var wFamilia = isnull(new String(retJson[x]["FlexFields"]["FAMILIA"]["Code"]), null);
+
+					if (wFamilia == null) {
+						throw "Campo familia não informado";
+						return false;
+					}
+
+					values = {
+						"tip_solicitacao": {
+							"tip_solicitacao": new String("2") //1 novo - 2 edit
+						},
+						"basico": {
+							"cod_empresa": new String(retJson[x].BusinessUnits[i]["Code"]),
+							"cod_familia": wFamilia,
+							"gru_ctr_estoq": new String(retJson[x].BusinessUnits[i]["FlexFields"]["GRUPO_CONTROLE_ESTOQUE"]["Code"]),
+							"cod_item": new String(retJson[x]["ItemCode"]),
+							"den_item": new String(retJson[x]["Description3"]),
+							"den_item_reduz": new String(retJson[x]["Description3"]),
+							"ies_tip_item": new String(retJson[x]["ItemType"]),
+							"cod_unid_med": new String(retJson[x]["UnitOfMeasure"]),
+							"cod_item_barra": new String(""),
+							"pes_unit": new String(retJson[x]["NetWeight"]),
+							"fat_conver": new String("1"),
+							"cod_lin_prod": isnull(new String(retJson[x]["FlexFields"]["LINHA_DE_PRODUTO"]["Code"]), null),
+							"cod_lin_recei": isnull(new String(retJson[x]["FlexFields"]["LINHA_DE_RECEITA"]["Code"]), null),
+							"cod_seg_merc": isnull(new String(retJson[x]["FlexFields"]["SEGMENTO_DE_MERCADO"]["Code"]), "0"),
+							"cod_cla_uso": isnull(new String(retJson[x]["FlexFields"]["CLASSE_DE_USO"]["Code"]), "0"),
+							"ies_situacao": new String(retJson[x]["ItemType"]),
+						},
+
+						// Area e LINHA_DE_PRODUTO
+
+						// grupo de controle
+						// 	//***REGRA DE ESTOQUE? VALOR VIRÁ DO KLASSMATT?***//
+						"estoque": {
+							"ies_ctr_estoque": new String(wIndControleEstoque),
+							"cod_local_estoq": new String(""),
+							"ies_ctr_lote": new String("N"),
+							"endereco": new String("")
+						},
+						// "custos": {
+						// 	"cod_comp_custo": new String("")
+						// },
+						"qualidade": {
+							"ies_tem_inspecao": new String("N"),
+							"cod_local_insp": new String(""),
+							"ies_iso9000": new String(""),
+							"tip_apont": new String("")
+						},
+						/*
+						// 			"grades_dimensionais" : {
+						// 				"num_grade_1" : null,
+						// 				"num_grade_2" : null,
+						// 				"num_grade_3" : null,
+						// 				"num_grade_4" : null,
+						// 				"num_grade_5" : null,
+						// 				"ies_endereco" : new String( "N" ),
+						// 				"reservado_1" : new String( "" ),
+						// 				"ies_dat_producao" : new String( "N" ),
+						// 				"ies_volume" : new String( "N" ),
+						// 				"ies_comprimento" : new String( "N" ),
+						// 				"ies_dat_validade" : new String( "N" ),
+						// 				"ies_altura" : new String( "N" ),
+						// 				"ies_largura" : new String( "N" ),
+						// 				"ies_diametro" : new String( "N" ),
+						// 				"reservado_2" : new String( "" )
+						// 			},
+						// 			"manufatura" : {
+						// 				"qtd_lim_tempo_ressup" : new String("0"),//getValueDecimalForm("qtd_lim_tempo_ressup","0")),
+						// 				"tempo_acrescimo_ressup_1" : new String("0"),//getValueDecimalForm("tempo_acrescimo_ressup_1","0")),
+						// 				"fator_multiplo_1" :new String("1"), //getValueDecimalForm("fator_multiplo_1","1")),
+						// 				"qtd_lim_multiplo_ressup" : new String("0"), //getValueDecimalForm("qtd_lim_multiplo_ressup","0")),
+						// 				"tempo_acrescimo_ressup_2" : new String("0"), //getValueDecimalForm("tempo_acrescimo_ressup_2","0")),
+						// 				"fator_multiplo_2" : new String("1") //getValueDecimalForm("fator_multiplo_2","1"))
+						// 			},*/
+						"fiscal": {
+							"cod_cla_fisc": new String(retJson[0]["TaxClassificationFormatted"]),
+							"pct_ipi": new String(retJson[0]["TaxClassificationStdIPI"]),
+						}
+					};
+
+					printLog("info", "wfman001_create_item_1" + JSON.stringify(values));
+					var wResult = callLogixFunction('wfman001_create_item_1', values, retJson[x].BusinessUnits[i]["Code"], "");
+					if (wResult.status == true) {
+						// if (true == true) {
+
+						values = {
+							"tip_solicitacao": {
+								"tip_solicitacao": new String("2")
+							},
+							"basico": {
+								"cod_empresa": new String(retJson[x].BusinessUnits[i]["Code"]),
+								"cod_item": new String(retJson[x]["ItemCode"])
+							},
+							"materiais": {
+								"ies_rateio_compra": new String("N"),
+								"ies_item_iso_9000": new String(""),
+								"cod_local_receb": isnull(new String(""), ""),
+								"cod_progr": new String(""),
+								"cod_comprador": new String(""),
+								"cod_cc_resp_incl": new String(""), //new String(hAPI.getCardValue("cod_cc_resp_incl")),
+								"qtd_lote_minimo": new String(""),
+								"tmp_necessar_fabr": new String(""),
+								"tmp_transpor": new String(""),
+								"tmp_inspecao": new String(""),
+								"tmp_necessar_cont": new String(""),
+								"tmp_reposic_emerg": new String(""),
+								"dat_compra_futura": new String(""),
+								"vid_util": new String(""),
+								"ies_lista_pt_ped": new String(""),
+								"ies_freq_entrega": new String(""),
+								"qtd_cotacao": new String("0"),
+								"tmp_necessar_p_ped": new String(""),
+								"qtd_lote_maximo": new String(""),
+								"qtd_lote_multiplo": new String(""),
+								"qtd_lote_economic": new String(""),
+								"qtd_pt_pedid": new String(""),
+								"qtd_estoq_segur": new String(""),
+								"qtd_estoq_max": new String(""),
+								"qtd_dias_est_max": new String(""),
+								"qtd_dias_est_seg": new String(""),
+								"qtd_meses_media": new String(""),
+								"observacao": new String("")
+							},
+							"fiscal": {
+								"cod_cla_fisc_naladi": isnull(new String(retJson[x]["TaxClassificationNALADI"]), ""),
+								"gru_ctr_desp": isnull(new String(retJson[x].BusinessUnits[i]["FlexFields"]["GRUPO_DESPESA"]["Code"]), ""),
+								"cod_tip_despesa": isnull(new String(retJson[x].BusinessUnits[i]["FlexFields"]["TIPO_DESPESA"]["Code"]), ""),
+								"num_conta": isnull(new String(retJson[x].BusinessUnits[i]["FlexFields"]["CONTA_CONTABIL"]["Code"]), ""),
+								"ies_tip_incid_ipi": isnull(new String(retJson[x].BusinessUnits[i]["FlexFields"]["INCIDENCIA_IPI"]["Code"]), ""),
+								"ies_tip_incid_icms": isnull(new String(retJson[x].BusinessUnits[i]["FlexFields"]["INCIDENCIA_ICMS"]["Code"]), ""),
+								"cest": isnull(new String(retJson[x]["TaxClassificationCESTFormatted"]), ""),
+								"ies_cred_pis": isnull(new String(retJson[x].BusinessUnits[i]["FlexFields"]["ITEM_DIRETO_PIS_COFINS"]["Code"]), ""),
+								"tipo_item_sped": isnull(new String(retJson[x].BusinessUnits[i]["FlexFields"]["TIPO_ITEM_SPED_FISCAL"]["Code"]), ""),
+								"cod_fiscal": isnull(new String(retJson[x]["FlexFields"]["CFOP"]["Code"]), null),
+								"cod_fiscal_compl": new String("0"), //getValueForm("cod_fiscal_compl","0")),
+								"pct_agregado": new String(""),
+								"ies_contabiliza": new String("S")
+							},
+							"norma_iso": ""
+						};
+
+						printLog("info", "wfman001_create_item_2: " + JSON.stringify(values));
+						var wResult = callLogixFunction('wfman001_create_item_2', values, retJson[x].BusinessUnits[i]["Code"], "");
+						printLog("info", "Retorno: wfman001_create_item_2: " + JSON.stringify(wResult));
+
+					}
+
+					// 		/*Response - Movimenta solicitação no Klassmatt*/
+					callResponseKlassmatt(true, idKlassmatt, codeItem, "Item integrado com sucesso!");
+				}
+
+			}
+
+
+
+
+
+			// result = callFunction('wfman001_create_item_2', values, arrEmpresa[i] );
+
+			/*
+			values = {
+					"tip_solicitacao" : {
+						"tip_solicitacao" : new String(hAPI.getCardValue("tip_solicitacao"))
+					},
+					"basico" : {
+						"cod_empresa" : new String( arrEmpresa[i] ),
+						"cod_item" : new String(hAPI.getCardValue("cod_item").trim()),
+						"cod_familia" : new String(hAPI.getCardValue("cod_familia")),
+						"gru_ctr_estoq" : new String(hAPI.getCardValue("gru_ctr_estoq")),
+						"ies_tip_item" : new String(hAPI.getCardValue("ies_tip_item")),
+						"cod_lin_prod" : new String(hAPI.getCardValue("cod_lin_prod")),
+						"cod_lin_recei" : new String(hAPI.getCardValue("cod_lin_recei")),
+						"cod_seg_merc" : new String(hAPI.getCardValue("cod_seg_merc")),
+						"cod_cla_uso" : new String(hAPI.getCardValue("cod_cla_uso"))
+					},
+					"manufatura" : {
+						"cod_roteiro" : new String(hAPI.getCardValue("cod_roteiro")),
+						"num_altern_roteiro" : new String(hAPI.getCardValue("num_altern_roteiro")),
+						"cod_local_prod" : isnull( new String(hAPI.getCardValue("cod_local_prod___"+seq)), "" ),
+						"fat_conver_planejamento" : new String( getValueForm("fat_conver_planejamento","1")),
+						"pct_refug" : new String(getValueDecimalForm("pct_refug","0")),
+						"cod_etapa" : new String("1"),//hAPI.getCardValue("cod_etapa")),
+						"lote_padrao" : new String(getValueDecimalForm("lote_padrao","0")),
+						"ies_mrp_apont" : new String(hAPI.getCardValue("ies_mrp_apont")),
+						"ies_tip_apont" : new String(hAPI.getCardValue("ies_tip_apont")),
+						"ies_baixa_comp" : new String(hAPI.getCardValue("ies_baixa_comp")),
+						"ies_abert_liber" : new String(hAPI.getCardValue("ies_abert_liber")),
+						"ies_planejamento" : new String(hAPI.getCardValue("ies_planejamento")),
+						"ies_baixa_local_docum" : new String("1"), //hAPI.getCardValue("ies_baixa_local_docum")),
+						"ies_apont_automatico" : new String("N"), //hAPI.getCardValue("ies_apont_automatico")),
+						"ies_lista_roteiro" : new String(hAPI.getCardValue("ies_lista_roteiro")),
+						"ies_apontamento" : new String(hAPI.getCardValue("ies_apontamento")),
+						"ies_lista_ordem" : new String(hAPI.getCardValue("ies_lista_ordem")),
+						"ies_forca_apont" : new String(hAPI.getCardValue("ies_forca_apont")),
+						"ies_sofre_baixa" : new String(hAPI.getCardValue("ies_sofre_baixa")),
+						"qtd_estoq_seg" : new String(getValueDecimalForm("qtd_estoq_seg","0")),
+						"qtd_dias_min_ord" : new String(getValueDecimalForm("qtd_dias_min_ord","0")),
+						"qtd_dias_seg" : new String(getValueDecimalForm("qtd_dias_seg","0")),
+						"num_decimais" : new String(getValueDecimalForm("num_decimais","0")),
+						"qtd_prog_minima" : new String(getValueDecimalForm("qtd_prog_minima","0")),
+						"qtd_prog_maxima" : new String(getValueDecimalForm("qtd_prog_maxima","0")),
+						"qtd_prog_fixa" : new String(getValueDecimalForm("qtd_prog_fixa","0")),
+						"qtd_prog_multipla" : new String(getValueDecimalForm("qtd_prog_multipla","0")),
+						"estoque_maximo" : new String(getValueDecimalForm("estoque_maximo","0")),
+						"cod_horizon" : new String(hAPI.getCardValue("cod_horizon")),
+						"tmp_ressup" : new String(getValueDecimalForm("tmp_ressup","0")),
+						"ies_apontamento" : new String(hAPI.getCardValue("ies_apontamento")),
+						"num_solic_fluig" : new String(getValue("WKNumProces")),
+						
+						"considera_estoque" : new String(hAPI.getCardValue("considera_estoque")),
+						"considera_ordem" : new String(hAPI.getCardValue("considera_ordem")),
+						
+								 
+					},
+					"vendas" : {
+						"pre_unit_brut" : new String( isnull( hAPI.getCardValue("pre_unit_brut"), "0" ) ),
+						"pre_unit_brut_exp" : new String( isnull( hAPI.getCardValue("pre_unit_brut_exp"), "0" ) ),
+						"cod_grupo_item" : new String( isnull( hAPI.getCardValue("cod_grupo_item"), "001" ) ),
+						"cod_tip_carteira" : new String( isnull( hAPI.getCardValue("cod_tip_carteira"), "01" ) ),
+						"tipo_item" : new String(hAPI.getCardValue("tipo_item")),
+						"ies_lista_preco" : new String( isnull( hAPI.getCardValue("ies_lista_preco"),"S" ) ),
+						"servico_prestado" : "",//new String(hAPI.getCardValue("servico_prestado")),
+						"cnae_nfse" : new String("0"), //hAPI.getCardValue("cnae_nfse")),
+						"serv_trib_municipio" : "", //new String(hAPI.getCardValue("serv_trib_municipio")),
+						"ies_cont_ser_it" : new String("N"), //hAPI.getCardValue("ies_cont_ser_it")),
+						"ies_qtd_cod" : new String("Q"), //hAPI.getCardValue("ies_qtd_cod")),
+						"ind_estrutura_item" :new String("N"), //hAPI.getCardValue("ind_estrutura_item")),
+						"ies_gera_om" : new String( isnull( hAPI.getCardValue("ies_gera_om"), "" ) ),
+						"excecao_item" :new String(""), //hAPI.getCardValue("excecao_item")),
+						"protocolo_anp" : new String("N"), //hAPI.getCardValue("protocolo_anp")),
+						"cod_anvisa" : "", //new String(hAPI.getCardValue("cod_anvisa")),
+						"valid_anvisa" : "", //new String(hAPI.getCardValue("valid_anvisa")),
+						"prod_gnre_online" : new String(""), //hAPI.getCardValue("prod_gnre_online")),
+						"tipo_servico" : new String(""), //hAPI.getCardValue("tipo_servico")),
+						"cod_cliente_matriz" : new String(""), //hAPI.getCardValue("cod_cliente_matriz")),
+						"cod_item_cliente" : new String(""), //hAPI.getCardValue("cod_item_cliente")),
+						"tex_complementar" : new String(""), //hAPI.getCardValue("tex_complementar")),
+						"num_grade" : new String( "" ),
+						"cod_grupo_grade" : new String( "" ),
+						"cod_grade" : new String( ""  )
+					},
+					"embalagem" : ""
+				};
+	
+				printLog( "info", "wfman001_create_item_3", JSON.stringify( values ) );
+				result = callFunction('wfman001_create_item_3', values, arrEmpresa[i] );*/
+		}
+	} catch (erro) {
+		printLog('erro', "ERROOOOOO" + erro.toString());
+		printLog('info', "## Call Response Error Klassmatt ##");
+		callResponseKlassmatt(false, idKlassmatt, codeItem, erro.toString());
+		newDataset.addRow(new Array("Erro: " + erro.toString()));
+		throw erro.toString();
+
+	}
+	return newDataset;
+}
+
+
+function createDataset(fields, constraints, sortFields) {
+
+
+
+}
+
+function callResponseKlassmatt(status, klassmattId, itemCode, errorMessage) {
+
+	printLog('info', "# klassmattId : " + klassmattId + " itemCode : " + itemCode);
+
+	var clientService = fluigAPI.getAuthorizeClientService();
+	var endpoint = encodeURI("/V0/updateItemIntegrationStatus");
+
+	var response = {
+		KlassmattId: klassmattId,
+		ItemCode: itemCode,
+		Success: status,
+		ErrorMessage: errorMessage
+	};
+
+	printLog('info', "## Response Body ## " + response);
+
+	var dataResponse = {
+		companyId: getValue("WKCompany") + "",
+		serviceCode: "klassmatt_Response",
+		endpoint: endpoint,
+		timeoutService: "240",
+		method: "post",
+		params: {
+			"KlassmattId": klassmattId,
+			"ItemCode": itemCode,
+			"Success": status,
+			"ErrorMessage": errorMessage
+		}
+	};
+
+	var headers = {};
+	headers["Content-Type"] = "application/json;charset=UTF-8";
+	headers["Accept"] = "application/json";
+
+	dataResponse["headers"] = headers;
+
+	var strResponse = JSON.stringify(dataResponse);
+
+	printLog('info', "## Response ## " + strResponse);
+
+	var invokeResult = clientService.invoke(strResponse);
+
+	printLog('info', "Result Response: " + invokeResult.getResult());
+
+	if (invokeResult.getResult() == "" || invokeResult.getResult().isEmpty()) {
+		throw "Retorno esta vazio";
+	} else {
+		var result = JSON.parse(invokeResult.getResult());
+
+		if (result.Success == true) {
+			printLog('info', "## success ## " + result.Message);
+		} else {
+			printLog('error', "## error ## " + result.Message);
+		}
+	}
+
+}
+
+function onMobileSync(user) { }
+
+var debug = true;
+
+
+function callLogixFunction(funct, values, emp, defname) {
+	var result;
+
+	//Recupera o WS do LOGIX.
+	var serviceProvider = ServiceManager.getService('LogixWS');
+	var serviceHelper = serviceProvider.getBean();
+	var serviceLocator = serviceHelper.instantiate('br.com.totvs.webservices.WSECMSERVICELOGIXLocator');
+	var service = serviceLocator.getWSECMSERVICELOGIXSOAP();
+
+	//Recupera os valores para autenticação no Logix.
+	//var host = hAPI.getCardValue("fw_host");
+	//var port = hAPI.getCardValue("fw_port");
+
+	//*****CRIAR OUTRO USUÁRIO PARA CONEXAO*****//
+	var user = "arcoin";   //hAPI.getCardValue("fw_user");
+	var pswd = "dGFuYWMxMjM="; //hAPI.getCardValue("fw_pswd");
+	var comp = emp; 		   //hAPI.getCardValue("fw_comp");
+
+	//Compatibilidade com a versão antiga onde as funções 4GL eram obrigadas a
+	//ter o sufixo _wfprocess.
+	funct += (defname === "undefined") ? "_wfprocess" : "";
+
+	try {
+		log.info('values...... ' + values);
+		values = JSON.stringify(values);
+
+		result = service.CALLFUNCTION(funct, values, user, pswd, comp);
+		result = JSON.parse(result);
+
+		log.error('[LOGIX] result [' + result.status + ' - ' + result.msg + ']');
+
+		if (result.status != true) {
+			throw '[LOGIX] Nao foi possivel executar a rotina no ERP Logix [' + result.msg + ']';
+		}
+
+	} catch (e) {
+		log.error('[LOGIX] Nao foi possivel executar a rotina no ERP Logix [' + e.toString() + ']');
+		throw '[LOGIX] Nao foi possivel executar a rotina no ERP Logix [' + e.toString() + ']';
+	}
+
+	return result;
+}
+
+function printLog(tipo, msg) {
+
+	if (debug) {
+		var msgs = getValue("WKDef") + " - " + getValue("WKNumProces") + " - " + msg
+		if (tipo == 'info') {
+			log.info(msgs);
+		} else if (tipo == 'error') {
+			log.error(msgs);
+		} else if (tipo == 'fatal') {
+			log.fatal(msgs);
+		} else {
+			log.warn(msgs);
+		}
+	}
+}
+
+
+function isnull(valor, valorAlter) {
+	if (valor == null || valor == undefined || valor == "null") {
+		return valorAlter;
+	} else {
+		return valor
+	}
+}

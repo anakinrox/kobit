@@ -1,0 +1,18 @@
+INDEX VERSION 1.3+C:\Trabalho\Kobit\tanac\.metadata\.plugins\org.eclipse.wst.jsdt.core\indexes
+1904743799.index
+1080743545.index
+1906398525.index
+2445062759.index
+1298402890.index
+127614484.index
+3194718651.index
+297795889.index
+982819865.index
+4090918998.index
+414824824.index
+4108050968.index
+747045599.index
+208436101.index
+2889312433.index
+2852218513.index
+1343163134.index

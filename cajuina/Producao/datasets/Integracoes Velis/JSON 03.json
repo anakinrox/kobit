@@ -1,0 +1,2892 @@
+[
+    {
+        "contactName": "Cadastrar",
+        "customerIdErp": "012312955000163",
+        "daysOfWeek": "5",
+        "end": "2024-02-08 23:30:00",
+        "frequency": "2",
+        "period": "1",
+        "salesmanIdErp": "167",
+        "start": "2023-12-21 23:30:00"
+    },
+    {
+        "contactName": "Cadastrar",
+        "customerIdErp": "035012277000119",
+        "daysOfWeek": "6",
+        "end": "2024-02-09 23:30:00",
+        "frequency": "2",
+        "period": "1",
+        "salesmanIdErp": "167",
+        "start": "2023-12-22 23:30:00"
+    },
+    {
+        "contactName": "Cadastrar",
+        "customerIdErp": "002483293000130",
+        "daysOfWeek": "3",
+        "end": "2024-02-06 23:30:00",
+        "frequency": "2",
+        "period": "1",
+        "salesmanIdErp": "167",
+        "start": "2023-12-19 23:30:00"
+    },
+    {
+        "contactName": "Cadastrar",
+        "customerIdErp": "326052263000087",
+        "daysOfWeek": "2",
+        "end": "2024-02-05 23:30:00",
+        "frequency": "2",
+        "period": "1",
+        "salesmanIdErp": "167",
+        "start": "2023-12-25 23:30:00"
+    },
+    {
+        "contactName": "Cadastrar",
+        "customerIdErp": "003681571000127",
+        "daysOfWeek": "5",
+        "end": "2024-02-08 23:30:00",
+        "frequency": "2",
+        "period": "1",
+        "salesmanIdErp": "167",
+        "start": "2023-12-21 23:30:00"
+    },
+    {
+        "contactName": "Cadastrar",
+        "customerIdErp": "063493241000130",
+        "daysOfWeek": "6",
+        "end": "2024-02-09 23:30:00",
+        "frequency": "2",
+        "period": "1",
+        "salesmanIdErp": "167",
+        "start": "2023-12-22 23:30:00"
+    },
+    {
+        "contactName": "Cadastrar",
+        "customerIdErp": "002914613000160",
+        "daysOfWeek": "6",
+        "end": "2024-02-09 23:30:00",
+        "frequency": "2",
+        "period": "1",
+        "salesmanIdErp": "167",
+        "start": "2023-12-22 23:30:00"
+    },
+    {
+        "contactName": "Cadastrar",
+        "customerIdErp": "005445976000191",
+        "daysOfWeek": "5",
+        "end": "2024-02-08 23:30:00",
+        "frequency": "2",
+        "period": "1",
+        "salesmanIdErp": "167",
+        "start": "2023-12-21 23:30:00"
+    },
+    {
+        "contactName": "Cadastrar",
+        "customerIdErp": "002984145000108",
+        "daysOfWeek": "5",
+        "end": "2024-02-08 23:30:00",
+        "frequency": "2",
+        "period": "1",
+        "salesmanIdErp": "167",
+        "start": "2023-12-21 23:30:00"
+    },
+    {
+        "contactName": "Cadastrar",
+        "customerIdErp": "035037589000187",
+        "daysOfWeek": "6",
+        "end": "2024-02-09 23:30:00",
+        "frequency": "2",
+        "period": "1",
+        "salesmanIdErp": "167",
+        "start": "2023-12-22 23:30:00"
+    },
+    {
+        "contactName": "Cadastrar",
+        "customerIdErp": "005439566000138",
+        "daysOfWeek": "5",
+        "end": "2024-02-08 23:30:00",
+        "frequency": "2",
+        "period": "1",
+        "salesmanIdErp": "167",
+        "start": "2023-12-21 23:30:00"
+    },
+    {
+        "contactName": "Cadastrar",
+        "customerIdErp": "035001874000148",
+        "daysOfWeek": "5",
+        "end": "2024-02-08 23:30:00",
+        "frequency": "2",
+        "period": "1",
+        "salesmanIdErp": "167",
+        "start": "2023-12-21 23:30:00"
+    },
+    {
+        "contactName": "Cadastrar",
+        "customerIdErp": "347188853000053",
+        "daysOfWeek": "3",
+        "end": "2024-02-06 23:30:00",
+        "frequency": "2",
+        "period": "1",
+        "salesmanIdErp": "167",
+        "start": "2023-12-19 23:30:00"
+    },
+    {
+        "contactName": "Cadastrar",
+        "customerIdErp": "001447213000129",
+        "daysOfWeek": "2",
+        "end": "2024-02-05 23:30:00",
+        "frequency": "2",
+        "period": "1",
+        "salesmanIdErp": "167",
+        "start": "2023-12-25 23:30:00"
+    },
+    {
+        "contactName": "Cadastrar",
+        "customerIdErp": "003237197000175",
+        "daysOfWeek": "3",
+        "end": "2024-02-06 23:30:00",
+        "frequency": "2",
+        "period": "1",
+        "salesmanIdErp": "167",
+        "start": "2023-12-19 23:30:00"
+    },
+    {
+        "contactName": "Cadastrar",
+        "customerIdErp": "902974313000015",
+        "daysOfWeek": "3",
+        "end": "2024-02-06 23:30:00",
+        "frequency": "2",
+        "period": "1",
+        "salesmanIdErp": "167",
+        "start": "2023-12-19 23:30:00"
+    },
+    {
+        "contactName": "Cadastrar",
+        "customerIdErp": "007595721000130",
+        "daysOfWeek": "6",
+        "end": "2024-02-09 23:30:00",
+        "frequency": "2",
+        "period": "1",
+        "salesmanIdErp": "167",
+        "start": "2023-12-22 23:30:00"
+    },
+    {
+        "contactName": "Cadastrar",
+        "customerIdErp": "006039028000380",
+        "daysOfWeek": "5",
+        "end": "2024-02-08 23:30:00",
+        "frequency": "2",
+        "period": "1",
+        "salesmanIdErp": "167",
+        "start": "2023-12-21 23:30:00"
+    },
+    {
+        "contactName": "Cadastrar",
+        "customerIdErp": "004314770000160",
+        "daysOfWeek": "2",
+        "end": "2024-02-05 23:30:00",
+        "frequency": "2",
+        "period": "1",
+        "salesmanIdErp": "167",
+        "start": "2023-12-25 23:30:00"
+    },
+    {
+        "contactName": "Cadastrar",
+        "customerIdErp": "014536328000075",
+        "daysOfWeek": "5",
+        "end": "2024-02-08 23:30:00",
+        "frequency": "2",
+        "period": "1",
+        "salesmanIdErp": "167",
+        "start": "2023-12-21 23:30:00"
+    },
+    {
+        "contactName": "Cadastrar",
+        "customerIdErp": "004399276000145",
+        "daysOfWeek": "5",
+        "end": "2024-02-08 23:30:00",
+        "frequency": "2",
+        "period": "1",
+        "salesmanIdErp": "167",
+        "start": "2023-12-21 23:30:00"
+    },
+    {
+        "contactName": "Cadastrar",
+        "customerIdErp": "005695070000125",
+        "daysOfWeek": "6",
+        "end": "2024-02-09 23:30:00",
+        "frequency": "2",
+        "period": "1",
+        "salesmanIdErp": "167",
+        "start": "2023-12-22 23:30:00"
+    },
+    {
+        "contactName": "Cadastrar",
+        "customerIdErp": "059346723000004",
+        "daysOfWeek": "4",
+        "end": "2024-02-07 23:30:00",
+        "frequency": "2",
+        "period": "1",
+        "salesmanIdErp": "167",
+        "start": "2023-12-20 23:30:00"
+    },
+    {
+        "contactName": "Cadastrar",
+        "customerIdErp": "010613961000125",
+        "daysOfWeek": "6",
+        "end": "2024-02-09 23:30:00",
+        "frequency": "2",
+        "period": "1",
+        "salesmanIdErp": "167",
+        "start": "2023-12-22 23:30:00"
+    },
+    {
+        "contactName": "Cadastrar",
+        "customerIdErp": "097338651000128",
+        "daysOfWeek": "3",
+        "end": "2024-02-06 23:30:00",
+        "frequency": "2",
+        "period": "1",
+        "salesmanIdErp": "167",
+        "start": "2023-12-19 23:30:00"
+    },
+    {
+        "contactName": "Cadastrar",
+        "customerIdErp": "009357679000145",
+        "daysOfWeek": "7",
+        "end": "2024-02-03 23:30:00",
+        "frequency": "2",
+        "period": "1",
+        "salesmanIdErp": "167",
+        "start": "2023-12-23 23:30:00"
+    },
+    {
+        "contactName": "Cadastrar",
+        "customerIdErp": "008764131000157",
+        "daysOfWeek": "7",
+        "end": "2024-02-03 23:30:00",
+        "frequency": "2",
+        "period": "1",
+        "salesmanIdErp": "167",
+        "start": "2023-12-23 23:30:00"
+    },
+    {
+        "contactName": "Cadastrar",
+        "customerIdErp": "010631189000174",
+        "daysOfWeek": "5",
+        "end": "2024-02-08 23:30:00",
+        "frequency": "2",
+        "period": "1",
+        "salesmanIdErp": "167",
+        "start": "2023-12-21 23:30:00"
+    },
+    {
+        "contactName": "Cadastrar",
+        "customerIdErp": "010716859000155",
+        "daysOfWeek": "6",
+        "end": "2024-02-09 23:30:00",
+        "frequency": "2",
+        "period": "1",
+        "salesmanIdErp": "167",
+        "start": "2023-12-22 23:30:00"
+    },
+    {
+        "contactName": "Cadastrar",
+        "customerIdErp": "005892546000118",
+        "daysOfWeek": "2",
+        "end": "2024-02-05 23:30:00",
+        "frequency": "2",
+        "period": "1",
+        "salesmanIdErp": "167",
+        "start": "2023-12-25 23:30:00"
+    },
+    {
+        "contactName": "Cadastrar",
+        "customerIdErp": "003332546000138",
+        "daysOfWeek": "5",
+        "end": "2024-02-08 23:30:00",
+        "frequency": "2",
+        "period": "1",
+        "salesmanIdErp": "167",
+        "start": "2023-12-21 23:30:00"
+    },
+    {
+        "contactName": "Cadastrar",
+        "customerIdErp": "014527539000108",
+        "daysOfWeek": "5",
+        "end": "2024-02-08 23:30:00",
+        "frequency": "2",
+        "period": "1",
+        "salesmanIdErp": "167",
+        "start": "2023-12-21 23:30:00"
+    },
+    {
+        "contactName": "Cadastrar",
+        "customerIdErp": "129347978000005",
+        "daysOfWeek": "6",
+        "end": "2024-02-09 23:30:00",
+        "frequency": "2",
+        "period": "1",
+        "salesmanIdErp": "167",
+        "start": "2023-12-22 23:30:00"
+    },
+    {
+        "contactName": "Cadastrar",
+        "customerIdErp": "015916544000175",
+        "daysOfWeek": "5",
+        "end": "2024-02-08 23:30:00",
+        "frequency": "2",
+        "period": "1",
+        "salesmanIdErp": "167",
+        "start": "2023-12-21 23:30:00"
+    },
+    {
+        "contactName": "Cadastrar",
+        "customerIdErp": "907648703000000",
+        "daysOfWeek": "2",
+        "end": "2024-02-05 23:30:00",
+        "frequency": "2",
+        "period": "1",
+        "salesmanIdErp": "167",
+        "start": "2023-12-25 23:30:00"
+    },
+    {
+        "contactName": "Cadastrar",
+        "customerIdErp": "936582813000091",
+        "daysOfWeek": "4",
+        "end": "2024-02-07 23:30:00",
+        "frequency": "2",
+        "period": "1",
+        "salesmanIdErp": "167",
+        "start": "2023-12-20 23:30:00"
+    },
+    {
+        "contactName": "Cadastrar",
+        "customerIdErp": "015503343000146",
+        "daysOfWeek": "2",
+        "end": "2024-02-05 23:30:00",
+        "frequency": "2",
+        "period": "1",
+        "salesmanIdErp": "167",
+        "start": "2023-12-25 23:30:00"
+    },
+    {
+        "contactName": "Cadastrar",
+        "customerIdErp": "698172193000072",
+        "daysOfWeek": "6",
+        "end": "2024-02-09 23:30:00",
+        "frequency": "2",
+        "period": "1",
+        "salesmanIdErp": "167",
+        "start": "2023-12-22 23:30:00"
+    },
+    {
+        "contactName": "Cadastrar",
+        "customerIdErp": "140690593000034",
+        "daysOfWeek": "3",
+        "end": "2024-02-06 23:30:00",
+        "frequency": "2",
+        "period": "1",
+        "salesmanIdErp": "167",
+        "start": "2023-12-19 23:30:00"
+    },
+    {
+        "contactName": "Cadastrar",
+        "customerIdErp": "017731025000168",
+        "daysOfWeek": "5",
+        "end": "2024-02-08 23:30:00",
+        "frequency": "2",
+        "period": "1",
+        "salesmanIdErp": "167",
+        "start": "2023-12-21 23:30:00"
+    },
+    {
+        "contactName": "Cadastrar",
+        "customerIdErp": "630068713000091",
+        "daysOfWeek": "5",
+        "end": "2024-02-08 23:30:00",
+        "frequency": "2",
+        "period": "1",
+        "salesmanIdErp": "167",
+        "start": "2023-12-21 23:30:00"
+    },
+    {
+        "contactName": "Cadastrar",
+        "customerIdErp": "820114863000000",
+        "daysOfWeek": "2",
+        "end": "2024-02-05 23:30:00",
+        "frequency": "2",
+        "period": "1",
+        "salesmanIdErp": "167",
+        "start": "2023-12-25 23:30:00"
+    },
+    {
+        "contactName": "Cadastrar",
+        "customerIdErp": "673401483000053",
+        "daysOfWeek": "3",
+        "end": "2024-02-06 23:30:00",
+        "frequency": "2",
+        "period": "1",
+        "salesmanIdErp": "167",
+        "start": "2023-12-19 23:30:00"
+    },
+    {
+        "contactName": "Cadastrar",
+        "customerIdErp": "041183092000170",
+        "daysOfWeek": "4",
+        "end": "2024-02-07 23:30:00",
+        "frequency": "2",
+        "period": "1",
+        "salesmanIdErp": "167",
+        "start": "2023-12-20 23:30:00"
+    },
+    {
+        "contactName": "Cadastrar",
+        "customerIdErp": "017377800000129",
+        "daysOfWeek": "5",
+        "end": "2024-02-08 23:30:00",
+        "frequency": "2",
+        "period": "1",
+        "salesmanIdErp": "167",
+        "start": "2023-12-21 23:30:00"
+    },
+    {
+        "contactName": "Cadastrar",
+        "customerIdErp": "023116139000109",
+        "daysOfWeek": "5",
+        "end": "2024-02-08 23:30:00",
+        "frequency": "2",
+        "period": "1",
+        "salesmanIdErp": "167",
+        "start": "2023-12-21 23:30:00"
+    },
+    {
+        "contactName": "Cadastrar",
+        "customerIdErp": "010814037000107",
+        "daysOfWeek": "2",
+        "end": "2024-02-05 23:30:00",
+        "frequency": "2",
+        "period": "1",
+        "salesmanIdErp": "167",
+        "start": "2023-12-25 23:30:00"
+    },
+    {
+        "contactName": "Cadastrar",
+        "customerIdErp": "630373863000004",
+        "daysOfWeek": "2",
+        "end": "2024-02-05 23:30:00",
+        "frequency": "2",
+        "period": "1",
+        "salesmanIdErp": "167",
+        "start": "2023-12-25 23:30:00"
+    },
+    {
+        "contactName": "Cadastrar",
+        "customerIdErp": "023820399000152",
+        "daysOfWeek": "3",
+        "end": "2024-02-06 23:30:00",
+        "frequency": "2",
+        "period": "1",
+        "salesmanIdErp": "167",
+        "start": "2023-12-19 23:30:00"
+    },
+    {
+        "contactName": "Cadastrar",
+        "customerIdErp": "021711867000125",
+        "daysOfWeek": "6",
+        "end": "2024-02-09 23:30:00",
+        "frequency": "2",
+        "period": "1",
+        "salesmanIdErp": "167",
+        "start": "2023-12-22 23:30:00"
+    },
+    {
+        "contactName": "Cadastrar",
+        "customerIdErp": "023160184000152",
+        "daysOfWeek": "5",
+        "end": "2024-02-08 23:30:00",
+        "frequency": "2",
+        "period": "1",
+        "salesmanIdErp": "167",
+        "start": "2023-12-21 23:30:00"
+    },
+    {
+        "contactName": "Cadastrar",
+        "customerIdErp": "064072133000080",
+        "daysOfWeek": "5",
+        "end": "2024-02-08 23:30:00",
+        "frequency": "2",
+        "period": "1",
+        "salesmanIdErp": "167",
+        "start": "2023-12-21 23:30:00"
+    },
+    {
+        "contactName": "Cadastrar",
+        "customerIdErp": "024838110000195",
+        "daysOfWeek": "5",
+        "end": "2024-02-08 23:30:00",
+        "frequency": "2",
+        "period": "1",
+        "salesmanIdErp": "167",
+        "start": "2023-12-21 23:30:00"
+    },
+    {
+        "contactName": "Cadastrar",
+        "customerIdErp": "030379798000195",
+        "daysOfWeek": "2",
+        "end": "2024-02-05 23:30:00",
+        "frequency": "2",
+        "period": "1",
+        "salesmanIdErp": "167",
+        "start": "2023-12-25 23:30:00"
+    },
+    {
+        "contactName": "Cadastrar",
+        "customerIdErp": "044833468000132",
+        "daysOfWeek": "3",
+        "end": "2024-02-06 23:30:00",
+        "frequency": "2",
+        "period": "1",
+        "salesmanIdErp": "167",
+        "start": "2023-12-19 23:30:00"
+    },
+    {
+        "contactName": "Cadastrar",
+        "customerIdErp": "642439583000000",
+        "daysOfWeek": "3",
+        "end": "2024-02-06 23:30:00",
+        "frequency": "2",
+        "period": "1",
+        "salesmanIdErp": "167",
+        "start": "2023-12-19 23:30:00"
+    },
+    {
+        "contactName": "Cadastrar",
+        "customerIdErp": "012891850000106",
+        "daysOfWeek": "6",
+        "end": "2024-02-09 23:30:00",
+        "frequency": "2",
+        "period": "1",
+        "salesmanIdErp": "167",
+        "start": "2023-12-22 23:30:00"
+    },
+    {
+        "contactName": "Cadastrar",
+        "customerIdErp": "010748845000202",
+        "daysOfWeek": "3",
+        "end": "2024-02-06 23:30:00",
+        "frequency": "2",
+        "period": "1",
+        "salesmanIdErp": "167",
+        "start": "2023-12-19 23:30:00"
+    },
+    {
+        "contactName": "Cadastrar",
+        "customerIdErp": "027538863000173",
+        "daysOfWeek": "5",
+        "end": "2024-02-08 23:30:00",
+        "frequency": "2",
+        "period": "1",
+        "salesmanIdErp": "167",
+        "start": "2023-12-21 23:30:00"
+    },
+    {
+        "contactName": "Cadastrar",
+        "customerIdErp": "023904947000122",
+        "daysOfWeek": "3",
+        "end": "2024-02-06 23:30:00",
+        "frequency": "2",
+        "period": "1",
+        "salesmanIdErp": "167",
+        "start": "2023-12-19 23:30:00"
+    },
+    {
+        "contactName": "Cadastrar",
+        "customerIdErp": "070126923000059",
+        "daysOfWeek": "5",
+        "end": "2024-02-08 23:30:00",
+        "frequency": "2",
+        "period": "1",
+        "salesmanIdErp": "167",
+        "start": "2023-12-21 23:30:00"
+    },
+    {
+        "contactName": "Cadastrar",
+        "customerIdErp": "894693803000004",
+        "daysOfWeek": "4",
+        "end": "2024-02-07 23:30:00",
+        "frequency": "2",
+        "period": "1",
+        "salesmanIdErp": "167",
+        "start": "2023-12-20 23:30:00"
+    },
+    {
+        "contactName": "Cadastrar",
+        "customerIdErp": "012543629000167",
+        "daysOfWeek": "3",
+        "end": "2024-02-06 23:30:00",
+        "frequency": "2",
+        "period": "1",
+        "salesmanIdErp": "167",
+        "start": "2023-12-19 23:30:00"
+    },
+    {
+        "contactName": "Cadastrar",
+        "customerIdErp": "016370864000135",
+        "daysOfWeek": "5",
+        "end": "2024-02-08 23:30:00",
+        "frequency": "2",
+        "period": "1",
+        "salesmanIdErp": "167",
+        "start": "2023-12-21 23:30:00"
+    },
+    {
+        "contactName": "Cadastrar",
+        "customerIdErp": "013389789000166",
+        "daysOfWeek": "4",
+        "end": "2024-02-07 23:30:00",
+        "frequency": "2",
+        "period": "1",
+        "salesmanIdErp": "167",
+        "start": "2023-12-20 23:30:00"
+    },
+    {
+        "contactName": "Cadastrar",
+        "customerIdErp": "013331529000130",
+        "daysOfWeek": "3",
+        "end": "2024-02-06 23:30:00",
+        "frequency": "2",
+        "period": "1",
+        "salesmanIdErp": "167",
+        "start": "2023-12-19 23:30:00"
+    },
+    {
+        "contactName": "Cadastrar",
+        "customerIdErp": "426173323000049",
+        "daysOfWeek": "2",
+        "end": "2024-02-05 23:30:00",
+        "frequency": "2",
+        "period": "1",
+        "salesmanIdErp": "167",
+        "start": "2023-12-25 23:30:00"
+    },
+    {
+        "contactName": "Cadastrar",
+        "customerIdErp": "024327824000139",
+        "daysOfWeek": "3",
+        "end": "2024-02-06 23:30:00",
+        "frequency": "2",
+        "period": "1",
+        "salesmanIdErp": "167",
+        "start": "2023-12-19 23:30:00"
+    },
+    {
+        "contactName": "Cadastrar",
+        "customerIdErp": "026379663000152",
+        "daysOfWeek": "6",
+        "end": "2024-02-09 23:30:00",
+        "frequency": "2",
+        "period": "1",
+        "salesmanIdErp": "167",
+        "start": "2023-12-22 23:30:00"
+    },
+    {
+        "contactName": "Cadastrar",
+        "customerIdErp": "012720543000243",
+        "daysOfWeek": "2",
+        "end": "2024-02-05 23:30:00",
+        "frequency": "2",
+        "period": "1",
+        "salesmanIdErp": "167",
+        "start": "2023-12-25 23:30:00"
+    },
+    {
+        "contactName": "Cadastrar",
+        "customerIdErp": "036307251000160",
+        "daysOfWeek": "6",
+        "end": "2024-02-09 23:30:00",
+        "frequency": "2",
+        "period": "1",
+        "salesmanIdErp": "167",
+        "start": "2023-12-22 23:30:00"
+    },
+    {
+        "contactName": "Cadastrar",
+        "customerIdErp": "034830504000150",
+        "daysOfWeek": "5",
+        "end": "2024-02-08 23:30:00",
+        "frequency": "2",
+        "period": "1",
+        "salesmanIdErp": "167",
+        "start": "2023-12-21 23:30:00"
+    },
+    {
+        "contactName": "Cadastrar",
+        "customerIdErp": "045215233000007",
+        "daysOfWeek": "3",
+        "end": "2024-02-06 23:30:00",
+        "frequency": "2",
+        "period": "1",
+        "salesmanIdErp": "167",
+        "start": "2023-12-19 23:30:00"
+    },
+    {
+        "contactName": "Cadastrar",
+        "customerIdErp": "097490023000163",
+        "daysOfWeek": "2",
+        "end": "2024-02-05 23:30:00",
+        "frequency": "2",
+        "period": "1",
+        "salesmanIdErp": "167",
+        "start": "2023-12-25 23:30:00"
+    },
+    {
+        "contactName": "Cadastrar",
+        "customerIdErp": "049157443000180",
+        "daysOfWeek": "4",
+        "end": "2024-02-07 23:30:00",
+        "frequency": "2",
+        "period": "1",
+        "salesmanIdErp": "167",
+        "start": "2023-12-20 23:30:00"
+    },
+    {
+        "contactName": "Cadastrar",
+        "customerIdErp": "021999134000138",
+        "daysOfWeek": "3",
+        "end": "2024-02-06 23:30:00",
+        "frequency": "2",
+        "period": "1",
+        "salesmanIdErp": "167",
+        "start": "2023-12-19 23:30:00"
+    },
+    {
+        "contactName": "Cadastrar",
+        "customerIdErp": "022484777000101",
+        "daysOfWeek": "5",
+        "end": "2024-02-08 23:30:00",
+        "frequency": "2",
+        "period": "1",
+        "salesmanIdErp": "167",
+        "start": "2023-12-21 23:30:00"
+    },
+    {
+        "contactName": "Cadastrar",
+        "customerIdErp": "063872713000080",
+        "daysOfWeek": "3",
+        "end": "2024-02-06 23:30:00",
+        "frequency": "2",
+        "period": "1",
+        "salesmanIdErp": "167",
+        "start": "2023-12-19 23:30:00"
+    },
+    {
+        "contactName": "Cadastrar",
+        "customerIdErp": "029890313000144",
+        "daysOfWeek": "2",
+        "end": "2024-02-05 23:30:00",
+        "frequency": "2",
+        "period": "1",
+        "salesmanIdErp": "167",
+        "start": "2023-12-25 23:30:00"
+    },
+    {
+        "contactName": "Cadastrar",
+        "customerIdErp": "029119833000158",
+        "daysOfWeek": "2",
+        "end": "2024-02-05 23:30:00",
+        "frequency": "2",
+        "period": "1",
+        "salesmanIdErp": "167",
+        "start": "2023-12-25 23:30:00"
+    },
+    {
+        "contactName": "Cadastrar",
+        "customerIdErp": "625464143000072",
+        "daysOfWeek": "5",
+        "end": "2024-02-08 23:30:00",
+        "frequency": "2",
+        "period": "1",
+        "salesmanIdErp": "167",
+        "start": "2023-12-21 23:30:00"
+    },
+    {
+        "contactName": "Cadastrar",
+        "customerIdErp": "043677089000138",
+        "daysOfWeek": "5",
+        "end": "2024-02-08 23:30:00",
+        "frequency": "2",
+        "period": "1",
+        "salesmanIdErp": "167",
+        "start": "2023-12-21 23:30:00"
+    },
+    {
+        "contactName": "Cadastrar",
+        "customerIdErp": "017238708000188",
+        "daysOfWeek": "2",
+        "end": "2024-02-05 23:30:00",
+        "frequency": "2",
+        "period": "1",
+        "salesmanIdErp": "167",
+        "start": "2023-12-25 23:30:00"
+    },
+    {
+        "contactName": "Cadastrar",
+        "customerIdErp": "024796943000130",
+        "daysOfWeek": "5",
+        "end": "2024-02-08 23:30:00",
+        "frequency": "2",
+        "period": "1",
+        "salesmanIdErp": "167",
+        "start": "2023-12-21 23:30:00"
+    },
+    {
+        "contactName": "Cadastrar",
+        "customerIdErp": "032353090000190",
+        "daysOfWeek": "6",
+        "end": "2024-02-09 23:30:00",
+        "frequency": "2",
+        "period": "1",
+        "salesmanIdErp": "167",
+        "start": "2023-12-22 23:30:00"
+    },
+    {
+        "contactName": "Cadastrar",
+        "customerIdErp": "032511808000120",
+        "daysOfWeek": "3",
+        "end": "2024-02-06 23:30:00",
+        "frequency": "2",
+        "period": "1",
+        "salesmanIdErp": "167",
+        "start": "2023-12-19 23:30:00"
+    },
+    {
+        "contactName": "Cadastrar",
+        "customerIdErp": "033101977000154",
+        "daysOfWeek": "4",
+        "end": "2024-02-07 23:30:00",
+        "frequency": "2",
+        "period": "1",
+        "salesmanIdErp": "167",
+        "start": "2023-12-20 23:30:00"
+    },
+    {
+        "contactName": "Cadastrar",
+        "customerIdErp": "017263847000161",
+        "daysOfWeek": "5",
+        "end": "2024-02-08 23:30:00",
+        "frequency": "2",
+        "period": "1",
+        "salesmanIdErp": "167",
+        "start": "2023-12-21 23:30:00"
+    },
+    {
+        "contactName": "Cadastrar",
+        "customerIdErp": "790271803000034",
+        "daysOfWeek": "3",
+        "end": "2024-02-06 23:30:00",
+        "frequency": "2",
+        "period": "1",
+        "salesmanIdErp": "167",
+        "start": "2023-12-19 23:30:00"
+    },
+    {
+        "contactName": "Cadastrar",
+        "customerIdErp": "014902206000111",
+        "daysOfWeek": "2",
+        "end": "2024-02-05 23:30:00",
+        "frequency": "2",
+        "period": "1",
+        "salesmanIdErp": "167",
+        "start": "2023-12-25 23:30:00"
+    },
+    {
+        "contactName": "Cadastrar",
+        "customerIdErp": "020317965000110",
+        "daysOfWeek": "7",
+        "end": "2024-02-03 23:30:00",
+        "frequency": "2",
+        "period": "1",
+        "salesmanIdErp": "167",
+        "start": "2023-12-23 23:30:00"
+    },
+    {
+        "contactName": "Cadastrar",
+        "customerIdErp": "851898203000000",
+        "daysOfWeek": "2",
+        "end": "2024-02-05 23:30:00",
+        "frequency": "2",
+        "period": "1",
+        "salesmanIdErp": "167",
+        "start": "2023-12-25 23:30:00"
+    },
+    {
+        "contactName": "Cadastrar",
+        "customerIdErp": "014098368000149",
+        "daysOfWeek": "3",
+        "end": "2024-02-06 23:30:00",
+        "frequency": "2",
+        "period": "1",
+        "salesmanIdErp": "167",
+        "start": "2023-12-19 23:30:00"
+    },
+    {
+        "contactName": "Cadastrar",
+        "customerIdErp": "927916463000053",
+        "daysOfWeek": "2",
+        "end": "2024-02-05 23:30:00",
+        "frequency": "2",
+        "period": "1",
+        "salesmanIdErp": "167",
+        "start": "2023-12-25 23:30:00"
+    },
+    {
+        "contactName": "Cadastrar",
+        "customerIdErp": "027913519000117",
+        "daysOfWeek": "4",
+        "end": "2024-02-07 23:30:00",
+        "frequency": "2",
+        "period": "1",
+        "salesmanIdErp": "167",
+        "start": "2023-12-20 23:30:00"
+    },
+    {
+        "contactName": "Cadastrar",
+        "customerIdErp": "807819183000091",
+        "daysOfWeek": "4",
+        "end": "2024-02-07 23:30:00",
+        "frequency": "2",
+        "period": "1",
+        "salesmanIdErp": "167",
+        "start": "2023-12-20 23:30:00"
+    },
+    {
+        "contactName": "Cadastrar",
+        "customerIdErp": "036006447000115",
+        "daysOfWeek": "6",
+        "end": "2024-02-09 23:30:00",
+        "frequency": "2",
+        "period": "1",
+        "salesmanIdErp": "167",
+        "start": "2023-12-22 23:30:00"
+    },
+    {
+        "contactName": "Cadastrar",
+        "customerIdErp": "812148983000000",
+        "daysOfWeek": "6",
+        "end": "2024-02-09 23:30:00",
+        "frequency": "2",
+        "period": "1",
+        "salesmanIdErp": "167",
+        "start": "2023-12-22 23:30:00"
+    },
+    {
+        "contactName": "Cadastrar",
+        "customerIdErp": "049236360000186",
+        "daysOfWeek": "4",
+        "end": "2024-02-07 23:30:00",
+        "frequency": "2",
+        "period": "1",
+        "salesmanIdErp": "167",
+        "start": "2023-12-20 23:30:00"
+    },
+    {
+        "contactName": "Cadastrar",
+        "customerIdErp": "071569553000030",
+        "daysOfWeek": "2",
+        "end": "2024-02-05 23:30:00",
+        "frequency": "2",
+        "period": "1",
+        "salesmanIdErp": "167",
+        "start": "2023-12-25 23:30:00"
+    },
+    {
+        "contactName": "Cadastrar",
+        "customerIdErp": "024900453000132",
+        "daysOfWeek": "4",
+        "end": "2024-02-07 23:30:00",
+        "frequency": "2",
+        "period": "1",
+        "salesmanIdErp": "167",
+        "start": "2023-12-20 23:30:00"
+    },
+    {
+        "contactName": "Cadastrar",
+        "customerIdErp": "027619548000170",
+        "daysOfWeek": "6",
+        "end": "2024-02-09 23:30:00",
+        "frequency": "2",
+        "period": "1",
+        "salesmanIdErp": "167",
+        "start": "2023-12-22 23:30:00"
+    },
+    {
+        "contactName": "Cadastrar",
+        "customerIdErp": "003022834000196",
+        "daysOfWeek": "2",
+        "end": "2024-02-05 23:30:00",
+        "frequency": "2",
+        "period": "1",
+        "salesmanIdErp": "167",
+        "start": "2023-12-25 23:30:00"
+    },
+    {
+        "contactName": "Cadastrar",
+        "customerIdErp": "034655507000103",
+        "daysOfWeek": "5",
+        "end": "2024-02-08 23:30:00",
+        "frequency": "2",
+        "period": "1",
+        "salesmanIdErp": "167",
+        "start": "2023-12-21 23:30:00"
+    },
+    {
+        "contactName": "Cadastrar",
+        "customerIdErp": "387559123000020",
+        "daysOfWeek": "6",
+        "end": "2024-02-09 23:30:00",
+        "frequency": "2",
+        "period": "1",
+        "salesmanIdErp": "167",
+        "start": "2023-12-22 23:30:00"
+    },
+    {
+        "contactName": "Cadastrar",
+        "customerIdErp": "032583100000184",
+        "daysOfWeek": "6",
+        "end": "2024-02-09 23:30:00",
+        "frequency": "2",
+        "period": "1",
+        "salesmanIdErp": "167",
+        "start": "2023-12-22 23:30:00"
+    },
+    {
+        "contactName": "Cadastrar",
+        "customerIdErp": "426195563000068",
+        "daysOfWeek": "6",
+        "end": "2024-02-09 23:30:00",
+        "frequency": "2",
+        "period": "1",
+        "salesmanIdErp": "167",
+        "start": "2023-12-22 23:30:00"
+    },
+    {
+        "contactName": "Cadastrar",
+        "customerIdErp": "064394443000052",
+        "daysOfWeek": "5",
+        "end": "2024-02-08 23:30:00",
+        "frequency": "2",
+        "period": "1",
+        "salesmanIdErp": "167",
+        "start": "2023-12-21 23:30:00"
+    },
+    {
+        "contactName": "Cadastrar",
+        "customerIdErp": "018902071000145",
+        "daysOfWeek": "5",
+        "end": "2024-02-08 23:30:00",
+        "frequency": "2",
+        "period": "1",
+        "salesmanIdErp": "167",
+        "start": "2023-12-21 23:30:00"
+    },
+    {
+        "contactName": "Cadastrar",
+        "customerIdErp": "136281448000025",
+        "daysOfWeek": "3",
+        "end": "2024-02-06 23:30:00",
+        "frequency": "2",
+        "period": "1",
+        "salesmanIdErp": "167",
+        "start": "2023-12-19 23:30:00"
+    },
+    {
+        "contactName": "Cadastrar",
+        "customerIdErp": "061231973000039",
+        "daysOfWeek": "5",
+        "end": "2024-02-08 23:30:00",
+        "frequency": "2",
+        "period": "1",
+        "salesmanIdErp": "167",
+        "start": "2023-12-21 23:30:00"
+    },
+    {
+        "contactName": "Cadastrar",
+        "customerIdErp": "036349268000180",
+        "daysOfWeek": "3",
+        "end": "2024-02-06 23:30:00",
+        "frequency": "2",
+        "period": "1",
+        "salesmanIdErp": "167",
+        "start": "2023-12-19 23:30:00"
+    },
+    {
+        "contactName": "Cadastrar",
+        "customerIdErp": "326977673000004",
+        "daysOfWeek": "5",
+        "end": "2024-02-08 23:30:00",
+        "frequency": "2",
+        "period": "1",
+        "salesmanIdErp": "167",
+        "start": "2023-12-21 23:30:00"
+    },
+    {
+        "contactName": "Cadastrar",
+        "customerIdErp": "068509053000017",
+        "daysOfWeek": "6",
+        "end": "2024-02-09 23:30:00",
+        "frequency": "2",
+        "period": "1",
+        "salesmanIdErp": "167",
+        "start": "2023-12-22 23:30:00"
+    },
+    {
+        "contactName": "Cadastrar",
+        "customerIdErp": "019517530000130",
+        "daysOfWeek": "6",
+        "end": "2024-02-09 23:30:00",
+        "frequency": "2",
+        "period": "1",
+        "salesmanIdErp": "167",
+        "start": "2023-12-22 23:30:00"
+    },
+    {
+        "contactName": "Cadastrar",
+        "customerIdErp": "014902727000179",
+        "daysOfWeek": "6",
+        "end": "2024-02-09 23:30:00",
+        "frequency": "2",
+        "period": "1",
+        "salesmanIdErp": "167",
+        "start": "2023-12-22 23:30:00"
+    },
+    {
+        "contactName": "Cadastrar",
+        "customerIdErp": "022029054000112",
+        "daysOfWeek": "2",
+        "end": "2024-02-05 23:30:00",
+        "frequency": "2",
+        "period": "1",
+        "salesmanIdErp": "167",
+        "start": "2023-12-25 23:30:00"
+    },
+    {
+        "contactName": "Cadastrar",
+        "customerIdErp": "009597430000107",
+        "daysOfWeek": "6",
+        "end": "2024-02-09 23:30:00",
+        "frequency": "2",
+        "period": "1",
+        "salesmanIdErp": "167",
+        "start": "2023-12-22 23:30:00"
+    },
+    {
+        "contactName": "Cadastrar",
+        "customerIdErp": "031545657000168",
+        "daysOfWeek": "6",
+        "end": "2024-02-09 23:30:00",
+        "frequency": "2",
+        "period": "1",
+        "salesmanIdErp": "167",
+        "start": "2023-12-22 23:30:00"
+    },
+    {
+        "contactName": "Cadastrar",
+        "customerIdErp": "059544973000054",
+        "daysOfWeek": "5",
+        "end": "2024-02-08 23:30:00",
+        "frequency": "2",
+        "period": "1",
+        "salesmanIdErp": "167",
+        "start": "2023-12-21 23:30:00"
+    },
+    {
+        "contactName": "Cadastrar",
+        "customerIdErp": "822426903000053",
+        "daysOfWeek": "5",
+        "end": "2024-02-08 23:30:00",
+        "frequency": "2",
+        "period": "1",
+        "salesmanIdErp": "167",
+        "start": "2023-12-21 23:30:00"
+    },
+    {
+        "contactName": "Cadastrar",
+        "customerIdErp": "288729048000070",
+        "daysOfWeek": "5",
+        "end": "2024-02-08 23:30:00",
+        "frequency": "2",
+        "period": "1",
+        "salesmanIdErp": "167",
+        "start": "2023-12-21 23:30:00"
+    },
+    {
+        "contactName": "Cadastrar",
+        "customerIdErp": "040951181000156",
+        "daysOfWeek": "2",
+        "end": "2024-02-05 23:30:00",
+        "frequency": "2",
+        "period": "1",
+        "salesmanIdErp": "167",
+        "start": "2023-12-25 23:30:00"
+    },
+    {
+        "contactName": "Cadastrar",
+        "customerIdErp": "050086892000163",
+        "daysOfWeek": "2",
+        "end": "2024-02-05 23:30:00",
+        "frequency": "2",
+        "period": "1",
+        "salesmanIdErp": "167",
+        "start": "2023-12-25 23:30:00"
+    },
+    {
+        "contactName": "Cadastrar",
+        "customerIdErp": "022434099000172",
+        "daysOfWeek": "5",
+        "end": "2024-02-08 23:30:00",
+        "frequency": "2",
+        "period": "1",
+        "salesmanIdErp": "167",
+        "start": "2023-12-21 23:30:00"
+    },
+    {
+        "contactName": "Cadastrar",
+        "customerIdErp": "027438941000168",
+        "daysOfWeek": "6",
+        "end": "2024-02-09 23:30:00",
+        "frequency": "2",
+        "period": "1",
+        "salesmanIdErp": "167",
+        "start": "2023-12-22 23:30:00"
+    },
+    {
+        "contactName": "Cadastrar",
+        "customerIdErp": "035011626000188",
+        "daysOfWeek": "6",
+        "end": "2024-02-09 23:30:00",
+        "frequency": "2",
+        "period": "1",
+        "salesmanIdErp": "167",
+        "start": "2023-12-22 23:30:00"
+    },
+    {
+        "contactName": "Cadastrar",
+        "customerIdErp": "027027413000080",
+        "daysOfWeek": "5",
+        "end": "2024-02-08 23:30:00",
+        "frequency": "2",
+        "period": "1",
+        "salesmanIdErp": "167",
+        "start": "2023-12-21 23:30:00"
+    },
+    {
+        "contactName": "Cadastrar",
+        "customerIdErp": "040128000000196",
+        "daysOfWeek": "4",
+        "end": "2024-02-07 23:30:00",
+        "frequency": "2",
+        "period": "1",
+        "salesmanIdErp": "167",
+        "start": "2023-12-20 23:30:00"
+    },
+    {
+        "contactName": "Cadastrar",
+        "customerIdErp": "630533573000072",
+        "daysOfWeek": "4",
+        "end": "2024-02-07 23:30:00",
+        "frequency": "2",
+        "period": "1",
+        "salesmanIdErp": "167",
+        "start": "2023-12-20 23:30:00"
+    },
+    {
+        "contactName": "Cadastrar",
+        "customerIdErp": "036611749000112",
+        "daysOfWeek": "6",
+        "end": "2024-02-09 23:30:00",
+        "frequency": "2",
+        "period": "1",
+        "salesmanIdErp": "167",
+        "start": "2023-12-22 23:30:00"
+    },
+    {
+        "contactName": "Cadastrar",
+        "customerIdErp": "018474893000038",
+        "daysOfWeek": "3",
+        "end": "2024-02-06 23:30:00",
+        "frequency": "2",
+        "period": "1",
+        "salesmanIdErp": "167",
+        "start": "2023-12-19 23:30:00"
+    },
+    {
+        "contactName": "Cadastrar",
+        "customerIdErp": "438628703000059",
+        "daysOfWeek": "5",
+        "end": "2024-02-08 23:30:00",
+        "frequency": "2",
+        "period": "1",
+        "salesmanIdErp": "167",
+        "start": "2023-12-21 23:30:00"
+    },
+    {
+        "contactName": "Cadastrar",
+        "customerIdErp": "033500213000079",
+        "daysOfWeek": "5",
+        "end": "2024-02-08 23:30:00",
+        "frequency": "2",
+        "period": "1",
+        "salesmanIdErp": "167",
+        "start": "2023-12-21 23:30:00"
+    },
+    {
+        "contactName": "Cadastrar",
+        "customerIdErp": "022505633000006",
+        "daysOfWeek": "2",
+        "end": "2024-02-05 23:30:00",
+        "frequency": "2",
+        "period": "1",
+        "salesmanIdErp": "167",
+        "start": "2023-12-25 23:30:00"
+    },
+    {
+        "contactName": "Cadastrar",
+        "customerIdErp": "042225444000175",
+        "daysOfWeek": "4",
+        "end": "2024-02-07 23:30:00",
+        "frequency": "2",
+        "period": "1",
+        "salesmanIdErp": "167",
+        "start": "2023-12-20 23:30:00"
+    },
+    {
+        "contactName": "Cadastrar",
+        "customerIdErp": "023275393000082",
+        "daysOfWeek": "2",
+        "end": "2024-02-05 23:30:00",
+        "frequency": "2",
+        "period": "1",
+        "salesmanIdErp": "167",
+        "start": "2023-12-25 23:30:00"
+    },
+    {
+        "contactName": "Cadastrar",
+        "customerIdErp": "028551507000152",
+        "daysOfWeek": "2",
+        "end": "2024-02-05 23:30:00",
+        "frequency": "2",
+        "period": "1",
+        "salesmanIdErp": "167",
+        "start": "2023-12-25 23:30:00"
+    },
+    {
+        "contactName": "Cadastrar",
+        "customerIdErp": "003877673000012",
+        "daysOfWeek": "3",
+        "end": "2024-02-06 23:30:00",
+        "frequency": "2",
+        "period": "1",
+        "salesmanIdErp": "167",
+        "start": "2023-12-19 23:30:00"
+    },
+    {
+        "contactName": "Cadastrar",
+        "customerIdErp": "746233113000068",
+        "daysOfWeek": "2",
+        "end": "2024-02-05 23:30:00",
+        "frequency": "2",
+        "period": "1",
+        "salesmanIdErp": "167",
+        "start": "2023-12-25 23:30:00"
+    },
+    {
+        "contactName": "Cadastrar",
+        "customerIdErp": "027346552000102",
+        "daysOfWeek": "6",
+        "end": "2024-02-09 23:30:00",
+        "frequency": "2",
+        "period": "1",
+        "salesmanIdErp": "167",
+        "start": "2023-12-22 23:30:00"
+    },
+    {
+        "contactName": "Cadastrar",
+        "customerIdErp": "037816047000138",
+        "daysOfWeek": "5",
+        "end": "2024-02-08 23:30:00",
+        "frequency": "2",
+        "period": "1",
+        "salesmanIdErp": "167",
+        "start": "2023-12-21 23:30:00"
+    },
+    {
+        "contactName": "Cadastrar",
+        "customerIdErp": "336703368000050",
+        "daysOfWeek": "3",
+        "end": "2024-02-06 23:30:00",
+        "frequency": "2",
+        "period": "1",
+        "salesmanIdErp": "167",
+        "start": "2023-12-19 23:30:00"
+    },
+    {
+        "contactName": "Cadastrar",
+        "customerIdErp": "015270983000153",
+        "daysOfWeek": "2",
+        "end": "2024-02-05 23:30:00",
+        "frequency": "2",
+        "period": "1",
+        "salesmanIdErp": "167",
+        "start": "2023-12-25 23:30:00"
+    },
+    {
+        "contactName": "Cadastrar",
+        "customerIdErp": "023802189000131",
+        "daysOfWeek": "5",
+        "end": "2024-02-08 23:30:00",
+        "frequency": "2",
+        "period": "1",
+        "salesmanIdErp": "167",
+        "start": "2023-12-21 23:30:00"
+    },
+    {
+        "contactName": "Cadastrar",
+        "customerIdErp": "077106693000079",
+        "daysOfWeek": "6",
+        "end": "2024-02-09 23:30:00",
+        "frequency": "2",
+        "period": "1",
+        "salesmanIdErp": "167",
+        "start": "2023-12-22 23:30:00"
+    },
+    {
+        "contactName": "Cadastrar",
+        "customerIdErp": "631749673000009",
+        "daysOfWeek": "2",
+        "end": "2024-02-05 23:30:00",
+        "frequency": "2",
+        "period": "1",
+        "salesmanIdErp": "167",
+        "start": "2023-12-25 23:30:00"
+    },
+    {
+        "contactName": "Cadastrar",
+        "customerIdErp": "545611753000034",
+        "daysOfWeek": "4",
+        "end": "2024-02-07 23:30:00",
+        "frequency": "2",
+        "period": "1",
+        "salesmanIdErp": "167",
+        "start": "2023-12-20 23:30:00"
+    },
+    {
+        "contactName": "Cadastrar",
+        "customerIdErp": "986293793000091",
+        "daysOfWeek": "2",
+        "end": "2024-02-05 23:30:00",
+        "frequency": "2",
+        "period": "1",
+        "salesmanIdErp": "167",
+        "start": "2023-12-25 23:30:00"
+    },
+    {
+        "contactName": "Cadastrar",
+        "customerIdErp": "975330173000015",
+        "daysOfWeek": "3",
+        "end": "2024-02-06 23:30:00",
+        "frequency": "2",
+        "period": "1",
+        "salesmanIdErp": "167",
+        "start": "2023-12-19 23:30:00"
+    },
+    {
+        "contactName": "Cadastrar",
+        "customerIdErp": "038152392000187",
+        "daysOfWeek": "4",
+        "end": "2024-02-07 23:30:00",
+        "frequency": "2",
+        "period": "1",
+        "salesmanIdErp": "167",
+        "start": "2023-12-20 23:30:00"
+    },
+    {
+        "contactName": "Cadastrar",
+        "customerIdErp": "008246857000106",
+        "daysOfWeek": "4",
+        "end": "2024-02-07 23:30:00",
+        "frequency": "2",
+        "period": "1",
+        "salesmanIdErp": "167",
+        "start": "2023-12-20 23:30:00"
+    },
+    {
+        "contactName": "Cadastrar",
+        "customerIdErp": "061407723000003",
+        "daysOfWeek": "2",
+        "end": "2024-02-05 23:30:00",
+        "frequency": "2",
+        "period": "1",
+        "salesmanIdErp": "167",
+        "start": "2023-12-25 23:30:00"
+    },
+    {
+        "contactName": "Cadastrar",
+        "customerIdErp": "785404373000068",
+        "daysOfWeek": "5",
+        "end": "2024-02-08 23:30:00",
+        "frequency": "2",
+        "period": "1",
+        "salesmanIdErp": "167",
+        "start": "2023-12-21 23:30:00"
+    },
+    {
+        "contactName": "Cadastrar",
+        "customerIdErp": "434057383000034",
+        "daysOfWeek": "5",
+        "end": "2024-02-08 23:30:00",
+        "frequency": "2",
+        "period": "1",
+        "salesmanIdErp": "167",
+        "start": "2023-12-21 23:30:00"
+    },
+    {
+        "contactName": "Cadastrar",
+        "customerIdErp": "018668807000162",
+        "daysOfWeek": "3",
+        "end": "2024-02-06 23:30:00",
+        "frequency": "2",
+        "period": "1",
+        "salesmanIdErp": "167",
+        "start": "2023-12-19 23:30:00"
+    },
+    {
+        "contactName": "Cadastrar",
+        "customerIdErp": "010502274000084",
+        "daysOfWeek": "5",
+        "end": "2024-02-08 23:30:00",
+        "frequency": "2",
+        "period": "1",
+        "salesmanIdErp": "167",
+        "start": "2023-12-21 23:30:00"
+    },
+    {
+        "contactName": "Cadastrar",
+        "customerIdErp": "027072508000151",
+        "daysOfWeek": "4",
+        "end": "2024-02-07 23:30:00",
+        "frequency": "2",
+        "period": "1",
+        "salesmanIdErp": "167",
+        "start": "2023-12-20 23:30:00"
+    },
+    {
+        "contactName": "Cadastrar",
+        "customerIdErp": "020812578000150",
+        "daysOfWeek": "6",
+        "end": "2024-02-09 23:30:00",
+        "frequency": "2",
+        "period": "1",
+        "salesmanIdErp": "167",
+        "start": "2023-12-22 23:30:00"
+    },
+    {
+        "contactName": "Cadastrar",
+        "customerIdErp": "045703495000153",
+        "daysOfWeek": "4",
+        "end": "2024-02-07 23:30:00",
+        "frequency": "2",
+        "period": "1",
+        "salesmanIdErp": "167",
+        "start": "2023-12-20 23:30:00"
+    },
+    {
+        "contactName": "Cadastrar",
+        "customerIdErp": "013850708000183",
+        "daysOfWeek": "4",
+        "end": "2024-02-07 23:30:00",
+        "frequency": "2",
+        "period": "1",
+        "salesmanIdErp": "167",
+        "start": "2023-12-20 23:30:00"
+    },
+    {
+        "contactName": "Cadastrar",
+        "customerIdErp": "051985563000094",
+        "daysOfWeek": "4",
+        "end": "2024-02-07 23:30:00",
+        "frequency": "2",
+        "period": "1",
+        "salesmanIdErp": "167",
+        "start": "2023-12-20 23:30:00"
+    },
+    {
+        "contactName": "Cadastrar",
+        "customerIdErp": "049195786000139",
+        "daysOfWeek": "4",
+        "end": "2024-02-07 23:30:00",
+        "frequency": "2",
+        "period": "1",
+        "salesmanIdErp": "167",
+        "start": "2023-12-20 23:30:00"
+    },
+    {
+        "contactName": "Cadastrar",
+        "customerIdErp": "032412326000112",
+        "daysOfWeek": "5",
+        "end": "2024-02-08 23:30:00",
+        "frequency": "2",
+        "period": "1",
+        "salesmanIdErp": "167",
+        "start": "2023-12-21 23:30:00"
+    },
+    {
+        "contactName": "Cadastrar",
+        "customerIdErp": "038401325000159",
+        "daysOfWeek": "4",
+        "end": "2024-02-07 23:30:00",
+        "frequency": "2",
+        "period": "1",
+        "salesmanIdErp": "167",
+        "start": "2023-12-20 23:30:00"
+    },
+    {
+        "contactName": "Cadastrar",
+        "customerIdErp": "026704804000165",
+        "daysOfWeek": "3",
+        "end": "2024-02-06 23:30:00",
+        "frequency": "2",
+        "period": "1",
+        "salesmanIdErp": "167",
+        "start": "2023-12-19 23:30:00"
+    },
+    {
+        "contactName": "Cadastrar",
+        "customerIdErp": "044601043000106",
+        "daysOfWeek": "5",
+        "end": "2024-02-08 23:30:00",
+        "frequency": "2",
+        "period": "1",
+        "salesmanIdErp": "167",
+        "start": "2023-12-21 23:30:00"
+    },
+    {
+        "contactName": "Cadastrar",
+        "customerIdErp": "526011613000053",
+        "daysOfWeek": "5",
+        "end": "2024-02-08 23:30:00",
+        "frequency": "2",
+        "period": "1",
+        "salesmanIdErp": "167",
+        "start": "2023-12-21 23:30:00"
+    },
+    {
+        "contactName": "Cadastrar",
+        "customerIdErp": "024622453000118",
+        "daysOfWeek": "7",
+        "end": "2024-02-03 23:30:00",
+        "frequency": "2",
+        "period": "1",
+        "salesmanIdErp": "167",
+        "start": "2023-12-23 23:30:00"
+    },
+    {
+        "contactName": "Cadastrar",
+        "customerIdErp": "049552918000132",
+        "daysOfWeek": "4",
+        "end": "2024-02-07 23:30:00",
+        "frequency": "2",
+        "period": "1",
+        "salesmanIdErp": "167",
+        "start": "2023-12-20 23:30:00"
+    },
+    {
+        "contactName": "Cadastrar",
+        "customerIdErp": "037310027000190",
+        "daysOfWeek": "5",
+        "end": "2024-02-08 23:30:00",
+        "frequency": "2",
+        "period": "1",
+        "salesmanIdErp": "167",
+        "start": "2023-12-21 23:30:00"
+    },
+    {
+        "contactName": "Cadastrar",
+        "customerIdErp": "028111363000113",
+        "daysOfWeek": "5",
+        "end": "2024-02-08 23:30:00",
+        "frequency": "2",
+        "period": "1",
+        "salesmanIdErp": "167",
+        "start": "2023-12-21 23:30:00"
+    },
+    {
+        "contactName": "Cadastrar",
+        "customerIdErp": "049380187000195",
+        "daysOfWeek": "2",
+        "end": "2024-02-05 23:30:00",
+        "frequency": "2",
+        "period": "1",
+        "salesmanIdErp": "167",
+        "start": "2023-12-25 23:30:00"
+    },
+    {
+        "contactName": "Cadastrar",
+        "customerIdErp": "022503664000106",
+        "daysOfWeek": "3",
+        "end": "2024-02-06 23:30:00",
+        "frequency": "2",
+        "period": "1",
+        "salesmanIdErp": "167",
+        "start": "2023-12-19 23:30:00"
+    },
+    {
+        "contactName": "Cadastrar",
+        "customerIdErp": "045135793000194",
+        "daysOfWeek": "4",
+        "end": "2024-02-07 23:30:00",
+        "frequency": "2",
+        "period": "1",
+        "salesmanIdErp": "167",
+        "start": "2023-12-20 23:30:00"
+    },
+    {
+        "contactName": "Cadastrar",
+        "customerIdErp": "044456056000120",
+        "daysOfWeek": "4",
+        "end": "2024-02-07 23:30:00",
+        "frequency": "2",
+        "period": "1",
+        "salesmanIdErp": "167",
+        "start": "2023-12-20 23:30:00"
+    },
+    {
+        "contactName": "Cadastrar",
+        "customerIdErp": "041001412000123",
+        "daysOfWeek": "4",
+        "end": "2024-02-07 23:30:00",
+        "frequency": "2",
+        "period": "1",
+        "salesmanIdErp": "167",
+        "start": "2023-12-20 23:30:00"
+    },
+    {
+        "contactName": "Cadastrar",
+        "customerIdErp": "035001874000300",
+        "daysOfWeek": "5",
+        "end": "2024-02-08 23:30:00",
+        "frequency": "2",
+        "period": "1",
+        "salesmanIdErp": "167",
+        "start": "2023-12-21 23:30:00"
+    },
+    {
+        "contactName": "Cadastrar",
+        "customerIdErp": "030400787000140",
+        "daysOfWeek": "4",
+        "end": "2024-02-07 23:30:00",
+        "frequency": "2",
+        "period": "1",
+        "salesmanIdErp": "167",
+        "start": "2023-12-20 23:30:00"
+    },
+    {
+        "contactName": "Cadastrar",
+        "customerIdErp": "037530479000188",
+        "daysOfWeek": "2",
+        "end": "2024-02-05 23:30:00",
+        "frequency": "2",
+        "period": "1",
+        "salesmanIdErp": "167",
+        "start": "2023-12-25 23:30:00"
+    },
+    {
+        "contactName": "Cadastrar",
+        "customerIdErp": "040570716000149",
+        "daysOfWeek": "4",
+        "end": "2024-02-07 23:30:00",
+        "frequency": "2",
+        "period": "1",
+        "salesmanIdErp": "167",
+        "start": "2023-12-20 23:30:00"
+    },
+    {
+        "contactName": "Cadastrar",
+        "customerIdErp": "303444254000087",
+        "daysOfWeek": "3",
+        "end": "2024-02-06 23:30:00",
+        "frequency": "2",
+        "period": "1",
+        "salesmanIdErp": "167",
+        "start": "2023-12-19 23:30:00"
+    },
+    {
+        "contactName": "Cadastrar",
+        "customerIdErp": "044723883000133",
+        "daysOfWeek": "4",
+        "end": "2024-02-07 23:30:00",
+        "frequency": "2",
+        "period": "1",
+        "salesmanIdErp": "167",
+        "start": "2023-12-20 23:30:00"
+    },
+    {
+        "contactName": "Cadastrar",
+        "customerIdErp": "026133623000016",
+        "daysOfWeek": "4",
+        "end": "2024-02-07 23:30:00",
+        "frequency": "2",
+        "period": "1",
+        "salesmanIdErp": "167",
+        "start": "2023-12-20 23:30:00"
+    },
+    {
+        "contactName": "Cadastrar",
+        "customerIdErp": "002047536000198",
+        "daysOfWeek": "3",
+        "end": "2024-02-06 23:30:00",
+        "frequency": "2",
+        "period": "1",
+        "salesmanIdErp": "167",
+        "start": "2023-12-19 23:30:00"
+    },
+    {
+        "contactName": "Cadastrar",
+        "customerIdErp": "050066519000140",
+        "daysOfWeek": "5",
+        "end": "2024-02-08 23:30:00",
+        "frequency": "2",
+        "period": "1",
+        "salesmanIdErp": "167",
+        "start": "2023-12-21 23:30:00"
+    },
+    {
+        "contactName": "Cadastrar",
+        "customerIdErp": "043537775000103",
+        "daysOfWeek": "6",
+        "end": "2024-02-09 23:30:00",
+        "frequency": "2",
+        "period": "1",
+        "salesmanIdErp": "167",
+        "start": "2023-12-22 23:30:00"
+    },
+    {
+        "contactName": "Cadastrar",
+        "customerIdErp": "027618513000074",
+        "daysOfWeek": "6",
+        "end": "2024-02-09 23:30:00",
+        "frequency": "2",
+        "period": "1",
+        "salesmanIdErp": "167",
+        "start": "2023-12-22 23:30:00"
+    },
+    {
+        "contactName": "Cadastrar",
+        "customerIdErp": "029099867000128",
+        "daysOfWeek": "6",
+        "end": "2024-02-09 23:30:00",
+        "frequency": "2",
+        "period": "1",
+        "salesmanIdErp": "167",
+        "start": "2023-12-22 23:30:00"
+    },
+    {
+        "contactName": "Cadastrar",
+        "customerIdErp": "705642133000049",
+        "daysOfWeek": "2",
+        "end": "2024-02-05 23:30:00",
+        "frequency": "2",
+        "period": "1",
+        "salesmanIdErp": "167",
+        "start": "2023-12-25 23:30:00"
+    },
+    {
+        "contactName": "Cadastrar",
+        "customerIdErp": "050431589000150",
+        "daysOfWeek": "5",
+        "end": "2024-02-08 23:30:00",
+        "frequency": "2",
+        "period": "1",
+        "salesmanIdErp": "167",
+        "start": "2023-12-21 23:30:00"
+    },
+    {
+        "contactName": "Cadastrar",
+        "customerIdErp": "049085959000166",
+        "daysOfWeek": "6",
+        "end": "2024-02-09 23:30:00",
+        "frequency": "2",
+        "period": "1",
+        "salesmanIdErp": "167",
+        "start": "2023-12-22 23:30:00"
+    },
+    {
+        "contactName": "Cadastrar",
+        "customerIdErp": "874565833000015",
+        "daysOfWeek": "4",
+        "end": "2024-02-07 23:30:00",
+        "frequency": "2",
+        "period": "1",
+        "salesmanIdErp": "167",
+        "start": "2023-12-20 23:30:00"
+    },
+    {
+        "contactName": "Cadastrar",
+        "customerIdErp": "033338553000108",
+        "daysOfWeek": "4",
+        "end": "2024-02-07 23:30:00",
+        "frequency": "2",
+        "period": "1",
+        "salesmanIdErp": "167",
+        "start": "2023-12-20 23:30:00"
+    },
+    {
+        "contactName": "Cadastrar",
+        "customerIdErp": "018610257000120",
+        "daysOfWeek": "2",
+        "end": "2024-02-05 23:30:00",
+        "frequency": "2",
+        "period": "1",
+        "salesmanIdErp": "167",
+        "start": "2023-12-25 23:30:00"
+    },
+    {
+        "contactName": "Cadastrar",
+        "customerIdErp": "049513100000100",
+        "daysOfWeek": "4",
+        "end": "2024-02-07 23:30:00",
+        "frequency": "2",
+        "period": "1",
+        "salesmanIdErp": "167",
+        "start": "2023-12-20 23:30:00"
+    },
+    {
+        "contactName": "Cadastrar",
+        "customerIdErp": "044797851000182",
+        "daysOfWeek": "5",
+        "end": "2024-02-08 23:30:00",
+        "frequency": "2",
+        "period": "1",
+        "salesmanIdErp": "167",
+        "start": "2023-12-21 23:30:00"
+    },
+    {
+        "contactName": "Cadastrar",
+        "customerIdErp": "043399754000179",
+        "daysOfWeek": "3",
+        "end": "2024-02-06 23:30:00",
+        "frequency": "2",
+        "period": "1",
+        "salesmanIdErp": "167",
+        "start": "2023-12-19 23:30:00"
+    },
+    {
+        "contactName": "Cadastrar",
+        "customerIdErp": "782312483000015",
+        "daysOfWeek": "6",
+        "end": "2024-02-09 23:30:00",
+        "frequency": "2",
+        "period": "1",
+        "salesmanIdErp": "167",
+        "start": "2023-12-22 23:30:00"
+    },
+    {
+        "contactName": "Cadastrar",
+        "customerIdErp": "883721703000004",
+        "daysOfWeek": "5",
+        "end": "2024-02-08 23:30:00",
+        "frequency": "2",
+        "period": "1",
+        "salesmanIdErp": "167",
+        "start": "2023-12-21 23:30:00"
+    },
+    {
+        "contactName": "Cadastrar",
+        "customerIdErp": "027618633000080",
+        "daysOfWeek": "2",
+        "end": "2024-02-05 23:30:00",
+        "frequency": "2",
+        "period": "1",
+        "salesmanIdErp": "167",
+        "start": "2023-12-25 23:30:00"
+    },
+    {
+        "contactName": "Cadastrar",
+        "customerIdErp": "049558806000199",
+        "daysOfWeek": "3",
+        "end": "2024-02-06 23:30:00",
+        "frequency": "2",
+        "period": "1",
+        "salesmanIdErp": "167",
+        "start": "2023-12-19 23:30:00"
+    },
+    {
+        "contactName": "Cadastrar",
+        "customerIdErp": "030055599000121",
+        "daysOfWeek": "5",
+        "end": "2024-02-08 23:30:00",
+        "frequency": "2",
+        "period": "1",
+        "salesmanIdErp": "167",
+        "start": "2023-12-21 23:30:00"
+    },
+    {
+        "contactName": "Cadastrar",
+        "customerIdErp": "031691061000176",
+        "daysOfWeek": "2",
+        "end": "2024-02-05 23:30:00",
+        "frequency": "2",
+        "period": "1",
+        "salesmanIdErp": "167",
+        "start": "2023-12-25 23:30:00"
+    },
+    {
+        "contactName": "Cadastrar",
+        "customerIdErp": "031431412000100",
+        "daysOfWeek": "4",
+        "end": "2024-02-07 23:30:00",
+        "frequency": "2",
+        "period": "1",
+        "salesmanIdErp": "167",
+        "start": "2023-12-20 23:30:00"
+    },
+    {
+        "contactName": "Cadastrar",
+        "customerIdErp": "045735746000181",
+        "daysOfWeek": "5",
+        "end": "2024-02-08 23:30:00",
+        "frequency": "2",
+        "period": "1",
+        "salesmanIdErp": "167",
+        "start": "2023-12-21 23:30:00"
+    },
+    {
+        "contactName": "Cadastrar",
+        "customerIdErp": "753881544000091",
+        "daysOfWeek": "3",
+        "end": "2024-02-06 23:30:00",
+        "frequency": "2",
+        "period": "1",
+        "salesmanIdErp": "167",
+        "start": "2023-12-19 23:30:00"
+    },
+    {
+        "contactName": "Cadastrar",
+        "customerIdErp": "927779613000087",
+        "daysOfWeek": "4",
+        "end": "2024-02-07 23:30:00",
+        "frequency": "2",
+        "period": "1",
+        "salesmanIdErp": "167",
+        "start": "2023-12-20 23:30:00"
+    },
+    {
+        "contactName": "Cadastrar",
+        "customerIdErp": "604070893000006",
+        "daysOfWeek": "2",
+        "end": "2024-02-05 23:30:00",
+        "frequency": "2",
+        "period": "1",
+        "salesmanIdErp": "167",
+        "start": "2023-12-25 23:30:00"
+    },
+    {
+        "contactName": "Cadastrar",
+        "customerIdErp": "046222792000140",
+        "daysOfWeek": "4",
+        "end": "2024-02-07 23:30:00",
+        "frequency": "2",
+        "period": "1",
+        "salesmanIdErp": "167",
+        "start": "2023-12-20 23:30:00"
+    },
+    {
+        "contactName": "Cadastrar",
+        "customerIdErp": "740835033000000",
+        "daysOfWeek": "4",
+        "end": "2024-02-07 23:30:00",
+        "frequency": "2",
+        "period": "1",
+        "salesmanIdErp": "167",
+        "start": "2023-12-20 23:30:00"
+    },
+    {
+        "contactName": "Cadastrar",
+        "customerIdErp": "624265413000000",
+        "daysOfWeek": "6",
+        "end": "2024-02-09 23:30:00",
+        "frequency": "2",
+        "period": "1",
+        "salesmanIdErp": "167",
+        "start": "2023-12-22 23:30:00"
+    },
+    {
+        "contactName": "Cadastrar",
+        "customerIdErp": "032681505000155",
+        "daysOfWeek": "2",
+        "end": "2024-02-05 23:30:00",
+        "frequency": "2",
+        "period": "1",
+        "salesmanIdErp": "167",
+        "start": "2023-12-25 23:30:00"
+    },
+    {
+        "contactName": "Cadastrar",
+        "customerIdErp": "888466953000072",
+        "daysOfWeek": "2",
+        "end": "2024-02-05 23:30:00",
+        "frequency": "2",
+        "period": "1",
+        "salesmanIdErp": "167",
+        "start": "2023-12-25 23:30:00"
+    },
+    {
+        "contactName": "Cadastrar",
+        "customerIdErp": "671954073000049",
+        "daysOfWeek": "2",
+        "end": "2024-02-05 23:30:00",
+        "frequency": "2",
+        "period": "1",
+        "salesmanIdErp": "167",
+        "start": "2023-12-25 23:30:00"
+    },
+    {
+        "contactName": "Cadastrar",
+        "customerIdErp": "036476609000189",
+        "daysOfWeek": "3",
+        "end": "2024-02-06 23:30:00",
+        "frequency": "2",
+        "period": "1",
+        "salesmanIdErp": "167",
+        "start": "2023-12-19 23:30:00"
+    },
+    {
+        "contactName": "Cadastrar",
+        "customerIdErp": "049372381000129",
+        "daysOfWeek": "5",
+        "end": "2024-02-08 23:30:00",
+        "frequency": "2",
+        "period": "1",
+        "salesmanIdErp": "167",
+        "start": "2023-12-21 23:30:00"
+    },
+    {
+        "contactName": "Cadastrar",
+        "customerIdErp": "074483183000006",
+        "daysOfWeek": "3",
+        "end": "2024-02-06 23:30:00",
+        "frequency": "2",
+        "period": "1",
+        "salesmanIdErp": "167",
+        "start": "2023-12-19 23:30:00"
+    },
+    {
+        "contactName": "Cadastrar",
+        "customerIdErp": "014173227000143",
+        "daysOfWeek": "4",
+        "end": "2024-02-07 23:30:00",
+        "frequency": "2",
+        "period": "1",
+        "salesmanIdErp": "167",
+        "start": "2023-12-20 23:30:00"
+    },
+    {
+        "contactName": "Cadastrar",
+        "customerIdErp": "045315653000039",
+        "daysOfWeek": "4",
+        "end": "2024-02-07 23:30:00",
+        "frequency": "2",
+        "period": "1",
+        "salesmanIdErp": "167",
+        "start": "2023-12-20 23:30:00"
+    },
+    {
+        "contactName": "Cadastrar",
+        "customerIdErp": "029889963000093",
+        "daysOfWeek": "5",
+        "end": "2024-02-08 23:30:00",
+        "frequency": "2",
+        "period": "1",
+        "salesmanIdErp": "167",
+        "start": "2023-12-21 23:30:00"
+    },
+    {
+        "contactName": "Cadastrar",
+        "customerIdErp": "019145210000104",
+        "daysOfWeek": "3",
+        "end": "2024-02-06 23:30:00",
+        "frequency": "2",
+        "period": "1",
+        "salesmanIdErp": "167",
+        "start": "2023-12-19 23:30:00"
+    },
+    {
+        "contactName": "Cadastrar",
+        "customerIdErp": "044047578000179",
+        "daysOfWeek": "5",
+        "end": "2024-02-08 23:30:00",
+        "frequency": "2",
+        "period": "1",
+        "salesmanIdErp": "167",
+        "start": "2023-12-21 23:30:00"
+    },
+    {
+        "contactName": "Cadastrar",
+        "customerIdErp": "833640723000053",
+        "daysOfWeek": "2",
+        "end": "2024-02-05 23:30:00",
+        "frequency": "2",
+        "period": "1",
+        "salesmanIdErp": "167",
+        "start": "2023-12-25 23:30:00"
+    },
+    {
+        "contactName": "Cadastrar",
+        "customerIdErp": "040046925000198",
+        "daysOfWeek": "2",
+        "end": "2024-02-05 23:30:00",
+        "frequency": "2",
+        "period": "1",
+        "salesmanIdErp": "167",
+        "start": "2023-12-25 23:30:00"
+    },
+    {
+        "contactName": "Cadastrar",
+        "customerIdErp": "049932504000139",
+        "daysOfWeek": "4",
+        "end": "2024-02-07 23:30:00",
+        "frequency": "2",
+        "period": "1",
+        "salesmanIdErp": "167",
+        "start": "2023-12-20 23:30:00"
+    },
+    {
+        "contactName": "Cadastrar",
+        "customerIdErp": "630553763000015",
+        "daysOfWeek": "3",
+        "end": "2024-02-06 23:30:00",
+        "frequency": "2",
+        "period": "1",
+        "salesmanIdErp": "167",
+        "start": "2023-12-19 23:30:00"
+    },
+    {
+        "contactName": "Cadastrar",
+        "customerIdErp": "041031266000189",
+        "daysOfWeek": "3",
+        "end": "2024-02-06 23:30:00",
+        "frequency": "2",
+        "period": "1",
+        "salesmanIdErp": "167",
+        "start": "2023-12-19 23:30:00"
+    },
+    {
+        "contactName": "Cadastrar",
+        "customerIdErp": "035327749000122",
+        "daysOfWeek": "4",
+        "end": "2024-02-07 23:30:00",
+        "frequency": "2",
+        "period": "1",
+        "salesmanIdErp": "167",
+        "start": "2023-12-20 23:30:00"
+    },
+    {
+        "contactName": "Cadastrar",
+        "customerIdErp": "049522570000130",
+        "daysOfWeek": "5",
+        "end": "2024-02-08 23:30:00",
+        "frequency": "2",
+        "period": "1",
+        "salesmanIdErp": "167",
+        "start": "2023-12-21 23:30:00"
+    },
+    {
+        "contactName": "Cadastrar",
+        "customerIdErp": "033646009000123",
+        "daysOfWeek": "4",
+        "end": "2024-02-07 23:30:00",
+        "frequency": "2",
+        "period": "1",
+        "salesmanIdErp": "167",
+        "start": "2023-12-20 23:30:00"
+    },
+    {
+        "contactName": "Cadastrar",
+        "customerIdErp": "773245283000068",
+        "daysOfWeek": "2",
+        "end": "2024-02-05 23:30:00",
+        "frequency": "2",
+        "period": "1",
+        "salesmanIdErp": "167",
+        "start": "2023-12-25 23:30:00"
+    },
+    {
+        "contactName": "Cadastrar",
+        "customerIdErp": "040618417000137",
+        "daysOfWeek": "3",
+        "end": "2024-02-06 23:30:00",
+        "frequency": "2",
+        "period": "1",
+        "salesmanIdErp": "167",
+        "start": "2023-12-19 23:30:00"
+    },
+    {
+        "contactName": "Cadastrar",
+        "customerIdErp": "015208272000159",
+        "daysOfWeek": "6",
+        "end": "2024-02-09 23:30:00",
+        "frequency": "2",
+        "period": "1",
+        "salesmanIdErp": "167",
+        "start": "2023-12-22 23:30:00"
+    },
+    {
+        "contactName": "Cadastrar",
+        "customerIdErp": "066857483000062",
+        "daysOfWeek": "5",
+        "end": "2024-02-08 23:30:00",
+        "frequency": "2",
+        "period": "1",
+        "salesmanIdErp": "167",
+        "start": "2023-12-21 23:30:00"
+    },
+    {
+        "contactName": "Cadastrar",
+        "customerIdErp": "044883992000118",
+        "daysOfWeek": "6",
+        "end": "2024-02-09 23:30:00",
+        "frequency": "2",
+        "period": "1",
+        "salesmanIdErp": "167",
+        "start": "2023-12-22 23:30:00"
+    },
+    {
+        "contactName": "Cadastrar",
+        "customerIdErp": "043474363000171",
+        "daysOfWeek": "5",
+        "end": "2024-02-08 23:30:00",
+        "frequency": "2",
+        "period": "1",
+        "salesmanIdErp": "167",
+        "start": "2023-12-21 23:30:00"
+    },
+    {
+        "contactName": "Cadastrar",
+        "customerIdErp": "030916626000103",
+        "daysOfWeek": "6",
+        "end": "2024-02-09 23:30:00",
+        "frequency": "2",
+        "period": "1",
+        "salesmanIdErp": "167",
+        "start": "2023-12-22 23:30:00"
+    },
+    {
+        "contactName": "Cadastrar",
+        "customerIdErp": "035753410000198",
+        "daysOfWeek": "5",
+        "end": "2024-02-08 23:30:00",
+        "frequency": "2",
+        "period": "1",
+        "salesmanIdErp": "167",
+        "start": "2023-12-21 23:30:00"
+    },
+    {
+        "contactName": "Cadastrar",
+        "customerIdErp": "040284059000173",
+        "daysOfWeek": "2",
+        "end": "2024-02-05 23:30:00",
+        "frequency": "2",
+        "period": "1",
+        "salesmanIdErp": "167",
+        "start": "2023-12-25 23:30:00"
+    },
+    {
+        "contactName": "Cadastrar",
+        "customerIdErp": "043373145000140",
+        "daysOfWeek": "4",
+        "end": "2024-02-07 23:30:00",
+        "frequency": "2",
+        "period": "1",
+        "salesmanIdErp": "167",
+        "start": "2023-12-20 23:30:00"
+    },
+    {
+        "contactName": "Cadastrar",
+        "customerIdErp": "040901296000136",
+        "daysOfWeek": "3",
+        "end": "2024-02-06 23:30:00",
+        "frequency": "2",
+        "period": "1",
+        "salesmanIdErp": "167",
+        "start": "2023-12-19 23:30:00"
+    },
+    {
+        "contactName": "Cadastrar",
+        "customerIdErp": "388817993000091",
+        "daysOfWeek": "6",
+        "end": "2024-02-09 23:30:00",
+        "frequency": "2",
+        "period": "1",
+        "salesmanIdErp": "167",
+        "start": "2023-12-22 23:30:00"
+    },
+    {
+        "contactName": "Cadastrar",
+        "customerIdErp": "047342946000108",
+        "daysOfWeek": "2",
+        "end": "2024-02-05 23:30:00",
+        "frequency": "2",
+        "period": "1",
+        "salesmanIdErp": "167",
+        "start": "2023-12-25 23:30:00"
+    },
+    {
+        "contactName": "Cadastrar",
+        "customerIdErp": "485723573000000",
+        "daysOfWeek": "4",
+        "end": "2024-02-07 23:30:00",
+        "frequency": "2",
+        "period": "1",
+        "salesmanIdErp": "167",
+        "start": "2023-12-20 23:30:00"
+    },
+    {
+        "contactName": "Cadastrar",
+        "customerIdErp": "033374557000141",
+        "daysOfWeek": "4",
+        "end": "2024-02-07 23:30:00",
+        "frequency": "2",
+        "period": "1",
+        "salesmanIdErp": "167",
+        "start": "2023-12-20 23:30:00"
+    },
+    {
+        "contactName": "Cadastrar",
+        "customerIdErp": "744250563000053",
+        "daysOfWeek": "6",
+        "end": "2024-02-09 23:30:00",
+        "frequency": "2",
+        "period": "1",
+        "salesmanIdErp": "167",
+        "start": "2023-12-22 23:30:00"
+    },
+    {
+        "contactName": "Cadastrar",
+        "customerIdErp": "032891163000106",
+        "daysOfWeek": "6",
+        "end": "2024-02-09 23:30:00",
+        "frequency": "2",
+        "period": "1",
+        "salesmanIdErp": "167",
+        "start": "2023-12-22 23:30:00"
+    },
+    {
+        "contactName": "Cadastrar",
+        "customerIdErp": "022843043000070",
+        "daysOfWeek": "5",
+        "end": "2024-02-08 23:30:00",
+        "frequency": "2",
+        "period": "1",
+        "salesmanIdErp": "167",
+        "start": "2023-12-21 23:30:00"
+    },
+    {
+        "contactName": "Cadastrar",
+        "customerIdErp": "051797243000133",
+        "daysOfWeek": "3",
+        "end": "2024-02-06 23:30:00",
+        "frequency": "2",
+        "period": "1",
+        "salesmanIdErp": "167",
+        "start": "2023-12-19 23:30:00"
+    },
+    {
+        "contactName": "Cadastrar",
+        "customerIdErp": "051812087000132",
+        "daysOfWeek": "4",
+        "end": "2024-02-07 23:30:00",
+        "frequency": "2",
+        "period": "1",
+        "salesmanIdErp": "167",
+        "start": "2023-12-20 23:30:00"
+    },
+    {
+        "contactName": "Cadastrar",
+        "customerIdErp": "811889513000000",
+        "daysOfWeek": "4",
+        "end": "2024-02-07 23:30:00",
+        "frequency": "2",
+        "period": "1",
+        "salesmanIdErp": "167",
+        "start": "2023-12-20 23:30:00"
+    },
+    {
+        "contactName": "Cadastrar",
+        "customerIdErp": "031826363000075",
+        "daysOfWeek": "2",
+        "end": "2024-02-05 23:30:00",
+        "frequency": "2",
+        "period": "1",
+        "salesmanIdErp": "167",
+        "start": "2023-12-25 23:30:00"
+    },
+    {
+        "contactName": "Cadastrar",
+        "customerIdErp": "047060690000138",
+        "daysOfWeek": "2",
+        "end": "2024-02-05 23:30:00",
+        "frequency": "2",
+        "period": "1",
+        "salesmanIdErp": "167",
+        "start": "2023-12-25 23:30:00"
+    },
+    {
+        "contactName": "Cadastrar",
+        "customerIdErp": "052457692000103",
+        "daysOfWeek": "6",
+        "end": "2024-02-09 23:30:00",
+        "frequency": "2",
+        "period": "1",
+        "salesmanIdErp": "167",
+        "start": "2023-12-22 23:30:00"
+    },
+    {
+        "contactName": "Cadastrar",
+        "customerIdErp": "223301193000072",
+        "daysOfWeek": "3",
+        "end": "2024-02-06 23:30:00",
+        "frequency": "2",
+        "period": "1",
+        "salesmanIdErp": "167",
+        "start": "2023-12-19 23:30:00"
+    },
+    {
+        "contactName": "Cadastrar",
+        "customerIdErp": "020255678000122",
+        "daysOfWeek": "3",
+        "end": "2024-02-06 23:30:00",
+        "frequency": "2",
+        "period": "1",
+        "salesmanIdErp": "167",
+        "start": "2023-12-19 23:30:00"
+    },
+    {
+        "contactName": "Cadastrar",
+        "customerIdErp": "053757953000029",
+        "daysOfWeek": "4",
+        "end": "2024-02-07 23:30:00",
+        "frequency": "2",
+        "period": "1",
+        "salesmanIdErp": "167",
+        "start": "2023-12-20 23:30:00"
+    },
+    {
+        "contactName": "Cadastrar",
+        "customerIdErp": "013650931000187",
+        "daysOfWeek": "3",
+        "end": "2024-02-06 23:30:00",
+        "frequency": "2",
+        "period": "1",
+        "salesmanIdErp": "167",
+        "start": "2023-12-19 23:30:00"
+    },
+    {
+        "contactName": "Cadastrar",
+        "customerIdErp": "059547324000050",
+        "daysOfWeek": "4",
+        "end": "2024-02-07 23:30:00",
+        "frequency": "2",
+        "period": "1",
+        "salesmanIdErp": "167",
+        "start": "2023-12-20 23:30:00"
+    },
+    {
+        "contactName": "Cadastrar",
+        "customerIdErp": "923989443000087",
+        "daysOfWeek": "5",
+        "end": "2024-02-08 23:30:00",
+        "frequency": "2",
+        "period": "1",
+        "salesmanIdErp": "167",
+        "start": "2023-12-21 23:30:00"
+    },
+    {
+        "contactName": "Cadastrar",
+        "customerIdErp": "045560555000126",
+        "daysOfWeek": "3",
+        "end": "2024-02-06 23:30:00",
+        "frequency": "2",
+        "period": "1",
+        "salesmanIdErp": "167",
+        "start": "2023-12-19 23:30:00"
+    },
+    {
+        "contactName": "Cadastrar",
+        "customerIdErp": "046817577000191",
+        "daysOfWeek": "5",
+        "end": "2024-02-08 23:30:00",
+        "frequency": "2",
+        "period": "1",
+        "salesmanIdErp": "167",
+        "start": "2023-12-21 23:30:00"
+    },
+    {
+        "contactName": "Cadastrar",
+        "customerIdErp": "033417557000181",
+        "daysOfWeek": "3",
+        "end": "2024-02-06 23:30:00",
+        "frequency": "2",
+        "period": "1",
+        "salesmanIdErp": "167",
+        "start": "2023-12-19 23:30:00"
+    },
+    {
+        "contactName": "Cadastrar",
+        "customerIdErp": "017204950000130",
+        "daysOfWeek": "6",
+        "end": "2024-02-09 23:30:00",
+        "frequency": "2",
+        "period": "1",
+        "salesmanIdErp": "167",
+        "start": "2023-12-22 23:30:00"
+    },
+    {
+        "contactName": "Cadastrar",
+        "customerIdErp": "059590603000061",
+        "daysOfWeek": "2",
+        "end": "2024-02-05 23:30:00",
+        "frequency": "2",
+        "period": "1",
+        "salesmanIdErp": "167",
+        "start": "2023-12-25 23:30:00"
+    },
+    {
+        "contactName": "Cadastrar",
+        "customerIdErp": "047132827000112",
+        "daysOfWeek": "4",
+        "end": "2024-02-07 23:30:00",
+        "frequency": "2",
+        "period": "1",
+        "salesmanIdErp": "167",
+        "start": "2023-12-20 23:30:00"
+    },
+    {
+        "contactName": "Cadastrar",
+        "customerIdErp": "046338830000124",
+        "daysOfWeek": "4",
+        "end": "2024-02-07 23:30:00",
+        "frequency": "2",
+        "period": "1",
+        "salesmanIdErp": "167",
+        "start": "2023-12-20 23:30:00"
+    },
+    {
+        "contactName": "Cadastrar",
+        "customerIdErp": "018599205000109",
+        "daysOfWeek": "3",
+        "end": "2024-02-06 23:30:00",
+        "frequency": "2",
+        "period": "1",
+        "salesmanIdErp": "167",
+        "start": "2023-12-19 23:30:00"
+    },
+    {
+        "contactName": "Cadastrar",
+        "customerIdErp": "030716416000171",
+        "daysOfWeek": "3",
+        "end": "2024-02-06 23:30:00",
+        "frequency": "2",
+        "period": "1",
+        "salesmanIdErp": "167",
+        "start": "2023-12-19 23:30:00"
+    },
+    {
+        "contactName": "Cadastrar",
+        "customerIdErp": "031424946000109",
+        "daysOfWeek": "3",
+        "end": "2024-02-06 23:30:00",
+        "frequency": "2",
+        "period": "1",
+        "salesmanIdErp": "167",
+        "start": "2023-12-19 23:30:00"
+    },
+    {
+        "contactName": "Cadastrar",
+        "customerIdErp": "044385373000101",
+        "daysOfWeek": "5",
+        "end": "2024-02-08 23:30:00",
+        "frequency": "2",
+        "period": "1",
+        "salesmanIdErp": "167",
+        "start": "2023-12-21 23:30:00"
+    },
+    {
+        "contactName": "Cadastrar",
+        "customerIdErp": "045113765000176",
+        "daysOfWeek": "2",
+        "end": "2024-02-05 23:30:00",
+        "frequency": "2",
+        "period": "1",
+        "salesmanIdErp": "167",
+        "start": "2023-12-25 23:30:00"
+    },
+    {
+        "contactName": "Cadastrar",
+        "customerIdErp": "050463505000160",
+        "daysOfWeek": "4",
+        "end": "2024-02-07 23:30:00",
+        "frequency": "2",
+        "period": "1",
+        "salesmanIdErp": "167",
+        "start": "2023-12-20 23:30:00"
+    },
+    {
+        "contactName": "Cadastrar",
+        "customerIdErp": "052675582000100",
+        "daysOfWeek": "3",
+        "end": "2024-02-06 23:30:00",
+        "frequency": "2",
+        "period": "1",
+        "salesmanIdErp": "167",
+        "start": "2023-12-19 23:30:00"
+    },
+    {
+        "contactName": "Cadastrar",
+        "customerIdErp": "043579339000105",
+        "daysOfWeek": "4",
+        "end": "2024-02-07 23:30:00",
+        "frequency": "2",
+        "period": "1",
+        "salesmanIdErp": "167",
+        "start": "2023-12-20 23:30:00"
+    },
+    {
+        "contactName": "Cadastrar",
+        "customerIdErp": "018115561000100",
+        "daysOfWeek": "5",
+        "end": "2024-02-08 23:30:00",
+        "frequency": "2",
+        "period": "1",
+        "salesmanIdErp": "167",
+        "start": "2023-12-21 23:30:00"
+    },
+    {
+        "contactName": "Cadastrar",
+        "customerIdErp": "790022853000053",
+        "daysOfWeek": "4",
+        "end": "2024-02-07 23:30:00",
+        "frequency": "2",
+        "period": "1",
+        "salesmanIdErp": "167",
+        "start": "2023-12-20 23:30:00"
+    },
+    {
+        "contactName": "Cadastrar",
+        "customerIdErp": "028071490000136",
+        "daysOfWeek": "3",
+        "end": "2024-02-06 23:30:00",
+        "frequency": "2",
+        "period": "1",
+        "salesmanIdErp": "167",
+        "start": "2023-12-19 23:30:00"
+    },
+    {
+        "contactName": "Cadastrar",
+        "customerIdErp": "014157821000140",
+        "daysOfWeek": "5",
+        "end": "2024-02-08 23:30:00",
+        "frequency": "2",
+        "period": "1",
+        "salesmanIdErp": "167",
+        "start": "2023-12-21 23:30:00"
+    },
+    {
+        "contactName": "Cadastrar",
+        "customerIdErp": "016241183000099",
+        "daysOfWeek": "4",
+        "end": "2024-02-07 23:30:00",
+        "frequency": "2",
+        "period": "1",
+        "salesmanIdErp": "167",
+        "start": "2023-12-20 23:30:00"
+    },
+    {
+        "contactName": "Cadastrar",
+        "customerIdErp": "630684193000087",
+        "daysOfWeek": "4",
+        "end": "2024-02-07 23:30:00",
+        "frequency": "2",
+        "period": "1",
+        "salesmanIdErp": "167",
+        "start": "2023-12-20 23:30:00"
+    },
+    {
+        "contactName": "Cadastrar",
+        "customerIdErp": "046203906000104",
+        "daysOfWeek": "7",
+        "end": "2024-02-03 23:30:00",
+        "frequency": "2",
+        "period": "1",
+        "salesmanIdErp": "167",
+        "start": "2023-12-23 23:30:00"
+    },
+    {
+        "contactName": "Cadastrar",
+        "customerIdErp": "053083809000190",
+        "daysOfWeek": "6",
+        "end": "2024-02-09 23:30:00",
+        "frequency": "2",
+        "period": "1",
+        "salesmanIdErp": "167",
+        "start": "2023-12-22 23:30:00"
+    },
+    {
+        "contactName": "Cadastrar",
+        "customerIdErp": "782447653000072",
+        "daysOfWeek": "4",
+        "end": "2024-02-07 23:30:00",
+        "frequency": "2",
+        "period": "1",
+        "salesmanIdErp": "167",
+        "start": "2023-12-20 23:30:00"
+    },
+    {
+        "contactName": "Cadastrar",
+        "customerIdErp": "017334333000150",
+        "daysOfWeek": "3",
+        "end": "2024-02-06 23:30:00",
+        "frequency": "2",
+        "period": "1",
+        "salesmanIdErp": "167",
+        "start": "2023-12-19 23:30:00"
+    },
+    {
+        "contactName": "Cadastrar",
+        "customerIdErp": "045908012000157",
+        "daysOfWeek": "4",
+        "end": "2024-02-07 23:30:00",
+        "frequency": "2",
+        "period": "1",
+        "salesmanIdErp": "167",
+        "start": "2023-12-20 23:30:00"
+    },
+    {
+        "contactName": "Cadastrar",
+        "customerIdErp": "052328376000123",
+        "daysOfWeek": "3",
+        "end": "2024-02-06 23:30:00",
+        "frequency": "2",
+        "period": "1",
+        "salesmanIdErp": "167",
+        "start": "2023-12-19 23:30:00"
+    },
+    {
+        "contactName": "Cadastrar",
+        "customerIdErp": "031674258000105",
+        "daysOfWeek": "3",
+        "end": "2024-02-06 23:30:00",
+        "frequency": "2",
+        "period": "1",
+        "salesmanIdErp": "167",
+        "start": "2023-12-19 23:30:00"
+    }
+]

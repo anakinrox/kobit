@@ -1,0 +1,29 @@
+{
+	"version": "1.0.0",
+	"configurations": [
+		{
+			"id": "xcnpt82yyjgm19dlx2zh4qvfysme3",
+			"name": "Fluig HML",
+			"host": "fluighml.tanac.com.br",
+			"ssl": true,
+			"port": 12000,
+			"username": "fluig@tanac.com.br",
+			"password": "eyJpdiI6ImUwMzQxMWViYjI3MWM1Yzk0NmUxMDJlYTIzNDhmN2M1Iiwic2FsdCI6ImIyZmYyYWVlNzRlYzQxYTRkMDBlNWRmN2Y5ODMyY2E1IiwidGV4dCI6ImFlYzVmODY5N2IxYWU5NGZiOWU2NWRjMGZhZTVhZWJhIn0=",
+			"userCode": "Administrador",
+			"confirmExporting": false,
+			"companyId": 1
+		},
+		{
+			"id": "oetdcl3aqurm1f323dpgqp4my8ws19",
+			"name": "Fluig HML 135",
+			"host": "fluighml135.tanac.com.br",
+			"ssl": true,
+			"port": 12135,
+			"username": "fluig@tanac.com.br",
+			"password": "eyJpdiI6IjI2YWVkOTRjOGI3MWM0N2FhMjI2MmJlYzY5ODlmNmJjIiwic2FsdCI6ImVlMTUxMzExMTI0Y2FhZWEyN2JmNDcwNDQzMGViMTYxIiwidGV4dCI6IjAwZDhlY2EwMjRlMGNmZmM3NTdkZjI3YzU1Y2NkNGQ5In0=",
+			"userCode": "Administrador",
+			"confirmExporting": false,
+			"companyId": 1
+		}
+	]
+}
